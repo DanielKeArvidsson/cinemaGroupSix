@@ -12,6 +12,7 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "jsonflex": "^1.0.10",
-    "mongoose": "^5.4.3"
+    "mongoose": "^5.4.3",
+    "node-sass": "^4.11.0"
   }
 }
