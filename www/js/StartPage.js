@@ -12,6 +12,7 @@ class StartPage extends Component {
     let newUser = new User(
       {
       name: this.baseEl.find('#user-name').val(),
+      email: this.baseEl.find('#user-email').val(),
       password: this.baseEl.find('#user-password').val()        
       }
     )
