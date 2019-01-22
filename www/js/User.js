@@ -1,4 +1,4 @@
-class User extends Component {
+class User extends REST {
     static get baseRoute(){
         return 'users/';
     }
