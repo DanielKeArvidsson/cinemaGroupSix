@@ -14,4 +14,4 @@ let movieSchema = new Schema({
 
 
 
-module.exports = db.model('Seat', movieSchema);
+module.exports = db.model('Movie', movieSchema);
