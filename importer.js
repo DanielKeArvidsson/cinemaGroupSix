@@ -20,7 +20,7 @@ async function importJsonDataToDb() {
 
   let allMoviesCount = await Movie.count();
   let allProgramCount = await Program.count();
-  if (!allMoviesCount) {
+  if (allProgramCount > 0) {
     console.log('Deleted old program', await Program.remove({}));
   }
   if (allMoviesCount > 0) {
