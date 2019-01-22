@@ -49,7 +49,8 @@ module.exports = class Server {
       movie: require('./models/Movie'),
       cinemaProgram: require('./models/Program'),
       user: require('./models/User'),
-      seat: require('./models/Seat')
+      seat: require('./models/Seat'),
+      auditorium: require('./models/Auditorium')
     };
 
     // create all necessary rest routes for the models
