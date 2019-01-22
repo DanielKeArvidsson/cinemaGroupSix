@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// Create a schema for seat
+// Create a schema for movie
 
 let movieSchema = new Schema({
     "title": String,
@@ -13,5 +13,5 @@ let movieSchema = new Schema({
 
 
 
-
+bookSchema.loadClass(BookClass);
 module.exports = db.model('Movie', movieSchema);
