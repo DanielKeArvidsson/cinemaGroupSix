@@ -26,6 +26,8 @@ async function importJsonDataToDb(){
     let movie = new Movie(data);
     await movie.save();
   }
+  allMoviesCount = await Movie.count();
+  console.log(`Imported ${allMoviesCount} movies to the database`);
 
   process.exit();
 }
