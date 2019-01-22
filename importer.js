@@ -8,7 +8,24 @@ global.db = mongoose.connection;
 db.on('error', () => console.log('Could not connect to DB'));
 db.once('open', () => {
   console.log('Connected to DB');
-
+  importJsonDataToDb();
 });
 
-// process.exit();
+let Movie = require('./Movie');
+
+let movieData = require('./movies.json');
+
+async function importJsonDataToDb(){
+
+  let allMoviesCount = await Movie.count();
+
+  if(allMoviesCount > 0){
+    console.log('Deleted old Movies', await Movie.remove({}));
+  }
+  for(let data of movieData){
+    let movie = new Movie(data);
+    await movie.save();
+  }
+
+  process.exit();
+}
