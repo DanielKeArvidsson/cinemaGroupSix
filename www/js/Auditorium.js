@@ -1,1 +1,1 @@
-class Auditorium extends Compinent {}
+class Auditorium extends Component {}
