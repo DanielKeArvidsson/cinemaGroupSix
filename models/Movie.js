@@ -8,10 +8,9 @@ let movieSchema = new Schema({
     "genre": String,
     "language": String,
     "subtitles": String
-    
+
 });
 
 
 
-bookSchema.loadClass(BookClass);
 module.exports = db.model('Movie', movieSchema);

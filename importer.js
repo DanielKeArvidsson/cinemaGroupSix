@@ -11,23 +11,34 @@ db.once('open', () => {
   importJsonDataToDb();
 });
 
-let Movie = require('./Movie');
-
+let Movie = require('./models/Movie');
 let movieData = require('./movies.json');
+let Program = require('./models/Program');
+let programData = require('./cinemaPrograms.json')
 
-async function importJsonDataToDb(){
+async function importJsonDataToDb() {
 
   let allMoviesCount = await Movie.count();
-
-  if(allMoviesCount > 0){
+  let allProgramCount = await Program.count();
+  if (allProgramCount > 0) {
+    console.log('Deleted old program', await Program.remove({}));
+  }
+  if (allMoviesCount > 0) {
     console.log('Deleted old Movies', await Movie.remove({}));
   }
-  for(let data of movieData){
+  for (let data of programData) {
+    let program = new Program(data)
+    await program.save();
+  }
+
+  for (let data of movieData) {
     let movie = new Movie(data);
     await movie.save();
   }
+  allProgramCount = await Program.count();
   allMoviesCount = await Movie.count();
   console.log(`Imported ${allMoviesCount} movies to the database`);
+  console.log(`Imported ${allProgramCount} programs to the database`);
 
   process.exit();
 }
