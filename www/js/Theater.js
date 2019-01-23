@@ -1,3 +1,0 @@
-class Theater extends REST {
-   
-}
