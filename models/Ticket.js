@@ -10,7 +10,7 @@ let ticketSchema = new Schema({
     "isRedeemed": Boolean,
     "movie": {type: Schema.Types.ObjectId, ref: 'Movie'},
     "seat":{type: Schema.Types.ObjectId, ref: 'Seat'},
-    "auditorium": {type: Schema.Types.ObjectId, ref:'Program'}
+    "auditorium": {type: Schema.Types.ObjectId, ref:'Auditorium'}
 
 
 });

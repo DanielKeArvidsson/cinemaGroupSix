@@ -6,9 +6,9 @@ const Schema = mongoose.Schema;
 
 
 let auditoriumSchema = new Schema({
-    'name': String,
-    'movies': [{ type: Schema.Types.ObjectId, ref: 'Movie' }],
-    'seats': [{ type: Schema.Types.ObjectId, ref: 'Seat' }]
+    "name": String,
+    "movies": [{ type: Schema.Types.ObjectId, ref: 'Movie' }],
+    "seats": [{ type: Schema.Types.ObjectId, ref: 'Seat' }]
 });
 
 module.exports = db.model('Auditorium', auditoriumSchema);
