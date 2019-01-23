@@ -7,7 +7,8 @@ let movieSchema = new Schema({
     "title": String,
     "genre": String,
     "language": String,
-    "subtitles": String
+    "subtitles": String,
+    "showtimes": [showtimeSchema]
 
 });
 
