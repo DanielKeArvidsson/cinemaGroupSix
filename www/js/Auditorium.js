@@ -1,1 +1,1 @@
-class Auditorium extends REST {}
+class Auditorium extends Compinent {}
