@@ -4,14 +4,10 @@ const Schema = mongoose.Schema;
 // Create a schema for ticket
 
 let ticketSchema = new Schema({
-    "showtime":{type: Schema.Types.ObjectId, ref: 'Showtime'},
-    "purchasedAt": Date,
-    "purchasedBy": {type: Schema.Types.ObjectId, ref: 'User'},
-    "isRedeemed": Boolean,
-    "movie": {type: Schema.Types.ObjectId, ref: 'Movie'},
-    "seat":{type: Schema.Types.ObjectId, ref: 'Seat'},
-    "auditorium": {type: Schema.Types.ObjectId, ref:'Auditorium'}
-
+    "program": { type: Schema.Types.ObjectId, ref: 'Program' },
+    "purchasedAt": { type: Date, default: new Date() },
+    "purchasedBy": { type: Schema.Types.ObjectId, ref: 'User' },
+    "seat": [Number]
 
 });
 

@@ -50,7 +50,10 @@ module.exports = class Server {
       program: require('./models/Program'),
       user: require('./models/User'),
       seat: require('./models/Seat'),
-      auditorium: require('./models/Auditorium')
+      auditorium: require('./models/Auditorium'),
+      ticket: require('./models/Ticket'),
+      showtime: require('./models/Showtime')
+
     };
 
     // create all necessary rest routes for the models
@@ -71,7 +74,6 @@ module.exports = class Server {
         x.split('.js').join('.html')}"></script>`).join('');
       res.send(`document.write('${html}')`);
     });
-
     // Convert a template to a js render method
     app.get('/template-to-js/:template', (req, res) => {
       let html = fs.readFileSync(path.join(
@@ -79,6 +81,11 @@ module.exports = class Server {
       html = req.params.template.split('.html')[0] +
         '.prototype.render = function(){ return `\n' + html + '\n`};'
       res.send(html);
+    });
+
+    app.use((req, res, next) => {
+      if (req.url === '/jsonflex.js' || req.url == '/json-save') { next(); return; }
+      res.sendFile(path.join(__dirname, '/www/index.html'));
     });
 
     // Start the web server

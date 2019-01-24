@@ -1,6 +1,6 @@
 class NavBar extends Component {
 
-  constructor(){
+  constructor() {
     super();
     this.navItems = [
       new NavItem('Start', '/'),
