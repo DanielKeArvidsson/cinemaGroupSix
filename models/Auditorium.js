@@ -1,14 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
-// create a schema for the big theater
-
-
 let auditoriumSchema = new Schema({
     "name": String,
-    "movies": [{ type: Schema.Types.ObjectId, ref: 'Movie' }],
-    "seats": [{ type: Schema.Types.ObjectId, ref: 'Seat' }]
+    "seatsPerRow": [Number]
 });
 
 module.exports = db.model('Auditorium', auditoriumSchema);
