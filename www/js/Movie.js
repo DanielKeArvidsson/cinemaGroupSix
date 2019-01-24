@@ -1,1 +1,1 @@
-class Movie extends Component {}
+class Movie extends REST {}

@@ -1,3 +1,0 @@
-class Showtime extends REST {
-    
-}
