@@ -8,7 +8,6 @@ let ticketSchema = new Schema({
     "purchasedAt": { type: Date, default: new Date() },
     "purchasedBy": { type: Schema.Types.ObjectId, ref: 'User' },
     "seat": [Number]
-
 });
 
 
