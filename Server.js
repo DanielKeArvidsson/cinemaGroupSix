@@ -5,6 +5,10 @@ const jsonflex = require('jsonflex')();
 const Sass = require('./sass');
 const config = require('./config.json');
 const CreateRestRoutes = require('./CreateRestRoutes');
+const LoginHandler = require('./LoginHandler');
+const settings = require('./settings.json');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 for (let conf of config.sass) {
   new Sass(conf);
@@ -25,6 +29,7 @@ module.exports = class Server {
     return new Promise((resolve, reject) => {
       let dbName = 'cinema_booking'
       mongoose.connect(`mongodb://localhost/${dbName}`);
+      global.passwordSalt = settings.passwordSalt;
       global.db = mongoose.connection;
       db.on('error', () => reject('Could not connect to DB'));
       db.once('open', () => resolve('Connected to DB'));
@@ -44,6 +49,16 @@ module.exports = class Server {
     // Serve static files from www
     app.use(express.static('www'));
 
+    // Add session (and cookie) handling to Express
+    app.use(session({
+      secret: settings.cookieSecret,
+      resave: true,
+      saveUninitialized: true,
+      store: new MongoStore({
+        mongooseConnection: db
+      })
+    }));
+
     // Set keys to names of rest routes
     const models = {
       movie: require('./models/Movie'),
@@ -55,6 +70,9 @@ module.exports = class Server {
 
     // create all necessary rest routes for the models
     new CreateRestRoutes(app, db, models);
+
+    // create special routes for login
+    new LoginHandler(app, models.users);
 
     const fs = require('fs');
     const path = require('path');
