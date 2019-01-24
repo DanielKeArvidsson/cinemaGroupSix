@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 let programSchema = new Schema({
   "auditorium": String,
-  "film": String,
+  "movie": String,
   "date": String,
   "time": String
 });
