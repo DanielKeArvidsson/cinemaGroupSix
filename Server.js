@@ -49,10 +49,8 @@ module.exports = class Server {
       movie: require('./models/Movie'),
       program: require('./models/Program'),
       user: require('./models/User'),
-      seat: require('./models/Seat'),
       auditorium: require('./models/Auditorium'),
       ticket: require('./models/Ticket'),
-      showtime: require('./models/Showtime')
 
     };
 

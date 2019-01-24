@@ -1,3 +1,0 @@
-class Seat extends REST {
-    
-}
