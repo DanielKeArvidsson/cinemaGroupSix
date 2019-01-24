@@ -74,7 +74,6 @@ module.exports = class Server {
         x.split('.js').join('.html')}"></script>`).join('');
       res.send(`document.write('${html}')`);
     });
-
     // Convert a template to a js render method
     app.get('/template-to-js/:template', (req, res) => {
       let html = fs.readFileSync(path.join(
@@ -82,6 +81,11 @@ module.exports = class Server {
       html = req.params.template.split('.html')[0] +
         '.prototype.render = function(){ return `\n' + html + '\n`};'
       res.send(html);
+    });
+
+    app.use((req, res, next) => {
+      if (req.url === '/jsonflex.js' || req.url == '/json-save') { next(); return; }
+      res.sendFile(path.join(__dirname, '/www/index.html'));
     });
 
     // Start the web server
