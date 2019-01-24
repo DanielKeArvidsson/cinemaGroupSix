@@ -6,3 +6,5 @@ let priceSchema = new Schema({
   "price": Number
 
 })
+
+module.exports = db.model('Price', priceSchema);
