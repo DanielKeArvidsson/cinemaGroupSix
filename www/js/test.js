@@ -1,5 +1,5 @@
 async function test() {
-  let programs = await Program.find();
-  console.log(programs);
+  let movies = await Movie.find();
+  console.log(movies);
 }
 test();
