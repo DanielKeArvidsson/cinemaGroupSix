@@ -1,3 +1,3 @@
-class Ticket extends Component {
+class Ticket extends REST {
 
 }
