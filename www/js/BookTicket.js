@@ -1,31 +1,31 @@
-class BookTicket extends REST {
+class BookTicket extends Component {
 
-    constructor(){
+    constructor() {
         super();
         this.addRoute('/book-ticket', 'Boka Biljett');
-        this.addEvents({ 'click #seleckt-program': 'selectProgram'});
+        this.addEvents({ 'click #select-program': 'selectProgram' });
         this.programs = [];
         this.fetchPrograms();
         this.selecktedProgram = {};
     }
 
-    async fetchPrograms(){
-        const programs = await fetch('http://localhost:3000/json/programs',{
+    async fetchPrograms() {
+        const programs = await fetch('http://localhost:3000/json/programs', {
             method: 'GET'
         });
 
         this.programs = await programs.json();
         this.render();
     }
-    generateProgramsList(){
+    generateProgramsList() {
         let html = '';
-        for (let program of this.programs){
-            html += <option value="${program._id}">${program.time}</option>
+        for (let program of this.programs) {
+            html += `<option value="${program._id}">${program.time}</option>`
         }
         return html
     }
 
-    async selectProgram(){
+    async selectProgram() {
         const programId = this.baseEl.find('#program-select').val();
         this.selectedProgram = await Program.find(`.findOne({ _id: '${programId}'}).populate({
 
@@ -37,7 +37,7 @@ class BookTicket extends REST {
           .populate({
               path: 'movie',select: 'title - _id'
           }).exec()`);
-          this.seatSeclector = new SeatSelector(this.selectedProgram);
-          this.render();
+        this.seatSeclector = new SeatSelector(this.selectedProgram);
+        this.render();
     }
 }
