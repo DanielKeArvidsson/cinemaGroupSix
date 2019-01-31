@@ -2,22 +2,10 @@ class StartPage extends Component {
 
   constructor() {
     super();
-    this.addRoute('/', 'Start');
-    this.addEvents({
-      'click .user-submit': 'userSubmit'
-    });
+    this.addRoute('/', 'Start');   
   }
 
-  userSubmit() {
-    let newUser = new User(
-      {
-        name: this.baseEl.find('#user-name').val(),
-        email: this.baseEl.find('#user-email').val(),
-        password: this.baseEl.find('#user-password').val()
-      }
-    )
-    newUser.save();
-  }
+  
 
 
 }
