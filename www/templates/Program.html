@@ -1,7 +1,10 @@
 <div>
     <hr>
-    <p>${this.auditorium}</p>
-    <p>${this.movie}</p>
+    <p>${this.movie.title}</p>
+    <p>${this.auditorium.name}</p>
     <p>${this.date}</p>
     <p>${this.time}</p>
+    <button href="/salong" value="${this._id}">Gå på den här filmen</button>
+    <p>${this._id}</p>
+    <img src="/images/${this.movie.images[0]}">
 </div>
