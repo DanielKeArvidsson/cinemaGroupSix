@@ -84,8 +84,8 @@ async function generatePrograms() {
     auditoriumsArr = shuffle(auditoriumsArr);
 
     let program = new Program({
-      "movie": moviesArr.pop().title,
-      "auditorium": auditoriumsArr.pop().name,
+      "movie": moviesArr.pop(),
+      "auditorium": auditoriumsArr.pop(),
       "time": 17 + hoursRandom + ':' + minutesRandom + '0',
       "date": date.getFullYear() + '-' + month + '-' + dayOfShow,
     });
