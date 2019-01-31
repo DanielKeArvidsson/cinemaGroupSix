@@ -3,7 +3,7 @@ class BookTicket extends Component {
     constructor() {
         super();
         this.addRoute('/book-ticket', 'Boka Biljett');
-        this.addEvents({ 'click #select-program': 'selectProgram' });
+        this.addEvents({ 'click .select-program': 'selectProgram' });
         this.programs = [];
         this.generateProgramsList();
         this.selectedProgram = {};
@@ -16,18 +16,19 @@ class BookTicket extends Component {
     }
 
     async selectProgram() {
-        const programId = this.baseEl.find('#program-select').val();
+        const programId = this.baseEl.find('.program-select').val();
+        console.log(programId)
         this.selectedProgram = await Program.find(`.findOne({ _id: '${programId}'}).populate({
 
             path: 'Auditorium',
        
-            select: 'name seats bookings -_id',
+            select: 'name seatsPerRow bookings -_id',
        
           })
           .populate({
               path: 'Movie',select: 'title - _id'
           }).exec()`);
-        this.seatSelector = new SeatSelector(this.selectedProgram);
+        // this.seatSelector = new SeatSelector(this.selectedProgram);
         this.render();
     }
 }
