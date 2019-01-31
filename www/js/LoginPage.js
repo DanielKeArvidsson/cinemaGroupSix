@@ -1,22 +1,30 @@
 class LoginPage extends Component {
 
-  constructor(){
-    super();
+  constructor(props, login) {
+    super(props);
+    this.login = login;
     this.addRoute('/login', 'Login');
-    // this.addEvents({
-    //   'click .user-submit': 'userSubmit'
-    // });
+    this.addEvents({
+      'click .user-login': 'userLogin',
+      'click .user-login': 'savelogin'
+    });
+
+  }
+  
+  saveLogin() {
+    Login.loginUser();
   }
 
 
-  // userSubmit() {
-  //   let newUser = new User(
-  //     {
-  //       name: this.baseEl.find('#user-name').val(),
-  //       email: this.baseEl.find('#user-email').val(),
-  //       password: this.baseEl.find('#user-password').val()
-  //     }
-  //   )
-  //   newUser.save();
-  // }
+  userLogin() {
+    let newUser = new User(
+      {
+        email: this.baseEl.find('#user-email').val(),
+        password: this.baseEl.find('#user-password').val()
+      }
+    )
+    newUser.save();
+  }
+
+
 }
