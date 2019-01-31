@@ -65,8 +65,7 @@ module.exports = class Server {
       programs: require('./models/Program'),
       users: require('./models/User'),
       auditoriums: require('./models/Auditorium'),
-      tickets: require('./models/Ticket'),
-
+      tickets: require('./models/Ticket')
     };
 
     // create all necessary rest routes for the models

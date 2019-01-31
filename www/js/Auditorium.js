@@ -1,8 +1,8 @@
 class Auditorium extends Component {
   constructor() {
     super();
-    this.addBaseRoute('/show-auditorium')
-    this.showAuditoriumLayout();
+    this.addRoute('/auditorium', 'auditorium')
+    //this.showAuditoriumLayout();
   }
   async showAuditoriumLayout() {
     let auditorium = await Auditorium.find(`.findOne({name: /Lilla/})`);

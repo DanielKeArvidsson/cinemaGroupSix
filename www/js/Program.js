@@ -1,1 +1,1 @@
-class Program extends REST { }
+class Program extends Component {}
