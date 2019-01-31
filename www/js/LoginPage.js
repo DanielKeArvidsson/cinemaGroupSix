@@ -9,10 +9,6 @@ class LoginPage extends Component {
 
   }
   
-  // saveLogin() {
-  //   Login.loginUser();
-  // }
-
 
   userLogin() {
     let newUser = new User(
