@@ -84,8 +84,8 @@ async function generatePrograms() {
     auditoriumsArr = shuffle(auditoriumsArr);
 
     let program = new Program({
-      "movie": moviesArr.pop().title,
-      "auditorium": auditoriumsArr.pop().name,
+      "movie": moviesArr.pop(),
+      "auditorium": auditoriumsArr.pop(),
       "time": 17 + hoursRandom + ':' + minutesRandom + '0',
       "date": date.getFullYear() + '-' + month + '-' + dayOfShow,
     });
@@ -100,8 +100,9 @@ async function generatePrograms() {
       }
       return array;
     }
-
     await program.save()
+    let popPrograms = await Program.find().populate('auditorium', 'name seatsPerRow').populate('movie', 'title').exec();
+    console.log(popPrograms[0]);
   }
   process.exit();
 }
