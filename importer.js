@@ -101,8 +101,11 @@ async function generatePrograms() {
       return array;
     }
     await program.save()
-    let popPrograms = await Program.find().populate('auditorium', 'name seatsPerRow').populate('movie', 'title').exec();
-    console.log(popPrograms[0]);
+    let unPopulated = await Program.find();
+    for (let i in unPopulated) {
+      let popPrograms = await Program.findOne(unPopulated[i]._id).populate('Auditorium').populate('Movie').exec();
+      console.log(popPrograms)
+    }
   }
   process.exit();
 }
