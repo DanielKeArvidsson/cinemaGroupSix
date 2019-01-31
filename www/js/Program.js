@@ -1,1 +1,1 @@
-class Program extends Component { }
+class Program extends Component {}
