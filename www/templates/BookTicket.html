@@ -1,0 +1,24 @@
+<section class="book-program">
+
+  <div>
+    <select name="program-select" id="program-select" class="asdf">
+      <option class="asdf">${this.program}</option>
+      <!--${this.generateProgramsList()}-->
+    </select>
+    ${this.programs}
+
+    <div>
+
+      <button id="select-program">Boka biljett Här</button>
+
+    </div>
+
+    <div class="seat-selector">
+
+      ${this.selectedProgram._id ? this.seatSelector : ''}
+
+    </div>
+
+  </div>
+
+</section>

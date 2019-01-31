@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 // Create a schema for movie
 
 let movieSchema = new Schema({
-    "title": String,
+    "title": { type: String, required: true },
     "productionCountries": [String],
     "productionYear": Number,
     "length": Number,
@@ -22,7 +22,8 @@ let movieSchema = new Schema({
         "quote": String,
         "stars": Number,
         "max": Number
-    }]
+    }],
+    "program": [{ type: Schema.Types.ObjectId, ref: 'Program', required: true }]
 
 });
 

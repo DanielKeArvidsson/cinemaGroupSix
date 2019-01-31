@@ -61,11 +61,11 @@ module.exports = class Server {
 
     // Set keys to names of rest routes
     const models = {
-      movie: require('./models/Movie'),
-      program: require('./models/Program'),
+      movies: require('./models/Movie'),
+      programs: require('./models/Program'),
       users: require('./models/User'),
-      auditorium: require('./models/Auditorium'),
-      ticket: require('./models/Ticket')
+      auditoriums: require('./models/Auditorium'),
+      tickets: require('./models/Ticket')
     };
 
     // create all necessary rest routes for the models
