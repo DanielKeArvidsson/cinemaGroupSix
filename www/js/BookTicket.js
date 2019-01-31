@@ -10,16 +10,10 @@ class BookTicket extends Component {
     }
 
     async generateProgramsList() {
-        this.programs = await Program.find();
-        for (let program of this.programs) {
-
-
-            console.log(program);
-            return program
-        }
-        return `<option class="">${program.movie}</option>`
+        this.programs = await Program.find(`.find().sort({date: 1, time: 1}).limit(10).skip(10)`);
+        
         this.render();
-        //return html
+        
     }
 
     async selectProgram() {
