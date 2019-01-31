@@ -3,6 +3,8 @@ class Salong extends Component{
         super();
         this.addRoute('/salong', 'Salong')
         this.salong = [];
+        this.getSalong('Lilla Salongen');
+        this.getSalong('Mellan Salongen');
         this.getSalong('Stora Salongen');
     }
 
