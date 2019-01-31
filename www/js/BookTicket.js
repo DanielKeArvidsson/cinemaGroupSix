@@ -5,24 +5,21 @@ class BookTicket extends Component {
         this.addRoute('/book-ticket', 'Boka Biljett');
         this.addEvents({ 'click #select-program': 'selectProgram' });
         this.programs = [];
-        this.fetchPrograms();
+        this.generateProgramsList();
         this.selectedProgram = {};
     }
 
-    async fetchPrograms() {
-        const programs = await fetch('http://localhost:3000/json/programs', {
-            method: 'GET'
-        });
-
-        this.programs = await programs.json();
-        this.render();
-    }
-    generateProgramsList() {
-        let html = '';
+    async generateProgramsList() {
+        this.programs = await Program.find();
         for (let program of this.programs) {
-            html += `<option value="${program._id}">${program.time}</option>`
+
+
+            console.log(program);
+            return program
         }
-        return html
+        return `<option class="">${program.movie}</option>`
+        this.render();
+        //return html
     }
 
     async selectProgram() {
