@@ -1,19 +1,17 @@
 class LoginPage extends Component {
 
-  constructor(props, login) {
+  constructor(props) {
     super(props);
-    this.login = login;
     this.addRoute('/login', 'Login');
     this.addEvents({
-      'click .user-login': 'userLogin',
-      'click .user-login': 'savelogin'
+      'click .user-login': 'userLogin'
     });
 
   }
   
-  saveLogin() {
-    Login.loginUser();
-  }
+  // saveLogin() {
+  //   Login.loginUser();
+  // }
 
 
   userLogin() {
