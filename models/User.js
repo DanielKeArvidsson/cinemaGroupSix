@@ -4,6 +4,8 @@ const Schema = mongoose.Schema;
  
 let userSchema = new Schema(  {
   ticket: {type: Schema.Types.ObjectId, ref: 'Ticket'},
+  firstName : String,
+  lastName: String,
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true}
 });
