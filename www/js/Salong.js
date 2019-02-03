@@ -3,10 +3,11 @@ class Salong extends Component{
         super();
         this.addRoute('/salong', 'Salong')
         this.salong = [];
-        this.getSalong('Lilla Salongen');
-        this.getSalong('Mellan Salongen');
+        this.rows = 1
+        this.seats = 1;
         this.getSalong('Stora Salongen');
     }
+
 
     async getSalong(salongName){
         let auditorium = await Auditorium.find('.findOne({name: /'+salongName+'/})');
@@ -14,11 +15,14 @@ class Salong extends Component{
 
         for (let numberOfSeatsInRow of auditorium.seatsPerRow) {
             let row = [];
+
             this.seatRow = new SeatRow();
             // create one row of seats
             for(let seatCounter = 0; seatCounter < numberOfSeatsInRow; seatCounter++){
-                row.push(new Seat());
+                row.push(new Seat(this.seats, this.rows));
+                this.seats++
             }
+            this.rows++
             this.seatRow.row.push(row);
             this.salong.push(this.seatRow);
             this.render();

@@ -1,5 +1,8 @@
 class Seat extends Component{
-    constructor(){
+    constructor(seats, rows){
         super();
+        this.seatNumber = seats;
+        this.rowNumber = rows;
     }
+
 }
