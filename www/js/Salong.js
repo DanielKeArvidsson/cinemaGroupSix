@@ -6,6 +6,7 @@ class Salong extends Component{
         this.rows = 1
         this.seats = 1;
         this.getSalong('Stora Salongen');
+    
     }
 
 
@@ -28,4 +29,6 @@ class Salong extends Component{
             this.render();
         }
     }
+
+
 }

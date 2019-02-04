@@ -1,0 +1,30 @@
+<section class="program-chooser">
+        <div>
+          ${JSON.stringify(this.program, null, 1)}
+        </div>
+      
+        <div class="ticket-selector">
+          <div>
+            <p>Ordinarie (150 kr/st)</p>
+            <div class="ticket-incrementor adult">
+              <span class="minus">- </span><span class="ticket-count">${this.tickets.adult}</span><span class="plus"> +</span>
+            </div>
+          </div>
+          <div>
+            <p>Pensionär (10 kr/st)</p>
+            <div class="ticket-incrementor senior">
+              <span class="minus">- </span><span class="ticket-count">${this.tickets.senior}</span><span class="plus"> +</span>
+            </div>
+          </div>
+          <div>
+            <p>Barn (5 kr/st)</p>
+            <div class="ticket-incrementor kids">
+              <span class="minus">- </span><span class="ticket-count">${this.tickets.kids}</span><span class="plus"> +</span>
+            </div>
+          </div>
+        </div>
+       
+        ${this.salong}
+      
+        <button id="book-tickets">Boka denna visning</button>
+      </section>

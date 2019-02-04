@@ -3,7 +3,7 @@ class PageContent extends Component {
   constructor() {
     super();
     this.startPage = new StartPage();
-    this.bookTicket = new BookTicket();
+    this.showProgram = new ShowProgram();
     this.salong = new Salong();
     this.loginPage = new LoginPage();
     this.missingPage = new MissingPage();    
