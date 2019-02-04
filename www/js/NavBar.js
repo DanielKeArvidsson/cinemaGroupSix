@@ -6,8 +6,10 @@ class NavBar extends Component {
       new NavItem('Start', '/'),
       new NavItem('Aktuella visningar', '/book-ticket'),
       new NavItem('About', '/about'),
-      new NavItem('Login', '/login')
+      // new NavItem('Login', '/login')
     ];
+    this.userIsLoggedIn = false;
+    Store.navbar = this;
   }
 
 }
