@@ -4,7 +4,7 @@ class RegisterPage extends Component {
     super(props);
     this.addRoute('/register', 'Register');
     this.addEvents({
-      'click #registerUser': 'registerUser',
+      'click .registerUser': 'registerUser',
     });
 
   }
