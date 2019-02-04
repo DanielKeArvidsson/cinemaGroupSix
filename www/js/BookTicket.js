@@ -1,7 +1,7 @@
 class BookTicket extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.addRoute('/book-ticket', 'Boka Biljett');
         this.addEvents({ 'click .select-program': 'selectProgram' });
         this.programs = [];
@@ -11,12 +11,11 @@ class BookTicket extends Component {
 
     async generateProgramsList() {
         this.programs = await Program.find(`.find().populate('movie auditorium').sort({date: 1, time: 1}).limit(10).exec()`);
-        console.log("populated programs", this.programs);
         this.render();
     }
 
     async selectProgram() {
-        const programId = this.baseEl.find('.program-select').val();
+        let programId = this.baseEl.find('.select-program').data("id")
         console.log(programId)
         this.selectedProgram = await Program.find(`.findOne({ _id: '${programId}'}).populate({
 

@@ -13,13 +13,6 @@ class Program extends Component {
           // it is populated so convert to a real instance of Auditorium
           this.auditorium = new Auditorium(this.auditorium);
         }
-    
-    
-    
-    
-    
-    
-    
         this.addRoute('/prog', 'Prog');*/
   }
 
