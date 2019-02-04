@@ -1,0 +1,22 @@
+.salong{
+        align-content: center;
+    .row{
+        width: 320px;
+        margin:auto;
+    }
+
+    .seat{
+        width: 20px;
+        height: 20px;
+        background-color: brown;
+        margin: 3px;
+        display: inline-block;
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
+        cursor: pointer;
+
+        &:hover{
+            background-color: rgb(163, 108, 108); 
+        }
+    }
+}
