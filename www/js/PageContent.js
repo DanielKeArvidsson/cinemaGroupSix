@@ -5,7 +5,8 @@ class PageContent extends Component {
     this.startPage = new StartPage();
     this.bookTicket = new BookTicket();
     this.salong = new Salong();
-    this.missingPage = new MissingPage();
+    this.loginPage = new LoginPage();
+    this.missingPage = new MissingPage();    
   }
 
 }
