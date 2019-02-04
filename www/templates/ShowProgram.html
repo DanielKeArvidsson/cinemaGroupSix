@@ -1,8 +1,10 @@
-<section class="book-program">
-  <div>
+<section class="show-program">
+  <div id="program-select">
+  
     ${this.programs}
-    <div class="program-chooser">
-      ${this.selectedProgram._id ? this.programChooser : ''}
+    
+    <div class="select-pragram">
+      ${this.selectedProgram._id ? this.seatSelector : ''}
     </div>
   </div>
 </section>

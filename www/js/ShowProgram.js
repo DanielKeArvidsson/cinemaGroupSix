@@ -14,15 +14,22 @@ class ShowProgram extends Component {
         this.render();
     }
 
-    async selectProgram() {
-        let programId = this.baseEl.find('.select-program').data("id")
-       // console.log(programId)
-        this.selectedProgram = await Program.find(`.findOne({ _id: '${programId}'}).populate({
+    // async selectProgram() {
+    //     let programId = this.baseEl.find('.select-program').data("id")
+    //    // console.log(programId)
+    //     this.selectedProgram = await Program.find(`.findOne({ _id: '${programId}'}).populate({
 
-            path: 'Auditorium', select: 'name seatsPerRow bookings -_id', }).populate({
-              path: 'Movie',select: 'title - _id'
-          }).exec()`);
-         this.choosePrograms = new choosePrograms(this.selectProgram);
+    //         path: 'Auditorium', select: 'name seatsPerRow bookings -_id', }).populate({
+    //           path: 'Movie',select: 'title - _id'
+    //       }).exec()`);
+    //      this.choosePrograms = new choosePrograms(this.selectProgram);
+    //     this.render();
+    // }
+
+    async selectProgram() {
+        const programId = this.baseEl.find('#program-select').val();
+        this.selectedProgram = await Program.find(programId);
+      //  this.seatSelector = new SeatSelector(this.selectedProgram);
         this.render();
-    }
+      }
 }

@@ -1,11 +1,9 @@
 class Salong extends Component{
     constructor(){
         super();
-        this.addRoute('/salong', 'Salong')
         this.salong = [];
         this.rows = 1
         this.seats = 1;
-        this.getSalong('Stora Salongen');
     
     }
 
