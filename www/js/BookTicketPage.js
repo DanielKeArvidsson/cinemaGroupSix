@@ -4,7 +4,7 @@ class BookTicketPage extends Component {
     this.addRoute('/book-ticket', 'Book Ticket')
     this.program = program;
     this.addEvents({
-      'click .book-tickets': 'sendBookingRequest'
+      
     });
     this.selectedProgram = {};
 
