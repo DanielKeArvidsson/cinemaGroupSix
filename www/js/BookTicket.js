@@ -4,16 +4,9 @@ class BookTicket extends Component {
         super(props);
         this.addRoute('/book-ticket', 'Boka Biljett');
         this.addEvents({ 'click .select-program': 'selectProgram' });
-        this.addEvents({ 'click .more-movie-info': 'movieInfo' });
         this.programs = [];
         this.generateProgramsList();
         this.selectedProgram = {};
-    }
-    async movieInfo() {
-        let findMovie = this.baseEl.find('.more-movie-info').data("id")
-        this.foundMovie = await Movie.find(`.findOne({ _id: '${findMovie}'})`)
-        console.log(this.foundMovie);
-        this.foundMovie = new Movie();
     }
 
     async generateProgramsList() {

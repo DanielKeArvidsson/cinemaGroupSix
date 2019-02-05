@@ -7,7 +7,9 @@ let programSchema = new Schema({
   "movie": { type: Schema.Types.ObjectId, ref: 'Movie', required: true },
   "date": { type: String, required: true },
   "time": { type: String, required: true },
-  "booking": [{ type: Schema.Types.ObjectId, ref: 'Booking', required: true }]
+  "booking": [{ type: Schema.Types.ObjectId, ref: 'Booking', required: true }],
+  "takenSeat": [Number]
+
 });
 
 
