@@ -8,8 +8,15 @@ class NavBar extends Component {
       new NavItem('About', '/about'),
       // new NavItem('Login', '/login')
     ];
+    this.addEvents({
+      'click .logga-ut': 'userLogout',
+    });
     this.userIsLoggedIn = false;
     Store.navbar = this;
   }
 
+
+  userLogout(){
+    App.loginPage.userLogout();
+  }
 }

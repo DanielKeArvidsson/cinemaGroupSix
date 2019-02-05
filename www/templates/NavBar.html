@@ -10,5 +10,5 @@
     </ul>
     ${this.userIsLoggedIn ? '<a class="logga-ut" href="/">Logga ut</a>':'<a class="logga-in" href="/login">Logga in</a>'}
   </div>
- ${this.userIsLoggedIn ?'<a class="navbar-brand" href="/">${Login.email}</a>':''}
+ ${this.userIsLoggedIn ?`<a class="navbar-brand ml-2" href="/">${App.loginPage.currentUser.email}</a>`:''}
 </nav>
