@@ -1,13 +1,20 @@
 class App extends Component {
 
-  constructor(){
+  constructor() {
     super();
     this.navBar = new NavBar();
     this.pageContent = new PageContent();
     this.footer = new Footer();
     // only in the App class:
-    new Router(this.pageContent);
     $('body').html(this.render());
+    this.loadAllMovies();
+  }
+
+  async loadAllMovies() {
+    this.movies = await Movie.find();
+    new Router(this.pageContent);
+    this.pageContent.movies = this.movies;
+    this.pageContent.render();
   }
 
 }
