@@ -15,11 +15,11 @@ class ShowProgramPage extends Component {
     }
 
 
-    setSelectedProgram(program) {
-        this.selectedProgram = program;
-        this.salongSelector = new SalongSelector(program);
-        this.render();
-      }
+    // setSelectedProgram(program) {
+    //     this.selectedProgram = program;
+    //     this.salongSelector = new SalongSelector(program);
+    //     this.render();
+    //   }
     // async selectProgram() {
     //     let programId = this.baseEl.find('.select-program').data("id")
     //    // console.log(programId)
