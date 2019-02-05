@@ -4,16 +4,12 @@ class Seat extends Component{
         this.seatNumber = seats;
         this.rowNumber = rows;
         this.addEvents({
-            'mouseover': 'handleMouseOver',
-          });
+            'click': 'getSeat'
+        });
     }
 
+    getSeat(){
+        console.log('Row: '+ this.rowNumber + ' Seat: ' + this.seatNumber);
+    }
 
-handleMouseOver() {
-    const event = new CustomEvent('mouseoverSeat', {
-      detail: { seat: this },
-      bubbles: true
-    });
-    this.baseEl[0].dispatchEvent(event);
-  }
 }

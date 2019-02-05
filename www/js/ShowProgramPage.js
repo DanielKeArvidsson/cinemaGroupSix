@@ -1,4 +1,4 @@
-class ShowProgram extends Component {
+class ShowProgramPage extends Component {
 
     constructor(props) {
         super(props);
@@ -14,6 +14,12 @@ class ShowProgram extends Component {
         this.render();
     }
 
+
+    setSelectedProgram(program) {
+        this.selectedProgram = program;
+        this.salongSelector = new SalongSelector(program);
+        this.render();
+      }
     // async selectProgram() {
     //     let programId = this.baseEl.find('.select-program').data("id")
     //    // console.log(programId)
@@ -26,10 +32,4 @@ class ShowProgram extends Component {
     //     this.render();
     // }
 
-    async selectProgram() {
-        const programId = this.baseEl.find('#program-select').val();
-        this.selectedProgram = await Program.find(programId);
-      //  this.seatSelector = new SeatSelector(this.selectedProgram);
-        this.render();
-      }
 }
