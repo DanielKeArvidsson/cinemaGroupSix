@@ -3,6 +3,7 @@ class BookTicketPage extends Component {
     super();
     this.addRoute('/book-ticket', 'Book Ticket')
     this.program = program;
+    console.log(this.program);
     this.addEvents({
       
     });
