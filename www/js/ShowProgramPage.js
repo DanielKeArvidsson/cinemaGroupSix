@@ -17,19 +17,24 @@ class ShowProgramPage extends Component {
 
     // setSelectedProgram(program) {
     //     this.selectedProgram = program;
-    //     this.salongSelector = new SalongSelector(program);
+    //     // this.salongSelector = new SalongSelector(program);
     //     this.render();
     //   }
-    // async selectProgram() {
-    //     let programId = this.baseEl.find('.select-program').data("id")
-    //    // console.log(programId)
-    //     this.selectedProgram = await Program.find(`.findOne({ _id: '${programId}'}).populate({
+    async selectProgram(e) {
+        let programId = $(e.currentTarget).data("id");
+        App.programId = programId;
+        console.log(programId)
 
-    //         path: 'Auditorium', select: 'name seatsPerRow bookings -_id', }).populate({
-    //           path: 'Movie',select: 'title - _id'
-    //       }).exec()`);
-    //      this.choosePrograms = new choosePrograms(this.selectProgram);
-    //     this.render();
-    // }
+    //    selectedProgram = document.getElementById("selectedProgram");
+    //     console.log(selectedProgram.outerHTML);
+        // this.selectedProgram = await Program.find(`.findOne({ _id: '${programId}'}).populate({
+
+        //     path: 'Program', select: 'program -_id', }).populate({
+        //       path: 'Movie',select: 'title - _id'
+        //   }).exec()`);
+        //  this.showProgram = new ShowProgramPage(this.selectProgram);
+        //  this.programId = new ShowProgramPage(this.programId);
+        this.render();
+    }
 
 }
