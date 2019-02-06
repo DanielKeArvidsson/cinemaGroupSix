@@ -1,13 +1,23 @@
 class Login extends REST {
- 
- static async login() {
 
-    let newLogin = new Login({
-      "email": $('#user-email').val(),
-      "password": $('#user-password').val()
+  async delete() {
+    this._id = 1;
+    // we set an id here, because the REST class
+    // will complain if we try to call delete on an object without _id
+    // - and we use delete to logout (see test.js)
+    
+    return super.delete();
+  }
+ 
+ 
+  static async loginUser(email, password) {
+
+    let login = new Login({
+      "email": email,
+      "password": password
     });
     
-    console.log(await newLogin.save());
+    console.log(await login.save());
   }
     // Please note: 
     // Login is not our traditional kind
@@ -21,17 +31,6 @@ class Login extends REST {
    
     static get baseRoute() {
       return 'login/';
-    }
-   
-    constructor(props){
-      super(props);
-      this._id = 1;
-      // we set an id here,
-      // because the REST class
-      // will complain if we try to call
-      // delete on an object without _id
-      // - and we use delete to logout
-      // (see test.js)
     }
    
   }
