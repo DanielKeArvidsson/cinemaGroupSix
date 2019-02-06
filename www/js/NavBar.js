@@ -6,8 +6,17 @@ class NavBar extends Component {
       new NavItem('Start', '/'),
       new NavItem('Aktuella visningar', '/show-program'),
       new NavItem('Om oss', '/about-us'),
-      new NavItem('Logga in', '/login')
+      // new NavItem('Login', '/login')
     ];
+    this.addEvents({
+      'click .logga-ut': 'userLogout',
+    });
+    this.userIsLoggedIn = false;
+    Store.navbar = this;
   }
 
+
+  userLogout(){
+    App.loginPage.userLogout();
+  }
 }
