@@ -11,20 +11,18 @@
       <label for="user-password">Lösenord</label>
       <input type="password" class="form-control" id="user-password" placeholder="Lösenord" required pattern=".{8,}">
     </div>
-    <button type="submit" class="btn btn-primary user-login" data-toggle="modal" data-target="#exampleModal">
+    <button type="submit" class="btn btn-primary user-login" data-toggle="modal" data-target="#exampleModal" >
       Logga in
     </button>
     <br>
-
-
     <a href="/register" class="register">Registrera ny användare</a>
   </form>
-
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ 
+  ${this.showModal ? `<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">${this.message} JKJHHJ</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -38,5 +36,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>` : ''}
 </section>

@@ -1,8 +1,8 @@
 class BookTicketPage extends Component {
-  constructor(program) {
+  constructor() {
     super();
     this.addRoute('/book-ticket', 'Book Ticket');
-    this.program = program;
+    this.programs = [];
     console.log(this.program);
     this.addEvents({
       
@@ -15,8 +15,8 @@ class BookTicketPage extends Component {
   }
   
   mount() {
-    this.program = App.programId;
-    console.log(this.program);
+    this.programs = App.programId;
+    console.log(this.programs);
     this.render();
   }
  
