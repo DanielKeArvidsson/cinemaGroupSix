@@ -3,6 +3,13 @@ class Seat extends Component{
         super();
         this.seatNumber = seats;
         this.rowNumber = rows;
+        this.addEvents({
+            'click': 'getSeat'
+        });
+    }
+
+    getSeat(){
+        console.log('Row: '+ this.rowNumber + ' Seat: ' + this.seatNumber);
     }
 
 }
