@@ -23,43 +23,66 @@ class LoginPage extends Component {
   //   Login.loginUser(email, password);
 
   // }
+// async checkIfLoggedIn(){
+//   let user = await User.find(`find({email: newLogin.email})`);
+//   if(!user){
+//     console.log("error: 'No such user!'");
+//     return;
+//   }
+//   else{
+//     console.log('you should be logged in')
+//   }
 
-  userLogin() {
+// }
+
+  async userLogin() {
     let newLogin = new Login(
       {
         email: this.baseEl.find('#user-email').val(),
         password: this.baseEl.find('#user-password').val()
       }
     )
-    newLogin.save();
+    // let user = await User.find(`find({email: ${newLogin.email}})`);
+    // if(!user){
+    //   console.log("error: 'No such user!'");
+     
+    // }
+    // else{
+    //   console.log('you should be logged in');
+    //   newLogin.save();
+    // }
+  
+    
+    
+    
 
   //  await Program.find(`.findOne({ _id: '${programId}'}).populate({
     this.currentUser = newLogin;
     console.log(this.currentUser);
 
-    let userFirstName = User.find(`.findOne({ email: '${this.currentUser.email}'}).select('firstName').exec()`);
+  //  let userFirstName = User.find(`.findOne({ email: '${this.currentUser.email}'}).select('firstName').exec()`);
    
-   console.log(userFirstName);
-    $('.login-form').empty();
-    $('.login-form').append(`
-    <div>
-   <div id="myModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Hej ${this.currentUser.email}!</h5>
-          </div>
-          <div class="modal-body">
-            <p>Du är nu inloggad!</p>
-          </div>
-          <div class="modal-footer">
-           <a class="relocate" href="/">Stäng</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-    `)
+  // console.log(userFirstName);
+  //   $('.login-form').empty();
+  //   $('.login-form').append(`
+  //   <div>
+  //  <div id="myModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+  //     <div class="modal-dialog" role="document">
+  //       <div class="modal-content">
+  //         <div class="modal-header">
+  //           <h5 class="modal-title">Hej ${this.currentUser.email}!</h5>
+  //         </div>
+  //         <div class="modal-body">
+  //           <p>Du är nu inloggad!</p>
+  //         </div>
+  //         <div class="modal-footer">
+  //          <a class="relocate" href="/">Stäng</a>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // </div>
+  //   `)
   }
 
   relocate(){
