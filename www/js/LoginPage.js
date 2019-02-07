@@ -4,6 +4,8 @@ class LoginPage extends Component {
     super(props);
     this.currentUser = "";
     this.showModal = false;
+    this.showError = false;
+    this.hideLoggin = false;
     this.message = "";
     this.addRoute('/login', 'Login');
     this.addEvents({
@@ -32,58 +34,99 @@ class LoginPage extends Component {
     console.log(user);
     // console.log(passwordMatch);
     if (user.length === 0) {
-      this.showModal = true;
-      this.message = "User not found. Please register."; //show modal
+      // this.message = "User not found. Please register."; //show modal
 
-      console.log(this.message);
+      // console.log(this.message);
+     
 
       console.log("error: 'No such user!'");
-      this.render();
+   
+      $('.login-form').empty();
+      $('.login-form').append(`
+      <div>
+     <div id="myModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">No such user!</h5>
+            </div>
+            <div class="modal-body">
+              <p>Please register</p>
+            </div>
+            <div class="modal-footer">
+             <a href="/register">Stäng</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    `)
     }
     //else if(passwordMatch === true){ ///how to get tha password check?
     //   console.log("Password does not match");
     // }
     else {
       this.showModal = true;
+      this.hideLoggin = true;
       console.log("Successfully logged in");
       console.log(User.loggedIn);
       this.message = "Successfully logged in";
 
-    
+
       console.log(Login.loggedIn);
-      this.render();
+ 
+      $('.login-form').empty();
+      $('.login-form').append(`
+      <div>
+     <div id="myModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Hej ${this.currentUser.email}!</h5>
+            </div>
+            <div class="modal-body">
+              <p>Du är nu inloggad!</p>
+            </div>
+            <div class="modal-footer">
+             <a class="relocate" href="/">Stäng</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    `)
     }
     newLogin.save();
     this.currentUser = newLogin;
     console.log(this.currentUser);
-
-    
-//JQUERY
-    // console.log(userFirstName);
-    //   $('.login-form').empty();
-    //   $('.login-form').append(`
-    //   <div>
-    //  <div id="myModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-    //     <div class="modal-dialog" role="document">
-    //       <div class="modal-content">
-    //         <div class="modal-header">
-    //           <h5 class="modal-title">Hej ${this.currentUser.email}!</h5>
-    //         </div>
-    //         <div class="modal-body">
-    //           <p>Du är nu inloggad!</p>
-    //         </div>
-    //         <div class="modal-footer">
-    //          <a class="relocate" href="/">Stäng</a>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
-    //   `)
-
   }
 
-   
+
+  //JQUERY
+  // console.log(userFirstName);
+  //   $('.login-form').empty();
+  //   $('.login-form').append(`
+  //   <div>
+  //  <div id="myModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+  //     <div class="modal-dialog" role="document">
+  //       <div class="modal-content">
+  //         <div class="modal-header">
+  //           <h5 class="modal-title">Hej ${this.currentUser.email}!</h5>
+  //         </div>
+  //         <div class="modal-body">
+  //           <p>Du är nu inloggad!</p>
+  //         </div>
+  //         <div class="modal-footer">
+  //          <a class="relocate" href="/">Stäng</a>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // </div>
+  //   `)
+
+
+
   //navbar
   relocate() {
     Store.navbar.userIsLoggedIn = true;
