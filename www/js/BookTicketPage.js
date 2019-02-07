@@ -20,7 +20,7 @@ class BookTicketPage extends Component {
   unmount(){
 
     delete this.salong
-    console.log('unmount')
+    // console.log('unmount')
 
   }
   
