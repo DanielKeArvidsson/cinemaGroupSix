@@ -2,6 +2,7 @@ class RegisterPage extends Component {
 
   constructor(props) {
     super(props);
+    this.redirect = false;
     this.addRoute('/register', 'Register');
     this.addEvents({
       'click .registerUser': 'registerUser',
@@ -9,8 +10,7 @@ class RegisterPage extends Component {
 
   }
 
-
-  registerUser() {
+  async registerUser() {
     let newUser = new User(
       {
         firstName: this.baseEl.find('#user-firstName').val(),
@@ -19,9 +19,12 @@ class RegisterPage extends Component {
         password: this.baseEl.find('#user-password').val()
       }
     )
-    newUser.save();
-    console.log(newUser);
-    $('.register-form').empty();
+    let user = await User.find(`.find({email: '${newUser.email}'})`);
+    if (user.length === 0) {
+      console.log("Success");
+      newUser.save();
+      console.log(newUser);
+      $('.register-form').empty();
     $('.register-form').append(`
     <div>
    <div id="myModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
@@ -30,6 +33,30 @@ class RegisterPage extends Component {
           <div class="modal-body">
           <p>Hej ${newUser.firstName}!</p>
             <p>Din registrering är slutförd.</p>
+          </div>
+          <div class="modal-footer">
+           <a href="/login">Stäng</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    `)
+
+    } else {
+      console.log("User already exists");
+      // this.redirect= true;
+    }
+
+    $('.register-form').empty();
+    $('.register-form').append(`
+    <div>
+   <div id="myModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+       
+            <p>User already exists!.</p>
           </div>
           <div class="modal-footer">
            <a href="/login">Stäng</a>

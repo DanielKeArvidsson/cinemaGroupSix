@@ -3,6 +3,10 @@ class LoginPage extends Component {
   constructor(props) {
     super(props);
     this.currentUser = "";
+    this.showModal = false;
+    this.showError = false;
+    this.hideLoggin = false;
+    this.message = "";
     this.addRoute('/login', 'Login');
     this.addEvents({
       'click .user-login': 'userLogin',
@@ -16,52 +20,89 @@ class LoginPage extends Component {
     e.preventDefault() // prevent submitting a form from reloading a page
   }
 
-
-  // saveLogin() {
-  //   let email = this.baseEl.find('#user-email').val();
-  //   let password = this.baseEl.find('#user-password').val();;
-  //   Login.loginUser(email, password);
-
-  // }
-// async checkIfLoggedIn(){
-//   let user = await User.find(`find({email: newLogin.email})`);
-//   if(!user){
-//     console.log("error: 'No such user!'");
-//     return;
-//   }
-//   else{
-//     console.log('you should be logged in')
-//   }
-
-// }
-
   async userLogin() {
+
     let newLogin = new Login(
       {
         email: this.baseEl.find('#user-email').val(),
         password: this.baseEl.find('#user-password').val()
       }
     )
-    // let user = await User.find(`find({email: ${newLogin.email}})`);
-    // if(!user){
-    //   console.log("error: 'No such user!'");
-     
-    // }
-    // else{
-    //   console.log('you should be logged in');
-    //   newLogin.save();
-    // }
-  
-    
-    
-    
+    let user = await User.find(`.find({email: '${newLogin.email}'})`);
 
-  //  await Program.find(`.findOne({ _id: '${programId}'}).populate({
+    // let passwordMatch = await bcrypt.compare(newLogin.password + passwordSalt , user.password );
+    console.log(user);
+    // console.log(passwordMatch);
+    if (user.length === 0) {
+      // this.message = "User not found. Please register."; //show modal
+
+      // console.log(this.message);
+     
+
+      console.log("error: 'No such user!'");
+   
+      $('.login-form').empty();
+      $('.login-form').append(`
+      <div>
+     <div id="myModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">No such user!</h5>
+            </div>
+            <div class="modal-body">
+              <p>Please register</p>
+            </div>
+            <div class="modal-footer">
+             <a href="/register">Stäng</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    `)
+    }
+    //else if(passwordMatch === true){ ///how to get tha password check?
+    //   console.log("Password does not match");
+    // }
+    else {
+      this.showModal = true;
+      this.hideLoggin = true;
+      console.log("Successfully logged in");
+      console.log(User.loggedIn);
+      this.message = "Successfully logged in";
+
+
+      console.log(Login.loggedIn);
+ 
+      $('.login-form').empty();
+      $('.login-form').append(`
+      <div>
+     <div id="myModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Hej ${this.currentUser.email}!</h5>
+            </div>
+            <div class="modal-body">
+              <p>Du är nu inloggad!</p>
+            </div>
+            <div class="modal-footer">
+             <a class="relocate" href="/">Stäng</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    `)
+    }
+    newLogin.save();
     this.currentUser = newLogin;
     console.log(this.currentUser);
+  }
 
-  //  let userFirstName = User.find(`.findOne({ email: '${this.currentUser.email}'}).select('firstName').exec()`);
-   
+
+  //JQUERY
   // console.log(userFirstName);
   //   $('.login-form').empty();
   //   $('.login-form').append(`
@@ -83,21 +124,23 @@ class LoginPage extends Component {
   //   </div>
   // </div>
   //   `)
-  }
 
-  relocate(){
+
+
+  //navbar
+  relocate() {
     Store.navbar.userIsLoggedIn = true;
-      Store.navbar.render();
-      this.render();
+    Store.navbar.render();
+    this.render();
   }
 
-  userLogout(){
+  userLogout() {
     this.currentUser.delete();
     Store.navbar.userIsLoggedIn = false;
     Store.navbar.render();
     this.render();
   }
- 
+
 
 
 }
