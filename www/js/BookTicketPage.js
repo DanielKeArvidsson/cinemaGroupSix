@@ -1,19 +1,17 @@
 class BookTicketPage extends Component {
   constructor(props) {
     super(props);
-    this.props = props
-    this.addRoute(/program/)
-    this.salong
+    this._props = props
+    this.addRoute(/\/program\/(.*)/, 'Visning')
     this.addEvents({
-      'click .book-tickets': 'sendBookingRequest'
     });
-    this.selectedProgram = {};
   }
   async mount() {
     let id = this.routeParts[0];
-    let Program = await Program.find(id);
-    document.title = 'Film: ' + movie.title;
-    Object.assign(this, movie._props);
+    console.log(id);
+    let program = await Program.find(`.findOne({_id: ${id} })`).populate('movie auditorium').exec();
+    document.title = 'Program: ' + program.movie.title;
+    Object.assign(this, program._props);
     this.render();
   }
 
