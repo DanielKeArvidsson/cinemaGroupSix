@@ -1,25 +1,29 @@
 class BookTicketPage extends Component {
-  constructor(program, seat) {
+  constructor(seat) {
     super();
     this.addRoute('/book-ticket', 'Book Ticket');
     this.seat = seat;
-    this.program = program;
-    console.log(this.program);
     this.addEvents({
       'click .booked-tickets': 'bookSeat'
-    });
-    this.selectedProgram = {};
-
-    this.salong = new Salong(this.program);
-    this.salong.getSalong('Stora Salongen')
-
+    });  
   }
-
-  mount() {
+  
+  async mount() {
+    this.salong = new Salong();
     this.program = App.programId;
-    console.log(this.program);
+    this.selectedProgram = await Program.find(this.program);
+    this.seating = this.salong.getSalong(this.selectedProgram.auditorium.name);
+    console.log(this.selectedProgram)
     this.render();
   }
+
+  unmount(){
+
+    delete this.salong
+    // console.log('unmount')
+
+  }
+  
 
   bookSeat() {
     let elements = document.getElementsByClassName('choosenSeat');
