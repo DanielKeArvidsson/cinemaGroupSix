@@ -9,7 +9,11 @@ class BookTicketPage extends Component {
   async mount() {
     let id = this.routeParts[0];
     console.log(id);
-    let program = await Program.find(`.findOne({_id: ${id} })`).populate('movie auditorium').exec();
+    let program = await Program.find(`.findById('${id}').populate('movie auditorium').exec()`);
+    console.log(program);
+    let salong = await new Salong();
+    let nyaSalongen = await salong.getSalong(program.auditorium.name);
+    console.log(nyaSalongen);
     document.title = 'Program: ' + program.movie.title;
     Object.assign(this, program._props);
     this.render();
