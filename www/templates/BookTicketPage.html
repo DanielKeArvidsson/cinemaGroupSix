@@ -1,13 +1,14 @@
 <section class="book-ticket">
   <div>
-     
-  ${this.program ? this.program : ''}
-  <!-- ${this.selectProgram ? programId : ''} -->
+    ${this.selectedProgram.movie.title}
+    ${this.selectedProgram.time}
   </div>
-
+  
   
 
   ${this.salong}
 
-  <button id="book-tickets">Boka biljett</button>
+  <button class="booked-tickets">
+    Boka biljett
+  </button>
 </section>

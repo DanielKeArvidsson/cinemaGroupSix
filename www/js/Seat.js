@@ -4,14 +4,14 @@ class Seat extends Component{
         this.seatNumber = seats;
         this.rowNumber = rows;
         this.addEvents({
-            'click': 'getSeat'
+            'click': 'getSeat',
         });
     }
 
     async getSeat(){
-
         console.log('Row: '+ this.rowNumber + ' Seat: ' + this.seatNumber);
-        this.baseEl[0].className = 'choosenSeat'
+        this.baseEl[0].className = 'choosenSeat';
+        console.log('choosenSeat');
     }
 
 }
