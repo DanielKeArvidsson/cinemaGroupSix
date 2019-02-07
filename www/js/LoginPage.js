@@ -1,5 +1,5 @@
 class LoginPage extends Component {
- 
+
   constructor(props) {
     super(props);
     this.currentUser = "";
@@ -18,25 +18,6 @@ class LoginPage extends Component {
     e.preventDefault() // prevent submitting a form from reloading a page
   }
 
-
-  // saveLogin() {
-  //   let email = this.baseEl.find('#user-email').val();
-  //   let password = this.baseEl.find('#user-password').val();;
-  //   Login.loginUser(email, password);
-
-  // }
-  // async checkIfLoggedIn(){
-  //   let user = await User.find(`find({email: newLogin.email})`);
-  //   if(!user){
-  //     console.log("error: 'No such user!'");
-  //     return;
-  //   }
-  //   else{
-  //     console.log('you should be logged in')
-  //   }
-
-  // }
-
   async userLogin() {
 
     let newLogin = new Login(
@@ -45,22 +26,20 @@ class LoginPage extends Component {
         password: this.baseEl.find('#user-password').val()
       }
     )
-    // let user = await User.find(`find({email: ${newLogin.email}})`);
     let user = await User.find(`.find({email: '${newLogin.email}'})`);
- 
+
     // let passwordMatch = await bcrypt.compare(newLogin.password + passwordSalt , user.password );
     console.log(user);
     // console.log(passwordMatch);
-    //user does not exist (email)
     if (user.length === 0) {
       this.showModal = true;
       this.message = "User not found. Please register."; //show modal
-    
+
       console.log(this.message);
 
       console.log("error: 'No such user!'");
       this.render();
-     }
+    }
     //else if(passwordMatch === true){ ///how to get tha password check?
     //   console.log("Password does not match");
     // }
@@ -70,15 +49,16 @@ class LoginPage extends Component {
       console.log(User.loggedIn);
       this.message = "Successfully logged in";
 
-      newLogin.save();
+    
       console.log(Login.loggedIn);
       this.render();
     }
+    newLogin.save();
     this.currentUser = newLogin;
     console.log(this.currentUser);
 
-    //  let userFirstName = User.find(`.findOne({ email: '${this.currentUser.email}'}).select('firstName').exec()`);
-
+    
+//JQUERY
     // console.log(userFirstName);
     //   $('.login-form').empty();
     //   $('.login-form').append(`
@@ -100,10 +80,11 @@ class LoginPage extends Component {
     //   </div>
     // </div>
     //   `)
-   
+
   }
 
-//navbar
+   
+  //navbar
   relocate() {
     Store.navbar.userIsLoggedIn = true;
     Store.navbar.render();

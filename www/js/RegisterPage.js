@@ -9,8 +9,7 @@ class RegisterPage extends Component {
 
   }
 
-
-  registerUser() {
+  async registerUser() {
     let newUser = new User(
       {
         firstName: this.baseEl.find('#user-firstName').val(),
@@ -19,8 +18,16 @@ class RegisterPage extends Component {
         password: this.baseEl.find('#user-password').val()
       }
     )
-    newUser.save();
-    console.log(newUser);
+    let user = await User.find(`.find({email: '${newUser.email}'})`);
+    if (user === 0) {
+      console.log("Success");
+      newUser.save();
+      console.log(newUser);
+
+    } else {
+      console.log("User already exists");
+    }
+
     $('.register-form').empty();
     $('.register-form').append(`
     <div>
