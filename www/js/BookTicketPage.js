@@ -1,12 +1,11 @@
 class BookTicketPage extends Component {
-  constructor() {
+  constructor(seat) {
     super();
     this.addRoute('/book-ticket', 'Book Ticket');
     this.seat = seat;
     this.addEvents({
-      
-    });  
       'click .booked-tickets': 'bookSeat'
+    });  
   }
   
   async mount() {
