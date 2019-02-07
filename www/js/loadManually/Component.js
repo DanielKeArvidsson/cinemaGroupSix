@@ -2,6 +2,7 @@ class Component extends REST {
 
   constructor(props) {
     super(props); // send props to REST constructor
+    this._props = props
     this.addUniqueId();
     this.addRenderMethodToArrays();
     // Replace render method
@@ -72,6 +73,9 @@ class Component extends REST {
       return html;
     }
     Array.prototype.toString = Array.prototype.render;
+  }
+  get routeParts() {
+    return Router.parts;
   }
 
   addEvents(eventMap) {

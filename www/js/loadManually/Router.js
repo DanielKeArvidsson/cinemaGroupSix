@@ -31,7 +31,15 @@ class Router {
   }
 
   setPath(path) {
-    Router.path = Router.routes.includes(path) ? path : '404';
+    for (let route of Router.routes) {
+      if (route && route.constructor === RegExp && route.test(path)) {
+        Router.path = route;
+        Router.parts = path.match(route).slice(1);
+      }
+      else if (path === route) {
+        Router.path = route;
+      }
+    }
     setTimeout(() => this.setActiveLink(), 0);
   }
 

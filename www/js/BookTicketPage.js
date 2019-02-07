@@ -1,19 +1,21 @@
 class BookTicketPage extends Component {
-  constructor(program) {
-    super();
-    this.addRoute('/book-ticket', 'Book Ticket')
-    this.program = program;
+  constructor(props) {
+    super(props);
+    this.props = props
+    this.addRoute(/program/)
+    this.salong
     this.addEvents({
       'click .book-tickets': 'sendBookingRequest'
     });
     this.selectedProgram = {};
-
-    this.salong = new Salong(this.programId);
-    this.salong.getSalong('Stora Salongen')
-  
   }
-  
-  
- 
-  
+  async mount() {
+    let id = this.routeParts[0];
+    let Program = await Program.find(id);
+    document.title = 'Film: ' + movie.title;
+    Object.assign(this, movie._props);
+    this.render();
+  }
+
+
 }
