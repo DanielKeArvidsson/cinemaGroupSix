@@ -52,8 +52,8 @@ class Component extends REST {
       this.mount && setTimeout(() => this.mount(), 0);
     }
     // Change the title if we match a route with a title
-    if (this.route === Router.path && this.title) {
-      document.title = Component.orgPageTitle + ': ' + this.title;
+    if (this.route === Router.path && this.pageTitle) {
+      document.title = Component.orgPageTitle + ': ' + this.pageTitle;
     }
     // add the instance id
     elements.attr('data-instance-id', this._componentId);
@@ -92,7 +92,7 @@ class Component extends REST {
 
   addRoute(route, title) {
     this.route = route;
-    this.title = title;
+    this.pageTitle = title;
     Router.registerRoute(route);
   }
 
