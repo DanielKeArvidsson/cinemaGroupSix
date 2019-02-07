@@ -2,9 +2,11 @@ class BookTicketPage extends Component {
   constructor() {
     super();
     this.addRoute('/book-ticket', 'Book Ticket');
+    this.seat = seat;
     this.addEvents({
       
     });  
+      'click .booked-tickets': 'bookSeat'
   }
   
   async mount() {
@@ -23,4 +25,12 @@ class BookTicketPage extends Component {
 
   }
   
+
+  bookSeat() {
+    let elements = document.getElementsByClassName('choosenSeat');
+    for (let i = elements.length - 1; i >= 0; --i) {
+      elements[i].className = 'unavailableSeat';
+    }
+  }
+
 }

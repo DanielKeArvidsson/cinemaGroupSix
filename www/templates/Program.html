@@ -1,6 +1,8 @@
 <div>
     <hr>
     <p>${this.movie.title}</p>
+    <a href="/movie/${this.movie.title.toLowerCase().replace(/\W/g, '-')}" data-id="${this.movie._id}" class="more-movie-info">Mer
+        om filmen</a>
     <p>${this.auditorium.name}</p>
     <p>${this.date}</p>
     <p>${this.time}</p>
