@@ -2,69 +2,102 @@ class LoginPage extends Component {
 
   constructor(props) {
     super(props);
+    this.currentUser = "";
     this.addRoute('/login', 'Login');
     this.addEvents({
       'click .user-login': 'userLogin',
-      'click .register': 'showRegister',
-      'click #registerUser': 'newUserLogin'
+      'submit form': 'preventPageReload',
+      'click .relocate': 'relocate'
     });
 
   }
 
+  preventPageReload(e) {
+    e.preventDefault() // prevent submitting a form from reloading a page
+  }
 
-  userLogin() {
-    let newUser = new User(
+
+  // saveLogin() {
+  //   let email = this.baseEl.find('#user-email').val();
+  //   let password = this.baseEl.find('#user-password').val();;
+  //   Login.loginUser(email, password);
+
+  // }
+// async checkIfLoggedIn(){
+//   let user = await User.find(`find({email: newLogin.email})`);
+//   if(!user){
+//     console.log("error: 'No such user!'");
+//     return;
+//   }
+//   else{
+//     console.log('you should be logged in')
+//   }
+
+// }
+
+  async userLogin() {
+    let newLogin = new Login(
       {
         email: this.baseEl.find('#user-email').val(),
         password: this.baseEl.find('#user-password').val()
       }
     )
-    newUser.save();
-  }
-
-  newUserLogin() {
-    let newUser = new User(
-      {
-        email: this.baseEl.find('#user-email').val(),
-        password: this.baseEl.find('#user-password').val()
-      }
-    )
-    newUser.save();
-    $('.login-form').empty();
-  }
-
-  showRegister() {
-    $('.login-form').empty();
-    $('.login-form').append(
-      `
-      <form class="register-form">
-        <h3>Registrera ny användare</h3>
-        <section class="login-wrapper">
-        <div class="form-group">
-        <label for="user-firstName">Förnamn</label>
-        <input type="text" class="form-control" id="user-firstName" placeholder="Förnamn">
-        </div>
-        <div class="form-group">
-        <label for="user-lastName">Efternamn</label>
-        <input type="text" class="form-control" id="user-lastName" placeholder="Efternamn">
-        </div>         
-        <div class="form-group">
-        <label for="user-email">E-postaddress</label>
-        <input type="email" class="form-control" id="user-email" placeholder="E-postaddress">
-        </div> 
-        <div class="form-group">
-        <label for="user-password">Lösenord</label>
-        <input type="password" class="form-control" id="user-password" placeholder="Lösenord">
-        </div>
-        <button type="button" id="registerUser" class="btn btn-primary mt-4">Bekräfta</button>
-        </form>
-        `
-    );
+    // let user = await User.find(`find({email: ${newLogin.email}})`);
+    // if(!user){
+    //   console.log("error: 'No such user!'");
+     
+    // }
+    // else{
+    //   console.log('you should be logged in');
+    //   newLogin.save();
+    // }
   
+    
+    
+    
+
+  //  await Program.find(`.findOne({ _id: '${programId}'}).populate({
+    this.currentUser = newLogin;
+    console.log(this.currentUser);
+
+  //  let userFirstName = User.find(`.findOne({ email: '${this.currentUser.email}'}).select('firstName').exec()`);
+   
+  // console.log(userFirstName);
+  //   $('.login-form').empty();
+  //   $('.login-form').append(`
+  //   <div>
+  //  <div id="myModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+  //     <div class="modal-dialog" role="document">
+  //       <div class="modal-content">
+  //         <div class="modal-header">
+  //           <h5 class="modal-title">Hej ${this.currentUser.email}!</h5>
+  //         </div>
+  //         <div class="modal-body">
+  //           <p>Du är nu inloggad!</p>
+  //         </div>
+  //         <div class="modal-footer">
+  //          <a class="relocate" href="/">Stäng</a>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // </div>
+  //   `)
   }
 
+  relocate(){
+    Store.navbar.userIsLoggedIn = true;
+      Store.navbar.render();
+      this.render();
+  }
 
-
+  userLogout(){
+    this.currentUser.delete();
+    Store.navbar.userIsLoggedIn = false;
+    Store.navbar.render();
+    this.render();
+  }
+ 
 
 
 }
