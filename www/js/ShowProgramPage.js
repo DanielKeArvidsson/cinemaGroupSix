@@ -23,7 +23,7 @@ class ShowProgramPage extends Component {
     async selectProgram(e) {
         let programId = $(e.currentTarget).data("id");
         App.programId = programId;
-        console.log(programId)
+        // console.log(programId)
 
     //    selectedProgram = document.getElementById("selectedProgram");
     //     console.log(selectedProgram.outerHTML);
