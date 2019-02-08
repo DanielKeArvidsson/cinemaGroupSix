@@ -1,7 +1,7 @@
-class SeatRow extends Component{
-    constructor(){
+class SeatRow extends Component {
+    constructor() {
         super();
-        this.row=[];
+        this.row = [].reverse();
     }
 
 }
