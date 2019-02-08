@@ -7,6 +7,8 @@ let programSchema = new Schema({
   "movie": { type: Schema.Types.ObjectId, ref: 'Movie', required: true },
   "date": { type: String, required: true },
   "time": { type: String, required: true },
+  "images": [String],
+  "youtubeTrailers": String,
   // "booking": [{ type: Schema.Types.ObjectId, ref: 'Booking', required: true }]
 }, { toJSON: { virtuals: true } });
 

@@ -1,6 +1,6 @@
 class BookTicketPage extends Component {
-  constructor(seat) {
-    super();
+  constructor(seat,props) {
+    super(props);
     this.addRoute('/book-ticket', 'Book Ticket');
     this.seat = seat;
     this.addEvents({
