@@ -1,6 +1,6 @@
 class Salong extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.salong = [];
         this.rows = 1
         this.seats = 1;
