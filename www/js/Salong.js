@@ -2,8 +2,8 @@ class Salong extends Component{
     constructor(){
         super();
         this.salong = [];
-        this.rows = 1
-        this.seats = 1;
+        this.rows = 1;
+        this.seats = 0;
     
     }
 

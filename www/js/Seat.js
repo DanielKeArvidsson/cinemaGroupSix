@@ -10,7 +10,13 @@ class Seat extends Component{
 
     async getSeat(){
         console.log('Row: '+ this.rowNumber + ' Seat: ' + this.seatNumber);
-        this.baseEl[0].className = 'choosenSeat';
+
+        if(this.baseEl[0].className == 'choosenSeat'){
+            this.baseEl[0].className = 'seat';
+        }else{
+            this.baseEl[0].className = 'choosenSeat'
+        }
+
         console.log('choosenSeat');
     }
 
