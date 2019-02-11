@@ -7,7 +7,7 @@ class BookTicketPage extends Component {
     });  
   }
   
-  async mount() {/
+  async mount() {
     this.salong = new Salong();
     this.program = App.programId;
     this.selectedProgram = await Program.find(this.program);
