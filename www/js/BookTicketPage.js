@@ -3,6 +3,8 @@ class BookTicketPage extends Component {
     super(props);
     this._props = props
     this.seat = seat;
+    this.auditorium = {}
+    this.movie = {}
     this.addRoute(/\/program\/(.*)/, 'Visning')
     this.addEvents({
       'click .booked-tickets': 'bookSeat'

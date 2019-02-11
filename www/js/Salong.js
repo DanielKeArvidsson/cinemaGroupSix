@@ -10,7 +10,9 @@ class Salong extends Component {
 
     async getSalong(salongName) {
         let auditorium = await Auditorium.find('.findOne({name: /' + salongName + '/})');
-
+        if (!auditorium) {
+            return
+        }
 
         for (let numberOfSeatsInRow of auditorium.seatsPerRow) {
             let row = [];
