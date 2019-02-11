@@ -21,19 +21,19 @@ programSchema.virtual('bookings', {
 
 
 
-programSchema.pre('findOne', function() {
+programSchema.pre('findOne', function () {
   this.populate({
     path: 'auditorium',
     select: 'name seats -_id'
   })
-  .populate({
-    path: 'movie',
-    select: 'title image -_id'
-  })
-  .populate({
-    path: 'tickets',
-    select: 'seats program -_id'
-  });
+    .populate({
+      path: 'movie',
+      select: 'title image -_id'
+    })
+    .populate({
+      path: 'tickets',
+      select: 'seats program -_id'
+    });
 });
 
 module.exports = db.model('Program', programSchema);
