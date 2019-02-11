@@ -1,16 +1,18 @@
-class Salong extends Component{
-    constructor(){
-        super();
+class Salong extends Component {
+    constructor(props) {
+        super(props);
         this.salong = [];
         this.rows = 1
-        this.seats = 1;
-    
+        this.seats = 0;
+
     }
 
- 
-    async getSalong(salongName){
-        let auditorium = await Auditorium.find('.findOne({name: /'+salongName+'/})');
 
+    async getSalong(salongName) {
+        let auditorium = await Auditorium.find('.findOne({name: /' + salongName + '/})');
+        if (!auditorium) {
+            return
+        }
 
         for (let numberOfSeatsInRow of auditorium.seatsPerRow) {
             let row = [];
@@ -18,7 +20,7 @@ class Salong extends Component{
             this.seatRow = new SeatRow();
             // create one row of seats
 
-            for(let seatCounter = 0; seatCounter < numberOfSeatsInRow; seatCounter++){
+            for (let seatCounter = 0; seatCounter < numberOfSeatsInRow; seatCounter++) {
                 row.push(new Seat(this.seats, this.rows));
                 this.seats--
             }
@@ -29,6 +31,7 @@ class Salong extends Component{
             this.salong.push(this.seatRow);
             this.render();
         }
+        return this.salong;
     }
 
 
