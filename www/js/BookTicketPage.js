@@ -1,14 +1,13 @@
 class BookTicketPage extends Component {
-  constructor(seat) {
+  constructor() {
     super();
     this.addRoute('/book-ticket', 'Book Ticket');
-    this.seat = seat;
     this.addEvents({
       'click .booked-tickets': 'bookSeat'
     });  
   }
   
-  async mount() {
+  async mount() {/
     this.salong = new Salong();
     this.program = App.programId;
     this.selectedProgram = await Program.find(this.program);
@@ -16,7 +15,7 @@ class BookTicketPage extends Component {
     console.log(this.selectedProgram)
     this.render();
   }
-
+  //hej
   unmount(){
 
     delete this.salong
