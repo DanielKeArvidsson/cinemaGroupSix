@@ -3,7 +3,7 @@ class Salong extends Component {
         super(props);
         this.salong = [];
         this.rows = 1
-        this.seats = 1;
+        this.seats = 0;
 
     }
 
