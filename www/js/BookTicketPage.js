@@ -1,9 +1,10 @@
 class BookTicketPage extends Component {
-  constructor(props) {
+  constructor(seat,props) {
     super(props);
     this._props = props
     this.addRoute(/\/program\/(.*)/, 'Visning')
     this.addEvents({
+      'click .booked-tickets': 'bookSeat'
     });
   }
   async mount() {
@@ -17,4 +18,10 @@ class BookTicketPage extends Component {
   }
 
 
+  bookSeat() {
+    let elements = document.getElementsByClassName('choosenSeat');
+    for (let i = elements.length - 1; i >= 0; --i) {
+      elements[i].className = 'unavailableSeat';
+    }
+  }
 }
