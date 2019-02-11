@@ -27,7 +27,7 @@ programSchema.pre('findOne', function () {
   })
     .populate({
       path: 'movie',
-      select: 'title image -_id'
+      select: 'title images'
     })
     .populate({
       path: 'tickets',

@@ -1,9 +1,9 @@
 <section class="book-ticket">
   <div>
-    A ${this.auditorium.name} B ${this.movie.title} C
+    ${this.auditorium.name} ${this.movie.title}
+    <img src="/images/${this.wholeMovie.images[0]}">
   </div>
-
-  ${this.salong}
+  ${console.log(this.wholeMovie)} ${this.salong}
 
   <button class="booked-tickets">
     Boka biljett

@@ -5,6 +5,7 @@ class BookTicketPage extends Component {
     this.seat = seat;
     this.auditorium = {}
     this.movie = {}
+    this.wholeMovie = {}
     this.addRoute(/\/program\/(.*)/, 'Visning')
     this.addEvents({
       'click .booked-tickets': 'bookSeat'
@@ -13,8 +14,10 @@ class BookTicketPage extends Component {
   async mount() {
     let id = this.routeParts[0];
     this.salong = new Salong();
-    let program = await Program.find(`.findById('${id}').populate('movie auditorium').exec()`);
+    let program = await Program.find(`.findOne({'_id': '${id}'}).populate('movie auditorium').exec()`);
     this.salongen = await this.salong.getSalong(program.auditorium.name);
+    this.wholeMovie = await Movie.find(`.findOne({'title': '${program.movie._props.title}'}).populate('movie auditorium').exec()`);
+    console.log(this.movie);
     document.title = 'Program: ' + program.movie.title;
     Object.assign(this, program._props);
     this.render();
