@@ -17,13 +17,13 @@ class BookTicketPage extends Component {
     let program = await Program.find(`.findOne({'_id': '${id}'}).populate('movie auditorium').exec()`);
     this.salongen = await this.salong.getSalong(program.auditorium.name);
     this.wholeMovie = await Movie.find(`.findOne({'title': '${program.movie._props.title}'}).populate('movie auditorium').exec()`);
-    console.log(this.movie);
     document.title = 'Program: ' + program.movie.title;
     Object.assign(this, program._props);
     this.render();
   }
   unmount() {
     delete this.salong;
+    delete this.wholeMovie;
   }
   bookSeat() {
     let elements = document.getElementsByClassName('choosenSeat');
