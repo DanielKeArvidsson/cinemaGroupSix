@@ -9,6 +9,7 @@ let programSchema = new Schema({
   "time": { type: String, required: true },
   "images": [String],
   "youtubeTrailers": String,
+  "bookedSeats": []
   // "booking": [{ type: Schema.Types.ObjectId, ref: 'Booking', required: true }]
 }, { toJSON: { virtuals: true } });
 
