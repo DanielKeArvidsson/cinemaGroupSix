@@ -41,6 +41,7 @@
         border-bottom-right-radius: 7px;
         background-color: brown;
         animation: blink 1s linear infinite;
+        cursor: pointer;
     }
     @keyframes blink{
         50%{opacity: .5;}
