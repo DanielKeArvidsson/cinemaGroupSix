@@ -10,7 +10,13 @@ class BookTicketPage extends Component {
     this.senior = 0;
     this.addRoute(/\/program\/(.*)/, 'Visning')
     this.addEvents({
-      'click .booked-tickets': 'bookSeat'
+      'click .booked-tickets': 'bookSeat',
+      'click .decrement-kid': 'decrementKid',
+      'click .increment-kid': 'incrementKid',
+      'click .decrement-adult': 'decrementAdult',
+      'click .increment-adult': 'incrementAdult',
+      'click .decrement-senior': 'decrementSenior',
+      'click .increment-senior': 'incrementSenior'
     });
   }
   async mount() {
@@ -25,21 +31,20 @@ class BookTicketPage extends Component {
   unmount() {
     delete this.salong;
   }
-  
 
   async bookSeat() {
     console.log(this)
 
     this.booking = [];
 
-    for(let rows = 0; rows < this.salong.salong.length; rows++){
+    for (let rows = 0; rows < this.salong.salong.length; rows++) {
       let seats = this.salong.salong[rows].row[0]
 
-      for(let seat = 0; seat < seats.length; seat++){
+      for (let seat = 0; seat < seats.length; seat++) {
 
-        if(seats[seat].baseEl[0].className == 'choosenSeat'){
+        if (seats[seat].baseEl[0].className == 'choosenSeat') {
 
-          this.booked = this.bookedSeat = {Row: seats[seat].rowNumber, Seat: seats[seat].seatNumber};
+          this.booked = this.bookedSeat = { Row: seats[seat].rowNumber, Seat: seats[seat].seatNumber };
           this.booking.push(this.booked);
           console.log(this.booked.Seat);
         }
@@ -53,13 +58,34 @@ class BookTicketPage extends Component {
       elements[i].className = 'unavailableSeat';
     }
   }
-
-  ticketCounter() 
-  {    
-     this.adult++   
-       console.log(this.adult)    
-        this.render(); 
-        }
-
-
+  decrementKid() {
+    if (this.kid) {
+      this.kid--
+      this.render();
+    }
+  }
+  incrementKid() {
+    this.kid++
+    this.render();
+  }
+  decrementAdult() {
+    if (this.adult) {
+      this.adult--
+      this.render();
+    }
+  }
+  incrementAdult() {
+    this.adult++
+    this.render();
+  }
+  decrementSenior() {
+    if (this.senior) {
+      this.senior--
+      this.render();
+    }
+  }
+  incrementSenior() {
+    this.senior++
+    this.render();
+  }
 }
