@@ -4,10 +4,19 @@ class BookTicketPage extends Component {
     this._props = props
     this.auditorium = {}
     this.movie = {}
+    this.adult = 0;
+    this.kid = 0;
+    this.senior = 0;
     this.program = {};
     this.addRoute(/\/program\/(.*)/, 'Visning')
     this.addEvents({
-      'click .booked-tickets': 'bookSeat'
+      'click .booked-tickets': 'bookSeat',
+      'click .decrement-kid': 'decrementKid',
+      'click .increment-kid': 'incrementKid',
+      'click .decrement-adult': 'decrementAdult',
+      'click .increment-adult': 'incrementAdult',
+      'click .decrement-senior': 'decrementSenior',
+      'click .increment-senior': 'incrementSenior'
     });
   }
   async mount() {
@@ -27,13 +36,13 @@ class BookTicketPage extends Component {
     delete this.salong;
   }
 
-  async getBookedSeats(){
-    for(let seatBooked of this.bookedTicket){
-      for(let chair of seatBooked.seats){
-        for(let rows = 0; rows < this.salong.salong.length; rows++){
+  async getBookedSeats() {
+    for (let seatBooked of this.bookedTicket) {
+      for (let chair of seatBooked.seats) {
+        for (let rows = 0; rows < this.salong.salong.length; rows++) {
           let seats = this.salong.salong[rows].row[0]
-          for(let seat = 0; seat < seats.length; seat++){
-            if(seats[seat].seatNumber == chair.Seat){
+          for (let seat = 0; seat < seats.length; seat++) {
+            if (seats[seat].seatNumber == chair.Seat) {
               let unavailableSeat = await seats[seat]
               unavailableSeat.baseEl[0].className = 'unavailableSeat';
 
@@ -41,20 +50,20 @@ class BookTicketPage extends Component {
           }
         }
       }
-    }    
+    }
   }
-  
+
 
   async bookSeat() {
 
     this.booking = [];
 
     //loop thru the seats in the cinema
-    for(let rows = 0; rows < this.salong.salong.length; rows++){
+    for (let rows = 0; rows < this.salong.salong.length; rows++) {
       let seats = this.salong.salong[rows].row[0]
-      for(let seat = 0; seat < seats.length; seat++){
-        if(seats[seat].baseEl[0].className == 'choosenSeat'){
-          this.booked = this.bookedSeat = {Row: seats[seat].rowNumber, Seat: seats[seat].seatNumber};
+      for (let seat = 0; seat < seats.length; seat++) {
+        if (seats[seat].baseEl[0].className == 'choosenSeat') {
+          this.booked = this.bookedSeat = { Row: seats[seat].rowNumber, Seat: seats[seat].seatNumber };
           this.booking.push(this.booked);
         }
       }
@@ -64,7 +73,7 @@ class BookTicketPage extends Component {
     for (let i = elements.length - 1; i >= 0; --i) {
       elements[i].className = 'unavailableSeat';
     }
-    
+
     let ticket = new Ticket({
       "program": this.program,
       "programId": this.id,
@@ -72,5 +81,59 @@ class BookTicketPage extends Component {
     })
 
     await ticket.save();
+
+    //loop thru the seats in the cinema
+    for (let rows = 0; rows < this.salong.salong.length; rows++) {
+      let seats = this.salong.salong[rows].row[0]
+      for (let seat = 0; seat < seats.length; seat++) {
+        if (seats[seat].baseEl[0].className == 'choosenSeat') {
+          this.booked = this.bookedSeat = { Row: seats[seat].rowNumber, Seat: seats[seat].seatNumber };
+          this.booking.push(this.booked);
+        }
+      }
+    }
+
+    let elements = document.getElementsByClassName('choosenSeat');
+    for (let i = elements.length - 1; i >= 0; --i) {
+      elements[i].className = 'unavailableSeat';
+    }
+
+    let ticket = new Ticket({
+      "program": this.program,
+      "programId": this.id,
+      "seats": this.booking
+    })
+
+    await ticket.save();
+  }
+  decrementKid() {
+    if (this.kid) {
+      this.kid--
+      this.render();
+    }
+  }
+  incrementKid() {
+    this.kid++
+    this.render();
+  }
+  decrementAdult() {
+    if (this.adult) {
+      this.adult--
+      this.render();
+    }
+  }
+  incrementAdult() {
+    this.adult++
+    this.render();
+  }
+  decrementSenior() {
+    if (this.senior) {
+      this.senior--
+      this.render();
+    }
+  }
+  incrementSenior() {
+    this.senior++
+    this.render();
   }
 }
