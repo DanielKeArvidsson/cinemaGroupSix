@@ -1,5 +1,5 @@
 body {
-    background-image: url('/images/cinemabakground.jpg');
+    background-image: url('/images/cinema.png');
     background-size: cover;
     background-attachment: fixed;
     text-align: center;
@@ -12,6 +12,10 @@ body {
   
       main {
         flex: 1;
+      
       }
     }
+   h2 {
+     color: white;
+   }
 }
