@@ -7,6 +7,7 @@ class BookTicketPage extends Component {
     this.adult = 0;
     this.kid = 0;
     this.senior = 0;
+    this.total = 0;
     this.program = {};
     this.addRoute(/\/program\/(.*)/, 'Visning')
     this.addEvents({
@@ -109,31 +110,37 @@ class BookTicketPage extends Component {
   decrementKid() {
     if (this.kid) {
       this.kid--
+      this.total -= 50
       this.render();
     }
   }
   incrementKid() {
     this.kid++
+    this.total += 50
     this.render();
   }
   decrementAdult() {
     if (this.adult) {
       this.adult--
+      this.total -= 85
       this.render();
     }
   }
   incrementAdult() {
     this.adult++
+    this.total += 85
     this.render();
   }
   decrementSenior() {
     if (this.senior) {
       this.senior--
+      this.total -= 65
       this.render();
     }
   }
   incrementSenior() {
     this.senior++
+    this.total += 65
     this.render();
   }
 }
