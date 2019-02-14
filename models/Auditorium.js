@@ -8,7 +8,10 @@ let auditoriumSchema = new Schema({
     "info": String,
     "ljud": String,
     "projektor": String,
-    "image": String
+    "image": String,
+    "butik": String,
+    "butikImage": String,
+    "butikName": String
 });
 
 module.exports = db.model('Auditorium', auditoriumSchema);

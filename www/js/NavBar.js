@@ -5,9 +5,9 @@ class NavBar extends Component {
     this.navItems = [
       new NavItem('Start', '/'),
       new NavItem('Aktuella visningar', '/show-program'),
-      new NavItem('Om oss', '/about-us'),
       new NavItem('Våra Salonger', '/salongs-info'),
-      new NavItem('Sortiment i butiken', '/popcorn-and-snacks')
+      new NavItem('Om oss', '/about-us'),
+     
       // new NavItem('Login', '/login')
     ];
     this.addEvents({
