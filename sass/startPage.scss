@@ -1,0 +1,17 @@
+body {
+    background-image: url('/images/cinemabakground.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    
+    .all-content {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+  
+      main {
+        flex: 1;
+      }
+    }
+}
