@@ -15,8 +15,8 @@ class BookTicketPage extends Component {
     let id = this.routeParts[0];
     this.salong = new Salong();
     let program = await Program.find(`.findById('${id}').populate('movie auditorium').exec()`);
-    this.salongen = await this.salong.getSalong(program.auditorium.name);
     this.wholeMovie = await Movie.find(`.findOne({'title': '${program.movie._props.title}'}).populate('movie auditorium').exec()`);
+    this.salongen = await this.salong.getSalong(program.auditorium.name);
     document.title = 'Program: ' + program.movie.title;
     Object.assign(this, program._props);
     this.render();
