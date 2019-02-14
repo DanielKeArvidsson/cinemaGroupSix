@@ -9,7 +9,6 @@ let programSchema = new Schema({
   "time": { type: String, required: true },
   "images": [String],
   "youtubeTrailers": String,
-  "bookedSeats": []
   // "booking": [{ type: Schema.Types.ObjectId, ref: 'Booking', required: true }]
 }, { toJSON: { virtuals: true } });
 
@@ -18,8 +17,6 @@ programSchema.virtual('bookings', {
   localField: '_id',
   foreignField: 'program'
 });
-
-
 
 programSchema.pre('findOne', function () {
   this.populate({
