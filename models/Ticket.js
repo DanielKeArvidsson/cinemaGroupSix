@@ -4,10 +4,11 @@ const Schema = mongoose.Schema;
 // Create a schema for ticket
 
 let ticketSchema = new Schema({
-    "program": { type: Schema.Types.ObjectId, ref: 'Program', required: true },
+    "program": { type: Schema.Types.Mixed, ref: 'Program'},
     // "purchasedAt": { type: Date, default: new Date() },
-    "user": { type: Schema.Types.ObjectId, ref: 'User', required: true },
-    "seats": [{ type: Number, required: true }],
+    "user": { type: Schema.Types.ObjectId, ref: 'User'},
+    "programId": {type: String},
+    "seats": {type: Schema.Types.Mixed},
     "tickets": { "kids": Number, "senior": Number, "adult": Number }
 });
 
