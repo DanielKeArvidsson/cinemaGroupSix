@@ -5,10 +5,40 @@
 
   ${this.salong}
 
-  <button class="booked-tickets">
+  <!-- <button class="booked-tickets">
     Boka biljett
-  </button>
+  </button> -->
   <div class="select-program">
 
   </div>
 </section>
+<section class="seat-selector">
+    <div>
+      <!-- ${JSON.stringify(this.program, null, 2)} -->
+    </div>
+  
+    <div class="ticket-selector">
+      <div>
+        <p>Ordinarie (85 kr/st)</p>
+        <div class="ticket-incrementor adult">
+          <span class="minus">- </span><span class="ticket-count"></span>${this.adult}<span class="plus"> +</span>
+        </div>
+      </div>
+      <div>
+        <p>Pensionär (65 kr/st)</p>
+        <div class="ticket-incrementor senior">
+          <span class="minus">- </span><span class="ticket-count"></span>${this.kid}<span class="plus"> +</span>
+        </div>
+      </div>
+      <div>
+        <p>Barn (50 kr/st)</p>
+        <div class="ticket-incrementor kids">
+          <span class="minus">- </span><span class="ticket-count"></span>${this.senior}<span class="plus"> +</span>
+        </div>
+      </div>
+    </div>
+  
+    ${this.salong}
+  
+    <button id="book-tickets">Boka biljetter</button>
+  </section>

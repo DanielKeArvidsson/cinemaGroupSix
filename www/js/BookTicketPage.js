@@ -5,6 +5,9 @@ class BookTicketPage extends Component {
     this.seat = seat;
     this.auditorium = {}
     this.movie = {}
+    this.adult = 0;
+    this.kid = 0;
+    this.senior = 0;
     this.addRoute(/\/program\/(.*)/, 'Visning')
     this.addEvents({
       'click .booked-tickets': 'bookSeat'
@@ -50,4 +53,13 @@ class BookTicketPage extends Component {
       elements[i].className = 'unavailableSeat';
     }
   }
+
+  ticketCounter() 
+  {    
+     this.adult++   
+       console.log(this.adult)    
+        this.render(); 
+        }
+
+
 }
