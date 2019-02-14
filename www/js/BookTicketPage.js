@@ -16,6 +16,7 @@ class BookTicketPage extends Component {
     this.program = await Program.find(`.findById('${this.id}').populate('movie auditorium').exec()`);
     this.bookedTicket = await Ticket.find(`.find({programId: '${this.id}'})`);
     this.salongen = await this.salong.getSalong(this.program.auditorium.name);
+    console.log(this.bookedTicket)
 
     this.getBookedSeats();
 
@@ -47,6 +48,9 @@ class BookTicketPage extends Component {
 
   async bookSeat() {
 
+    let Num = new BookingNumber();
+    this.bookingNum = await Num.getBookingNumber();
+
     this.booking = [];
 
     //loop thru the seats in the cinema
@@ -65,12 +69,15 @@ class BookTicketPage extends Component {
       elements[i].className = 'unavailableSeat';
     }
     
-    let ticket = new Ticket({
+    this.ticket = new Ticket({
+      "bookingNum": this.bookingNum,
+      "purchasedAt": new Date(),
       "program": this.program,
       "programId": this.id,
       "seats": this.booking
     })
 
-    await ticket.save();
+    await this.ticket.save();
+
   }
 }

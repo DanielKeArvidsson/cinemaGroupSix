@@ -1,21 +1,22 @@
 <section class="book-ticket">
-  <div>
-    <br>
-    ${this.movie.title}
-    <br>
-    ${this.auditorium.name}
-    <br>
-    ${this.date}
-    <br>
-    ${this.time}
+  <br>
+  ${this.movie.title}
+  <br>
+  ${this.auditorium.name}
+  <br>
+  ${this.date}
+  <br>
+  ${this.time}
+  <div class = "show">
+    ${this.salong}
+
+    <button class="booked-tickets">
+      Boka biljett
+    </button>
   </div>
-
-  ${this.salong}
-
-  <button class="booked-tickets">
-    Boka biljett
-  </button>
-  <div class="select-program">
-
-  </div>
+  <div class="show">
+    <h1>Tack För din Bokning!</h1>
+    <br>
+    ${this.ticket.seats ? this.movie.title : ""}
+  </div> 
 </section>
