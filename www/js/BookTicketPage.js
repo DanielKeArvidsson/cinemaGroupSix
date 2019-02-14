@@ -1,8 +1,7 @@
 class BookTicketPage extends Component {
-  constructor(seat, props) {
+  constructor(props) {
     super(props);
     this._props = props
-    this.seat = seat;
     this.auditorium = {}
     this.movie = {}
     this.addRoute(/\/program\/(.*)/, 'Visning')
@@ -11,9 +10,9 @@ class BookTicketPage extends Component {
     });
   }
   async mount() {
-    let id = this.routeParts[0];
+    this.id = this.routeParts[0];
     this.salong = new Salong();
-    let program = await Program.find(`.findById('${id}').populate('movie auditorium').exec()`);
+    let program = await Program.find(`.findById('${this.id}').populate('movie auditorium').exec()`);
     this.salongen = await this.salong.getSalong(program.auditorium.name);
     document.title = 'Program: ' + program.movie.title;
     Object.assign(this, program._props);
@@ -29,6 +28,7 @@ class BookTicketPage extends Component {
 
     this.booking = [];
 
+    //loop thru the seats in the cinema
     for(let rows = 0; rows < this.salong.salong.length; rows++){
       let seats = this.salong.salong[rows].row[0]
 
@@ -39,6 +39,8 @@ class BookTicketPage extends Component {
           this.booked = this.bookedSeat = {Row: seats[seat].rowNumber, Seat: seats[seat].seatNumber};
           this.booking.push(this.booked);
           console.log(this.booked.Seat);
+
+
         }
       }
     }
