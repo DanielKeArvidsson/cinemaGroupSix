@@ -16,7 +16,6 @@ class BookTicketPage extends Component {
     this.program = await Program.find(`.findById('${this.id}').populate('movie auditorium').exec()`);
     this.bookedTicket = await Ticket.find(`.find({programId: '${this.id}'})`);
     this.salongen = await this.salong.getSalong(this.program.auditorium.name);
-    console.log(this.bookedTicket)
 
     this.getBookedSeats();
 
