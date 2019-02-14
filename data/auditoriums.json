@@ -10,7 +10,11 @@
       10,
       12,
       12
-    ]
+    ],
+    "info": "Salongen har 81 platser på 8 rader. Det finns gång på båda sidor av salongen. Ingång sker längst fram på höger sida. Utgång finns längst fram till vänster. Duken är 30,5 m bred. Rullstolsplatser och hörslinga finns. För reservation av rullstolsplatser var vänlig och ring 011-123456",
+    "ljud": "Ljud: Dolby Atmos och IMAX",
+    "projektor": "Bild: Vi är DCI-certifierade och kan visa DCP:er i full 2K, 4K och 3D via Dolby DSS200.",
+    "image": "storasalongen.JPG"
   },
   {
     "name": "Mellan Salongen",
@@ -22,7 +26,11 @@
       10,
       11,
       12
-    ]
+    ],
+    "info": "Salongen har 67 platser på 7 rader. Det finns gång på båda sidor av salongen. Ingång sker längst fram på höger sida. Utgång finns längst fram till vänster. Duken är 20,5 m bred.Rullstolsplatser och hörslinga finns. För reservation av rullstolsplatser ring 011-123456",
+    "ljud": "Ljud: Dolby Atmos system",
+    "projektor": "Bild: Vi är DCI-certifierade och kan visa DCP:er i full 2K och 4K via Dolby DSS200.",
+    "image": "mellansalongen.JPG"
   },
   {
     "name": "Lilla Salongen",
@@ -33,6 +41,10 @@
       10,
       10,
       12
-    ]
+    ],
+    "info": "Salongen har 55 platser på 6 rader. Det finns gång på båda sidor av salongen. Ingång sker längst fram på höger sida. Utgång finns längst fram till vänster. Duken är 12,5 m bred.Rullstolsplatser och hörslinga finns. För reservation av rullstolsplatser ring 011-123456",
+    "ljud": "Ljud: Digital Theatre System",
+    "projektor": "Bild: Vi är DCI-certifierade och kan visa DCP:er i full 2K och 4K via Dolby DSS200.",
+    "image": "lillasalongen.JPG"
   }
 ]
