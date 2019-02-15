@@ -29,7 +29,7 @@
         border-bottom-left-radius: 7px;
         border-bottom-right-radius: 7px;
         pointer-events: none;
-        background-color: rgb(12, 2, 2);
+        background-color: gray;
     }
 
     .choosenSeat{
@@ -41,6 +41,7 @@
         border-bottom-right-radius: 7px;
         background-color: brown;
         animation: blink 1s linear infinite;
+        cursor: pointer;
     }
     @keyframes blink{
         50%{opacity: .5;}

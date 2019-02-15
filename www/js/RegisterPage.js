@@ -46,7 +46,7 @@ class RegisterPage extends Component {
     } else {
       console.log("User already exists");
       // this.redirect= true;
-    }
+   
 
     $('.register-form').empty();
     $('.register-form').append(`
@@ -67,5 +67,6 @@ class RegisterPage extends Component {
   </div>
     `)
   }
+}
 
 }

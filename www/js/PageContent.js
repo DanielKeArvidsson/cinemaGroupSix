@@ -10,6 +10,7 @@ class PageContent extends Component {
     this.loginPage = new LoginPage();
     App.loginPage = this.loginPage;
     this.registerPage = new RegisterPage();
+    this.salongsInfoPage = new SalongsInfoPage();
     this.missingPage = new MissingPage();
   }
 

@@ -18,8 +18,6 @@ programSchema.virtual('bookings', {
   foreignField: 'program'
 });
 
-
-
 programSchema.pre('findOne', function () {
   this.populate({
     path: 'auditorium',
