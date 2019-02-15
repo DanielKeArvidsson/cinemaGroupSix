@@ -30,6 +30,9 @@ class Salong extends Component {
             this.seatRow.row.push(row);
             this.salong.push(this.seatRow);
             this.render();
+            console.log(this.seat);
+            console.log(this.row);
+            console.log(this.salong);
         }
         return this.salong;
     }
