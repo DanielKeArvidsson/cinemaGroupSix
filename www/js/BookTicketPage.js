@@ -11,7 +11,7 @@ class BookTicketPage extends Component {
     this.program = {};
     this.addRoute(/\/program\/(.*)/, 'Visning')
     this.addEvents({
-      'click .booked-tickets': 'bookSeat',
+      'click #book-tickets': 'bookSeat',
       'click .decrement-kid': 'decrementKid',
       'click .increment-kid': 'incrementKid',
       'click .decrement-adult': 'decrementAdult',
@@ -32,7 +32,7 @@ class BookTicketPage extends Component {
     document.title = 'Program: ' + this.program.movie.title;
     Object.assign(this, this.program._props);
     this.render();
-    console.log(program)
+   
 
   }
   unmount() {
@@ -84,31 +84,33 @@ class BookTicketPage extends Component {
     })
 
     await ticket.save();
-
-    //loop thru the seats in the cinema
-    for (let rows = 0; rows < this.salong.salong.length; rows++) {
-      let seats = this.salong.salong[rows].row[0]
-      for (let seat = 0; seat < seats.length; seat++) {
-        if (seats[seat].baseEl[0].className == 'choosenSeat') {
-          this.booked = this.bookedSeat = { Row: seats[seat].rowNumber, Seat: seats[seat].seatNumber };
-          this.booking.push(this.booked);
-        }
-      }
-    }
-
-    let elements = document.getElementsByClassName('choosenSeat');
-    for (let i = elements.length - 1; i >= 0; --i) {
-      elements[i].className = 'unavailableSeat';
-    }
-
-    let ticket = new Ticket({
-      "program": this.program,
-      "programId": this.id,
-      "seats": this.booking
-    })
-
-    await ticket.save();
+    console.log(ticket);
   }
+
+  //   //loop thru the seats in the cinema
+  //   for (let rows = 0; rows < this.salong.salong.length; rows++) {
+  //     let seats = this.salong.salong[rows].row[0]
+  //     for (let seat = 0; seat < seats.length; seat++) {
+  //       if (seats[seat].baseEl[0].className == 'choosenSeat') {
+  //         this.booked = this.bookedSeat = { Row: seats[seat].rowNumber, Seat: seats[seat].seatNumber };
+  //         this.booking.push(this.booked);
+  //       }
+  //     }
+  //   }
+
+  //   let elements = document.getElementsByClassName('choosenSeat');
+  //   for (let i = elements.length - 1; i >= 0; --i) {
+  //     elements[i].className = 'unavailableSeat';
+  //   }
+
+  //   let ticket = new Ticket({
+  //     "program": this.program,
+  //     "programId": this.id,
+  //     "seats": this.booking
+  //   })
+
+  //   await ticket.save();
+  // }
   decrementKid() {
     if (this.kid) {
       this.kid--
