@@ -32,7 +32,7 @@ class BookTicketPage extends Component {
     document.title = 'Program: ' + this.program.movie.title;
     Object.assign(this, this.program._props);
     this.render();
-    console.log(program)
+    // console.log(program);
 
   }
   unmount() {
