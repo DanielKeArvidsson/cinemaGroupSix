@@ -1,6 +1,7 @@
 <div>
   <h1>${this.title}</h1>
   ${this.description}
+  <img src="/images/${this.images[0]}">
   <p> Skådespelare: ${this.actors.join(', ')}.</p>
   <p>År: ${this.productionYear}</p>
   <p>Längd: ${this.length} minuter.</p>
@@ -18,4 +19,5 @@
   <h2>Recension av ${this.reviews[2].source} </h2>
   <p> <q>${this.reviews[2].quote}</q></p>
   <p>Betyg: ${this.reviews[2].stars} stjärnor utav ${this.reviews[2].max} möjliga </p>
+  <iframe width="682" height="345" src="https://www.youtube.com/embed/${this.youtubeTrailers}"></iframe>
 </div>
