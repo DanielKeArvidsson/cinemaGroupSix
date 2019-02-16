@@ -35,7 +35,7 @@ class BookingHistory extends Component {
     console.log(this.tickets);
     //console.log(tmpTickets);
     this.render();
-        //            await Ticket.find(`.find({programId: '${newLogin.email}'})`);
+       
 }
 
 }
