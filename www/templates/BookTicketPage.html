@@ -1,21 +1,31 @@
 <section class="book-ticket">
-  <br>
-  ${this.movie.title}
-  <br>
-  ${this.auditorium.name}
-  <br>
-  ${this.date}
-  <br>
-  ${this.time}
-  <div class = "show">
-    ${this.salong}
-
-    <button class="booked-tickets">
-      Boka biljett
-    </button>
+  <div class="theShow">
+    <br> ${this.movie.title}
+    <br> ${this.auditorium.name}
+    <br> ${this.date}
+    <br> ${this.time}
   </div>
-  <div class="show">
-    <h1>Tack För din Bokning!</h1>
-    <br>
-  </div> 
+  <div class="ticket-selector">
+    <div>
+      <p>Totalpris: ${this.total}</p>
+      <p>Ordinarie (85 kr/st)</p>
+      <div class="ticket-incrementor adult">
+        <button class="decrement-adult">-</button> ${this.adult}<button class="increment-adult">+</button>
+      </div>
+    </div>
+    <div class="price">
+      <p>Pensionär (65 kr/st)</p>
+      <div class="ticket-incrementor senior">
+        <button class="decrement-senior">-</button> ${this.senior}<button class="increment-senior">+</button>
+      </div>
+    </div>
+    <div class="price">
+      <p>Barn (50 kr/st)</p>
+      <div class="ticket-incrementor kids">
+        <button class="decrement-kid">-</button> ${this.kid}<button class="increment-kid">+</button>
+      </div>
+    </div>
+  </div>
+  ${this.salong}
+  <button id="book-tickets">Boka biljetter</button>
 </section>
