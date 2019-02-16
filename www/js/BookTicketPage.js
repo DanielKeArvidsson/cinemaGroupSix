@@ -78,6 +78,7 @@ class BookTicketPage extends Component {
     }
 
     let ticket = new Ticket({
+      user: App.loginPage.currentUser.email,
       program: this.program,
       programId: this.id,
       seats: this.booking
