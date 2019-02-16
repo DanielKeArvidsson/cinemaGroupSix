@@ -1,7 +1,10 @@
 <div>
   my bookings
   <div>
-      ${this.tickets[0].user}
-      ${this.tickets[0].programId}
-</div>
+    <button class="getBook">Get</button>
+    <div>
+      ${this.show ? `${this.tickets[0].user}${this.tickets[0].programId}` : ''}
+     
+    </div>
+  </div>
 </div>
