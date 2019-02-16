@@ -4,14 +4,15 @@ class BookingHistory extends Component {
     this.addRoute('/mina-bokningar', 'Mina bokningar');
     this.tickets = [];
     this.show = false;
-  //  this.generateBookingHistory();  
+    //  this.generateBookingHistory();  
     this.addEvents({
       'click .getBook': 'generateBookingHistory',
-      
+
     });
   }
 
   async generateBookingHistory() {
+    /*
     this.show = true;
     let tmpTickets = [];
     tmpTickets = await Ticket.find();
@@ -30,14 +31,15 @@ class BookingHistory extends Component {
       })
       this.tickets.push(empty);
     }
-
+*/
 
     //this.tickets = await Ticket.find(`.find({user: '${this.id}'}).populate('program user').exec()`);
     this.tickets = await Ticket.find(`.find().populate('program user').exec()`);
     console.log(this.tickets);
     //console.log(tmpTickets);
     this.render();
-       
-}
+
+  }
+
 
 }
