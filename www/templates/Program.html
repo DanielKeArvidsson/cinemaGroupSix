@@ -4,8 +4,7 @@
     <a href="/movie/${this._props.movie.title.toLowerCase().replace(/\W/g, '-')}" data-id="${this.movie._id}" class="more-movie-info">Mer
         om filmen</a>
     <p>${this.auditorium.name}</p>
-    <p>${this.date}</p>
-    <p>${this.time}</p>
+    <p>📆 ${this.date} 🕑 ${this.time}</p>
     <img src="/images/${this.movie.images[0]}">
     <iframe width="682" height="345" src="https://www.youtube.com/embed/${this.movie.youtubeTrailers}">
     </iframe>
