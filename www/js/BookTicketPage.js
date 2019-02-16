@@ -24,11 +24,12 @@ class BookTicketPage extends Component {
   async mount() {
     this.id = this.routeParts[0];
     this.salong = new Salong();
-    let program = await Program.find(`.findById('${this.id}').populate('movie auditorium').exec()`);
-    this.wholeMovie = await Movie.find(`.findOne({'title': '${program.movie._props.title}'}).populate('movie auditorium').exec()`);
-    this.salongen = await this.salong.getSalong(program.auditorium.name);
-    document.title = 'Program: ' + program.movie.title;
-    Object.assign(this, program._props);
+    this.program = await Program.find(`.findById('${this.id}').populate('movie auditorium').exec()`);
+    this.bookedTicket = await Ticket.find(`.find({programId: '${this.id}'})`);
+    this.wholeMovie = await Movie.find(`.findOne({'title': '${this.program.movie._props.title}'}).populate('movie auditorium').exec()`);
+    this.salongen = await this.salong.getSalong(this.program.auditorium.name);
+    document.title = 'Program: ' + this.program.movie.title;
+    Object.assign(this, this.program._props);
     this.getBookedSeats();
     this.render();
     // console.log(program);
@@ -83,6 +84,7 @@ class BookTicketPage extends Component {
     this.ticket = new Ticket({
       "bookingNum": this.bookingNum,
       "purchasedAt": new Date(),
+      "price": this.total,
       "program": this.program,
       "programId": this.id,
       "seats": this.booking
@@ -90,41 +92,49 @@ class BookTicketPage extends Component {
 
     await this.ticket.save();
 
+    console.log(this.ticket)
+
   }
   decrementKid() {
     if (this.kid) {
       this.kid--
       this.total -= 50
+      this.getBookedSeats()
       this.render();
     }
   }
   incrementKid() {
     this.kid++
     this.total += 50
+    this.getBookedSeats()
     this.render();
   }
   decrementAdult() {
     if (this.adult) {
       this.adult--
       this.total -= 85
+      this.getBookedSeats()
       this.render();
     }
   }
   incrementAdult() {
     this.adult++
     this.total += 85
+    this.getBookedSeats()
     this.render();
   }
   decrementSenior() {
     if (this.senior) {
       this.senior--
       this.total -= 65
+      this.getBookedSeats()
       this.render();
     }
   }
   incrementSenior() {
     this.senior++
     this.total += 65
+    this.getBookedSeats()
     this.render();
   }
 }
