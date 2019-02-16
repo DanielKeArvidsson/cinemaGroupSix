@@ -7,7 +7,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       ${this.navItems}
+     
     </ul>
+    ${this.userIsLoggedIn ? '<a class="my-bookings" href="/mina-bokningar">Mina bokningar</a>':''}
     ${this.userIsLoggedIn ? '<a class="logga-ut" href="/">Logga ut</a>':'<a class="logga-in" href="/login">Logga in</a>'}
   </div>
   <div>

@@ -78,9 +78,9 @@ class BookTicketPage extends Component {
     }
 
     let ticket = new Ticket({
-      "program": this.program,
-      "programId": this.id,
-      "seats": this.booking
+      program: this.program,
+      programId: this.id,
+      seats: this.booking
     })
 
     await ticket.save();
