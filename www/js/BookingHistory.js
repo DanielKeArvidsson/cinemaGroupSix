@@ -12,7 +12,7 @@ class BookingHistory extends Component {
   }
 
   async generateBookingHistory() {
-    /*
+    
     this.show = true;
     let tmpTickets = [];
     tmpTickets = await Ticket.find();
@@ -31,12 +31,15 @@ class BookingHistory extends Component {
       })
       this.tickets.push(empty);
     }
-*/
 
-    //this.tickets = await Ticket.find(`.find({user: '${this.id}'}).populate('program user').exec()`);
-    this.tickets = await Ticket.find(`.find().populate('program user').exec()`);
-    console.log(this.tickets);
-    //console.log(tmpTickets);
+    // console.log(App.loginPage.currentUser)
+    // this.findUser = await User.find(`.find({email: '${App.loginPage.currentUser.email}'})`);
+    // console.log(this.findUser)
+
+   // this.tickets = await Ticket.find(`.find({user: '${this.findUser._id}'}).populate('program user').exec()`);
+    // this.tickets = await Ticket.find(`.find().populate('program user').exec()`);
+     console.log(this.tickets);
+  //  console.log(tmpTickets);
     this.render();
 
   }
