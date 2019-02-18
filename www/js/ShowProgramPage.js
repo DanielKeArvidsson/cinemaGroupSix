@@ -3,15 +3,27 @@ class ShowProgramPage extends Component {
     constructor(props) {
         super(props);
         this.addRoute('/show-program', 'Visningar');
-        this.addEvents({ 'click .select-program': 'selectProgram' });
+        this.addEvents({
+            'click .select-program': 'selectProgram',
+            'click .more-programs': 'morePrograms',
+
+        });
+        this.programCounter = 10;
         this.programs = [];
         this.generateProgramsList();
         this.selectedProgram = {};
     }
 
     async generateProgramsList() {
-        this.programs = await Program.find(`.find().populate('movie auditorium').sort({date: 1, time: 1}).limit(10).exec()`);
+        this.programs = await Program.find(`.find().populate('movie auditorium').sort({date: 1, time: 1}).limit(${this.programCounter}).exec()`);
         this.render();
+    }
+    async morePrograms() {
+        let allPrograms = await Program.find();
+        if (allPrograms.length > this.programCounter) {
+            this.programCounter += 10;
+            this.generateProgramsList()
+        }
     }
 
 
@@ -25,8 +37,8 @@ class ShowProgramPage extends Component {
         App.programId = programId;
         // console.log(programId)
 
-    //    selectedProgram = document.getElementById("selectedProgram");
-    //     console.log(selectedProgram.outerHTML);
+        //    selectedProgram = document.getElementById("selectedProgram");
+        //     console.log(selectedProgram.outerHTML);
         // this.selectedProgram = await Program.find(`.findOne({ _id: '${programId}'}).populate({
 
         //     path: 'Program', select: 'program -_id', }).populate({
