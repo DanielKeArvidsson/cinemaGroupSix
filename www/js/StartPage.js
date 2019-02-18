@@ -8,7 +8,6 @@ class StartPage extends Component {
   }
   async generateMovies() {
     this.foundMovies = await Movie.find();
-    console.log(this.foundMovies);
   }
 
 
