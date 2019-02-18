@@ -79,9 +79,12 @@ class BookTicketPage extends Component {
     let elements = document.getElementsByClassName('choosenSeat');
     for (let i = elements.length - 1; i >= 0; --i) {
       elements[i].className = 'unavailableSeat';
+
+      
     }
     
     this.ticket = new Ticket({
+      user: App.loginPage.currentUser.email,
       "bookingNum": this.bookingNum,
       "purchasedAt": new Date(),
       "price": this.total,
@@ -93,7 +96,7 @@ class BookTicketPage extends Component {
     await this.ticket.save();
 
     console.log(this.ticket)
-
+  
   }
   decrementKid() {
     if (this.kid) {

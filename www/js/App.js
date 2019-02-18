@@ -9,6 +9,7 @@ class App extends Component {
     // only in the App class:
     $('body').html(this.render());
     this.loadAllMovies();
+ console.log("debuggg");
   }
 
   async loadAllMovies() {
@@ -16,6 +17,7 @@ class App extends Component {
     new Router(this.pageContent);
     this.pageContent.movies = this.movies;
     this.pageContent.render();
+    
   }
 
 }

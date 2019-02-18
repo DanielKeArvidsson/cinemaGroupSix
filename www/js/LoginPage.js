@@ -71,7 +71,8 @@ class LoginPage extends Component {
       console.log("Successfully logged in");
       console.log(User.loggedIn);
       this.message = "Successfully logged in";
-
+      newLogin.save();
+      this.currentUser = newLogin;
 
       console.log(Login.loggedIn);
  
@@ -96,8 +97,7 @@ class LoginPage extends Component {
     </div>
     `)
     }
-    newLogin.save();
-    this.currentUser = newLogin;
+   
     console.log(this.currentUser);
   }
 
