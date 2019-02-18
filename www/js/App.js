@@ -9,15 +9,24 @@ class App extends Component {
     // only in the App class:
     $('body').html(this.render());
     this.loadAllMovies();
- console.log("debuggg");
+    this.checkIfLoggedIn();
   }
 
   async loadAllMovies() {
     this.movies = await Movie.find();
     new Router(this.pageContent);
     this.pageContent.movies = this.movies;
-    this.pageContent.render();
-    
+    this.pageContent.render(); 
+  }
+
+
+  //global variable to check if user is logged in
+  //use this variable elsewhere to maniplulate if someone is logged in
+  async checkIfLoggedIn(){
+    Store.loggedIn = await Login.find();
+    if(Store.loggedIn.error){ Store.loggedIn = false; }
+    console.log("Store.loggedin",Store.loggedIn);
+    this.navBar.render();
   }
 
 }

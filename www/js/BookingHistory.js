@@ -4,14 +4,15 @@ class BookingHistory extends Component {
     this.addRoute('/mina-bokningar', 'Mina bokningar');
     this.tickets = [];
     this.show = false;
-    //  this.generateBookingHistory();  
+    this.generateBookingHistory();  
     this.addEvents({
-      'click .getBook': 'generateBookingHistory',
+   //   'click .getBook': 'generateBookingHistory',
 
     });
   }
 
   async generateBookingHistory() {
+    this.tickets.length = 0;
     
     this.show = true;
     let tmpTickets = [];

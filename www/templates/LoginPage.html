@@ -1,7 +1,8 @@
 <section class="loginPage">
-  <form class="login-form ">
+  <button class="logout">Log out</button>
+  <form class="login-form ${this.showLogin ? 'd-block' : 'd-none'}">
     <h2>Logga in</h2>
-    <!-- ${!this.hideLoggin ? 'd-block' : 'd-none' } -->
+   
     <div class="form-group">
       <label for="user-email">E-postaddress</label>
       <input type="email" class="form-control" id="user-email" placeholder="E-postaddress" value="sandra@gmail.com">
@@ -39,12 +40,19 @@
     </div>
   </div>` : ''} -->
 
-  <!-- <div class="jumbotron ${this.showModal ? 'd-block' : 'd-none' }">
-    Du är nu inloggad  
-    <a type="button" href="/" class="btn btn-primary relocate ${this.showModal ? 'd-block' : 'd-none' }">Stäng</button>
+  <div class="jumbotron ${this.showError ? 'd-block' : 'd-none' }">
+    <h1 class="display-4">no such user</h1>
+    <p class="lead">faf</p>
+    <hr class="my-4">   
+    <a class="btn btn-primary btn-lg relocate" href="/" role="button">Stäng</a>
+  </div>
+  
+  <div class="jumbotron ${this.showYouAreLoggedIn ? 'd-block' : 'd-none' }">
+    <h1 class="display-4">Välkommen ${this.currentUserInfo.firstName}</h1>
+    <p class="lead">Du är nu inloggad med ${this.currentUserInfo.email}!</p>
+    <hr class="my-4">   
+    <a class="btn btn-primary btn-lg relocate" href="/" role="button">Stäng</a>
   </div>
 
-  <div class="jumbotron ${this.showError ? 'd-block' : 'd-none' }">
-   User not found!
-  </div> -->
+
 </section>

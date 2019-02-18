@@ -3,24 +3,25 @@ class LoginPage extends Component {
   constructor(props) {
     super(props);
     this.currentUser = "";
+    this.currentLogin = "";
+    this.currentUserInfo = "";
     this.showModal = false;
+    this.showLogin = true;
     this.showError = false;
-    this.hideLoggin = false;
-    this.message = "";
+    this.showYouAreLoggedIn = false;
     this.addRoute('/login', 'Login');
     this.addEvents({
-      'click .user-login': 'userLogin',
-      'submit form': 'preventPageReload',
-      'click .relocate': 'relocate'
+      'submit form': 'userLogin',
+      'click .relocate': 'relocate',
+      'click .logout': 'userLogout'
     });
 
   }
 
-  preventPageReload(e) {
-    e.preventDefault() // prevent submitting a form from reloading a page
-  }
 
-  async userLogin() {
+  async userLogin(e) {
+
+    e.preventDefault(); // prevent submitting a form from reloading a page
 
     let newLogin = new Login(
       {
@@ -29,75 +30,68 @@ class LoginPage extends Component {
       }
     )
     let user = await User.find(`.find({email: '${newLogin.email}'})`);
+    this.currentUserInfo = user[0];
+    console.log(this.currentUserInfo);
 
-    // let passwordMatch = await bcrypt.compare(newLogin.password + passwordSalt , user.password );
     console.log(user);
-    // console.log(passwordMatch);
     if (user.length === 0) {
-      // this.message = "User not found. Please register."; //show modal
-
-      // console.log(this.message);
-     
-
+      this.showLogin = false;
+      this.showError = true;
       console.log("error: 'No such user!'");
-   
-      $('.login-form').empty();
-      $('.login-form').append(`
-      <div>
-     <div id="myModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">No such user!</h5>
-            </div>
-            <div class="modal-body">
-              <p>Please register</p>
-            </div>
-            <div class="modal-footer">
-             <a href="/register">Stäng</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    `)
-    }
-    //else if(passwordMatch === true){ ///how to get tha password check?
-    //   console.log("Password does not match");
-    // }
-    else {
-      this.showModal = true;
-      this.hideLoggin = true;
+
+      //   $('.login-form').empty();
+      //   $('.login-form').append(`
+      //   <div>
+      //  <div id="myModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+      //     <div class="modal-dialog" role="document">
+      //       <div class="modal-content">
+      //         <div class="modal-header">
+      //           <h5 class="modal-title">No such user!</h5>
+      //         </div>
+      //         <div class="modal-body">
+      //           <p>Please register</p>
+      //         </div>
+      //         <div class="modal-footer">
+      //          <a href="/register">Stäng</a>
+      //         </div>
+      //       </div>
+      //     </div>
+      //   </div>
+      // </div>
+      // `)
+    } else {
+      this.showLogin = false;
+      this.showYouAreLoggedIn = true;
       console.log("Successfully logged in");
       console.log(User.loggedIn);
-      this.message = "Successfully logged in";
       newLogin.save();
       this.currentUser = newLogin;
-
       console.log(Login.loggedIn);
- 
-      $('.login-form').empty();
-      $('.login-form').append(`
-      <div>
-     <div id="myModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Hej ${this.currentUser.email}!</h5>
-            </div>
-            <div class="modal-body">
-              <p>Du är nu inloggad!</p>
-            </div>
-            <div class="modal-footer">
-             <a class="relocate" href="/">Stäng</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    `)
+
+      //   $('.login-form').empty();
+      //   $('.login-form').append(`
+      //   <div>
+      //  <div id="myModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+      //     <div class="modal-dialog" role="document">
+      //       <div class="modal-content">
+      //         <div class="modal-header">
+      //           <h5 class="modal-title">Hej ${this.currentUser.email}!</h5>
+      //         </div>
+      //         <div class="modal-body">
+      //           <p>Du är nu inloggad!</p>
+      //         </div>
+      //         <div class="modal-footer">
+      //          <a class="relocate" href="/">Stäng</a>
+      //         </div>
+      //       </div>
+      //     </div>
+      //   </div>
+      // </div>
+      // `)
     }
-   
+    this.render();
+    Store.navbar.render();
+    console.log("RERENDERING!");
     console.log(this.currentUser);
   }
 
@@ -134,8 +128,13 @@ class LoginPage extends Component {
     this.render();
   }
 
-  userLogout() {
-    this.currentUser.delete();
+  async userLogout() {
+    let toDeleteUser = await Login.find();
+    this.currentLogin = await Login.find();
+    console.log(toDeleteUser, "to be deleted");
+    console.log(this.currentLogin,"current");
+    await toDeleteUser.delete();
+    await this.currentUser.delete();
     Store.navbar.userIsLoggedIn = false;
     Store.navbar.render();
     this.render();
