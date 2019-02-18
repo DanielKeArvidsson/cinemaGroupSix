@@ -5,12 +5,14 @@ const Schema = mongoose.Schema;
 
 let ticketSchema = new Schema({
     "program": { type: Schema.Types.Mixed, ref: 'Program'},
-    // "purchasedAt": { type: Date, default: new Date() },
-  //"user": { type: Schema.Types.ObjectId, ref: 'User'},
-    "programId": {type: String},
   "user": {type: String},
-    "seats": {type: Schema.Types.Mixed},
+    "purchasedAt": { type: Date},
+    "price": {type: Number},
+    "seats": {type: Schema.Types.Mixed, required: true},
+    "programId": {type: String, required: true},
+    "bookingNum": {type: String},
     "tickets": { "kids": Number, "senior": Number, "adult": Number }
+
 });
 
 
