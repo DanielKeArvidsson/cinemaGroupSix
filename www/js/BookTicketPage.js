@@ -12,7 +12,7 @@ class BookTicketPage extends Component {
     this.wholeMovie = {}
     this.addRoute(/\/program\/(.*)/, 'Visning')
     this.addEvents({
-      'click #book-tickets': 'bookSeat',
+      'click .booked-tickets': 'bookSeat',
       'click .decrement-kid': 'decrementKid',
       'click .increment-kid': 'incrementKid',
       'click .decrement-adult': 'decrementAdult',
@@ -79,17 +79,24 @@ class BookTicketPage extends Component {
     let elements = document.getElementsByClassName('choosenSeat');
     for (let i = elements.length - 1; i >= 0; --i) {
       elements[i].className = 'unavailableSeat';
+
+      
     }
-     user: App.loginPage.currentUser.email,
+    
+    this.ticket = new Ticket({
+      user: App.loginPage.currentUser.email,
       "bookingNum": this.bookingNum,
       "purchasedAt": new Date(),
       "price": this.total,
+      "program": this.program,
+      "programId": this.id,
+      "seats": this.booking
     })
 
     await this.ticket.save();
 
     console.log(this.ticket)
-
+  
   }
   decrementKid() {
     if (this.kid) {
