@@ -39,27 +39,31 @@
       </div>
     </div>
   </div>` : ''} -->
-
-  <div class="jumbotron ${this.showError ? 'd-block' : 'd-none' }">
+<div class="${this.showError ? 'd-block' : 'd-none'}">
+  <div class="jumbotron">
     <h1 class="display-4">no such user</h1>
     <p class="lead">faf</p>
     <hr class="my-4">   
     <a class="btn btn-primary btn-lg relocate" href="/" role="button">Stäng</a>
   </div>
+</div>
   
+<div>
   <div class="jumbotron ${Store.loggedIn ? 'd-block' : 'd-none' }">
     <h1 class="display-4">Välkommen ${this.currentUserInfo.firstName}</h1>
     <p class="lead">Du är nu inloggad med ${this.currentUserInfo.email}!</p>
     <hr class="my-4">   
     <a class="btn btn-primary btn-lg" href="/" role="button">Stäng</a>
   </div>
+</div>
 
+<div>
   <div class="jumbotron ${this.showErrorPassword ? 'd-block' : 'd-none' }">
       <h1 class="display-4">Välkommen ${this.currentUserInfo.firstName}</h1>
       <p class="lead">Du är nu inloggad med ${this.currentUserInfo.email}!</p>
       <hr class="my-4">   
       <a class="btn btn-primary btn-lg" href="/" role="button">Stäng</a>
     </div>
-
+  </div>
 
 </section>
