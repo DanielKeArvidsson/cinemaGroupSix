@@ -6,6 +6,8 @@ class PageContent extends Component {
     this.startPage = new StartPage();
     this.showProgramPage = new ShowProgramPage();
     this.aboutPage = new AboutUs();
+    this.bookTicketPage = new BookTicketPage();
+    App.bookTicketsPage = this.bookTicketPage;
     this.loginPage = new LoginPage();
     App.loginPage = this.loginPage;
     this.bookTicketPage = new BookTicketPage();  

@@ -21,7 +21,7 @@ class Salong extends Component {
             // create one row of seats
 
             for (let seatCounter = 0; seatCounter < numberOfSeatsInRow; seatCounter++) {
-                row.push(new Seat(this.seats, this.rows));
+                row.push(new Seat(this.seats, this.rows, this._props));
                 this.seats--
             }
             this.seats += numberOfSeatsInRow
