@@ -144,7 +144,9 @@ class LoginPage extends Component {
   Store.loggedIn = false;
   Store.userIsLoggedIn = false;
     Store.navbar.userIsLoggedIn = false;
+    
     Store.navbar.render();
+    
     this.render();
   }
 

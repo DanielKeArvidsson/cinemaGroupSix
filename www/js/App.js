@@ -10,7 +10,7 @@ class App extends Component {
     $('body').html(this.render());
     this.loadAllMovies();
     this.checkIfLoggedIn();
-    this.setUserName();
+    //this.setUserName();
   }
 
   async loadAllMovies() {
@@ -31,13 +31,13 @@ class App extends Component {
     this.navBar.render();
   }
 
-  async setUserName() {
-   let tempUser = await Login.find();
+  // async setUserName() {
+  //  let tempUser = await Login.find();
  
-   let user = await User.find(`.find({email: '${tempUser.email}'})`);
-   Store.currentUser =  user[0].firstName;
-   console.log(Store.currentUser, "yyyeeeeeeeeeeyy");
-   this.navBar.render();
-  }
+  //  let user = await User.find(`.find({email: '${tempUser.email}'})`);
+  //  Store.currentUser =  user[0].firstName;
+  //  console.log(Store.currentUser, "yyyeeeeeeeeeeyy");
+  //  this.navBar.render();
+  // }
 
 }
