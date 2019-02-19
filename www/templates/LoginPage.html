@@ -1,6 +1,6 @@
 <section class="loginPage">
 
-  <form class="login-form ${Store.loggedIn ? 'd-none' : 'd-block'}">
+  <form class="login-form ${Store.loggedIn || this.hideLogin ? 'd-none' : 'd-block'}">
     <h2>Logga in</h2>
    
     <div class="form-group">
@@ -53,6 +53,13 @@
     <hr class="my-4">   
     <a class="btn btn-primary btn-lg" href="/" role="button">Stäng</a>
   </div>
+
+  <div class="jumbotron ${this.showErrorPassword ? 'd-block' : 'd-none' }">
+      <h1 class="display-4">Välkommen ${this.currentUserInfo.firstName}</h1>
+      <p class="lead">Du är nu inloggad med ${this.currentUserInfo.email}!</p>
+      <hr class="my-4">   
+      <a class="btn btn-primary btn-lg" href="/" role="button">Stäng</a>
+    </div>
 
 
 </section>
