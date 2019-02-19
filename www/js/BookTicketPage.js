@@ -4,16 +4,17 @@ class BookTicketPage extends Component {
     this._props = props
     this.auditorium = {}
     this.movie = {}
-    this.adult = 0;
+    this.adult = 2;
     this.kid = 0;
     this.senior = 0;
-    this.total = 0;
+    this.total = 170;
     this.program = {};
-    this.totalTickets = 0
+    this.totalTickets = 2;
     this.wholeMovie = {}
     this.ticket = {}
     this.showSalong = true;
     this.seatsForTicket = "";
+    this.error = "";
     this.addRoute(/\/program\/(.*)/, 'Visning')
     this.addEvents({
       'click .booked-tickets': 'bookSeat',
@@ -22,7 +23,9 @@ class BookTicketPage extends Component {
       'click .decrement-adult': 'decrementAdult',
       'click .increment-adult': 'incrementAdult',
       'click .decrement-senior': 'decrementSenior',
-      'click .increment-senior': 'incrementSenior'
+      'click .increment-senior': 'incrementSenior',
+      'mouseout .seat, .choosenSeat': 'reloadSalong',
+      'click .seat, .choosenSeat': 'reloadSalongIfBooked'
     });
   }
   async mount() {
@@ -42,6 +45,40 @@ class BookTicketPage extends Component {
   unmount() {
     delete this.salong;
     delete this.wholeMovie;
+  }
+
+  reloadSalongIfBooked(){
+    for (let rows = 0; rows < this.salong.salong.length; rows++) {
+      let seats = this.salong.salong[rows].row[0]
+      for (let seat = 0; seat < seats.length; seat++) {
+        if (seats[seat].baseEl[0].className == 'hoverChoosenSeat') {
+          this.render();
+        }
+      }
+    }
+    this.getBookedSeats()
+
+  }  
+
+  reloadSalong(){
+    this.ja = 0
+
+    for (let rows = 0; rows < this.salong.salong.length; rows++) {
+      let seats = this.salong.salong[rows].row[0]
+      for (let seat = 0; seat < seats.length; seat++) {
+        if (seats[seat].baseEl[0].className == 'hoverChoosenSeat') {
+          this.ja += 1
+        }
+        if(seats[seat].baseEl[0].className == 'choosenSeat'){
+          seats[seat].baseEl[0].className = 'seat'
+        }
+      }
+    }
+
+    if(this.ja < 1){
+        this.getBookedSeats()
+        this.render();
+    }
   }
 
   async getBookedSeats() {
@@ -73,38 +110,46 @@ class BookTicketPage extends Component {
     for (let rows = 0; rows < this.salong.salong.length; rows++) {
       let seats = this.salong.salong[rows].row[0]
       for (let seat = 0; seat < seats.length; seat++) {
-        if (seats[seat].baseEl[0].className == 'choosenSeat') {
+        if (seats[seat].baseEl[0].className == 'hoverChoosenSeat') {
           this.booked = this.bookedSeat = { Row: seats[seat].rowNumber, Seat: seats[seat].seatNumber };
           this.booking.push(this.booked);
         }
       }
     }
 
-    let elements = document.getElementsByClassName('choosenSeat');
-    for (let i = elements.length - 1; i >= 0; --i) {
-      elements[i].className = 'unavailableSeat';
-    }
+    if(this.totalTickets == this.booking.length){
 
-    this.ticket = new Ticket({
-      "bookingNum": this.bookingNum,
-      "purchasedAt": new Date(),
-      "price": this.total,
-      "program": this.program,
-      "programId": this.id,
-      "seats": this.booking
-    })
+      let elements = document.getElementsByClassName('hoverChoosenSeat');
+      for (let i = elements.length - 1; i >= 0; --i) {
+        elements[i].className = 'unavailableSeat';
+      }
 
-    await this.ticket.save();
+      this.ticket = new Ticket({
+        "bookingNum": this.bookingNum,
+        "purchasedAt": new Date(),
+        "price": this.total,
+        "program": this.program,
+        "programId": this.id,
+        "seats": this.booking
+      })
 
-    for (const seatAndRow of this.booking) {
-      this.seatsForTicket += "Rad " + seatAndRow.Row
-      this.seatsForTicket += " Stol " + seatAndRow.Seat + " , "
-    }
-    this.showSalong = false;
-    this.render()
-    console.log(this.ticket)
+      await this.ticket.save();
+
+      for (const seatAndRow of this.booking) {
+        this.seatsForTicket += "Rad " + seatAndRow.Row
+        this.seatsForTicket += " Stol " + seatAndRow.Seat + " , "
+      }
+      this.showSalong = false;
+      this.render()
+      console.log(this.ticket)
+  }else{
+    this.error = `    <div class="alert alert-danger mt-4" role="alert"> Välj rätt antal platser för att boka! </div>`
+    this.getBookedSeats()
+    this.render();
+  }
 
   }
+
   decrementKid() {
     if (this.kid) {
       this.kid--
@@ -115,11 +160,13 @@ class BookTicketPage extends Component {
     }
   }
   incrementKid() {
-    this.kid++
-    this.total += 50
-    this.getBookedSeats()
-    this.totalTickets++
-    this.render();
+    if(this.totalTickets < 7){
+      this.kid++
+      this.total += 50
+      this.getBookedSeats()
+      this.totalTickets++
+      this.render();
+    }
   }
   decrementAdult() {
     if (this.adult) {
@@ -131,11 +178,13 @@ class BookTicketPage extends Component {
     }
   }
   incrementAdult() {
-    this.adult++
-    this.total += 85
-    this.getBookedSeats()
-    this.totalTickets++
-    this.render();
+    if(this.totalTickets < 7){
+      this.adult++
+      this.total += 85
+      this.getBookedSeats()
+      this.totalTickets++
+      this.render();
+    }
   }
   decrementSenior() {
     if (this.senior) {
@@ -147,10 +196,12 @@ class BookTicketPage extends Component {
     }
   }
   incrementSenior() {
-    this.senior++
-    this.total += 65
-    this.getBookedSeats()
-    this.totalTickets++
-    this.render();
+    if(this.totalTickets < 7){
+      this.senior++
+      this.total += 65
+      this.getBookedSeats()
+      this.totalTickets++
+      this.render();
+    }
   }
 }
