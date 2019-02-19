@@ -14,11 +14,6 @@
         border-bottom-left-radius: 7px;
         border-bottom-right-radius: 7px;
         cursor: pointer;
-
-        &:hover{
-            opacity: .5; 
-        }
-
     }
 
     .unavailableSeat{
@@ -43,8 +38,21 @@
         animation: blink 1s linear infinite;
         cursor: pointer;
     }
+
+    .hoverChoosenSeat{
+        width: 20px;
+        height: 20px;
+        margin: 3px;
+        display: inline-block;
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
+        background-color: brown;
+        pointer-events: none;
+        animation: blink 1s linear infinite;
+        cursor: pointer;
+    }
     @keyframes blink{
-        50%{opacity: .5;}
-        100%{opacity: 1;}
-        }
+        50%{background-color: red;}
+        100%{background-color: brown;}
+    }
 }

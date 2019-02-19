@@ -1,34 +1,48 @@
 <section class="book-ticket">
   <div class="${this.showSalong ? 'd-block' : 'd-none'}">
     <div class="theShow">
-      <br> ${this.movie.title}
-      <br> ${this.auditorium.name}
-      <br> ${this.date}
-      <br> ${this.time}
+      <h2>${this.movie.title}</h2>
+      <h3>${this.auditorium.name}</h3>
+      <h3>📆 ${this.date}</h3>
+      <h3>🕑 ${this.time}</h3>
     </div>
     <div class="ticket-selector">
-      <div>
-        <p>Totalpris: ${this.total}</p>
-        <p>Ordinarie (85 kr/st)</p>
-        <div class="ticket-incrementor adult">
-          <button class="decrement-adult">-</button> ${this.adult}<button class="increment-adult">+</button>
+
+      <div class="row mt-4 mb-4">
+        <div class="price col-12 col-md-4 mt-4">
+          <p>Ordinarie (85 kr/st)</p>
+          <div class="ticket-incrementor adult">
+            <button class="decrement-adult btn btn-secondary mr-2">-</button>  ${this.adult}  <button class="increment-adult btn btn-secondary ml-2">+</button>
+          </div>
+        </div>
+
+
+        <div class="price col-12 col-md-4 mt-4">
+          <p>Pensionär (65 kr/st)</p>
+          <div class="ticket-incrementor senior">
+            <button class="decrement-senior btn btn-secondary mr-2">-</button>  ${this.senior}  <button class="increment-senior btn btn-secondary ml-2">+</button>
+          </div>
+        </div>
+
+        <div class="price col-12 col-md-4 mt-4">
+          <p>Barn (50 kr/st)</p>
+          <div class="ticket-incrementor kids">
+            <button class="decrement-kid btn btn-secondary mr-2">-</button>  ${this.kid}  <button class="increment-kid btn btn-secondary ml-2">+</button>
+          </div>
         </div>
       </div>
-      <div class="price">
-        <p>Pensionär (65 kr/st)</p>
-        <div class="ticket-incrementor senior">
-          <button class="decrement-senior">-</button> ${this.senior}<button class="increment-senior">+</button>
-        </div>
-      </div>
-      <div class="price">
-        <p>Barn (50 kr/st)</p>
-        <div class="ticket-incrementor kids">
-          <button class="decrement-kid">-</button> ${this.kid}<button class="increment-kid">+</button>
-        </div>
-      </div>
+      
+      <h4>Totalpris: ${this.total}</h4>
+
     </div>
     ${this.salong}
-    <button class="booked-tickets">Boka biljetter</button>
+
+    ${this.error}
+
+    <button type="button" class="btn btn-secondary booked-tickets mt-4 mb-4">
+        Boka biljetter 
+    </button>
+
   </div>
   <div class="${this.showSalong ? 'd-none' : 'd-block'}">
     <div class="card" style="width: 30rem;">

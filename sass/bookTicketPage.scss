@@ -1,19 +1,28 @@
-* {
+.book-ticket{
 
-    box-sizing: border-box;
-  
-  }
-#program-select {
-    color: white;
-}
+    * {
 
-.price {
-    color: white;
-}
+        box-sizing: border-box;
+    
+    }
+    #program-select {
+        color: blac;
+    }
 
-.theShow {
-    color: white;
-}
-.ticket-selector {
-    color: white;
+    .price {
+        color: white;
+        text-align: center
+    }
+
+    h4{
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .theShow {
+        color: white;
+    }
+    .ticket-selector {
+        color: white;
+    }
 }
