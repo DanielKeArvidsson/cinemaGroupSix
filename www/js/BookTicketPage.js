@@ -4,10 +4,10 @@ class BookTicketPage extends Component {
     this._props = props
     this.auditorium = {}
     this.movie = {}
-    this.adult = 0;
+    this.adult = 2;
     this.kid = 0;
     this.senior = 0;
-    this.total = 0;
+    this.total = 170;
     this.program = {};
     this.totalTickets = 0
     this.wholeMovie = {}

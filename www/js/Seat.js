@@ -3,43 +3,41 @@ class Seat extends Component{
         super(props);
         this.seatNumber = seats;
         this.rowNumber = rows;
+        this.choosenSeats = 0;
         this.addEvents({
             'click': 'getSeat',
-        });
-        this.addEvents({
-            'mouseenter': 'selectMultipleSeats',
         });
     }
 
     async getSeat(){
+        this.test = []
+
+
         if(this.baseEl[0].className == 'choosenSeat'){
             this.baseEl[0].className = 'seat';
-        }else{
+        }
+
+        if(App.bookTicketsPage.totalTickets > this.choosenSeats){
             this.baseEl[0].className = 'choosenSeat'
         }
+
+        for (let rows = 0; rows < App.bookTicketsPage.salong.salong.length; rows++) {
+            let seats = App.bookTicketsPage.salong.salong[rows].row[0]
+            for (let seat = 0; seat < seats.length; seat++) {
+                if(seats[seat].baseEl[0].className == 'choosenSeat'){
+                    console.log(seat)
+                    this.test.push(seats[seat])
+                    for(let i = 1; i < App.bookTicketsPage.totalTickets; i++){
+                        this.test.push(seats[seat += 1])
+                    }
+                }
+            }
+        }
+
+        console.log(this.test)
+
+        for(let valdaPlatser of this.test){
+            valdaPlatser.baseEl[0].className = 'choosenSeat'
+        }
     }
-
-    async selectMultipleSeats(){
-        /*
-            Need to access how many seats that the customer have selected. 
-            To identify which seats should be highlighted.
-
-            Example:
-                [1] [2] [3] [4]
-                [5] [6] [7] [8]
-
-            If seat 1 is "HOVERED" and customer have selected 3 seats then 1,2 and 3 should be highlighted.
-            By knowing "this.totalTickets" from BookingTicketPage.js it should be possible to know which seats that has to be highlighted.
-
-            If you can't access "this.totalTickets" from BookingTicketPage.js you could query the DOM and pick the seats from there and sum the total 
-            tickets..
-
-
-
-
-        */
-
-        console.log("hover!", this.totalTickets)
-    }
-
 }
