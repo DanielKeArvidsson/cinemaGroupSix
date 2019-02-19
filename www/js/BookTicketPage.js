@@ -9,7 +9,11 @@ class BookTicketPage extends Component {
     this.senior = 0;
     this.total = 0;
     this.program = {};
+    this.totalTickets = 0
     this.wholeMovie = {}
+    this.ticket = {}
+    this.showSalong = true;
+    this.seatsForTicket = "";
     this.addRoute(/\/program\/(.*)/, 'Visning')
     this.addEvents({
       'click .booked-tickets': 'bookSeat',
@@ -82,7 +86,7 @@ class BookTicketPage extends Component {
 
       
     }
-    
+
     this.ticket = new Ticket({
       user: App.loginPage.currentUser.email,
       "bookingNum": this.bookingNum,
@@ -95,6 +99,12 @@ class BookTicketPage extends Component {
 
     await this.ticket.save();
 
+    for (const seatAndRow of this.booking) {
+      this.seatsForTicket += "Rad " + seatAndRow.Row
+      this.seatsForTicket += " Stol " + seatAndRow.Seat + " , "
+    }
+    this.showSalong = false;
+    this.render()
     console.log(this.ticket)
   
   }
@@ -103,6 +113,7 @@ class BookTicketPage extends Component {
       this.kid--
       this.total -= 50
       this.getBookedSeats()
+      this.totalTickets--
       this.render();
     }
   }
@@ -110,6 +121,7 @@ class BookTicketPage extends Component {
     this.kid++
     this.total += 50
     this.getBookedSeats()
+    this.totalTickets++
     this.render();
   }
   decrementAdult() {
@@ -117,6 +129,7 @@ class BookTicketPage extends Component {
       this.adult--
       this.total -= 85
       this.getBookedSeats()
+      this.totalTickets--
       this.render();
     }
   }
@@ -124,6 +137,7 @@ class BookTicketPage extends Component {
     this.adult++
     this.total += 85
     this.getBookedSeats()
+    this.totalTickets++
     this.render();
   }
   decrementSenior() {
@@ -131,6 +145,7 @@ class BookTicketPage extends Component {
       this.senior--
       this.total -= 65
       this.getBookedSeats()
+      this.totalTickets--
       this.render();
     }
   }
@@ -138,6 +153,7 @@ class BookTicketPage extends Component {
     this.senior++
     this.total += 65
     this.getBookedSeats()
+    this.totalTickets++
     this.render();
   }
 }
