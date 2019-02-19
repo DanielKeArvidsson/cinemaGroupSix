@@ -8,8 +8,8 @@ class BookTicketPage extends Component {
     this.kid = 0;
     this.senior = 0;
     this.total = 170;
-    this.program = {};
     this.totalTickets = 2;
+    this.program = {};
     this.wholeMovie = {}
     this.ticket = {}
     this.showSalong = true;
@@ -30,6 +30,12 @@ class BookTicketPage extends Component {
   }
   async mount() {
     this.showSalong = true;
+    this.adult = 2;
+    this.kid = 0;
+    this.senior = 0;
+    this.total = 170;
+    this.totalTickets = 2;
+    this.error = "";
     this.id = this.routeParts[0];
     this.salong = new Salong();
     this.program = await Program.find(`.findById('${this.id}').populate('movie auditorium').exec()`);
