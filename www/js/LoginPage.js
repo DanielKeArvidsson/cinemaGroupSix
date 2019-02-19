@@ -60,6 +60,8 @@ class LoginPage extends Component {
       // </div>
       // `)
     } else {
+      Store.loggedIn = true;
+      console.log(Store.loggedIn, "store");
       this.showLogin = false;
       this.showYouAreLoggedIn = true;
       console.log("Successfully logged in");
@@ -122,11 +124,11 @@ class LoginPage extends Component {
 
 
   //navbar
-  relocate() {
-    Store.navbar.userIsLoggedIn = true;
-    Store.navbar.render();
-    this.render();
-  }
+  // relocate() {
+  //   Store.navbar.userIsLoggedIn = true;
+  //   Store.navbar.render();
+  //   this.render();
+  // }
 
   async userLogout() {
     let toDeleteUser = await Login.find();
@@ -134,7 +136,8 @@ class LoginPage extends Component {
     console.log(toDeleteUser, "to be deleted");
     console.log(this.currentLogin,"current");
     await toDeleteUser.delete();
-    await this.currentUser.delete();
+ //   await this.currentUser.delete();
+  Store.loggedIn = false;
     Store.navbar.userIsLoggedIn = false;
     Store.navbar.render();
     this.render();

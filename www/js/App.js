@@ -10,6 +10,7 @@ class App extends Component {
     $('body').html(this.render());
     this.loadAllMovies();
     this.checkIfLoggedIn();
+    this.setUserName();
   }
 
   async loadAllMovies() {
@@ -27,6 +28,14 @@ class App extends Component {
     if(Store.loggedIn.error){ Store.loggedIn = false; }
     console.log("Store.loggedin",Store.loggedIn);
     this.navBar.render();
+  }
+
+  async setUserName() {
+   let tempUser = await Login.find();
+   let user = await User.find(`.find({email: '${tempUser.email}'})`);
+   Store.currentUser =  user[0].firstName;
+   console.log(Store.currentUser, "yyyeeeeeeeeeeyy");
+   this.navBar.render();
   }
 
 }

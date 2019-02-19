@@ -6,7 +6,7 @@ class NavBar extends Component {
       'click .logga-ut': 'userLogout'
     });
     
-    this.userIsLoggedIn = false; // Remove this and use Store.loggedIn instead
+  //  this.userIsLoggedIn = false; // Remove this and use Store.loggedIn instead
     Store.navbar = this;
    
     this.socialItems = new SocialItems();
