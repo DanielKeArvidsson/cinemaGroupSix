@@ -118,7 +118,7 @@ class BookTicketPage extends Component {
       }
     }
 
-    if(this.totalTickets == this.booking.length){
+    if(this.totalTickets == this.booking.length & this.totalTickets > 0){
 
       let elements = document.getElementsByClassName('hoverChoosenSeat');
       for (let i = elements.length - 1; i >= 0; --i) {
