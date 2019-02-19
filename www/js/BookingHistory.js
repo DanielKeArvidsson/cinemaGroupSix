@@ -3,15 +3,17 @@ class BookingHistory extends Component {
     super(props);
     this.addRoute('/mina-bokningar', 'Mina bokningar');
     this.tickets = [];
+    this.message = "";
     this.show = false;
-    this.generateBookingHistory();  
+    //this.generateBookingHistory();  
     this.addEvents({
-   //   'click .getBook': 'generateBookingHistory',
-
+    'click .getBook': 'generateBookingHistory',
+  
     });
   }
 
   async generateBookingHistory() {
+  
     this.tickets.length = 0;
     
     this.show = true;
@@ -24,14 +26,14 @@ class BookingHistory extends Component {
       }
     }
     if (this.tickets.length === 0) {
-      //add here what is shown in html so that the error doesnt show
-      let empty = new Ticket({
-        user: '',
-        program: '',
-        programId: '',
-        seats:''
-      })
-      this.tickets.push(empty);
+      this.message += `
+      <div class="card text-dark mb-2"">
+        <div class="card-body">
+          <h5 class="card-title">Din bokningshistoria är tom</h5>
+        </div>
+        <a class="btn btn-primary" href="/">Stäng</a>
+      </div>
+      `;
     }
 
     // console.log(App.loginPage.currentUser)

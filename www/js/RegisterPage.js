@@ -14,7 +14,8 @@ class RegisterPage extends Component {
   }
 
   async registerUser(e) {
-    e.preventDefault();
+    e.preventDefault(); 
+   
     let newUser = new User(
       {
         firstName: this.baseEl.find('#user-firstName').val(),
@@ -57,7 +58,7 @@ class RegisterPage extends Component {
       // this.redirect= true;
       this.showForm = false;
       this.showError = true;
-
+    
   //   $('.register-form').empty();
   //   $('.register-form').append(`
   //   <div>
