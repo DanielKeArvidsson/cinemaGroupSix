@@ -143,7 +143,7 @@ class BookTicketPage extends Component {
       this.render()
       console.log(this.ticket)
   }else{
-    this.error = `    <div class="alert alert-danger mt-3" role="alert"> Välj rätt antal platser för att boka! </div>`
+    this.error = `    <div class="alert alert-danger mt-4" role="alert"> Välj rätt antal platser för att boka! </div>`
     this.getBookedSeats()
     this.render();
   }
