@@ -24,6 +24,7 @@ class BookingHistory extends Component {
       }
     }
     if (this.tickets.length === 0) {
+      //add here what is shown in html so that the error doesnt show
       let empty = new Ticket({
         user: '',
         program: '',
