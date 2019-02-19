@@ -143,6 +143,7 @@ class BookTicketPage extends Component {
       this.render()
       this.seatsForTicket = "";
       this.showSalong = true;
+      this.adult = 2;
       this.totalTickets = 2;
       console.log(this.ticket)
     } else {
