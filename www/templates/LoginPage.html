@@ -1,6 +1,6 @@
 <section class="loginPage">
   <button class="logout">Log out</button>
-  <form class="login-form ${this.showLogin ? 'd-block' : 'd-none'}">
+  <form class="login-form ${Store.loggedIn ? 'd-none' : 'd-block'}">
     <h2>Logga in</h2>
    
     <div class="form-group">
@@ -47,11 +47,11 @@
     <a class="btn btn-primary btn-lg relocate" href="/" role="button">Stäng</a>
   </div>
   
-  <div class="jumbotron ${this.showYouAreLoggedIn ? 'd-block' : 'd-none' }">
+  <div class="jumbotron ${Store.loggedIn ? 'd-block' : 'd-none' }">
     <h1 class="display-4">Välkommen ${this.currentUserInfo.firstName}</h1>
     <p class="lead">Du är nu inloggad med ${this.currentUserInfo.email}!</p>
     <hr class="my-4">   
-    <a class="btn btn-primary btn-lg relocate" href="/" role="button">Stäng</a>
+    <a class="btn btn-primary btn-lg" href="/" role="button">Stäng</a>
   </div>
 
 

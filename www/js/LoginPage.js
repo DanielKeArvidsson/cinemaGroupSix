@@ -61,11 +61,14 @@ class LoginPage extends Component {
       // `)
     } else {
       Store.loggedIn = true;
+      Store.userIsLoggedIn = true;
       console.log(Store.loggedIn, "store");
       this.showLogin = false;
       this.showYouAreLoggedIn = true;
       console.log("Successfully logged in");
       console.log(User.loggedIn);
+      Store.currentUser =  user[0].firstName;
+      console.log("finallyyyyy", Store.currentUser);
       newLogin.save();
       this.currentUser = newLogin;
       console.log(Login.loggedIn);
@@ -91,8 +94,9 @@ class LoginPage extends Component {
       // </div>
       // `)
     }
-    this.render();
+   
     Store.navbar.render();
+    this.render();
     console.log("RERENDERING!");
     console.log(this.currentUser);
   }
@@ -138,6 +142,7 @@ class LoginPage extends Component {
     await toDeleteUser.delete();
  //   await this.currentUser.delete();
   Store.loggedIn = false;
+  Store.userIsLoggedIn = false;
     Store.navbar.userIsLoggedIn = false;
     Store.navbar.render();
     this.render();
