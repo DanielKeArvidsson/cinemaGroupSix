@@ -29,6 +29,7 @@ class BookTicketPage extends Component {
     });
   }
   async mount() {
+    this.showSalong = true;
     this.id = this.routeParts[0];
     this.salong = new Salong();
     this.program = await Program.find(`.findById('${this.id}').populate('movie auditorium').exec()`);
@@ -139,14 +140,16 @@ class BookTicketPage extends Component {
         this.seatsForTicket += "Rad " + seatAndRow.Row
         this.seatsForTicket += " Stol " + seatAndRow.Seat + " , "
       }
+
       this.showSalong = false;
       this.render()
       console.log(this.ticket)
-  }else{
-    this.error = `    <div class="alert alert-danger mt-4" role="alert"> Välj rätt antal platser för att boka! </div>`
-    this.getBookedSeats()
-    this.render();
-  }
+
+      }else{
+        this.error = `    <div class="alert alert-danger mt-4" role="alert"> Välj rätt antal platser för att boka! </div>`
+        this.getBookedSeats()
+        this.render();
+      }
 
   }
 
