@@ -141,7 +141,9 @@ class BookTicketPage extends Component {
       }
       this.showSalong = false;
       this.render()
+      this.seatsForTicket = "";
       this.showSalong = true;
+      this.totalTickets = 2;
       console.log(this.ticket)
     } else {
       this.error = `    <div class="alert alert-danger mt-4" role="alert"> Välj rätt antal platser för att boka! </div>`
