@@ -38,21 +38,22 @@ class LoginPage extends Component {
     let result = await newLogin.save();
     let test = await Login.find();
     console.log(test);
-    if (result.error && result.error == "The password does not match!") {
+    if (result.error || test.error) {
+      // && result.error == "The password does not match!"
       console.log("errorrrr");
       this.hideLogin = true;
       this.showErrorPassword = true;
       // Store.navbar.render();
       // this.render();
     }
-    else if (result.error == "Not logged in!" && result.error == "No such user!") {
-      console.log("errorrrr");
-      this.hideLogin = true;
-      this.showError = true;
-      // Store.navbar.render();
-      // this.render();
+    // else if (result.error == "Not logged in!" && result.error == "No such user!") {
+    //   console.log("errorrrr");
+    //   this.hideLogin = true;
+    //   this.showError = true;
+    //   // Store.navbar.render();
+    //   // this.render();
 
-    }
+    
     else if (result.loggedIn === true) {
       Store.loggedIn = true;
       Store.userIsLoggedIn = true;
