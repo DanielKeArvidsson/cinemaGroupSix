@@ -5,12 +5,20 @@ class RegisterPage extends Component {
     this.redirect = false;
     this.showForm = true;
     this.showIsRegistered = false;
+    this.showError = false;
     this.addRoute('/register', 'Register');
     this.addEvents({
       //'click .registerUser': 'registerUser',
       'submit form': 'registerUser'
     });
 
+  }
+
+  mount() {
+    this.showIsRegistered = false;
+    this.showError = false;
+    this.showForm = true;
+    this.render();
   }
 
   async registerUser(e) {
@@ -34,6 +42,7 @@ class RegisterPage extends Component {
       this.showError = false;
       console.log(newUser);
       this.render();
+      return;
   //     $('.register-form').empty();
   //   $('.register-form').append(`
   //   <div>
@@ -58,6 +67,8 @@ class RegisterPage extends Component {
       // this.redirect= true;
       this.showForm = false;
       this.showError = true;
+      this.render();
+      return;
     
   //   $('.register-form').empty();
   //   $('.register-form').append(`
