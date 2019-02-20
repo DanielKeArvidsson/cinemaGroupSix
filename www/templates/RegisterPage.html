@@ -1,5 +1,5 @@
 <section class="register-page">
-<form class="register-form">
+<form class="register-form ${this.showForm ? 'd-block' : 'd-none' }">
   <h3>Registrera ny användare</h3>
   <div class="login-wrapper">
     <div class="form-group">
@@ -18,11 +18,24 @@
       <label for="user-password">Lösenord</label>
       <input type="password" class="form-control" id="user-password" placeholder="Lösenord">
     </div>
-    <button type="button" class="btn btn-primary registerUser mt-4">Bekräfta</button>
+    <button type="submit" class="btn btn-primary registerUser mt-4">Bekräfta</button>
   </div>
   <!-- <div>
     User exists!
   </div> -->
   <!-- jumbotron ${this.redirect ? 'd-block' : 'd-none' } -->
 </form>
+<div class="jumbotron ${this.showIsRegistered ? 'd-block' : 'd-none'}">
+  <h1 class="display-4">regi</h1>
+  <p class="lead">fafa</p>
+  <hr class="my-4">   
+  <a class="btn btn-primary btn-lg" href="/login" role="button">Stäng</a>
+</div>
+
+<div class="jumbotron ${this.showError ? 'd-block' : 'd-none'}">
+  <h1 class="display-4">error</h1>
+  <p class="lead">fafa</p>
+  <hr class="my-4">   
+  <a class="btn btn-primary btn-lg" href="/login" role="button">Stäng</a>
+</div>
 </section>

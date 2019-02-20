@@ -56,7 +56,7 @@ class BookTicketPage extends Component {
     delete this.wholeMovie;
   }
 
-  reloadSalongIfBooked(){
+  reloadSalongIfBooked() {
     for (let rows = 0; rows < this.salong.salong.length; rows++) {
       let seats = this.salong.salong[rows].row[0]
       for (let seat = 0; seat < seats.length; seat++) {
@@ -67,9 +67,9 @@ class BookTicketPage extends Component {
     }
     this.getBookedSeats()
 
-  }  
+  }
 
-  reloadSalong(){
+  reloadSalong() {
     this.ja = 0
 
     for (let rows = 0; rows < this.salong.salong.length; rows++) {
@@ -78,15 +78,15 @@ class BookTicketPage extends Component {
         if (seats[seat].baseEl[0].className == 'hoverChoosenSeat') {
           this.ja += 1
         }
-        if(seats[seat].baseEl[0].className == 'choosenSeat'){
+        if (seats[seat].baseEl[0].className == 'choosenSeat') {
           seats[seat].baseEl[0].className = 'seat'
         }
       }
     }
 
-    if(this.ja < 1){
-        this.getBookedSeats()
-        this.render();
+    if (this.ja < 1) {
+      this.getBookedSeats()
+      this.render();
     }
   }
 
@@ -151,6 +151,10 @@ class BookTicketPage extends Component {
 
       this.showSalong = false;
       this.render()
+      this.seatsForTicket = "";
+      this.showSalong = true;
+      this.adult = 2;
+      this.totalTickets = 2;
       console.log(this.ticket)
 
       }else{
@@ -172,7 +176,7 @@ class BookTicketPage extends Component {
     }
   }
   incrementKid() {
-    if(this.totalTickets < 7){
+    if (this.totalTickets < 7) {
       this.kid++
       this.total += 50
       this.getBookedSeats()
@@ -195,7 +199,7 @@ class BookTicketPage extends Component {
     }
   }
   incrementAdult() {
-    if(this.totalTickets < 7){
+    if (this.totalTickets < 7) {
       this.adult++
       this.total += 85
       this.getBookedSeats()
@@ -218,7 +222,7 @@ class BookTicketPage extends Component {
     }
   }
   incrementSenior() {
-    if(this.totalTickets < 7){
+    if (this.totalTickets < 7) {
       this.senior++
       this.total += 65
       this.getBookedSeats()
