@@ -1,14 +1,19 @@
-<div>
+<div class="showProgramCard">
     <hr>
-    <p>${this._props.movie.title}</p>
-    <a href="/movie/${this._props.movie.title.toLowerCase().replace(/\W/g, '-')}" data-id="${this.movie._id}" class="more-movie-info">Mer
-        om filmen</a>
-    <p>${this.auditorium.name}</p>
-    <p>📆 ${this.date} 🕑 ${this.time}</p>
-    <img src="/images/${this.movie.images[0]}">
-    <iframe width="682" height="345" src="https://www.youtube.com/embed/${this.movie.youtubeTrailers}">
-    </iframe>
-    <button>
-        <a href="/program/${this._id}" data-id="${this._id}" class="select-program">Boka denna visning</a>
-    </button>
+    <div class="row">
+        <div class="col-12">
+            <div class="card" style="width: 18rem;">
+                <img src="/images/${this.movie.images[0]}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${this._props.movie.title}</h5>
+                    <p class="card-text">${this.auditorium.name}</p>
+                    <p>📆 ${this.date} 🕑 ${this.time}</p>
+                    <a href="/movie/${this._props.movie.title.toLowerCase().replace(/\W/g, '-')}" class="btn btn-success" data-id="${this.movie._id}"
+                        class="more-movie-info">Se trialern och info om filmen</a>
+                        <hr>
+                     <a href="/program/${this._id}"class="btn btn-primary" data-id="${this._id}" class="select-program">Boka denna visning</a>   
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

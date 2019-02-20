@@ -47,7 +47,7 @@ class BookTicketPage extends Component {
     delete this.wholeMovie;
   }
 
-  reloadSalongIfBooked(){
+  reloadSalongIfBooked() {
     for (let rows = 0; rows < this.salong.salong.length; rows++) {
       let seats = this.salong.salong[rows].row[0]
       for (let seat = 0; seat < seats.length; seat++) {
@@ -58,9 +58,9 @@ class BookTicketPage extends Component {
     }
     this.getBookedSeats()
 
-  }  
+  }
 
-  reloadSalong(){
+  reloadSalong() {
     this.ja = 0
 
     for (let rows = 0; rows < this.salong.salong.length; rows++) {
@@ -69,15 +69,15 @@ class BookTicketPage extends Component {
         if (seats[seat].baseEl[0].className == 'hoverChoosenSeat') {
           this.ja += 1
         }
-        if(seats[seat].baseEl[0].className == 'choosenSeat'){
+        if (seats[seat].baseEl[0].className == 'choosenSeat') {
           seats[seat].baseEl[0].className = 'seat'
         }
       }
     }
 
-    if(this.ja < 1){
-        this.getBookedSeats()
-        this.render();
+    if (this.ja < 1) {
+      this.getBookedSeats()
+      this.render();
     }
   }
 
@@ -117,7 +117,7 @@ class BookTicketPage extends Component {
       }
     }
 
-    if(this.totalTickets == this.booking.length){
+    if (this.totalTickets == this.booking.length) {
 
       let elements = document.getElementsByClassName('hoverChoosenSeat');
       for (let i = elements.length - 1; i >= 0; --i) {
@@ -141,12 +141,16 @@ class BookTicketPage extends Component {
       }
       this.showSalong = false;
       this.render()
+      this.seatsForTicket = "";
+      this.showSalong = true;
+      this.adult = 2;
+      this.totalTickets = 2;
       console.log(this.ticket)
-  }else{
-    this.error = `    <div class="alert alert-danger mt-4" role="alert"> Välj rätt antal platser för att boka! </div>`
-    this.getBookedSeats()
-    this.render();
-  }
+    } else {
+      this.error = `    <div class="alert alert-danger mt-4" role="alert"> Välj rätt antal platser för att boka! </div>`
+      this.getBookedSeats()
+      this.render();
+    }
 
   }
 
@@ -160,7 +164,7 @@ class BookTicketPage extends Component {
     }
   }
   incrementKid() {
-    if(this.totalTickets < 7){
+    if (this.totalTickets < 7) {
       this.kid++
       this.total += 50
       this.getBookedSeats()
@@ -178,7 +182,7 @@ class BookTicketPage extends Component {
     }
   }
   incrementAdult() {
-    if(this.totalTickets < 7){
+    if (this.totalTickets < 7) {
       this.adult++
       this.total += 85
       this.getBookedSeats()
@@ -196,7 +200,7 @@ class BookTicketPage extends Component {
     }
   }
   incrementSenior() {
-    if(this.totalTickets < 7){
+    if (this.totalTickets < 7) {
       this.senior++
       this.total += 65
       this.getBookedSeats()

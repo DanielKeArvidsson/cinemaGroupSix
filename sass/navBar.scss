@@ -1,53 +1,53 @@
 nav {
     .navbar-brand {
-        height: 60px;
-        
+        height: 50px;
+
     }
+
     ul.social-network {
         list-style: none;
         display: inline;
-        margin-left:0 !important;
+        margin-left: 0 !important;
         padding: 0;
     }
+
     ul.social-network li {
         display: inline;
         margin: 0 5px;
     }
-    .icoFacebook{
+
+    .icoFacebook {
         background-image: url('/images/facebook.png');
     }
-    .icoTwitter{
+
+    .icoTwitter {
         background-image: url('/images/twitter.png');
     }
-    .icoGoogle{
+
+    .icoGoogle {
         background-image: url('/images/googleplus.png');
     }
-    .icoLinkedin{
+
+    .icoLinkedin {
         background-image: url('/images/linkedin.png');
     }
-    
-    .icoFacebook, .icoTwitter, .icoGoogle, .icoLinkedin {
+
+    .icoFacebook,
+    .icoTwitter,
+    .icoGoogle,
+    .icoLinkedin {
         background-size: cover;
     }
-    
+
     .social-circle li a {
         display: inline-block;
         position: relative;
         margin: 0 auto;
-        border-radius:50%;
-        text-align:center;
+        border-radius: 50%;
+        text-align: center;
         width: 25px;
         height: 25px;
-        font-size:20px;
+        font-size: 20px;
         background-color: #fff;
     }
-    .sticky {
-        position: fixed;
-        top: 0;
-        width: 100%;
-      }
-      
-      .sticky + .content {
-        padding-top: 60px;
-      }
 }
