@@ -14,7 +14,7 @@
         <div class="price col-12 col-md-4 mt-4">
           <p>Ordinarie (85 kr/st)</p>
           <div class="ticket-incrementor adult">
-            <button class="decrement-adult btn btn-secondary mr-2">-</button>  ${this.adult}  <button class="increment-adult btn btn-secondary ml-2">+</button>
+            <button class="decrement-adult btn btn-secondary mr-2">-</button> ${this.adult} <button class="increment-adult btn btn-secondary ml-2">+</button>
           </div>
         </div>
 
@@ -22,27 +22,25 @@
         <div class="price col-12 col-md-4 mt-4">
           <p>Pensionär (65 kr/st)</p>
           <div class="ticket-incrementor senior">
-            <button class="decrement-senior btn btn-secondary mr-2">-</button>  ${this.senior}  <button class="increment-senior btn btn-secondary ml-2">+</button>
+            <button class="decrement-senior btn btn-secondary mr-2">-</button> ${this.senior} <button class="increment-senior btn btn-secondary ml-2">+</button>
           </div>
         </div>
 
         <div class="price col-12 col-md-4 mt-4">
           <p>Barn (50 kr/st)</p>
           <div class="ticket-incrementor kids">
-            <button class="decrement-kid btn btn-secondary mr-2">-</button>  ${this.kid}  <button class="increment-kid btn btn-secondary ml-2">+</button>
+            <button class="decrement-kid btn btn-secondary mr-2">-</button> ${this.kid} <button class="increment-kid btn btn-secondary ml-2">+</button>
           </div>
         </div>
       </div>
-      
+
       <h4>Totalpris: ${this.total}</h4>
 
     </div>
-    ${this.salong}
-
-    ${this.error}
+    ${this.salong} ${this.error}
 
     <button type="button" class="btn btn-secondary booked-tickets mt-4 mb-4">
-        Boka biljetter 
+      Boka biljetter
     </button>
 
   </div>
@@ -54,7 +52,7 @@
         <p class="card-text">Salongen som filmen går i heter ${this.auditorium.name}.</p>
         <p class="card-text">Datum: ${this.date} Tid: ${this.time}</p>
         <p class="card-text">Pris: ${this.total}:- </p>
-        <p class="card-text">${this.totalTickets == 1 ? 'Din bokade plats' : 'Era bokade platser' }: ${this.seatsForTicket}</p>
+        <p class="card-text">${this.totalTickets == 1 ? 'Din bokade plats' : 'Era bokade platser' }: ${this.seatsForTicket.replace(/.$/,".")}</p>
       </div>
     </div>
   </div>

@@ -8,7 +8,7 @@ class ShowProgramPage extends Component {
             'click .more-programs': 'morePrograms',
 
         });
-        this.programCounter = 10;
+        this.programCounter = 12;
         this.programs = [];
         this.generateProgramsList();
         this.selectedProgram = {};
@@ -21,17 +21,17 @@ class ShowProgramPage extends Component {
     async morePrograms() {
         let allPrograms = await Program.find();
         if (allPrograms.length > this.programCounter) {
-            this.programCounter += 10;
+            this.programCounter += 12;
             this.generateProgramsList()
         }
     }
 
 
-    
+
     async selectProgram(e) {
         let programId = $(e.currentTarget).data("id");
         App.programId = programId;
-       
+
         this.render();
     }
 
