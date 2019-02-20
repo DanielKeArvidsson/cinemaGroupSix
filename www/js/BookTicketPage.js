@@ -137,6 +137,7 @@ class BookTicketPage extends Component {
         "bookingNum": this.bookingNum,
         "purchasedAt": new Date(),
         "price": this.total,
+        "user": App.loginPage.currentUser.email,
         "program": this.program,
         "programId": this.id,
         "seats": this.booking
