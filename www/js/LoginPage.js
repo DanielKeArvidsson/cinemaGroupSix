@@ -68,7 +68,7 @@ class LoginPage extends Component {
       this.currentUserInfo = user[0];
       this.currentUserName = user[0].firstName;
       this.currentUserEmail= user[0].email;
-      Store.currentUser = user[0].firstName;
+      Store.currentUser = user[0].email;
       console.log("mname", this.currentUserName);
       Store.loggedIn = true;
       Store.userIsLoggedIn = true;
