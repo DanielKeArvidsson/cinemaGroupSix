@@ -6,12 +6,23 @@
     
     }
     #program-select {
-        color: blac;
+        color: black;
     }
 
     .price {
         color: white;
-        text-align: center
+        text-align: center;
+
+        button{
+            font-size: 25px;
+            margin:0;
+            padding:0;
+            width: 40px;
+            height: 40px;
+        }
+        .ticket-incrementor{
+            font-size: 25px;
+        }
     }
 
     h4{
