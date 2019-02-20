@@ -3,30 +3,34 @@
   box-sizing: border-box;
 
 }
+
 body {
-  //  background-image: url('/images/cinema.png');
-    background-size: cover;
-    background-attachment: fixed;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    
-    .all-content {
-      display: flex;
-      min-height: 100vh;
-      flex-direction: column;
-  
-      main {
-        flex: 1;
-      
-      }
+  background-image: url('/images/cinema.png');
+  background-size: cover;
+  background-attachment: fixed;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+
+  .all-content {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+
+    main {
+      flex: 1;
+
     }
-   h2 {
-     color: white;
-   }
-   .carousel-caption {
-     background-color: rgba(0, 0, 0, 0.5);
-   }
-   .startPage {
-     margin-top: 70px;
-   }
+  }
+
+  h2 {
+    color: white;
+  }
+
+  .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .startPage {
+    margin-top: 70px;
+  }
 }
