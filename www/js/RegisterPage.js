@@ -32,6 +32,8 @@ class RegisterPage extends Component {
         password: this.baseEl.find('#user-password').val()
       }
     )
+
+    //if (!this.loginHandler.emailValidator(userData.email)
     let user = await User.find(`.find({email: '${newUser.email}'})`);
     if (user.length === 0) {
       
