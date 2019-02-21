@@ -14,7 +14,8 @@ class LoginPage extends Component {
     this.addEvents({
       'submit form': 'userLogin',
       'click .relocate': 'relocate',
-      'click .logout': 'userLogout'
+      'click .logout': 'userLogout',
+      'click .resetLogin': 'mount'
     });
 
   }
