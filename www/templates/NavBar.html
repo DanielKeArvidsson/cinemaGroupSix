@@ -1,15 +1,14 @@
-
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-  
+
   <a class="navbar-brand" href="/">Filmvisarna AB</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-    aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       ${this.navItems}
-     
+
     </ul>
     ${Store.loggedIn? `<p>${Store.currentUser}</p>` : ""}
     ${this.socialItems}
@@ -17,9 +16,8 @@
     ${Store.loggedIn ? '<a class="logga-ut" href="/">Logga ut</a>':'<a class="logga-in" href="/login">Logga in</a>'}
   </div>
   <div>
- <!-- ${Store.loggedIn  ?`<button class="navbar-brand ml-2" href="/">${App.loginPage.currentUser.email}</a>`:''} -->
- 
-</div>
+    <!-- ${Store.loggedIn  ?`<button class="navbar-brand ml-2" href="/">${App.loginPage.currentUser.email}</a>`:''} -->
+
+  </div>
 
 </nav>
-
