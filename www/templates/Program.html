@@ -1,19 +1,15 @@
-<div class="showProgramCard">
-    <hr>
-    <div class="row">
-        <div class="col-12">
-            <div class="card" style="width: 18rem;">
-                <img src="/images/${this.movie.images[0]}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">${this._props.movie.title}</h5>
-                    <p class="card-text">${this.auditorium.name}</p>
-                    <p>📆 ${this.date} 🕑 ${this.time}</p>
-                    <a href="/movie/${this._props.movie.title.toLowerCase().replace(/\W/g, '-')}" class="btn btn-success" data-id="${this.movie._id}"
-                        class="more-movie-info">Se trialern och info om filmen</a>
-                        <hr>
-                     <a href="/program/${this._id}"class="btn btn-primary" data-id="${this._id}" class="select-program">Boka denna visning</a>   
-                </div>
-            </div>
-        </div>
+<div class="col-md-6 col-lg-4 mt-5 text-center">
+  <div class="card">
+    <img src="/images/${this.movie.images[0]}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">${this._props.movie.title}</h5>
+      <p class="card-text">${this.auditorium.name}</p>
+      <p>📆 ${this.date} 🕑 ${this.time}</p>
+      <a href="/program/${this._id}" class="btn btn-primary" data-id="${this._id}" class="select-program">Boka
+        denna visning</a>
+      <hr>
+      <a href="/movie/${this._props.movie.title.toLowerCase().replace(/\W/g, '-')}" class="btn btn-success"
+        data-id="${this.movie._id}" class="more-movie-info">Se trialern och info om filmen</a>
     </div>
+  </div>
 </div>

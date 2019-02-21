@@ -1,6 +1,6 @@
-class Booking extends Component { 
-    constructor(props){
-      super(props);
-      
-    }
+class Booking extends Component {
+  constructor(props) {
+    super(props);
+
   }
+}
