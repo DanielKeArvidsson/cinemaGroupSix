@@ -13,7 +13,7 @@ class BookTicketPage extends Component {
     this.wholeMovie = {}
     this.ticket = {}
     this.showSalong = true;
-    this.seatsForTicket = "";
+    this.seatsForTicket = "<br>";
     this.error = "";
     this.toMannyTickets = "";
     this.addRoute(/\/program\/(.*)/, 'Visning')
@@ -147,11 +147,12 @@ class BookTicketPage extends Component {
 
       for (const seatAndRow of this.booking) {
         this.seatsForTicket += "Rad " + seatAndRow.Row
-        this.seatsForTicket += " Stol " + seatAndRow.Seat + " ,"
+        this.seatsForTicket += " Stol " + seatAndRow.Seat + ". <br>"
+
       }
       this.showSalong = false;
       this.render()
-      this.seatsForTicket = "";
+      this.seatsForTicket = "<br>";
       this.showSalong = true;
       this.adult = 2;
       this.totalTickets = 2;
