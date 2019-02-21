@@ -5,15 +5,15 @@ class NavBar extends Component {
     this.addEvents({
       'click .logga-ut': 'userLogout'
     });
-    
-  //  this.userIsLoggedIn = false; // Remove this and use Store.loggedIn instead
+
+    //  this.userIsLoggedIn = false; // Remove this and use Store.loggedIn instead
     Store.navbar = this;
-   
+
     this.socialItems = new SocialItems();
   }
-  
-  get navItems(){
-    let items =  [
+
+  get navItems() {
+    let items = [
       new NavItem('Start', '/'),
       new NavItem('Aktuella visningar', '/show-program'),
       new NavItem('Våra Salonger', '/salongs-info'),
@@ -21,7 +21,7 @@ class NavBar extends Component {
       // new NavItem('Login', '/login')
     ];
 
-    if(Store.loggedIn){
+    if (Store.loggedIn) {
       items.push(
         new NavItem('Mina bokningar', '/mina-bokningar')
       );
@@ -31,12 +31,12 @@ class NavBar extends Component {
   }
 
 
-  userLogout(){
+  userLogout() {
     App.loginPage.userLogout();
     this.render();
   }
 
-  
+
 }
 // $(function() {
 //   $(document).click(function (event) {

@@ -6,7 +6,4 @@ class Program extends Component {
     this.auditorium = new Auditorium(this.auditorium);
 
   }
-
-
-
 }

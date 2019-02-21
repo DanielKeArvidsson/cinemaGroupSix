@@ -1,58 +1,59 @@
-.salong{
-        align-content: center;
-    .row{
-        width: 320px;
-        margin:auto;
-    }
+  .salong{
+    align-content: center;
+  .row{
+    width: 320px;
+    margin:auto;
+  }
 
-    .seat{
-        width: 20px;
-        height: 20px;
-        background-color: brown;
-        margin: 3px;
-        display: inline-block;
-        border-bottom-left-radius: 7px;
-        border-bottom-right-radius: 7px;
-        cursor: pointer;
-    }
+  .seat{
+    width: 20px;
+    height: 20px;
+    background-color: brown;
+    margin: 3px;
+    display: inline-block;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    cursor: pointer;
+  }
 
-    .unavailableSeat{
-        width: 20px;
-        height: 20px;
-        margin: 3px;
-        display: inline-block;
-        border-bottom-left-radius: 7px;
-        border-bottom-right-radius: 7px;
-        pointer-events: none;
-        background-color: gray;
-    }
+  .unavailableSeat{
+    width: 20px;
+    height: 20px;
+    margin: 3px;
+    display: inline-block;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    pointer-events: none;
+    background-color: gray;
+  }
 
-    .choosenSeat{
-        width: 20px;
-        height: 20px;
-        margin: 3px;
-        display: inline-block;
-        border-bottom-left-radius: 7px;
-        border-bottom-right-radius: 7px;
-        background-color: brown;
-        animation: blink 1s linear infinite;
-        cursor: pointer;
-    }
+  .choosenSeat{
+    width: 20px;
+    height: 20px;
+    margin: 3px;
+    display: inline-block;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    background-color: brown;
+    animation: blink 1s linear infinite;
+    cursor: pointer;
+  }
 
-    .hoverChoosenSeat{
-        width: 20px;
-        height: 20px;
-        margin: 3px;
-        display: inline-block;
-        border-bottom-left-radius: 7px;
-        border-bottom-right-radius: 7px;
-        background-color: brown;
-        pointer-events: none;
-        animation: blink 1s linear infinite;
-        cursor: pointer;
-    }
-    @keyframes blink{
-        50%{background-color: red;}
-        100%{background-color: brown;}
-    }
+  .hoverChoosenSeat{
+    width: 20px;
+    height: 20px;
+    margin: 3px;
+    display: inline-block;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    background-color: brown;
+    pointer-events: none;
+    animation: blink 1s linear infinite;
+    cursor: pointer;
+  }
+
+  @keyframes blink{
+    50%{background-color: red;}
+    100%{background-color: brown;}
+  }
 }

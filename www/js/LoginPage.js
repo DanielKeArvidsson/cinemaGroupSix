@@ -5,8 +5,8 @@ class LoginPage extends Component {
     this.currentUser = "";
     this.currentUserInfo = "";
     this.currentUserName = "";
-    this.currentUserName= "";
-    this.currentUserEmail= "";
+    this.currentUserName = "";
+    this.currentUserEmail = "";
     this.hideLogin = false;
     this.showError = false;
     this.showErrorPassword = false;
@@ -37,13 +37,13 @@ class LoginPage extends Component {
       }
     )
     let user = await User.find(`.find({email: '${newLogin.email}'})`);
-   
+
 
     let result = await newLogin.save();
     let test = await Login.find();
     console.log(test);
     if (result.error && result.error == "The password does not match!") {
-    
+
       console.log("errorrrr");
       console.log(Store.loggedIn);
       this.hideLogin = true;
@@ -63,18 +63,18 @@ class LoginPage extends Component {
       // Store.navbar.render();
       // this.render();
     }
-    
+
     else if (result.loggedIn === true && test.error != "Not logged in!") {
       this.currentUserInfo = user[0];
       this.currentUserName = user[0].firstName;
-      this.currentUserEmail= user[0].email;
+      this.currentUserEmail = user[0].email;
       Store.currentUser = user[0].email;
       console.log("mname", this.currentUserName);
       Store.loggedIn = true;
       Store.userIsLoggedIn = true;
       console.log(Store.loggedIn, "store");
       console.log("Successfully logged in");
-     // Store.currentUser = user[0].firstName;
+      // Store.currentUser = user[0].firstName;
       console.log("finallyyyyy", Store.currentUser);
       //   newLogin.save();
       this.currentUser = newLogin;
