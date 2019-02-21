@@ -48,7 +48,6 @@ class BookTicketPage extends Component {
     Object.assign(this, this.program._props);
     this.getBookedSeats();
     this.render();
-    // console.log(program);
 
   }
   unmount() {
@@ -156,7 +155,6 @@ class BookTicketPage extends Component {
       this.showSalong = true;
       this.adult = 2;
       this.totalTickets = 2;
-      console.log(this.ticket)
 
     } else {
       this.error = `<div class="alert alert-danger mt-4" role="alert"> Välj rätt antal platser för att boka! </div>`
