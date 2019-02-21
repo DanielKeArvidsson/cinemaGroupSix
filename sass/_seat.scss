@@ -1,5 +1,11 @@
   .salong{
     align-content: center;
+    text-align: center;
+    p{
+      margin:0;
+      margin-top: -2px;
+      display:none;
+    }
   .row{
     width: 320px;
     margin:auto;
@@ -50,6 +56,9 @@
     pointer-events: none;
     animation: blink 1s linear infinite;
     cursor: pointer;
+    p{
+      display:block;
+    }
   }
 
   @keyframes blink{

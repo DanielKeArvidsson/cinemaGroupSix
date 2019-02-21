@@ -140,7 +140,7 @@ class BookTicketPage extends Component {
         "user": App.loginPage.currentUser.email,
         "program": this.program,
         "programId": this.id,
-        "seats": this.booking
+        "seats": this.booking.reverse()
       })
 
       await this.ticket.save();
