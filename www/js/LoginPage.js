@@ -41,24 +41,18 @@ class LoginPage extends Component {
 
     let result = await newLogin.save();
     let test = await Login.find();
-    console.log(test);
     if (result.error && result.error == "The password does not match!") {
-
-      console.log("errorrrr");
-      console.log(Store.loggedIn);
       this.hideLogin = true;
       this.showErrorPassword = true;
-      console.log(this.showErrorPassword);
       this.render();
       return;
       // Store.navbar.render();
       // this.render();
     }
     else if (result.error == "Not logged in!" || result.error == "No such user!" || test.error == "Not logged in!") {
-      console.log("errorrrr");
       this.hideLogin = true;
       this.showError = true;
-      this.render();
+      // this.render();
       return;
       // Store.navbar.render();
       // this.render();
@@ -69,17 +63,11 @@ class LoginPage extends Component {
       this.currentUserName = user[0].firstName;
       this.currentUserEmail = user[0].email;
       Store.currentUser = user[0].email;
-      console.log("mname", this.currentUserName);
       Store.loggedIn = true;
       Store.userIsLoggedIn = true;
-      console.log(Store.loggedIn, "store");
-      console.log("Successfully logged in");
       // Store.currentUser = user[0].firstName;
-      console.log("finallyyyyy", Store.currentUser);
       //   newLogin.save();
       this.currentUser = newLogin;
-      console.log("RERENDERING!");
-      console.log(this.currentUser);
       // Store.navbar.render();
       // this.render();
 
@@ -124,8 +112,6 @@ class LoginPage extends Component {
   async userLogout() {
     let toDeleteUser = await Login.find();
     this.currentLogin = await Login.find();
-    console.log(toDeleteUser, "to be deleted");
-    console.log(this.currentLogin, "current");
     await toDeleteUser.delete();
     //   await this.currentUser.delete();
     Store.loggedIn = false;

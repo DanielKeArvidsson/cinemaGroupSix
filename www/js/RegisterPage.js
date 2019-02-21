@@ -36,13 +36,10 @@ class RegisterPage extends Component {
     //if (!this.loginHandler.emailValidator(userData.email)
     let user = await User.find(`.find({email: '${newUser.email}'})`);
     if (user.length === 0) {
-
-      console.log("Success");
       newUser.save();
       this.showForm = false;
       this.showIsRegistered = true;
       this.showError = false;
-      console.log(newUser);
       this.render();
       return;
       //     $('.register-form').empty();
@@ -65,7 +62,6 @@ class RegisterPage extends Component {
       //   `)
 
     } else {
-      console.log("User already exists");
       // this.redirect= true;
       this.showForm = false;
       this.showError = true;

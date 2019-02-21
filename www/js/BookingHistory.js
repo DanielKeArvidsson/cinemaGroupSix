@@ -49,7 +49,6 @@ class BookingHistory extends Component {
       this.noBookings = true;
 
     }
-    console.log(this.tickets);
     this.render();
   }
 

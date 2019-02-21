@@ -25,11 +25,9 @@ class App extends Component {
   //use this variable elsewhere to maniplulate if someone is logged in
   async checkIfLoggedIn() {
     Store.loggedIn = await Login.find();
-    console.log(Store.loggedIn.email, "storeeeeeeee");
     Store.currentUser = Store.loggedIn.email;
 
     if (Store.loggedIn.error) { Store.loggedIn = false; }
-    console.log("Store.loggedin", Store.loggedIn);
     this.navBar.render();
   }
 
