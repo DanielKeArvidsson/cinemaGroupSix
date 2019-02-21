@@ -8,7 +8,7 @@ class NavBar extends Component {
       'click .navbar-close': 'navBarClose'
     });
 
-    // $('body').on('click',this.navBarClose.bind(this));
+     $('body').on('click',this.navBarClose.bind(this));
     
   //  this.userIsLoggedIn = false; // Remove this and use Store.loggedIn instead
     Store.navbar = this;
@@ -39,7 +39,8 @@ class NavBar extends Component {
     App.loginPage.userLogout();
     this.render();
   }
-  async navBarToggle(){
+  async navBarToggle(e){
+    e.stopPropagation();
     this.showNav = !this.showNav;
     this.render();
   }
