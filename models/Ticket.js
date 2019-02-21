@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 let ticketSchema = new Schema({
     "program": { type: Schema.Types.Mixed, ref: 'Program'},
     "user": {type: String},
-    "purchasedAt": { type: Date},
+    "purchasedAt": { type: String},
     "price": {type: Number},
     "seats": {type: Schema.Types.Mixed, required: true},
     "programId": {type: String, required: true},
