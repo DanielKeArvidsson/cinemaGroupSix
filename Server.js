@@ -5,6 +5,10 @@ const jsonflex = require('jsonflex')();
 const Sass = require('./sass');
 const config = require('./config.json');
 const CreateRestRoutes = require('./CreateRestRoutes');
+const LoginHandler = require('./LoginHandler');
+const settings = require('./settings.json');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 for (let conf of config.sass) {
   new Sass(conf);
@@ -25,6 +29,7 @@ module.exports = class Server {
     return new Promise((resolve, reject) => {
       let dbName = 'cinema_booking'
       mongoose.connect(`mongodb://localhost/${dbName}`);
+      global.passwordSalt = settings.passwordSalt;
       global.db = mongoose.connection;
       db.on('error', () => reject('Could not connect to DB'));
       db.once('open', () => resolve('Connected to DB'));
@@ -44,13 +49,30 @@ module.exports = class Server {
     // Serve static files from www
     app.use(express.static('www'));
 
+    // Add session (and cookie) handling to Express
+    app.use(session({
+      secret: settings.cookieSecret,
+      resave: true,
+      saveUninitialized: true,
+      store: new MongoStore({
+        mongooseConnection: db
+      })
+    }));
+
     // Set keys to names of rest routes
     const models = {
-      //authors: require('./Author')
+      movies: require('./models/Movie'),
+      programs: require('./models/Program'),
+      users: require('./models/User'),
+      auditoriums: require('./models/Auditorium'),
+      tickets: require('./models/Ticket')
     };
 
     // create all necessary rest routes for the models
     new CreateRestRoutes(app, db, models);
+
+    // create special routes for login
+    new LoginHandler(app, models.users);
 
     const fs = require('fs');
     const path = require('path');
@@ -67,7 +89,6 @@ module.exports = class Server {
         x.split('.js').join('.html')}"></script>`).join('');
       res.send(`document.write('${html}')`);
     });
-
     // Convert a template to a js render method
     app.get('/template-to-js/:template', (req, res) => {
       let html = fs.readFileSync(path.join(
@@ -75,6 +96,11 @@ module.exports = class Server {
       html = req.params.template.split('.html')[0] +
         '.prototype.render = function(){ return `\n' + html + '\n`};'
       res.send(html);
+    });
+
+    app.use((req, res, next) => {
+      if (req.url === '/jsonflex.js' || req.url == '/json-save') { next(); return; }
+      res.sendFile(path.join(__dirname, '/www/index.html'));
     });
 
     // Start the web server

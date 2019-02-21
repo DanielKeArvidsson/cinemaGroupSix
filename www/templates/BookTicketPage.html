@@ -1,0 +1,60 @@
+<section class="book-ticket">
+  <div class="${this.showSalong ? 'd-block' : 'd-none'}">
+    <div class="theShow">
+      <h2>${this.movie.title}</h2>
+      <h3>${this.auditorium.name}</h3>
+      <h3>📆 ${this.date}</h3>
+      <h3>🕑 ${this.time}</h3>
+    </div>
+    <div class="ticket-selector">
+
+      ${this.toMannyTickets}
+
+      <div class="row mt-4 mb-4">
+        <div class="price col-12 col-md-4 mt-4">
+          <p>Ordinarie (85 kr/st)</p>
+          <div class="ticket-incrementor adult">
+            <button class="decrement-adult btn btn-secondary mr-2">-</button> ${this.adult} <button class="increment-adult btn btn-secondary ml-2">+</button>
+          </div>
+        </div>
+
+
+        <div class="price col-12 col-md-4 mt-4">
+          <p>Pensionär (65 kr/st)</p>
+          <div class="ticket-incrementor senior">
+            <button class="decrement-senior btn btn-secondary mr-2">-</button> ${this.senior} <button class="increment-senior btn btn-secondary ml-2">+</button>
+          </div>
+        </div>
+
+        <div class="price col-12 col-md-4 mt-4">
+          <p>Barn (50 kr/st)</p>
+          <div class="ticket-incrementor kids">
+            <button class="decrement-kid btn btn-secondary mr-2">-</button> ${this.kid} <button class="increment-kid btn btn-secondary ml-2">+</button>
+          </div>
+        </div>
+      </div>
+
+      <h4>Totalpris: ${this.total}</h4>
+      <h4 class="mb-0">Duken är här!</h4>
+      <h4 class="mb-4 mt-0">___________________________</h4>
+    </div>
+    ${this.salong} ${this.error}
+
+    <button type="button" class="btn btn-secondary booked-tickets mt-4 mb-4">
+      Boka biljetter
+    </button>
+
+  </div>
+  <div class="${this.showSalong ? 'd-none' : 'd-block d-flex justify-content-center'}">
+    <div class="card mt-5" style="width: 30rem;">
+      <div class="card-body text-center">
+        <h5 class="card-title">Bokningsnummer: ${this.ticket.bookingNum} </h5>
+        <h5 class="card-title mb-2">Filmens titel: ${this.movie.title}</h5>
+        <p class="card-text">Salong: ${this.auditorium.name}.</p>
+        <p class="card-text">Datum: ${this.date} Tid: ${this.time}</p>
+        <p class="card-text">Pris: ${this.total}:- </p>
+        <h5 class="card-text">${this.totalTickets == 1 ? 'Plats' : 'Platser' }: ${this.seatsForTicket.replace(/.$/,".")}</h5>
+      </div>
+    </div>
+  </div>
+</section>
