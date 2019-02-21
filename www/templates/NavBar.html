@@ -2,25 +2,28 @@
   <div class="container">
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
 
-      <a class="navbar-brand" href="/">Filmvisarna AB</a>
       <button class="navbar-toggler" type="button">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class=" navbar-collapse" id="navbarSupportedContent">
+    
+            
         ${this.showNav ? `
+          <div class=" navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
+              <a class="navbar-brand" href="/">Filmvisarna AB</a>
             ${this.navItems}
 
+            
           </ul>
-          <ul>
-            ${Store.loggedIn? `<p>${Store.currentUser}</p>` : ""}
-          
+          ${this.socialItems}
+          <!-- ${Store.loggedIn? `<p class="useremail">${Store.currentUser}</p>` : ""} -->
+            
             <!-- ${this.userIsLoggedIn ? '<a class="my-bookings" href="/mina-bokningar">Mina bokningar</a>':''} -->
             ${Store.loggedIn ? '<a class="logga-ut" href="/">Logga ut</a>':'<a class="logga-in" href="/login">Logga in</a>'}
-          </ul>
-          <div class="close-nav"></div>
+            
+        </div>
         `: ''}
-      </div>
+     
       <div>
         <!-- ${Store.loggedIn  ?`<button class="navbar-brand ml-2" href="/">${App.loginPage.currentUser.email}</a>`:''} -->
 

@@ -5,14 +5,14 @@ class NavBar extends Component {
     this.addEvents({
       'click .logga-ut': 'userLogout',
       'click .navbar-toggler': 'navBarToggle',
-      'click .navbar-close': 'navBarClose'
+      // 'click .navbar-close': 'navBarClose'
     });
 
-     $('body').on('click',this.navBarClose.bind(this));
+    //  $('body').on('click',this.navBarClose.bind(this));
     
   //  this.userIsLoggedIn = false; // Remove this and use Store.loggedIn instead
     Store.navbar = this;
-    this.showNav = false;
+    this.showNav = true;
     this.socialItems = new SocialItems();
   }
   
@@ -44,10 +44,10 @@ class NavBar extends Component {
     this.showNav = !this.showNav;
     this.render();
   }
-  navBarClose(){
-    this.showNav = false;
-    this.render();
-  }
+  // navBarClose(){
+  //   this.showNav = false;
+  //   this.render();
+  // }
 
 }
 
