@@ -3,6 +3,7 @@ class BookingHistory extends Component {
     super(props);
     this.addRoute('/mina-bokningar', 'Mina bokningar');
     this.tickets = [];
+   // this.commingBookings = [];
     this.show = false;
     this.noBookings = false;
     //this.generateBookingHistory();  
@@ -14,7 +15,7 @@ class BookingHistory extends Component {
 
   mount() {
     this.tickets = [];
-    this.customerBookings = [];
+   // this.commingBookings = [];
     this.generateBookingHistory();
     //this.render();
   }
@@ -22,15 +23,28 @@ class BookingHistory extends Component {
   async generateBookingHistory() {
     this.show = true;
     this.noBookings = false;
+  //  let currentDate = new Date();
     let tmpTickets = [];
     tmpTickets = await Ticket.find();
     let tmpEmail = await Login.find();
     for (let i = 0; i < tmpTickets.length; i++) {
       if (tmpTickets[i].user === tmpEmail.email) {
+        //let purchasedDate = tmpTickets[i].purchasedAt;
+        //console.log(currentDate, "current date");
+        // console.log(purchasedDate, "purchased");
+        // if(purchasedDate < currentDate){
+        //   this.commingBookings.push(tmpTickets[i]);
+        //   console.log("aktuelllllaaaaaaaaaaa")
         this.tickets.push(tmpTickets[i]);
-      }
-    }
-    if (this.tickets.length === 0) {
+        }
+        
+        
+      
+          //console.log(this.commingBookings);
+        }
+        
+    
+    if (this.tickets.length === 0){
       this.show = false;
       this.noBookings = true;
 
