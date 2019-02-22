@@ -1,7 +1,10 @@
 <div>
-  <div class="mt-5 mb-3 row">
+  <div class="row mt-3">
     <!-- ${this.show ? `${this.tickets[0].user}${this.tickets[0].programId}` : ''} -->
+    <h2 class="mt-5">Kommande bokningar</h2>
     ${this.show ? `${this.tickets}` : ''}
+    <h2 class="mt-5">Gamla bokningar</h2>
+    ${this.show ? `${this.oldBookings}` : ''}
   </div>
   <div class="noBookings mt-5">
     ${this.noBookings ? 'Du har inga tidigare bokningar!' : ''}
