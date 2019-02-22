@@ -11,7 +11,15 @@ let auditoriumSchema = new Schema({
     "image": String,
     "butik": String,
     "butikImage": String,
-    "butikName": String
+    "butikName": String,
+    "aboutUs": String,
+    "aboutusImage": String,
+    "aboutusName": String,
+    "regulations": String,
+    "regulationName": String,
+    "event": String,
+    "eventImage": String,
+    "eventName": String
 });
 
 module.exports = db.model('Auditorium', auditoriumSchema);

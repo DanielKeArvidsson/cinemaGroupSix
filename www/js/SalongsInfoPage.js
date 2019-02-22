@@ -3,7 +3,7 @@ class SalongsInfoPage extends Component {
     super(props);
     this.addRoute('/salongs-info', 'Salonger');
     this.auditorium;
-    this.loadAuditorium()
+    this.loadAuditorium();
   }
   async loadAuditorium() {
     this.auditorium = await Auditorium.find();

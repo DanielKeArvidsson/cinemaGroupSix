@@ -17,7 +17,15 @@
     "image": "storasalongen.JPG",
     "butik": "Vad är ett biobesök utan popcorn och läsk? Självklart har vi mycket annat att välja på i vår biografbutik. På denna sida kan du se ett urval av vad du kan köpa på vår biografbutik – och fler godsaker utöver detta kan du hitta i våra hyllor i kiosken/butiken. Sött, salt eller surt – det är bara att välja! Vi har något för alla smaker!.",
     "butikImage": "popcornanddrink.jpg",
-    "butikName": "Sortiment i butiken"
+    "butikName": "Sortiment i butiken",
+    "aboutUs": "Familjeföretaget Filmvisarnas historia började skrivas redan i början på 1900-talet. Företaget, som drivs av Produktägaren T och B, grundades när deras farfar Franky i början av 1900-talet öppnade en tältbiograf i Lund. Verksamheten utvecklades så småningom till en biograf. Under 80-talet inledde Produktägarana ett samarbete med Grupp 6 om en biograf i Malmö. Samarbetet fungerade så pass bra att de båda företagen tillsammans bildade det gemensamma bolaget HB Bästa Bio, med Grupp 6 som tredje generationens drivande kraft bakom företaget. Bästa Bios kännetecken har blivit företagets förkärlek för kvalitetsfilm, vilket har resulterat i en lyckad blandning av smalare och bredare film på biografernas repertoarer. Målet för företaget är att samtliga biografer ska kunna ge en helhetsupplevelse vid ett biobesök. Service och kunnig biografpersonal ska hålla samma höga kvalitet som komfort och teknik.",
+    "aboutusImage": "aboutusImage.jpg",
+    "aboutusName": "FilmVisarna AB",
+    "regulations": "Här är några relger för allas trivsel. För det första inga droger är tillåtna, Stäng av ljudet telefonen när filem börjar, Svara aldrig i telefonen, Sluta kolla klockan på mobilen, Sitt still, Prata inte, Ta med dig skräpet när du lämnar salongen, Använd lite sunt förnuft och låt oss alla göra bioupplevelsen trevligare för samtliga.",
+    "regulationName": "Salongens Regler",
+    "event": "Våra salonger är en spännande mötesplats där du kan förvandla ditt möte till en upplevelse. Ta tillvara på bioeffekten och låt ditt budskap få större genomslag med stora bild- och ljudformat. På biografen kan du hålla alltifrån stora kongresser och bolagsstämmor till mindre frukostmöten och familjeevent. Bjud dina kunder till exklusiva filmevent och produktlanseringar eller dina kollegor på en trevlig kick-off och konferens.",
+    "eventImage": "eventImage.jpg",
+    "eventName": "Möte & Event"
   },
   {
     "name": "Mellan Salongen",

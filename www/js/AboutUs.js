@@ -1,7 +1,13 @@
+
 class AboutUs extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.addRoute('/about-us', 'Om Oss');
-    this.name = "Om oss";
+    this.auditorium;
+    this.loadAuditorium();
   }
+  async loadAuditorium() {
+    this.auditorium = await Auditorium.find();
+  }
+
 }
