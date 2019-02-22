@@ -3,12 +3,13 @@ class NavBar extends Component {
   constructor() {
     super();
     this.addEvents({
-      'click .logga-ut': 'userLogout'
+      'click .logga-ut': 'userLogout',
+      'click .show-nav': 'showNavBar'
     });
 
     //  this.userIsLoggedIn = false; // Remove this and use Store.loggedIn instead
     Store.navbar = this;
-
+    this.showNav = true;
     this.socialItems = new SocialItems();
   }
 
@@ -35,7 +36,11 @@ class NavBar extends Component {
     App.loginPage.userLogout();
     this.render();
   }
-
+  showNavBar() {
+    this.showNav = !this.showNav;
+    console.log(this.showNav)
+    this.render();
+  }
 
 }
 // $(function() {
