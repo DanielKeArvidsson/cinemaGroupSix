@@ -38,7 +38,6 @@ class NavBar extends Component {
   }
   showNavBar() {
     this.showNav = !this.showNav;
-    console.log(this.showNav)
     this.render();
   }
 
