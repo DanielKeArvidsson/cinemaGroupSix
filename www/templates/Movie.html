@@ -1,29 +1,75 @@
-<section class="movieInfo">
-  <div class="row">
-    <div class="col-xl-4 mt-5">
-      <div class="movieInfo">
-        <h1>${this._props.title}</h1>
-        ${this.description}
-        <img src="/images/${this.images[0]}">
-        <p> Skådespelare: ${this.actors.join(', ')}.</p>
-        <p>År: ${this.productionYear}</p>
-        <p>Längd: ${this.length} minuter.</p>
-        <p>Språk: ${this.language}</p>
-        <p>Undertext: ${this.subtitles}</p>
-        <p>Regissör: ${this.director}</p>
-        <p>Produktionsland: ${this.productionCountries.join(' ')}</p>
-        <p>Genre: ${this.genre}</p>
-        <h2>Recension av ${this.reviews[0].source} </h2>
-        <p> <q>${this.reviews[0].quote}</q></p>
-        <p>Betyg: ${this.reviews[0].stars} stjärnor utav ${this.reviews[0].max} möjliga </p>
-        <h2>Recension av ${this.reviews[1].source} </h2>
-        <p> <q>${this.reviews[1].quote}</q></p>
-        <p>Betyg: ${this.reviews[1].stars} stjärnor utav ${this.reviews[1].max} möjliga </p>
-        <h2>Recension av ${this.reviews[2].source} </h2>
-        <p> <q>${this.reviews[2].quote}</q></p>
-        <p>Betyg: ${this.reviews[2].stars} stjärnor utav ${this.reviews[2].max} möjliga </p>
-        <iframe width="682" height="345" src="https://www.youtube.com/embed/${this.youtubeTrailers}"></iframe>
+<div class="movieInfo">
+
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+                <iframe class="modal-content" src="https://www.youtube.com/embed/${this.youtubeTrailers}"></iframe>
+        </div>
+      </div>
+
+
+  <div class="row mb-3">
+    <div class="moviePic col-md-3">
+      <img type="button" data-toggle="modal" data-target="#exampleModalCenter" src="/images/${this.images[0]}">
+      <img class="playBtn" data-toggle="modal" data-target="#exampleModalCenter" src="/images/playButton.png">
+    </div>
+    <div class="col-md-9">
+        <div class="col-12">
+            <h1>${this._props.title}</h1>
+            <p>${this.time} | ${this.genre}</p>
+            <p>${this.description}</p>
+        </div>
+    </div>
+    <div class="buttonBiljett col-md-3 mb-3">
+    <a class="btn btn-success mt-3 pt-3 pb-3 btn-block mb-4" href="#biljett" role="button">Biljetter</a>
+    </div>
+
+  </div>
+  <div class="col-12 mb-5">
+    <p> Skådespelare: ${this.actors.join(', ')}.</p>
+    <p>År: ${this.productionYear}</p>
+    <p>Språk: ${this.language}</p>
+    <p>Undertext: ${this.subtitles}</p>
+    <p>Regissör: ${this.director}</p>
+    <p>Produktionsland: ${this.productionCountries.join(' ')}</p>
+  </div>
+
+<h2>Recensioner</h2>
+<div class="row recension">
+  <div class="col-md-4 mt-4">
+    <h3>${this.reviews[1].source} </h3>
+    <q>${this.reviews[1].quote}</q>
+
+    <p>Betyg: ${this.reviews[1].stars} stjärnor utav ${this.reviews[1].max} möjliga </p>
+  </div>
+  <div class="col-md-4 mt-4">
+    <h3>${this.reviews[0].source} </h3>
+    <q>${this.reviews[0].quote}</q>
+    <p>Betyg: ${this.reviews[0].stars} stjärnor utav ${this.reviews[0].max} möjliga </p>
+  </div>
+  <div class="col-md-4 mt-4">
+    <h3>${this.reviews[2].source} </h3>
+    <q>${this.reviews[2].quote}</q>
+    <p>Betyg: ${this.reviews[2].stars} stjärnor utav ${this.reviews[2].max} möjliga </p>
+  </div>
+</div>
+
+  <div id="biljett">
+  </div>
+  <h2>Boka biljetter</h2>
+
+  <div class="shows container">
+    <div class="row">
+      <div class="col-4 tabell">
+        <b>Tid</b>
+      </div>
+      <div class="col-4 tabell">
+        <b>Datum</b>
+      </div>
+      <div class="col-4 tabell">
+        <b>Salong</b>
       </div>
     </div>
+    ${this.show}
   </div>
-</section>
+</div>
