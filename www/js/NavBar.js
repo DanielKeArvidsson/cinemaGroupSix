@@ -4,7 +4,8 @@ class NavBar extends Component {
     super();
     this.addEvents({
       'click .logga-ut': 'userLogout',
-      'click .show-nav': 'showNavBar'
+      'click .nav-link': 'render',
+      'click .navbar-toggler':'showNavBar'
     });
 
     //  this.userIsLoggedIn = false; // Remove this and use Store.loggedIn instead
@@ -38,22 +39,9 @@ class NavBar extends Component {
   }
   showNavBar() {
     this.showNav = !this.showNav;
-    this.render();
+    if(this.showNav == true){
+      this.render();
+    }
   }
 
-}
-// $(function() {
-//   $(document).click(function (event) {
-//     $('.collapse').collapse('hide');
-//   });
-// });
-
-
-
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
-  }
 }

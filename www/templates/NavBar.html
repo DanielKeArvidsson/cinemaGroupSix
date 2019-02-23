@@ -1,22 +1,15 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-  <button class="show-nav float-right" type="button">
+  <a class="navbar-brand" href="/">Filmvisarna AB</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  ${this.showNav ? `
-  <div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <a class="navbar-brand" href="/">Filmvisarna AB</a>
-      ${this.navItems} ${Store.loggedIn ? `<a class="logga-ut" href="/">Logga ut</a>`:`<a class="logga-in" href="/login">Logga
+      ${this.navItems}
+      ${Store.loggedIn ? `<a class="logga-ut nav-link" href="/">Logga ut</a>`:`<a class="logga-in nav-link" href="/login">Logga
         in
       </a>`}
     </ul>
-    <!--${Store.loggedIn? `<p>${Store.currentUser}</p>` : ""}-->
-    <!-- ${this.userIsLoggedIn ? '<a class="my-bookings" href="/mina-bokningar">Mina bokningar</a>':''} -->
   </div>
-  <div>
-
-    <!-- ${Store.loggedIn  ?`<button class="navbar-brand ml-2" href="/">${App.loginPage.currentUser.email}</a>`:''} -->
-
-  </div>
-  ` : '' }
 </nav>
