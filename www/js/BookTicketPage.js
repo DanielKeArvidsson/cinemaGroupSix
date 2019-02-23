@@ -130,9 +130,6 @@ class BookTicketPage extends Component {
       }
     }
 
-    console.log(this.bookedInDatabas)
-
-
     let user = await Login.find();
 
     let Num = new BookingNumber();
