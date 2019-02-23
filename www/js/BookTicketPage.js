@@ -16,6 +16,7 @@ class BookTicketPage extends Component {
     this.seatsForTicket = "<br>";
     this.error = "";
     this.toMannyTickets = "";
+    this.errorCantBookThese = "";
     this.addRoute(/\/program\/(.*)/, 'Visning')
     this.addEvents({
       'click .booked-tickets': 'bookSeat',
@@ -38,6 +39,7 @@ class BookTicketPage extends Component {
     this.totalTickets = 2;
     this.error = "";
     this.toMannyTickets = "";
+    this.errorCantBookThese = "";
     this.id = this.routeParts[0];
     this.salong = new Salong();
     this.program = await Program.find(`.findById('${this.id}').populate('movie auditorium').exec()`);
@@ -69,13 +71,13 @@ class BookTicketPage extends Component {
   }
 
   reloadSalong() {
-    this.ja = 0
+    this.chair = 0
 
     for (let rows = 0; rows < this.salong.salong.length; rows++) {
       let seats = this.salong.salong[rows].row[0]
       for (let seat = 0; seat < seats.length; seat++) {
         if (seats[seat].baseEl[0].className == 'hoverChoosenSeat') {
-          this.ja += 1
+          this.chair += 1
         }
         if (seats[seat].baseEl[0].className == 'choosenSeat') {
           seats[seat].baseEl[0].className = 'seat'
@@ -83,7 +85,7 @@ class BookTicketPage extends Component {
       }
     }
 
-    if (this.ja < 1) {
+    if (this.chair < 1) {
       this.getBookedSeats()
       this.render();
     }
@@ -109,6 +111,28 @@ class BookTicketPage extends Component {
 
   async bookSeat() {
 
+    this.bookedTicket = await Ticket.find(`.find({programId: '${this.id}'})`);
+
+    this.bookedInDatabas = []
+
+    for (let seatBooked of this.bookedTicket) {
+      for (let chair of seatBooked.seats) {
+        for (let rows = 0; rows < this.salong.salong.length; rows++) {
+          let seats = this.salong.salong[rows].row[0]
+          for (let seat = 0; seat < seats.length; seat++) {
+            if (seats[seat].seatNumber == chair.Seat) {
+              let unavailableSeat = await seats[seat].seatNumber
+              this.bookedInDatabas.push(unavailableSeat);
+
+            }
+          }
+        }
+      }
+    }
+
+    console.log(this.bookedInDatabas)
+
+
     let user = await Login.find();
 
     let Num = new BookingNumber();
@@ -123,11 +147,27 @@ class BookTicketPage extends Component {
         if (seats[seat].baseEl[0].className == 'hoverChoosenSeat') {
           this.booked = this.bookedSeat = { Row: seats[seat].rowNumber, Seat: seats[seat].seatNumber };
           this.booking.push(this.booked);
+          this.errorCantBookThese = '';
         }
       }
     }
 
-    if (this.totalTickets == this.booking.length & this.totalTickets > 0) {
+    for (let rows = 0; rows < this.salong.salong.length; rows++) {
+      let seats = this.salong.salong[rows].row[0]
+      for (let seat = 0; seat < seats.length; seat++) {
+        if (seats[seat].baseEl[0].className == 'hoverChoosenSeat') {
+          for(let bookedSeatNum of this.bookedInDatabas){
+            if(bookedSeatNum == seats[seat].seatNumber){
+              this.errorCantBookThese = `<div class="alert alert-danger mt-4" role="alert"> Någon bokade dessa platserna medans du väntade, var god och välj andra platser! </div>`;
+              this.getBookedSeats()
+              this.render();
+            }
+          }
+        }
+      }
+    }
+
+    if (this.totalTickets == this.booking.length & this.totalTickets > 0 && this.errorCantBookThese =='') {
 
       let elements = document.getElementsByClassName('hoverChoosenSeat');
       for (let i = elements.length - 1; i >= 0; --i) {
@@ -158,7 +198,7 @@ class BookTicketPage extends Component {
       this.adult = 2;
       this.totalTickets = 2;
 
-    } else {
+    } else if(this.errorCantBookThese == '') {
       this.error = `<div class="alert alert-danger mt-4" role="alert"> Välj rätt antal platser för att boka! </div>`
       this.getBookedSeats()
       this.render();
