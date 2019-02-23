@@ -15,14 +15,9 @@ class LoginPage extends Component {
       'submit form': 'userLogin',
       'click .relocate': 'relocate',
       'click .logout': 'userLogout',
-      'click .resetLogin': 'mount',
-      'click .register': 'gotoURL'
+      'click .resetLogin': 'mount'
     });
 
-  }
-
-  gotoURL(){
-    window.location.pathname = '/register'
   }
 
   mount() {

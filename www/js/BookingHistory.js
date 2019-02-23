@@ -50,6 +50,7 @@ class BookingHistory extends Component {
       this.noBookings = true;
 
     }
+    this.tickets.reverse();
     this.render();
   }
 
