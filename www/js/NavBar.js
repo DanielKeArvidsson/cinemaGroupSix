@@ -4,7 +4,7 @@ class NavBar extends Component {
     super();
     this.addEvents({
       'click .logga-ut': 'userLogout',
-      'click .nav-link': 'nabarRender',
+      'click .nav-link': 'render',
       'click .navbar-toggler':'showNavBar'
     });
 
@@ -12,11 +12,6 @@ class NavBar extends Component {
     Store.navbar = this;
     this.showNav = true;
     this.socialItems = new SocialItems();
-  }
-
-  navbarRender(){
-    this.showNav = false;
-    this.render()
   }
 
   get navItems() {
