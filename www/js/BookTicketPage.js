@@ -109,6 +109,8 @@ class BookTicketPage extends Component {
 
   async bookSeat() {
 
+    let user = await Login.find();
+
     let Num = new BookingNumber();
     this.bookingNum = await Num.getBookingNumber();
 
@@ -136,7 +138,7 @@ class BookTicketPage extends Component {
         "bookingNum": this.bookingNum,
         "purchasedAt": new Date(),
         "price": this.total,
-        "user": App.loginPage.currentUser.email,
+        "user": user.email,
         "program": this.program,
         "programId": this.id,
         "seats": this.booking.reverse()
