@@ -30,30 +30,26 @@ class BookingHistory extends Component {
     let tmpEmail = await Login.find();
     for (let i = 0; i < tmpTickets.length; i++) {
       if (tmpTickets[i].user === tmpEmail.email) {
-        if (tmpTickets[i].program.date <= currentDate && tmpTickets[i].program.time < time.substring(0, 5)) {
-          this.oldBookings.push(tmpTickets[i])
+        if (tmpTickets[i].program.date <= currentDate) {
+          if (tmpTickets[i].program.time > time.substring(0, 5) && currentDate <= tmpTickets[i].program.date) {
+            this.tickets.push(tmpTickets[i]);
+          }
+          else {
+            this.oldBookings.push(tmpTickets[i])
+          }
         }
         else {
           this.tickets.push(tmpTickets[i]);
         }
-
       }
-
-
-
-      //console.log(this.commingBookings);
     }
 
 
-    if (this.tickets.length === 0) {
+    if (this.tickets.length === 0 && this.oldBookings.length == 0) {
       this.show = false;
       this.noBookings = true;
-
     }
     this.tickets.reverse();
     this.render();
   }
-
-
-
 }
