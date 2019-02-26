@@ -45,10 +45,12 @@ class BookingHistory extends Component {
     }
 
 
-    if (this.tickets.length === 0 && this.oldBookings.length == 0) {
+    if (this.tickets.length <= 0 && this.oldBookings.length <= 0) {
       this.show = false;
       this.noBookings = true;
     }
+    console.log(this.oldBookings)
+    this.oldBookings.reverse();
     this.tickets.reverse();
     this.render();
   }
