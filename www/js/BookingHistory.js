@@ -49,7 +49,6 @@ class BookingHistory extends Component {
       this.show = false;
       this.noBookings = true;
     }
-    console.log(this.oldBookings)
     this.oldBookings.reverse();
     this.tickets.reverse();
     this.render();
