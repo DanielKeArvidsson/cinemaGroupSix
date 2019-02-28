@@ -4,6 +4,10 @@ body > div{
   flex-direction: column;
   font-size: 17px;
   text-align: left;
+  font-family: 'Play', sans-serif;
+  h5{
+    font-size: 25px;
+  }
 }
 
 main {
@@ -16,4 +20,9 @@ main {
   justify-content: center;
   margin-top: 10rem;
   text-align: center;
+}
+
+footer{
+  color:rgb(189, 189, 189);
+  background-color: #1c0000;
 }

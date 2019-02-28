@@ -35,4 +35,16 @@
   .ticket-selector {
     color: white;
   }
+  .screen{
+    position: relative;
+    border-top: 2px solid white;
+    width: 300px;
+    z-index: -99999;
+    margin-bottom: 80px;
+    .light{
+      position: absolute;
+      width: 300px;
+      opacity: 0.7;
+    } 
+  }
 }

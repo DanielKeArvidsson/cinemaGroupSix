@@ -3,10 +3,12 @@ class SalongsInfoPage extends Component {
     super(props);
     this.addRoute('/salongs-info', 'Salonger');
     this.auditorium;
-    this.loadAuditorium()
   }
-  async loadAuditorium() {
+  async mount() {
     this.auditorium = await Auditorium.find();
+    this.render();
   }
+
+
 
 }
