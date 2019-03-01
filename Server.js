@@ -2,10 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const jsonflex = require('jsonflex')();
-const Sass = require('./sass');
+const Sass = require('./cinemagroupsix/sass');
 const config = require('./config.json');
-const CreateRestRoutes = require('./CreateRestRoutes');
-const LoginHandler = require('./LoginHandler');
+const CreateRestRoutes = require('./cinemagroupsix/CreateRestRoutes');
+const LoginHandler = require('./cinemagroupsix/LoginHandler');
 const settings = require('./settings.json');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
@@ -61,11 +61,11 @@ module.exports = class Server {
 
     // Set keys to names of rest routes
     const models = {
-      movies: require('./models/Movie'),
-      programs: require('./models/Program'),
-      users: require('./models/User'),
-      auditoriums: require('./models/Auditorium'),
-      tickets: require('./models/Ticket')
+      movies: require('./cinemagroupsix/models/Movie'),
+      programs: require('./cinemagroupsix/models/Program'),
+      users: require('./cinemagroupsix/models/User'),
+      auditoriums: require('./cinemagroupsix/models/Auditorium'),
+      tickets: require('./cinemagroupsix/models/Ticket')
     };
 
     // create all necessary rest routes for the models
