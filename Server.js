@@ -4,6 +4,7 @@ const LoginHandler = require('./LoginHandler');
 const settings = require('./settings.json');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+const bodyParser = require('body-parser');
 
 
 for (let conf of config.sass) {
@@ -33,6 +34,8 @@ for (let conf of config.sass) {
     }
   
     startWebServer() {
+
+      app.use(bodyParser.json());
   
       // Add session (and cookie) handling to Express
       app.use(session({
