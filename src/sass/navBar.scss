@@ -1,19 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
 nav {
   font-family: 'Play', sans-serif;
-  background-color: #1c0000;
+  background-color: #222121;
   border-bottom:1px solid white;
+  width: 100%;
+  
   a{
-    color:rgb(189, 189, 189);
+    color:rgb(228, 225, 225);
     &:hover{
       color: rgb(255, 255, 255);
       text-decoration: underline;
     }
   }
   .active{
-    color: #af0000;
+    color: #ffffff;
     text-decoration: underline;
     &:hover{
-      color: #af0000;
+      color: #f1acac;
       text-decoration: underline;
     }
   }
