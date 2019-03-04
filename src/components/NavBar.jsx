@@ -32,8 +32,9 @@ closeNavbar = () => {
 
   render() {
     return (
+      <React.Fragment>
       <Container>
-        <Navbar expand="lg" dark>
+        <Navbar expand="lg" dark >
           <Link to='/' className="navbar-brand">FilmVisarna AB</Link>
           <NavbarToggler onClick={this.toggleNavbar} />
           <Collapse isOpen={!this.state.collapsed} navbar>
@@ -57,6 +58,7 @@ closeNavbar = () => {
           </Collapse>
         </Navbar>
       </Container>
+      </React.Fragment>
     )
   }
 }
