@@ -16,9 +16,9 @@ class App extends Component {
       </header>
       
       <main>
-      <ShowPage />
-      <Route exact path="/showpage" components={ShowPage} />
-      <Route exact path="/startpage" components={StartPage} />
+      
+      <Route exact path="/" components={StartPage} />
+      <Route path="/showpage" component={ShowPage} />
       </main>
 
       <footer>
