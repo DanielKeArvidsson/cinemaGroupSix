@@ -33,14 +33,15 @@ closeNavbar = () => {
   render() {
     return (
       <React.Fragment>
-      <Container>
+        <div className="row">
+      <div className="col-12">
         <Navbar expand="lg" dark >
           <Link to='/' className="navbar-brand">FilmVisarna AB</Link>
           <NavbarToggler onClick={this.toggleNavbar} />
           <Collapse isOpen={!this.state.collapsed} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink exact to='/startpage' onClick={this.closeNavbar} className="nav-link">Start</NavLink>
+                <NavLink exact to='/' onClick={this.closeNavbar} className="nav-link">Start</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink to='showpage' onClick={this.closeNavbar} className="nav-link">Aktuella Visningar</NavLink>
@@ -57,7 +58,8 @@ closeNavbar = () => {
             </Nav>
           </Collapse>
         </Navbar>
-      </Container>
+        </div>
+      </div>
       </React.Fragment>
     )
   }

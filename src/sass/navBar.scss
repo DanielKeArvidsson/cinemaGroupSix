@@ -1,15 +1,15 @@
-* {
-  box-sizing: border-box;
-}
+// * {
+//   box-sizing: border-box;
+// }
 
 nav {
   font-family: 'Play', sans-serif;
   background-color: #222121;
   border-bottom:1px solid white;
-  width: 100%;
+  
   
   a{
-    color:rgb(228, 225, 225);
+    color:rgb(250, 248, 248);
     &:hover{
       color: rgb(255, 255, 255);
       text-decoration: underline;
@@ -19,7 +19,7 @@ nav {
     color: #ffffff;
     text-decoration: underline;
     &:hover{
-      color: #f1acac;
+      color: #f35353;
       text-decoration: underline;
     }
   }
@@ -28,10 +28,11 @@ nav {
     color: #af0000;
 }
   
-  .navbar-brand {
-    height: 50px;
+  // .navbar-brand {
+  //   // height: 50px;
+  //   width: 100%;
 
-  }
+  // }
   
   ul.social-network {
     list-style: none;
