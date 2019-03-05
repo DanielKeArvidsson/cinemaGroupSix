@@ -3,7 +3,7 @@ import "./css/style.css";
 import ShowPage from "./components/ShowPage";
 import NavBar from './components/NavBar';
 import Home from './components/home';
-import Footer from './components/Footer';
+import Footer from './components/footer';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 

@@ -23,7 +23,7 @@ class ShowPage extends React.Component {
   render() {
     return (
       <div>
-        <h1>Våra Aktuella Visningar</h1>
+        <h1>Aktuella Visningar</h1>
         {this.shows.map(show => {
           return <Show key={show._id} {...show} />;
         })}
