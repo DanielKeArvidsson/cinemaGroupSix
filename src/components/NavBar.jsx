@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  Container,
   Navbar,
   NavbarToggler,
   Collapse,
@@ -11,8 +10,8 @@ import { NavLink, Link} from 'react-router-dom'
 
 
 class NavBar extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
     collapsed: true
     };
@@ -30,12 +29,14 @@ closeNavbar = () => {
     }
 }
 
+
+
   render() {
     return (
       <React.Fragment>
         <div className="row">
       <div className="col-12">
-        <Navbar expand="lg" dark >
+        <Navbar expand="lg" dark fixed="top">
           <Link to='/' className="navbar-brand">FilmVisarna AB</Link>
           <NavbarToggler onClick={this.toggleNavbar} />
           <Collapse isOpen={!this.state.collapsed} navbar>
@@ -44,7 +45,7 @@ closeNavbar = () => {
                 <NavLink exact to='/' onClick={this.closeNavbar} className="nav-link">Start</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink to='showpage' onClick={this.closeNavbar} className="nav-link">Aktuella Visningar</NavLink>
+                <NavLink to='/showpage' onClick={this.closeNavbar} className="nav-link">Aktuella Visningar</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink to='/salong' onClick={this.closeNavbar} className="nav-link">Våra Salonger</NavLink>

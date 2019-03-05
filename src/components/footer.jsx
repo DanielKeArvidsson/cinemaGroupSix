@@ -6,10 +6,10 @@ class Footer extends Component {
     return (
       <React.Fragment>
         <body>
-          <div class="wrapper">
-            <div class="push" />
+          <div className="wrapper">
+          
           </div>
-          <footer class="footer">
+          <footer class="footer" sticky="bottom">
             <div className="container text-center">
               <div className="row">
                 <div className="col-md-5">

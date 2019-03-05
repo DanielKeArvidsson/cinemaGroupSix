@@ -4,7 +4,7 @@ import ShowPage from "./components/ShowPage";
 import NavBar from './components/NavBar';
 import Home from './components/home';
 import Footer from './components/footer';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 
 
@@ -15,19 +15,19 @@ class App extends Component {
       
       
       <header>
-      <NavBar />
+        <NavBar />
       </header>
       
-     <Switch>
-      <main>
-      <Route exact path="/" components={Home} />
-      <Route path="/showpage" component={ShowPage} />
-      </main>
-      </Switch>
+    
+       <main>
+         <Route exact path="/home" components={Home} />
+         <Route path="/showpage" components={ShowPage} />
+       </main>
+     
       
       
       <footer>
-      <Footer />
+        <Footer />
       </footer>
       
       </div>
