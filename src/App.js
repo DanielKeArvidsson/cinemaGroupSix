@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import React, { Component } from 'react';
-import logo from './logo.svg';
-=======
 import React, { Component } from "react";
 import "./css/style.css";
 import ShowPage from "./components/ShowPage";
@@ -9,9 +5,6 @@ import NavBar from './components/NavBar';
 import Home from './components/home';
 import Footer from './components/footer';
 import { Route } from 'react-router-dom';
-
->>>>>>> eol2.0
-
 
 class App extends Component {
   render() {
