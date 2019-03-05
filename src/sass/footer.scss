@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+  .footer {
+    flex-shrink: 0; 
+    padding: 20px;
+    background: rgb(15, 15, 15);
+    color: white;
+  }
+  .wrapper {
+    height: 50vh;
+  }
