@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import REST from "../REST";
-class Login extends REST {}
 class User extends REST {}
 
 class RegisterPage extends Component {
@@ -26,25 +25,23 @@ class RegisterPage extends Component {
   };
 
   async registerUser() {
-    let newUser = new User(
-      {
-        firstName : this.state.account.userFirstName,
-        lastName: this.state.account.userLastName,
-        email: this.state.account.userEmail,
-        password: this.state.account.userPassword
-      }
-    )
+    let newUser = new User({
+      firstName: this.state.account.userFirstName,
+      lastName: this.state.account.userLastName,
+      email: this.state.account.userEmail,
+      password: this.state.account.userPassword
+    });
     let user = await User.find(`.find({email: '${newUser.email}'})`);
     if (user.length === 0) {
       newUser.save();
-     console.log("User saved");
-     alert("user saved");
+      console.log("User saved");
+      alert("user saved");
       return;
     } else {
       console.log("User exists");
-      alert("user exists");     
+      alert("user exists");
       return;
-    }  
+    }
   }
 
   render() {
@@ -99,7 +96,7 @@ class RegisterPage extends Component {
             className="formControl"
           />
         </FormGroup>
-        
+        <Button>Bekräfta</Button>
       </Form>
     );
   }

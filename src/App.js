@@ -8,6 +8,7 @@ import Footer from "./components/footer";
 import { Route } from "react-router-dom";
 
 class App extends Component {
+
   render() {
     return (
       <div className="App Site">

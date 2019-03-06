@@ -34,7 +34,10 @@ export class LoginPage extends Component {
     let result = await newLogin.save();
     if (result.error && result.error === "The password does not match!") {
       alert("Lösenordet är felaktigt!");
-    } else if (result.error === "Not logged in!" || result.error === "No such user!") {
+    } else if (
+      result.error === "Not logged in!" ||
+      result.error === "No such user!"
+    ) {
       alert("E-postadressen är ogiltig!");
     } else if (result.loggedIn === true) {
       alert("Välkommen");
