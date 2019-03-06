@@ -37,7 +37,7 @@ class NavBar extends Component {
                   <NavItem>
                     <NavLink
                       exact
-                      to="/"
+                      to="/home"
                       onClick={this.closeNavbar}
                       className="nav-link"
                     >

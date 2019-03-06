@@ -5,7 +5,6 @@ class Footer extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="wrapper" />
         <footer className="footer" sticky="bottom">
           <div className="container text-center">
             <div className="row">

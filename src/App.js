@@ -9,12 +9,12 @@ import { Route } from "react-router-dom";
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App Site">
         <header>
           <NavBar />
         </header>
 
-        <main>
+        <main class="Site-content">
           <Route exact path="/home" components={Home} />
           <Route path="/showpage" components={ShowPage} />
         </main>
