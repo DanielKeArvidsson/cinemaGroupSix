@@ -42,50 +42,12 @@ class RegisterPage extends Component {
       this.showError = false;
       this.render();
       return;
-      //     $('.register-form').empty();
-      //   $('.register-form').append(`
-      //   <div>
-      //  <div id="myModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-      //     <div class="modal-dialog" role="document">
-      //       <div class="modal-content">
-      //         <div class="modal-body">
-      //         <p>Hej ${newUser.firstName}!</p>
-      //           <p>Din registrering är slutförd.</p>
-      //         </div>
-      //         <div class="modal-footer">
-      //          <a href="/login">Stäng</a>
-      //         </div>
-      //       </div>
-      //     </div>
-      //   </div>
-      // </div>
-      //   `)
-
     } else {
-      // this.redirect= true;
+  
       this.showForm = false;
       this.showError = true;
       this.render();
       return;
-
-      //   $('.register-form').empty();
-      //   $('.register-form').append(`
-      //   <div>
-      //  <div id="myModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-      //     <div class="modal-dialog" role="document">
-      //       <div class="modal-content">
-      //         <div class="modal-body">
-
-      //           <p>User already exists!.</p>
-      //         </div>
-      //         <div class="modal-footer">
-      //          <a href="/login">Stäng</a>
-      //         </div>
-      //       </div>
-      //     </div>
-      //   </div>
-      // </div>
-      //   `)
     }
     this.render();
   }

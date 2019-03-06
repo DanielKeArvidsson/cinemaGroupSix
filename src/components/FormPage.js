@@ -24,7 +24,10 @@ export class FormPage extends Component {
       <div className="container" style={formStyle}>
         <div className="box-controller">
           <div
-            className={"controller" + (this.state.isLoginOpen ? "activeLinkController" : "")}
+            className={
+              "controller" +
+              (this.state.isLoginOpen ? "activeLinkController" : "")
+            }
             style={controllerStyle}
             onClick={this.showLoginPage.bind(this)}
           >
@@ -32,7 +35,8 @@ export class FormPage extends Component {
           </div>
           <div
             className={
-              "controller" + (this.state.isRegisterOpen ? "activeLinkController" : "")
+              "controller" +
+              (this.state.isRegisterOpen ? "activeLinkController" : "")
             }
             onClick={this.showRegisterPage.bind(this)}
             style={controllerStyle}
