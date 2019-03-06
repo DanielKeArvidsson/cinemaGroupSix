@@ -14,8 +14,10 @@ class ShowPage extends React.Component {
   async loadData() {
     console.log("hej");
     let data = await Program.find(
-      `.find().populate('movie auditorium').sort({date: 1, time: 1}).limit(10).exec()`
+      `.find().populate('movie auditorium').sort({"date": 1, "time": 1}).limit(10).exec()`
     );
+
+    
     this.shows = data;
     this.setState({ state: this.state });
     console.log(this.shows);

@@ -14,9 +14,9 @@ class App extends Component {
           <NavBar />
         </header>
 
-        <main class="Site-content">
-          <Route exact path="/home" components={Home} />
-          <Route path="/showpage" components={ShowPage} />
+        <main className="Site-content">
+          <Route path="/home" component={Home} />
+          <Route path="/showpage" component={ShowPage} />
         </main>
 
         <footer>
