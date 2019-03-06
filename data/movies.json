@@ -1,10 +1,7 @@
 [
   {
     "title": "Call me by your name",
-    "productionCountries": [
-      "Italien",
-      "USA"
-    ],
+    "productionCountries": ["Italien", "USA"],
     "productionYear": 2017,
     "length": 132,
     "genre": "Drama",
@@ -12,19 +9,10 @@
     "language": "engelska",
     "subtitles": "svenska",
     "director": "Luca Guadagnino",
-    "actors": [
-      "Armie Hammer",
-      "Timothée Chalamet",
-      "Michael Stuhlbarg"
-    ],
+    "actors": ["Armie Hammer", "Timothée Chalamet", "Michael Stuhlbarg"],
     "description": "<p>Filmen utspelas i norra Italien sommaren 1983. En ung amerikansk-italienare blir förälskad i en amerikansk student som kommer för att studera och bo hos hans familj.</p><p>Tillsammans upplever de en oförglömlig sommar - full av musik, mat och kärlek - som för evigt kommer att förändra dem.</p>",
-    "images": [
-      "call-me-poster1.jpg",
-      "call-me-poster2.jpg"
-    ],
-    "youtubeTrailers": [
-      "Z9AYPxH5NTM"
-    ],
+    "images": ["call-me-poster1.jpg", "call-me-poster2.jpg"],
+    "youtubeTrailers": ["Z9AYPxH5NTM"],
     "reviews": [
       {
         "source": "Sydsvenskan",
@@ -48,9 +36,7 @@
   },
   {
     "title": "Beskyddarna",
-    "productionCountries": [
-      "Frankrike"
-    ],
+    "productionCountries": ["Frankrike"],
     "productionYear": 2017,
     "length": 138,
     "genre": "Drama",
@@ -58,19 +44,10 @@
     "language": "franska",
     "subtitles": "svenska",
     "director": "Xavier Beauvois",
-    "actors": [
-      "Laura Smet",
-      "Iris Bry",
-      "Nathalie Baye"
-    ],
+    "actors": ["Laura Smet", "Iris Bry", "Nathalie Baye"],
     "description": "<p>1915. På familjen Paradiers gård har mor och dotter tagit över sedan männen har begett sig till fronten. </p><p>De sliter hårt med jordbruket, men inser att de behöver hjälp och anställer Francine, en fattig kvinna som känner att hon äntligen har hittat en familj.</p>",
-    "images": [
-      "beskyddarna1.jpg",
-      "beskyddarna2.jpg"
-    ],
-    "youtubeTrailers": [
-      "7w4zDaS7inE"
-    ],
+    "images": ["beskyddarna1.jpg", "beskyddarna2.jpg"],
+    "youtubeTrailers": ["7w4zDaS7inE"],
     "reviews": [
       {
         "source": "Svenska Dagbladet",
@@ -94,9 +71,7 @@
   },
   {
     "title": "Shoplifters",
-    "productionCountries": [
-      "Japan"
-    ],
+    "productionCountries": ["Japan"],
     "productionYear": 2018,
     "length": 121,
     "genre": "Drama",
@@ -104,19 +79,10 @@
     "language": "japanska",
     "subtitles": "svenska",
     "director": "Hirokazu Kore-eda",
-    "actors": [
-      "Lily Franky",
-      "Sakura Andô",
-      "Mayu Matsuoka"
-    ],
+    "actors": ["Lily Franky", "Sakura Andô", "Mayu Matsuoka"],
     "description": "<p>Efter en av sina snattningsrundor tillsammans med sin son upptäcker Osamu en övergiven flicka som står och fryser i kylan.</p><p> De tar hand om henne och släpper in henne i familjen. Trots att de är fattiga och knappt har mat för dagen så har de det ändå ganska bra tillsammans. </p>",
-    "images": [
-      "shoplifters1.jpg",
-      "shoplifters2.jpg"
-    ],
-    "youtubeTrailers": [
-      "2lqgxmq24qE"
-    ],
+    "images": ["shoplifters1.jpg", "shoplifters2.jpg"],
+    "youtubeTrailers": ["2lqgxmq24qE"],
     "reviews": [
       {
         "source": "Sydsvenskan",
@@ -140,9 +106,7 @@
   },
   {
     "title": "Beautiful Boy",
-    "productionCountries": [
-      "USA"
-    ],
+    "productionCountries": ["USA"],
     "productionYear": 2018,
     "length": 121,
     "genre": "Drama",
@@ -150,19 +114,10 @@
     "language": "engelska",
     "subtitles": "svenska",
     "director": "Felix van Groeningen",
-    "actors": [
-      "Steve Carell",
-      "Maura Tierney",
-      "Amy Ryan"
-    ],
+    "actors": ["Steve Carell", "Maura Tierney", "Amy Ryan"],
     "description": "<p>Den framgångsrike journalisten David Sheffs har alltid försökt ge sin älskade son allt han behöver. </p><p>Men vare sig David eller Nics mamma Vicki kan hindra sonen från att börja experimentera med crystal meth.</p>",
-    "images": [
-      "beautiful-boy1.jpg",
-      "beautiful-boy2.jpg"
-    ],
-    "youtubeTrailers": [
-      "y23HyopQxEg"
-    ],
+    "images": ["beautiful-boy1.jpg", "beautiful-boy2.jpg"],
+    "youtubeTrailers": ["y23HyopQxEg"],
     "reviews": [
       {
         "source": "DN",
@@ -186,10 +141,7 @@
   },
   {
     "title": "Cold war",
-    "productionCountries": [
-      "Polen",
-      "Frankrike"
-    ],
+    "productionCountries": ["Polen", "Frankrike"],
     "productionYear": 2018,
     "length": 88,
     "genre": "Drama",
@@ -197,19 +149,10 @@
     "language": "polska",
     "subtitles": "svenska",
     "director": "Pawel Pawlikowski",
-    "actors": [
-      "Borys Szyc",
-      "Tomasz Kot",
-      "Joanna Kulig"
-    ],
+    "actors": ["Borys Szyc", "Tomasz Kot", "Joanna Kulig"],
     "description": "<p>Cold War är en passionerad kärlekshistoria mellan två personer vars öden flätas samman trots olika bakgrund och temperament, mot bakgrunden av kalla krigets 1950-tal i Polen, Berlin, Jugoslavien och Paris. </p>",
-    "images": [
-      "cold-war1.jpg",
-      "cold-war2.jpg"
-    ],
-    "youtubeTrailers": [
-      "BvPkDdFeTk8"
-    ],
+    "images": ["cold-war1.jpg", "cold-war2.jpg"],
+    "youtubeTrailers": ["BvPkDdFeTk8"],
     "reviews": [
       {
         "source": "Sydsvenskan",
