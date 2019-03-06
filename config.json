@@ -1,11 +1,11 @@
 {
-  "sass":[
+  "sass": [
     {
       "compileAtBootup": true,
       "watch": true,
-      "arguments":{
-        "watchFolder": "./sass",
-        "file": "./sass/style.scss",
+      "arguments": {
+        "watchFolder": "./src/sass",
+        "file": "./src/sass/style.scss",
         "outFile": "./src/css/style.css",
         "outputStyle": "compressed"
       }
