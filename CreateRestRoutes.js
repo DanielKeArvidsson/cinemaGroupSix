@@ -23,7 +23,7 @@ module.exports = class CreateRestRoutes {
     this.app.get(baseRoute, async (req, res) => {
       res.json(await Model.find());
     });
-
+    
     this.app.get(baseRoute + '.*', async (req, res) => {
       let query = decodeURIComponent(
         req.url.substr(req.url.indexOf('/.') + 1)
