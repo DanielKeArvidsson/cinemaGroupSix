@@ -2,6 +2,9 @@
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background-image: url('../images/cinema.png');
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .Site-content {
