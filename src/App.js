@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./css/style.css";
+import "./index.css";
 import ShowPage from "./components/ShowPage";
 import NavBar from "./components/NavBar";
 import Home from "./components/home";
