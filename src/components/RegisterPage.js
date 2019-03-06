@@ -34,8 +34,6 @@ class RegisterPage extends Component {
         password: this.state.account.userPassword
       }
     )
-
-    //if (!this.loginHandler.emailValidator(userData.email)
     let user = await User.find(`.find({email: '${newUser.email}'})`);
     if (user.length === 0) {
       newUser.save();
@@ -44,11 +42,9 @@ class RegisterPage extends Component {
       return;
     } else {
       console.log("User exists");
-      alert("user exists");
-     
+      alert("user exists");     
       return;
-    }
-  
+    }  
   }
 
   render() {

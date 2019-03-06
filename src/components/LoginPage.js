@@ -32,16 +32,11 @@ export class LoginPage extends Component {
     });
     let user = await User.find(`.find({email: '${newLogin.email}'})`);
     let result = await newLogin.save();
-    let test = await Login.find();
     if (result.error && result.error === "The password does not match!") {
       alert("Lösenordet är felaktigt!");
-    } else if (
-      result.error === "Not logged in!" ||
-      result.error === "No such user!" ||
-      test.error === "Not logged in!"
-    ) {
+    } else if (result.error === "Not logged in!" || result.error === "No such user!") {
       alert("E-postadressen är ogiltig!");
-    } else if (result.loggedIn === true && test.error !== "Not logged in!") {
+    } else if (result.loggedIn === true) {
       alert("Välkommen");
     }
   }
