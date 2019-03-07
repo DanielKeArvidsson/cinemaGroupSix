@@ -19,9 +19,6 @@ class App extends Component {
   async checkIfLoggedIn() {
     this.isLoggedin = true;
     this.loggedinUser = await Login.find();    
-     console.log(this.isLoggedin, "coming from app boolean")
-     console.log(this.loggedinUser, "coming from app user from await find")
-   // if (this.loggedinUser.error) { this.loggedinUser = false; }
     NavBar.lastInstance.setState(state => NavBar.lastInstance );
   }
 

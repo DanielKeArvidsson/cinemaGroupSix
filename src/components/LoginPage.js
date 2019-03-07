@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Link } from "react-router-dom";
 import REST from "../REST";
 import App from "../App";
 import NavBar from "./NavBar";
@@ -17,9 +19,21 @@ class Login extends REST {
 }
 
 export class LoginPage extends Component {
-  state = {
-    account: { userEmail: "", userPassword: "" }
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      account: { userEmail: "", userPassword: "" },
+      modalShow: false,
+      message: ""
+    };
+    this.toggleModal = this.toggleModal.bind(this);
+  }
+
+  toggleModal() {
+    this.setState(prevState => ({
+      modalShow: !prevState.modalShow
+    }));
+  }
 
   handleChange = ({ currentTarget: input }) => {
     const account = { ...this.state.account };
@@ -35,17 +49,19 @@ export class LoginPage extends Component {
     let user = await User.find(`.find({email: '${newLogin.email}'})`);
     let result = await newLogin.save();
     if (result.error && result.error === "The password does not match!") {
-      alert("Lösenordet är felaktigt!");
+      this.toggleModal();
+      this.setState({ message: "Lösenordet är felaktigt!" });
     } else if (
       result.error === "Not logged in!" ||
       result.error === "No such user!"
     ) {
-      alert("E-postadressen är ogiltig!");
+      this.toggleModal();
+      this.setState({ message: "E-postadressen är ogiltig!" });
     } else if (result.loggedIn === true) {
-      alert("Välkommen");
       App.isLoggedin = true;
-      console.log(App.isLoggedin);
-      NavBar.lastInstance.setState(state => NavBar.lastInstance )
+      this.toggleModal();
+      this.setState({ message: "Hej! Du är nu inloggad." });
+      NavBar.lastInstance.setState(state => NavBar.lastInstance);
     }
   }
 
@@ -54,39 +70,61 @@ export class LoginPage extends Component {
     this.userLogin();
   };
 
-  
- 
-
   render() {
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <div className="header">Logga in</div>
-        <FormGroup>
-          <Label for="userEmail">E-post</Label>
-          <Input
-            value={this.state.account.userEmail}
-            onChange={this.handleChange}
-            type="email"
-            name="userEmail"
-            id="userEmail"
-            placeholder="E-post"
-            className="formControl"
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="userPassword">Lösenord</Label>
-          <Input
-            value={this.state.account.userPassword}
-            onChange={this.handleChange}
-            type="password"
-            name="userPassword"
-            id="userPassword"
-            placeholder="Lösenord"
-            className="formControl"
-          />
-        </FormGroup>
-        <Button>Bekräfta</Button>
-      </Form>
+      <div className="loginContainer">
+        <Form onSubmit={this.handleSubmit}>
+          <div className="header">Logga in</div>
+          <FormGroup>
+            <Label for="userEmail">E-post</Label>
+            <Input
+              value={this.state.account.userEmail}
+              onChange={this.handleChange}
+              type="email"
+              name="userEmail"
+              id="userEmail"
+              placeholder="E-post"
+              className="formControl"
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="userPassword">Lösenord</Label>
+            <Input
+              value={this.state.account.userPassword}
+              onChange={this.handleChange}
+              type="password"
+              name="userPassword"
+              id="userPassword"
+              placeholder="Lösenord"
+              className="formControl"
+            />
+          </FormGroup>
+          <Button>Bekräfta</Button>
+        </Form>
+        {this.state.modalShow ? (
+          <Modal
+            isOpen={this.state.modalShow}
+            toggle={this.toggleModal}
+            className="buttons-div"
+          >
+            <ModalHeader toggle={this.toggleModal} />
+            <ModalBody>
+              <p>{this.state.message}</p>
+            </ModalBody>
+            <ModalFooter>
+              <Link
+                to="/home"
+                className="btn btn-secondary"
+                onClick={this.toggleModal}
+              >
+                Stäng
+              </Link>
+            </ModalFooter>
+          </Modal>
+        ) : (
+          ""
+        )}
+      </div>
     );
   }
 }
