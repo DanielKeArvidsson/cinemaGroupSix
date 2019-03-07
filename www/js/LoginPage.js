@@ -71,15 +71,7 @@ class LoginPage extends Component {
   }
 
 
-  async userLogout() {
-    let toDeleteUser = await Login.find();
-    this.currentLogin = await Login.find();
-    await toDeleteUser.delete();
-    Store.loggedIn = false;
-    Store.navbar.userIsLoggedIn = false;
-    Store.navbar.render();
-    this.render();
-  }
+  
 
 
 

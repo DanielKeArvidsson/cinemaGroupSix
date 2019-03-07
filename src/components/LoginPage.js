@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import REST from "../REST";
+import App from "../App";
+import NavBar from "./NavBar";
 
 class User extends REST {}
 
@@ -41,6 +43,9 @@ export class LoginPage extends Component {
       alert("E-postadressen är ogiltig!");
     } else if (result.loggedIn === true) {
       alert("Välkommen");
+      App.isLoggedin = true;
+      console.log(App.isLoggedin);
+      NavBar.lastInstance.setState(state => NavBar.lastInstance )
     }
   }
 
@@ -48,6 +53,9 @@ export class LoginPage extends Component {
     e.preventDefault();
     this.userLogin();
   };
+
+  
+ 
 
   render() {
     return (

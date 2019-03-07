@@ -1,6 +1,18 @@
 import React, { Component } from "react";
+import REST from "../REST";
 import { Navbar, NavbarToggler, Collapse, Nav, NavItem } from "reactstrap";
 import { NavLink, Link } from "react-router-dom";
+import App from "../App";
+
+class Login extends REST {
+  async delete() {
+    this._id = 1;
+    return super.delete();
+  }
+  static get baseRoute() {
+    return "login/";
+  }
+}
 
 class NavBar extends Component {
   constructor(props) {
@@ -8,6 +20,7 @@ class NavBar extends Component {
     this.state = {
       collapsed: true
     };
+    NavBar.lastInstance = this;
   }
 
   toggleNavbar = () => {
@@ -21,6 +34,15 @@ class NavBar extends Component {
       this.toggleNavbar();
     }
   };
+
+  async userLogout() {
+    let toDeleteUser = await Login.find();
+   // this.currentLogin = await Login.find();
+    await toDeleteUser.delete();
+    App.isLoggedin = false;
+    console.log(App.isLoggedin, "deleting");
+    NavBar.lastInstance.setState(state => NavBar.lastInstance )
+  }
 
   render() {
     return (
@@ -71,7 +93,16 @@ class NavBar extends Component {
                       Om Oss
                     </NavLink>
                   </NavItem>
-                  <NavItem>
+                  {App.isLoggedin ? <NavItem>
+                    <NavLink
+                      to="/mina-bokningar"
+                      onClick={this.closeNavbar}
+                      className="nav-link"
+                    >
+                      Mina bokningar
+                    </NavLink>
+                  </NavItem> : "" }
+                  {!App.isLoggedin ? <NavItem>
                     <NavLink
                       to="/login"
                       onClick={this.closeNavbar}
@@ -79,7 +110,17 @@ class NavBar extends Component {
                     >
                       Logga in
                     </NavLink>
-                  </NavItem>
+                  </NavItem> : 
+                  <NavItem>
+                  <NavLink
+                    to="/logout"
+                    onClick={this.closeNavbar}
+                    onClick={this.userLogout}
+                    className="nav-link"
+                  >
+                    Logga ut
+                  </NavLink>
+                </NavItem>}
                 </Nav>
               </Collapse>
             </Navbar>
