@@ -10,9 +10,9 @@
     "subtitles": "svenska",
     "director": "Luca Guadagnino",
     "actors": ["Armie Hammer", "Timothée Chalamet", "Michael Stuhlbarg"],
-    "description": "<p>Filmen utspelas i norra Italien sommaren 1983. En ung amerikansk-italienare blir förälskad i en amerikansk student som kommer för att studera och bo hos hans familj.</p><p>Tillsammans upplever de en oförglömlig sommar - full av musik, mat och kärlek - som för evigt kommer att förändra dem.</p>",
+    "description": "<p>Filmen utspelas i norra Italien sommaren 1983. En ung amerikansk-italienare blir förälskad i en amerikansk student som kommer för att studera och bo hos hans familj.Tillsammans upplever de en oförglömlig sommar - full av musik, mat och kärlek - som för evigt kommer att förändra dem.</p>",
     "images": ["call-me-poster1.jpg", "call-me-poster2.jpg"],
-    "youtubeTrailers": ["Z9AYPxH5NTM"],
+    "youtubeTrailers": ["https://www.youtube.com/embed/Z9AYPxH5NTM"],
     "reviews": [
       {
         "source": "Sydsvenskan",
@@ -45,9 +45,9 @@
     "subtitles": "svenska",
     "director": "Xavier Beauvois",
     "actors": ["Laura Smet", "Iris Bry", "Nathalie Baye"],
-    "description": "<p>1915. På familjen Paradiers gård har mor och dotter tagit över sedan männen har begett sig till fronten. </p><p>De sliter hårt med jordbruket, men inser att de behöver hjälp och anställer Francine, en fattig kvinna som känner att hon äntligen har hittat en familj.</p>",
+    "description": "<p>1915. På familjen Paradiers gård har mor och dotter tagit över sedan männen har begett sig till fronten. De sliter hårt med jordbruket, men inser att de behöver hjälp och anställer Francine, en fattig kvinna som känner att hon äntligen har hittat en familj.</p>",
     "images": ["beskyddarna1.jpg", "beskyddarna2.jpg"],
-    "youtubeTrailers": ["7w4zDaS7inE"],
+    "youtubeTrailers": ["https://www.youtube.com/embed/7w4zDaS7inE"],
     "reviews": [
       {
         "source": "Svenska Dagbladet",
@@ -80,9 +80,9 @@
     "subtitles": "svenska",
     "director": "Hirokazu Kore-eda",
     "actors": ["Lily Franky", "Sakura Andô", "Mayu Matsuoka"],
-    "description": "<p>Efter en av sina snattningsrundor tillsammans med sin son upptäcker Osamu en övergiven flicka som står och fryser i kylan.</p><p> De tar hand om henne och släpper in henne i familjen. Trots att de är fattiga och knappt har mat för dagen så har de det ändå ganska bra tillsammans. </p>",
+    "description": "<p>Efter en av sina snattningsrundor tillsammans med sin son upptäcker Osamu en övergiven flicka som står och fryser i kylan. De tar hand om henne och släpper in henne i familjen. Trots att de är fattiga och knappt har mat för dagen så har de det ändå ganska bra tillsammans. </p>",
     "images": ["shoplifters1.jpg", "shoplifters2.jpg"],
-    "youtubeTrailers": ["2lqgxmq24qE"],
+    "youtubeTrailers": ["https://www.youtube.com/embed/2lqgxmq24qE"],
     "reviews": [
       {
         "source": "Sydsvenskan",
@@ -115,9 +115,9 @@
     "subtitles": "svenska",
     "director": "Felix van Groeningen",
     "actors": ["Steve Carell", "Maura Tierney", "Amy Ryan"],
-    "description": "<p>Den framgångsrike journalisten David Sheffs har alltid försökt ge sin älskade son allt han behöver. </p><p>Men vare sig David eller Nics mamma Vicki kan hindra sonen från att börja experimentera med crystal meth.</p>",
+    "description": "<p>Den framgångsrike journalisten David Sheffs har alltid försökt ge sin älskade son allt han behöver. Men vare sig David eller Nics mamma Vicki kan hindra sonen från att börja experimentera med crystal meth.</p>",
     "images": ["beautiful-boy1.jpg", "beautiful-boy2.jpg"],
-    "youtubeTrailers": ["y23HyopQxEg"],
+    "youtubeTrailers": ["https://www.youtube.com/embed/y23HyopQxEg"],
     "reviews": [
       {
         "source": "DN",
@@ -152,7 +152,7 @@
     "actors": ["Borys Szyc", "Tomasz Kot", "Joanna Kulig"],
     "description": "<p>Cold War är en passionerad kärlekshistoria mellan två personer vars öden flätas samman trots olika bakgrund och temperament, mot bakgrunden av kalla krigets 1950-tal i Polen, Berlin, Jugoslavien och Paris. </p>",
     "images": ["cold-war1.jpg", "cold-war2.jpg"],
-    "youtubeTrailers": ["BvPkDdFeTk8"],
+    "youtubeTrailers": ["https://www.youtube.com/embed/BvPkDdFeTk8"],
     "reviews": [
       {
         "source": "Sydsvenskan",

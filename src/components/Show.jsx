@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import {
   Card,
   CardImg,
@@ -13,14 +14,13 @@ class Show extends Component {
   constructor(props) {
     super(props);
     //props kommer ifrån showPage
-   // console.log("My props", props, "this", this);
+    // console.log("My props", props, "this", this);
     // här assignar vi så att man kommer åt props ifrån pappaklassen
     //så slipper man skriva this.props.movie.title, det blir istället
     // this.movie.title
     Object.assign(this, props);
     this.state = {};
   }
-
 
   render() {
     return (
@@ -33,19 +33,22 @@ class Show extends Component {
               src={require("../images/" + this.movie.images[0])}
               alt="Card image cap"
             />
-            <CardBody>
-              <CardTitle>{this.movie.title}</CardTitle>
+            <CardBody className="">
+              <CardTitle>
+                <h2>{this.movie.title}</h2>
+              </CardTitle>
               <CardText>{this.auditorium.name} </CardText>
               <CardText>
                 {this.date} {this.time}{" "}
               </CardText>
+              <Button>
+                <Link to={"/movie/" + this.movie._id}>Mer info om filmen</Link>
+              </Button>
               <Button className="mr-2 mb-2 ">Boka</Button>
-              <Button className="lg-ml-4 mb-2">Mer info om filmen</Button>
             </CardBody>
         </Card>
           </Col>
       </div>
-
     );
   }
 }
