@@ -24,9 +24,9 @@ class Show extends Component {
 
   render() {
     return (
-      <div>
-        <Col xs="4">
-          <Card>
+      <div className="show-program col-md-6 col-lg-3 mr-2 ml-5 mb-3 mt-5 text-center">
+          <Col>
+        <Card>
             <CardImg
               top
               width="100%"
@@ -46,8 +46,8 @@ class Show extends Component {
                 <Link to={"/movie/" + this.movie._id}>Mer info om filmen</Link>
               </Button>
             </CardBody>
-          </Card>
-        </Col>
+        </Card>
+          </Col>
       </div>
     );
   }
