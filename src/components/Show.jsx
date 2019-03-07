@@ -24,9 +24,9 @@ class Show extends Component {
 
   render() {
     return (
-      <div>
+      <div className="show-program col-md-6 col-lg-3 mr-2 ml-5 mb-3 mt-5 text-center">
+          <Col>
         <Card>
-          <Col xs="4">
             <CardImg
               top
               width="100%"
@@ -42,8 +42,8 @@ class Show extends Component {
               <Button className="mr-4">Boka</Button>
               <Button>Mer info om filmen</Button>
             </CardBody>
-          </Col>
         </Card>
+          </Col>
       </div>
 
     );
