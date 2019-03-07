@@ -24,7 +24,7 @@ class Show extends Component {
 
   render() {
     return (
-      <div className="show-program col-md-6 col-lg-3 mr-2 ml-5 mb-3 mt-5 text-center">
+      <div className="show-program col-md-6 col-lg-3  mb-3 mt-5 text-center">
           <Col>
         <Card>
             <CardImg
@@ -39,8 +39,8 @@ class Show extends Component {
               <CardText>
                 {this.date} {this.time}{" "}
               </CardText>
-              <Button className="mr-4">Boka</Button>
-              <Button>Mer info om filmen</Button>
+              <Button className="mr-2 mb-2 ">Boka</Button>
+              <Button className="lg-ml-4 mb-2">Mer info om filmen</Button>
             </CardBody>
         </Card>
           </Col>

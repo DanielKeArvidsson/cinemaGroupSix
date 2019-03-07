@@ -5,7 +5,19 @@
 
 
 body {
+.homeCarousel {
+  padding-top: 70px;
+}
 
+
+.captionHeader  {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
   text-align: center;
   font-family: 'Roboto', sans-serif;
 

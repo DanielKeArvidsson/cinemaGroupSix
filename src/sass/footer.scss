@@ -7,7 +7,17 @@
     padding: 20px;
     background: rgb(15, 15, 15);
     color: white;
+    .phone {
+      padding-left: 10px;
+      color: white;
+    }
   }
   .wrapper {
     height: 100vh;
   }
+
+  i {
+    padding-left: 10px;
+    font-size: 25px;
+  }
+ 
