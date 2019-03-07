@@ -8,17 +8,19 @@ import {
   Button,
   Col
 } from "reactstrap";
+
 class Show extends Component {
   constructor(props) {
     super(props);
     //props kommer ifrån showPage
-    console.log("My props", props, "this", this);
+   // console.log("My props", props, "this", this);
     // här assignar vi så att man kommer åt props ifrån pappaklassen
     //så slipper man skriva this.props.movie.title, det blir istället
     // this.movie.title
     Object.assign(this, props);
     this.state = {};
   }
+
 
   render() {
     return (
@@ -43,6 +45,7 @@ class Show extends Component {
           </Col>
         </Card>
       </div>
+
     );
   }
 }

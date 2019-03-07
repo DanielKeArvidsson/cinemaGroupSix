@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import CinemaImg from '../images/cinema.png'
 
 class Home extends Component {
   state = {};

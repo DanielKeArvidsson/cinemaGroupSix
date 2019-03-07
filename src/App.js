@@ -6,6 +6,7 @@ import Home from "./components/home";
 import Footer from "./components/footer";
 import { Route } from "react-router-dom";
 
+
 class App extends Component {
   render() {
     return (
@@ -15,7 +16,8 @@ class App extends Component {
         </header>
 
         <main className="Site-content">
-          <Route path="/home" component={Home} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/home" component={Home} />
           <Route path="/showpage" component={ShowPage} />
         </main>
 
