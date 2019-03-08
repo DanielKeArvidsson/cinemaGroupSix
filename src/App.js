@@ -6,7 +6,9 @@ import Home from "./components/home";
 import Movies from "./components/Movies";
 import Footer from "./components/footer";
 import SalongsInfo from "./components/salongsinfo";
+import AboutUsPage from "./components/aboutUs";
 import { Route } from "react-router-dom";
+
 
 class App extends Component {
   render() {
@@ -22,6 +24,7 @@ class App extends Component {
           <Route exact path="/home" component={Home} />
           <Route path="/showpage" component={ShowPage} />
           <Route path="/salongsinfo" component={SalongsInfo} />
+          <Route path="/aboutUs" component={AboutUsPage} />
           <Route path="/movie/:id" component={Movies} />
         </div>
 

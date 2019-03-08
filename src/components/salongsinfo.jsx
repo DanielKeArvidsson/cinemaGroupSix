@@ -1,6 +1,6 @@
 import React from "react";
 import REST from "../REST";
-// import Show from "./Show";
+
 import {
     Card,
     CardImg,
@@ -38,7 +38,7 @@ class SalongsInfo extends React.Component {
       <React.Fragment>
         <div>
         {this.auditoriums.map(auditorium => {
-          return <SalongsInfo key={auditorium._id} {...auditorium} />;
+          return <auditorium key={auditorium._id} {...auditorium} />;
         })}
         
       </div>
@@ -51,7 +51,7 @@ class SalongsInfo extends React.Component {
               src={require("../images/" + this.auditorium[0].image)}
               alt="Card image cap"
             />
-            <CardBody className="">
+            <CardBody>
               <CardTitle>
                 <h2>{this.auditorium[0].name}</h2>
               </CardTitle>

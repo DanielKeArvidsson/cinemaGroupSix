@@ -33,7 +33,7 @@ class Show extends Component {
               src={require("../images/" + this.movie.images[0])}
               alt="Card image cap"
             />
-            <CardBody className="">
+            <CardBody>
               <CardTitle>
                 <h2>{this.movie.title}</h2>
               </CardTitle>
