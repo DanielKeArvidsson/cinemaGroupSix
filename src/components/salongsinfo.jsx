@@ -10,27 +10,27 @@ import {
     Col
   } from "reactstrap";
 
-class Program extends REST {}
+class Auditorium extends REST {}
 
 class SalongsInfo extends React.Component {
   constructor(props) {
     super(props);
-    this.auditorium = 3;
+    this.auditorium = [];
     this.state = {};
     this.auditoriums = [];
     this.loadData();
   }
 
   async loadData() {
-    let data = await Program.find(
-      `.find().populate('movie auditorium').sort({"date": 1, "time": 1}).limit(${
+    let data = await Auditorium.find(
+      `.find().populate('auditorium auditorium').sort({"auditorium": 1, "auditorium": 1}).limit(${
         this.auditorium
       }).exec()`
     );
     this.auditoriums = data;
    
     this.setState({ state: this.state });
-    console.log(this.auditorium);
+    console.log(this.auditoriums);
   }
 
   render() {
