@@ -9,8 +9,12 @@ class Footer extends Component {
           <div className="container">
             <div className="row">
               <div className="col-12 -md-5">
-                <h6>FilmVisarnar AB &copy; 2019 av GroupSix <h6 class="phone fas fa-phone-square">040-123456</h6></h6> 
-                <i class="fab fa-facebook-square"></i><i class="fab fa-instagram"></i><i class="fab fa-twitter-square"></i>
+              <ul>
+                <li>FilmVisarna AB &copy; 2019</li>
+                <li>Kontakt: 040 123456</li>
+                <li>Email: filmvisarna@groupsix.se</li>
+                <li>Av: GroupSix</li>
+              </ul>
               </div>
             </div>
           </div>

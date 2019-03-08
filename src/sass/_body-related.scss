@@ -5,12 +5,14 @@
   background-image: url('../images/cinema.png');
   background-size: cover;
   background-attachment: fixed;
-}
-
-.Site-content {
-  flex: 1;
-  padding-top: 70px;
+  text-align: center;
+  .Site-content {
+    flex: 1;
+    padding-top: 70px;
+   
+  }
  
 }
+
 
 

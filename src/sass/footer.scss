@@ -3,21 +3,25 @@
 }
 
   .footer {
-    flex-shrink: 0; 
-    padding: 20px;
-    background: rgb(15, 15, 15);
+    width: 100%;
+    height: 70px;
+    padding-bottom: 40px;
+    background: #161414;
     color: white;
+    position: fixed;
+    bottom: 0;
     .phone {
       padding-left: 10px;
       color: white;
     }
+    li {
+      list-style-type:none;
+      display: inline-block;
+      padding: 20px;
+    }
   }
-  .wrapper {
-    height: 100vh;
-  }
+ 
 
-  i {
-    padding-left: 10px;
-    font-size: 25px;
-  }
+
+  
  

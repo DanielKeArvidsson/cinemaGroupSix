@@ -2,33 +2,37 @@
   box-sizing: border-box;
 }
 
-
-
 body {
-.homeCarousel {
-  padding-top: 70px;
-}
+  .homeCarousel {
+    padding-top: 50px;
+    width: 100%;
+
+    .carousel-item>img {
+      width: 100%;
 
 
-.captionHeader  {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-.carousel-inner {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
+      .captionHeader {
+        background-color: rgba(0, 0, 0, 0.5);
 
-  .all-content {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-
-    main {
-      flex: 1;
+      }
     }
   }
-}
 
+  i {
+    padding-top: 20px;
+    font-size: 30px;
+    color: white;
+    margin: 10px;
+    pointer-events: auto;
+  }
+
+  i:hover {
+    cursor: pointer;
+  }
+
+
+
+
+
+
+}

@@ -20,11 +20,11 @@ class Show extends Component {
     // this.movie.title
     Object.assign(this, props);
     this.state = {};
+    
   }
-
   render() {
     return (
-      <div className="show-program col-md-6 col-lg-3  mb-3 mt-5 text-center">
+      <div className="show-program col-md-6 col-lg-4 mb-5 mt-3 text-center">
           <Col>
         <Card>
             <CardImg

@@ -29,4 +29,4 @@ let movieSchema = new Schema({
 
 
 
-module.exports = db.model('Movie', movieSchema);
+module.exports = global.db.model('Movie', movieSchema);

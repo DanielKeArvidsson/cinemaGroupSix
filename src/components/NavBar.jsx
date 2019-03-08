@@ -32,10 +32,10 @@ class NavBar extends Component {
                 FilmVisarna AB
               </Link>
               <NavbarToggler onClick={this.toggleNavbar} />
-              <Collapse isOpen={!this.state.collapsed} navbar>
+              <Collapse className="navbarLinks" isOpen={!this.state.collapsed} navbar>
                 <Nav className="ml-auto" navbar>
                   <NavItem>
-                    <NavLink
+                    <NavLink 
                       exact
                       to="/home"
                       onClick={this.closeNavbar}
@@ -55,7 +55,7 @@ class NavBar extends Component {
                   </NavItem>
                   <NavItem>
                     <NavLink
-                      to="/salong"
+                      to="/salongsinfo"
                       onClick={this.closeNavbar}
                       className="nav-link"
                     >
