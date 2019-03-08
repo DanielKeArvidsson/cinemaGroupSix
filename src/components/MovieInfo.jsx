@@ -77,7 +77,7 @@ class MovieInfo extends Component {
           </div>
           <div className="col-xl-9">
             <div className="col-12 mr-3">
-              <Jumbotron>
+              <Jumbotron className="jumboMovie">
                 <h1 className="display-3">{this.title}</h1>
                 <p>{this.genre}</p>
                 <p className="lead">{this.description}</p>
@@ -98,8 +98,8 @@ class MovieInfo extends Component {
             <h3>{this.reviews[1].source} </h3>
             <q>{this.reviews[1].quote}</q>
             <p>
-              Betyg: ${this.reviews[1].stars} stjärnor utav{" "}
-              {this.reviews[1].max} möjliga{" "}
+              Betyg: {this.reviews[1].stars} stjärnor utav {this.reviews[1].max}{" "}
+              möjliga{" "}
             </p>
           </div>
           <div className="col-md-4 mt-4">

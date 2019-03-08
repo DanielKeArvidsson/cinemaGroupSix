@@ -9,7 +9,17 @@
     position: relative;
     cursor: pointer;
   }
-
+  .jumboMovie {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    p {
+      color: white;
+    }
+  }
   .playBtn {
     position: absolute;
     top: 50%;
@@ -27,6 +37,9 @@
     background-color: rgba(0, 0, 0, 0.4);
     padding: 10px;
     border-radius: 10px;
+    p {
+      color: white;
+    }
 
     .rating {
       position: relative;
