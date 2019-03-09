@@ -1,6 +1,7 @@
 import React from "react";
 import REST from "../REST";
-import AuditoriumInfo from "./AuditoriumInfo";
+import SalongsInfoPage from "./salongsInfoPage";
+
 
 class Auditorium extends REST {}
 
@@ -22,14 +23,13 @@ class SalongsInfo extends React.Component {
     this.auditoriums = data;
 
     this.setState({ state: this.state });
-    console.log(this.auditoriums);
   }
 
   render() {
     return (
       <div>
         {this.auditoriums.map(auditorium => {
-          return <AuditoriumInfo key={auditorium._id} {...auditorium} />;
+          return <SalongsInfoPage key={auditorium._id} {...auditorium} />;
         })}
       </div>
     );

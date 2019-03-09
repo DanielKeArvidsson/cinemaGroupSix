@@ -24,7 +24,7 @@ class Show extends Component {
   }
   render() {
     return (
-      <div className="show-program col-md-6 col-lg-4 mb-5 mt-3 text-center">
+      <div className="show-program col-lg-4 col-md-6 mb-5 mt-3 text-center">
           <Col>
         <Card>
             <CardImg

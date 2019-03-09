@@ -29,11 +29,11 @@ class NavBar extends Component {
           <div className="col-12">
             <Navbar expand="lg" dark fixed="top">
               <Link to="/" className="navbar-brand">
-                FilmVisarna AB
+              FilmVisarna AB
               </Link>
               <NavbarToggler onClick={this.toggleNavbar} />
               <Collapse className="navbarLinks" isOpen={!this.state.collapsed} navbar>
-                <Nav className="ml-auto" navbar>
+                <Nav className="mr-auto" navbar>
                   <NavItem>
                     <NavLink 
                       exact

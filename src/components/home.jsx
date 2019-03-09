@@ -31,8 +31,8 @@ const items = [
 ];
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = { activeIndex: 0 };
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
@@ -85,7 +85,7 @@ class Home extends Component {
           <img src={item.src} alt={item.altText} />
           <CarouselCaption
             className="captionHeader"
-            captionHeader={item.caption}
+           captionText={item.caption} captionHeader={item.caption} 
           />
         </CarouselItem>
       );
@@ -95,36 +95,24 @@ class Home extends Component {
       <React.Fragment>
       <div className="container homeCarousel">
         <div className="carousel-inner d-block w-100">
-          <Carousel
-            activeIndex={activeIndex}
-            next={this.next}
-            previous={this.previous}
-          >
-            <CarouselIndicators
-              items={items}
-              // activeIndex={activeIndex}
-              // onClickHandler={this.goToIndex}
-            />
-            {slides}
-            <CarouselControl
-              // direction="prev"
-              // directionText="Previous"
-              onClickHandler={this.previous}
-            />
-            <CarouselControl
-              // direction="next"
-              // directionText="Next"
-              onClickHandler={this.next}
-            />
-          </Carousel>
+        <Carousel
+        activeIndex={activeIndex}
+        next={this.next}
+        previous={this.previous}
+      >
+        <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
+        {slides}
+        <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
+        <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+      </Carousel>
         </div>
       </div>
       <div className="row">
       <div className="col">
-      <i class="fab fa-facebook-square"></i>
-      <i class="fab fa-facebook-messenger"></i>
-      <i class="fab fa-instagram"></i>
-      <i class="fab fa-twitter-square"></i>
+      <i className="fab fa-facebook-square"></i>
+      <i className="fab fa-facebook-messenger"></i>
+      <i className="fab fa-instagram"></i>
+      <i className="fab fa-twitter-square"></i>
       </div>
       </div>
       </React.Fragment>
