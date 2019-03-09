@@ -1,30 +1,17 @@
 nav {
   font-family: 'Play', sans-serif;
-  background-color: #1c0000;
-  border-bottom:1px solid white;
-  a{
-    color:rgb(253, 251, 251);
-    &:hover{
-      color: rgb(255, 255, 255);
-      text-decoration: underline;
-    }
-  }
-  .active{
-    color: #af0000;
-    text-decoration: underline;
-    &:hover{
-      color: #af0000;
-      text-decoration: underline;
-    }
-  }
+  font-size: 18px;
+  background-color: #181717;
+  border-bottom: 1px solid white;
 
-  .navbar-toggler-icon {
-    color: #af0000;
-}
-  
-  .navbar-brand {
-    height: 50px;
-
+    
+    .navbar-brand {
+      padding: 25px;
+      
+      .nav-link:hover {
+        color: rgb(255, 255, 255);
+        text-decoration: underline;
+    }
   }
   
 }

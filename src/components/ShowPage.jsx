@@ -1,6 +1,7 @@
 import React from "react";
 import REST from "../REST";
 import Show from "./Show";
+
 class Program extends REST {}
 
 class ShowPage extends React.Component {
@@ -19,18 +20,21 @@ class ShowPage extends React.Component {
       }).exec()`
     );
     this.shows = data;
+   
     this.setState({ state: this.state });
-    console.log(this.shows);
   }
   moreShows() {
-    console.log(this.counter);
+    // console.log(this.counter);
     this.counter = this.counter + 12;
   }
 
   render() {
     return (
-      <div>
+      <React.Fragment>
+      <div className="showPageHeadLine col-lg-6 col-md-6 text-center">
         <h1>Aktuella Visningar</h1>
+        </div>
+        <div>
         {this.shows.map(show => {
           return <Show key={show._id} {...show} />;
         })}
@@ -38,6 +42,7 @@ class ShowPage extends React.Component {
           Fler visningar
         </button>
       </div>
+      </React.Fragment>
     );
   }
 }
