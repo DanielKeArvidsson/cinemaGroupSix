@@ -1,5 +1,7 @@
 body {
-    padding-top: 70px;
+  .show-program {
+    display: inline-block;
+  }
 
     h1 {
         color: white;
@@ -18,5 +20,7 @@ body {
         margin-top: 20px;
         margin-bottom: 90px;
     }
-
+}
+a {
+  color: white;
 }

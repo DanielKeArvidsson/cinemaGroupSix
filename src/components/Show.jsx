@@ -46,8 +46,8 @@ class Show extends Component {
                 <Link to={"/movie/" + this.movie._id}>Mer info om filmen</Link>
               </Button>
             </CardBody>
-        </Card>
-          </Col>
+          </Card>
+        </Col>
       </div>
     );
   }

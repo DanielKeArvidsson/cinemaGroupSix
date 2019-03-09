@@ -38,8 +38,9 @@ class ShowPage extends React.Component {
         {this.shows.map(show => {
           return <Show key={show._id} {...show} />;
         })}
-        
-        <button className="moreshows btn btn-success" onClick={this.moreShows}>Fler visningar</button>
+        <button className="btn btn-primary" onClick={this.moreShows}>
+          Fler visningar
+        </button>
       </div>
       </React.Fragment>
     );
