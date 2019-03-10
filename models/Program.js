@@ -26,4 +26,4 @@ programSchema.pre('findOne', function () {
     });
 });
 
-module.exports = db.model('Program', programSchema);
+module.exports = global.db.model('Program', programSchema);
