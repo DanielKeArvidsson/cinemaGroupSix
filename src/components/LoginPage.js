@@ -25,7 +25,7 @@ export class LoginPage extends FormComp {
       data: { email: "", password: "" },
       errors: {},
       modalShow: false,
-      message: "",
+      message: ""
     };
   }
 
@@ -79,19 +79,23 @@ export class LoginPage extends FormComp {
               <p>{this.state.message}</p>
             </ModalBody>
             <ModalFooter>
-              {this.state.message === "Hej! Du är nu inloggad." ? <Link
-                to="/home"
-                className="btn btn-secondary"
-                onClick={this.toggleModal}
-              >
-                Stäng
-              </Link> : <Link
-                to="/login"
-                className="btn btn-secondary"
-                onClick={this.toggleModal}
-              >
-                Stäng
-              </Link>}
+              {this.state.message === "Hej! Du är nu inloggad." ? (
+                <Link
+                  to="/home"
+                  className="btn btn-secondary"
+                  onClick={this.toggleModal}
+                >
+                  Stäng
+                </Link>
+              ) : (
+                <Link
+                  to="/login"
+                  className="btn btn-secondary"
+                  onClick={this.toggleModal}
+                >
+                  Stäng
+                </Link>
+              )}
             </ModalFooter>
           </Modal>
         ) : (
