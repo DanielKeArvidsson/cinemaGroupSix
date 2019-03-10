@@ -24,7 +24,7 @@ export class LoginPage extends Component {
     this.state = {
       account: { userEmail: "", userPassword: "" },
       modalShow: false,
-      message: ""
+      message: "",
     };
     this.toggleModal = this.toggleModal.bind(this);
   }
@@ -58,9 +58,9 @@ export class LoginPage extends Component {
       this.toggleModal();
       this.setState({ message: "E-postadressen är ogiltig!" });
     } else if (result.loggedIn === true) {
-      App.isLoggedin = true;
       this.toggleModal();
       this.setState({ message: "Hej! Du är nu inloggad." });
+      App.isLoggedin = true;
       NavBar.lastInstance.setState(state => NavBar.lastInstance);
     }
   }
@@ -112,13 +112,19 @@ export class LoginPage extends Component {
               <p>{this.state.message}</p>
             </ModalBody>
             <ModalFooter>
-              <Link
+              {this.state.message === "Hej! Du är nu inloggad." ? <Link
                 to="/home"
                 className="btn btn-secondary"
                 onClick={this.toggleModal}
               >
                 Stäng
-              </Link>
+              </Link> : <Link
+                to="/login"
+                className="btn btn-secondary"
+                onClick={this.toggleModal}
+              >
+                Stäng
+              </Link>}
             </ModalFooter>
           </Modal>
         ) : (
