@@ -7,4 +7,4 @@ let priceSchema = new Schema({
 
 })
 
-module.exports = db.model('Price', priceSchema);
+module.exports = global.db.model('Price', priceSchema);

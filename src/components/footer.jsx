@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//import { SocialIcon } from 'react-social-icons';
 
 class Footer extends Component {
   state = {};
@@ -10,10 +9,13 @@ class Footer extends Component {
           <div className="container">
             <div className="row">
               <div className="col-12 -md-5">
-                <p>FilmVisarnar AB &copy; 2019 av GroupSix</p> 
+              <ul>
+                <li>FilmVisarna AB &copy; 2019</li>
+                <li>Kontakt: 040 123456</li>
+                <li>Email: filmvisarna@groupsix.se</li>
+                <li>Av: GroupSix</li>
+              </ul>
               </div>
-              <div className="col-md-5" id="social-networks" />
-            
             </div>
           </div>
         </footer>

@@ -17,4 +17,4 @@ userSchema.pre('save', async function(){
   this.password = await bcrypt.hash(this.password + passwordSalt, 10);
 });
  
-module.exports = db.model('User', userSchema);
+module.exports = global.db.model('User', userSchema);

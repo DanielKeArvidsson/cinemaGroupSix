@@ -1,12 +1,28 @@
 body {
-    .show-program {
-        display: inline-block;
-    }
+  .show-program {
+    display: inline-block;
+    padding-top: 20px;
+  }
+
     h1 {
-        color:white;
-    
+        color: white;
     }
+
     p {
         color: black;
     }
+
+    .showPageHeadLine {
+        display: inline-block;
+        text-align: center;
+        padding-top:50px;
+    }
+
+    .moreshows {
+        margin-top: 20px;
+        margin-bottom: 90px;
+    }
+}
+a {
+  color: white;
 }
