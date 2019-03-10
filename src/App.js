@@ -40,7 +40,6 @@ class App extends Component {
           <Route path="/showpage" component={ShowPage} />
           <Route path="/login" component={FormPage} />
           <Route path="/logout" component={LogoutPage} />
-        </main>
           <Route path="/salongsinfo" component={SalongsInfo} />
           <Route path="/aboutUs" component={AboutUsPage} />
           <Route path="/movie/:id" component={Movies} />
