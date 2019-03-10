@@ -1,17 +1,32 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Link } from 'react-router-dom'
 import REST from "../REST";
 class User extends REST {}
 
 class RegisterPage extends Component {
-  state = {
+  constructor(props){
+    super(props);
+  
+  this.state = {
     account: {
       userFirstName: "",
       userLastName: "",
       userEmail: "",
       userPassword: ""
-    }
+    },
+    modalShow: false,
+    message:""
   };
+  this.toggleModal = this.toggleModal.bind(this);
+}
+
+toggleModal() {
+  this.setState(prevState => ({
+    modalShow: !prevState.modalShow
+  }));
+}
 
   handleChange = ({ currentTarget: input }) => {
     const account = { ...this.state.account };
@@ -34,18 +49,19 @@ class RegisterPage extends Component {
     let user = await User.find(`.find({email: '${newUser.email}'})`);
     if (user.length === 0) {
       newUser.save();
-      console.log("User saved");
-      alert("user saved");
+      this.toggleModal();
+      this.setState({message: 'Registrering är slutförd! Vänligen logga in.'});
       return;
     } else {
-      console.log("User exists");
-      alert("user exists");
+      this.toggleModal();
+      this.setState({message: 'Användaren finns redan! Försök med en annan e-postadress.'});
       return;
     }
   }
 
   render() {
     return (
+      <div className="register-container">
       <Form onSubmit={this.handleSubmit}>
         <div className="header">Registrera</div>
         <FormGroup>
@@ -98,6 +114,16 @@ class RegisterPage extends Component {
         </FormGroup>
         <Button>Bekräfta</Button>
       </Form>
+      {this.state.modalShow ? <Modal isOpen={this.state.modalShow} toggle={this.toggleModal} className= "buttons-div">
+         <ModalHeader toggle={this.toggleModal}></ModalHeader>
+         <ModalBody>
+        <p>{this.state.message}</p>
+         </ModalBody>
+         <ModalFooter>
+           <Button className="btn btn-secondary" onClick={this.toggleModal}>Stäng</Button>          
+         </ModalFooter>
+       </Modal> : ''}
+      </div>
     );
   }
 }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import REST from "./REST";
 import "./index.css";
 import ShowPage from "./components/ShowPage";
 import NavBar from "./components/NavBar";
@@ -9,9 +10,21 @@ import Footer from "./components/footer";
 import SalongsInfo from "./components/salongsinfo";
 import AboutUsPage from "./components/aboutUs";
 import { Route } from "react-router-dom";
+import LogoutPage from "./components/LogoutPage";
+
+class Login extends REST{};
 
 
 class App extends Component {
+
+  static isLoggedin=false;
+  loggedinUser ="";
+
+  async checkIfLoggedIn() {
+    this.isLoggedin = true;
+    this.loggedinUser = await Login.find();    
+    NavBar.lastInstance.setState(state => NavBar.lastInstance );
+  }
 
   render() {
     return (
@@ -26,6 +39,7 @@ class App extends Component {
           <Route exact path="/home" component={Home} />
           <Route path="/showpage" component={ShowPage} />
           <Route path="/login" component={FormPage} />
+          <Route path="/logout" component={LogoutPage} />
         </main>
           <Route path="/salongsinfo" component={SalongsInfo} />
           <Route path="/aboutUs" component={AboutUsPage} />
