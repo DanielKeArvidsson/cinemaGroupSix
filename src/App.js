@@ -12,27 +12,25 @@ import AboutUsPage from "./components/aboutUs";
 import { Route } from "react-router-dom";
 import LogoutPage from "./components/LogoutPage";
 
-class Login extends REST{};
-
+class Login extends REST {}
 
 class App extends Component {
-
-  static isLoggedin=false;
-  loggedinUser ="";
+  static isLoggedin = false;
+  loggedinUser = "";
 
   async checkIfLoggedIn() {
     this.isLoggedin = true;
-    this.loggedinUser = await Login.find();    
-    NavBar.lastInstance.setState(state => NavBar.lastInstance );
+    this.loggedinUser = await Login.find();
+    NavBar.lastInstance.setState(state => NavBar.lastInstance);
   }
 
   render() {
     return (
       <div className="App Site">
         <div className="Site-content">
-        <div className="App-header">
-        <NavBar />
-        </div>
+          <div className="App-header">
+            <NavBar />
+          </div>
 
         <div className="main">
           <Route exact path="/" component={Home} />
@@ -45,10 +43,10 @@ class App extends Component {
           <Route path="/movie/:id" component={Movies} />
         </div>
 
-        <footer>
-          <Footer />
-        </footer>
-      </div>
+          <footer>
+            <Footer />
+          </footer>
+        </div>
       </div>
     );
   }
