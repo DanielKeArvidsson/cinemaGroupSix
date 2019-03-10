@@ -25,7 +25,7 @@ export class LoginPage extends FormComp {
       data: { email: "", password: "" },
       errors: {},
       modalShow: false,
-      message: ""
+      message: "",
     };
   }
 
