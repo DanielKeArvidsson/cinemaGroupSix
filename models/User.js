@@ -4,6 +4,8 @@ const Schema = mongoose.Schema;
  
 let userSchema = new Schema(  {
   ticket: {type: Schema.Types.ObjectId, ref: 'Ticket'},
+  firstName : {type: String, required: true},
+  lastName: {type: String, required: true},
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true}
 });
@@ -15,4 +17,4 @@ userSchema.pre('save', async function(){
   this.password = await bcrypt.hash(this.password + passwordSalt, 10);
 });
  
-module.exports = db.model('User', userSchema);
+module.exports = global.db.model('User', userSchema);

@@ -7,9 +7,23 @@ let programSchema = new Schema({
   "movie": { type: Schema.Types.ObjectId, ref: 'Movie', required: true },
   "date": { type: String, required: true },
   "time": { type: String, required: true },
-  "booking": [{ type: Schema.Types.ObjectId, ref: 'Booking', required: true }]
+  "images": [String],
+  "youtubeTrailers": String,
+}, { toJSON: { virtuals: true } });
+
+programSchema.pre('findOne', function () {
+  this.populate({
+    path: 'auditorium',
+    select: 'name seats -_id'
+  })
+    .populate({
+      path: 'movie',
+      select: 'title images'
+    })
+    .populate({
+      path: 'tickets',
+      select: 'seats program -_id'
+    });
 });
 
-
-
-module.exports = db.model('Program', programSchema);
+module.exports = global.db.model('Program', programSchema);

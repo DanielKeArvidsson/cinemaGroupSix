@@ -1,12 +1,15 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">Cinema</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-    aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar fixed-top navbar-expand-lg">
+    <a href="/"><img src="/images/icon1.png" class="navbar-brand" width="40" height="40" alt=""></a> 
+  <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       ${this.navItems}
+      ${Store.loggedIn ? `<a class="logga-ut nav-link" href="/">Logga ut</a>`:`<a class="logga-in nav-link" href="/login">Logga
+        in
+      </a>`}
     </ul>
   </div>
 </nav>

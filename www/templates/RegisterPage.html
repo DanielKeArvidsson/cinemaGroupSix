@@ -1,0 +1,37 @@
+<section class="register-page">
+  <form class="register-form ${this.showForm ? 'd-block' : 'd-none'}">
+    <h3 class="registerHeading d-flex justify-content-center pb-4">Registrera ny användare</h3>
+    <div class="login-wrapper">
+      <div class="form-group">
+        <input type="text" class="form-control" id="user-firstName" placeholder="Förnamn" required pattern="[A-Za-z]{2,15}" title="Du får bara använda 2-15 bokstäver!">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="user-lastName" placeholder="Efternamn" required pattern="[A-Za-z]{2,15}" title="Du får bara använda 2-15 bokstäver!">
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" id="user-email" placeholder="E-postadress" required pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" id="user-password" placeholder="Lösenord" required pattern="[A-Za-z0-9._%+-]{1,63}$">
+      </div>
+      <button type="submit" class="btn btn-success registerUser mt-4">Bekräfta</button>
+    </div>
+    <!-- <div>
+    User exists!
+  </div> -->
+    <!-- jumbotron ${this.redirect ? 'd-block' : 'd-none' } -->
+  </form>
+  <div class="jumbotron bg-white registered ${this.showIsRegistered ? 'd-block' : 'd-none'}">
+    <h1 class="display-8">Din registrering är slutförd.</h1>
+    <p class="lead">Vänligen logga in.</p>
+    <hr class="my-4">
+    <a class="btn btn-success btn-lg" href="/login" role="button">Stäng</a>
+  </div>
+
+  <div class="jumbotron bg-white ${this.showError ? 'd-block' : 'd-none'}">
+    <h1 class="display-8">Användaren finns redan!</h1>
+    <p class="lead">Försök med en annan e-postadress.</p>
+    <hr class="my-4">
+    <a class="btn btn-success btn-lg" href="/login" role="button">Stäng</a>
+  </div>
+</section>

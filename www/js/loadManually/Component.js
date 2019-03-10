@@ -1,7 +1,10 @@
+// class REST {}
+
 class Component extends REST {
 
   constructor(props) {
     super(props); // send props to REST constructor
+    this._props = props // also store as property
     this.addUniqueId();
     this.addRenderMethodToArrays();
     // Replace render method
@@ -27,13 +30,14 @@ class Component extends REST {
     let elements = [];
     try {
       elements = $(this._orgRender());
-    } catch (e) {
+    }
+    catch (e) {
       elements = $(this._errorWrap(e.stack));
     }
     // check that there is exactly 1 root element
     if (elements.length !== 1) {
-      elements = $(this._errorWrap('Error: Provide exactly 1 root element for ' +
-        this.constructor.name));
+      elements = $(this._errorWrap('Error: Provide exactly 1 root element for '
+        + this.constructor.name));
     }
     // if already in DOM then replace it
     let inDOM = $(`[data-instance-id=${this._componentId}]`);
@@ -94,6 +98,10 @@ class Component extends REST {
     this.route = route;
     this.title = title;
     Router.registerRoute(route);
+  }
+
+  get routeParts() {
+    return Router.parts;
   }
 
   get baseEl() {

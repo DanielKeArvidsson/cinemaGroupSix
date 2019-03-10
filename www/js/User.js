@@ -11,4 +11,4 @@ class User extends Component {
 
   //   console.log(await user.save());
   // }
- }
+}
