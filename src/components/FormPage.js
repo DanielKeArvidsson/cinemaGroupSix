@@ -26,7 +26,7 @@ export class FormPage extends Component {
           <div
             className={
               "controller" +
-              (this.state.isLoginOpen ? "activeLinkController" : "")
+              (this.state.isLoginOpen ? "activeLink" : "")
             }
             style={controllerStyle}
             onClick={this.showLoginPage.bind(this)}
@@ -36,7 +36,7 @@ export class FormPage extends Component {
           <div
             className={
               "controller" +
-              (this.state.isRegisterOpen ? "activeLinkController" : "")
+              (this.state.isRegisterOpen ? "activeLink" : "")
             }
             onClick={this.showRegisterPage.bind(this)}
             style={controllerStyle}
@@ -56,7 +56,7 @@ export class FormPage extends Component {
 const formStyle = {
   width: "30%",
   margin: "0 auto",
-  paddingTop: "10%",
+  paddingTop: "5%",
   textAlign: "center"
 };
 
