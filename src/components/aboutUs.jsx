@@ -1,14 +1,18 @@
-import React, { Component } from 'react';
-
+import React, { Component } from "react";
 
 class AboutUsPage extends Component {
-    state = {  }
-    render() { 
-        return ( 
-
-            <h1>FilmVisarna AB: mer info under Sprint 4, vid frågor ring oss</h1>
-         );
-    }
+  state = {};
+  render() {
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="aboutus col-12">
+            <h1>FilmVisarna AB: Under konstruktion, vid frågor ring 1177</h1>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
- 
+
 export default AboutUsPage;
