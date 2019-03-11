@@ -6,19 +6,23 @@
     "bcrypt": "^3.0.4",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.3.1",
+    "bootstrap-social": "^5.1.1",
     "common": "^0.2.5",
     "concurrently": "^4.1.0",
     "connect-mongo": "^2.0.3",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
+    "font-awesome": "^4.7.0",
     "http-proxy-middleware": "^0.19.1",
     "mongoose": "^5.4.17",
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.10",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5",
+    "react-sticky": "^6.0.3",
+    "react-sticky-footer": "0.1.0-rc3",
     "reactstrap": "^7.1.0"
   },
   "scripts": {
@@ -35,5 +39,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "react-social-icons": "^4.1.0"
+  }
 }

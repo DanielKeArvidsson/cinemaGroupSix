@@ -1,0 +1,17 @@
+nav {
+  font-family: 'Play', sans-serif;
+  font-size: 18px;
+  background-color: #181717;
+  border-bottom: 1px solid white;
+
+    
+    .navbar-brand {
+      padding: 25px;
+      
+      .nav-link:hover {
+        color: rgb(255, 255, 255);
+        text-decoration: underline;
+    }
+  }
+  
+}

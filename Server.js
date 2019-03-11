@@ -30,8 +30,8 @@ module.exports = class Server {
       mongoose.connect(`mongodb://localhost/${dbName}`);
       global.passwordSalt = settings.passwordSalt;
       global.db = mongoose.connection;
-      db.on('error', () => reject('Could not connect to DB'));
-      db.once('open', () => resolve('Connected to DB'));
+      global.db.on('error', () => reject('Could not connect to global.db'));
+      global.db.once('open', () => resolve('Connected to global.db'));
     });
   }
 
@@ -49,7 +49,7 @@ module.exports = class Server {
       resave: true,
       saveUninitialized: true,
       store: new MongoStore({
-        mongooseConnection: db
+        mongooseConnection: global.db
       })
     }));
 
@@ -63,7 +63,7 @@ module.exports = class Server {
     };
 
     // create all necessary rest routes for the models
-    new CreateRestRoutes(app, db, models);
+    new CreateRestRoutes(app, global.db, models);
 
     // create special routes for login
     new LoginHandler(app, models.users);

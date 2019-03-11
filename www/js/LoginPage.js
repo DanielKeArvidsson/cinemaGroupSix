@@ -47,16 +47,13 @@ class LoginPage extends Component {
       this.showErrorPassword = true;
       this.render();
       return;
-      // Store.navbar.render();
-      // this.render();
+  
     }
     else if (result.error == "Not logged in!" || result.error == "No such user!" || test.error == "Not logged in!") {
       this.hideLogin = true;
       this.showError = true;
-      // this.render();
       return;
-      // Store.navbar.render();
-      // this.render();
+  
     }
 
     else if (result.loggedIn === true && test.error != "Not logged in!") {
@@ -66,11 +63,7 @@ class LoginPage extends Component {
       Store.currentUser = user[0].email;
       Store.loggedIn = true;
       Store.userIsLoggedIn = true;
-      // Store.currentUser = user[0].firstName;
-      //   newLogin.save();
       this.currentUser = newLogin;
-      // Store.navbar.render();
-      // this.render();
 
     }
     Store.navbar.render();
@@ -78,53 +71,8 @@ class LoginPage extends Component {
   }
 
 
-  //JQUERY
-  // console.log(userFirstName);
-  //   $('.login-form').empty();
-  //   $('.login-form').append(`
-  //   <div>
-  //  <div id="myModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
-  //     <div class="modal-dialog" role="document">
-  //       <div class="modal-content">
-  //         <div class="modal-header">
-  //           <h5 class="modal-title">Hej ${this.currentUser.email}!</h5>
-  //         </div>
-  //         <div class="modal-body">
-  //           <p>Du är nu inloggad!</p>
-  //         </div>
-  //         <div class="modal-footer">
-  //          <a class="relocate" href="/">Stäng</a>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </div>
-  // </div>
-  //   `)
+  
 
-
-
-  //navbar
-  // relocate() {
-  //   Store.navbar.userIsLoggedIn = true;
-  //   Store.navbar.render();
-  //   this.render();
-  // }
-
-  async userLogout() {
-    let toDeleteUser = await Login.find();
-    this.currentLogin = await Login.find();
-    await toDeleteUser.delete();
-    //   await this.currentUser.delete();
-    Store.loggedIn = false;
-    Store.navbar.userIsLoggedIn = false;
-    Store.navbar.render();
-    this.render();
-  }
-
-
-  // validate(){
-  //   bghgg
-  // }
 
 
 }

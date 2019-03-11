@@ -17,4 +17,4 @@ let ticketSchema = new Schema({
 
 
 
-module.exports = db.model('Ticket', ticketSchema);
+module.exports = global.db.model('Ticket', ticketSchema);

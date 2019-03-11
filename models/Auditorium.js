@@ -22,4 +22,4 @@ let auditoriumSchema = new Schema({
     "eventName": String
 });
 
-module.exports = db.model('Auditorium', auditoriumSchema);
+module.exports = global.db.model('Auditorium', auditoriumSchema);
