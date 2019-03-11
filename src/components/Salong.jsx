@@ -1,7 +1,6 @@
 import React from 'react';
 import REST from "../REST";
 import SeatRow from "./SeatRow";
-import Seat from "./Seat";
 class Auditorium extends REST{}
 
 class Salong extends React.Component {
@@ -10,7 +9,7 @@ class Salong extends React.Component {
     this.state = {}
     this.salong = [];
     this.auditoriumSeats = 1;
-    this.getSalong('Lilla Salongen')
+    this.getSalong('Lilla')
   }
 
   async getSalong(salongName) {
@@ -53,7 +52,7 @@ class Salong extends React.Component {
   render() {
     return (
       
-      <div className="salong mt-5">
+      <div className="salong">
         {this.salong}
       </div>
     );

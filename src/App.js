@@ -11,7 +11,7 @@ import SalongsInfo from "./components/salongsinfo";
 import AboutUsPage from "./components/aboutUs";
 import { Route } from "react-router-dom";
 import LogoutPage from "./components/LogoutPage";
-import Salong from "./components/Salong";
+import BookTicketPage from "./components/BookTicketPage";
 
 class Login extends REST {}
 
@@ -33,7 +33,7 @@ class App extends Component {
             <NavBar />
           </div>
 
-        <div className="main">
+        <div className="main container">
           <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
           <Route path="/showpage" component={ShowPage} />
@@ -42,7 +42,7 @@ class App extends Component {
           <Route path="/salongsinfo" component={SalongsInfo} />
           <Route path="/aboutUs" component={AboutUsPage} />
           <Route path="/movie/:id" component={Movies} />
-          <Route path="/bokabiljett" component={Salong} />
+          <Route path="/bokabiljett" component={BookTicketPage} />
           
         </div>
 
