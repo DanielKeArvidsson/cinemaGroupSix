@@ -35,7 +35,6 @@ export class LoginPage extends FormComp {
     this.setState({ errors: errors || {} });
     if (errors) return;
     this.submitForm();
-    this.setState({ data: "" });
   };
 
   async submitForm() {
