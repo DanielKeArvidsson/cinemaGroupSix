@@ -21,10 +21,10 @@ class App extends Component {
 
         <div className="main">
           <Route exact path="/" component={Home} />
-          <Route exact path="/home" component={Home} />
-          <Route path="/showpage" component={ShowPage} />
+          <Route exact path="/start" component={Home} />
+          <Route path="/visningar" component={ShowPage} />
           <Route path="/salongsinfo" component={SalongsInfo} />
-          <Route path="/aboutUs" component={AboutUsPage} />
+          <Route path="/om-oss" component={AboutUsPage} />
           <Route path="/movie/:id" component={Movies} />
         </div>
 
