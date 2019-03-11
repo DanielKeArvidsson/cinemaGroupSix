@@ -73,7 +73,6 @@ class MovieInfo extends Component {
             </ModalFooter>
           </ModalBody>
         </Modal>
-
         <div className="row mb-3 ml-3">
           <div className="moviePic col-xl-3" onClick={this.toggle}>
             <img
