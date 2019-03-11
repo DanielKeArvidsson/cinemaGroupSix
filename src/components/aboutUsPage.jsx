@@ -35,9 +35,9 @@ class AboutUsPage extends Component {
             <Card className="aboutusInfoCard2">
               <CardBody>
                 <CardTitle>
-                  <h2>{this.auditorium[0].regulationName}</h2>
+                  <h2>{this.regulationName}</h2>
                 </CardTitle>
-                <CardText>{this.auditorium[0].regulations}</CardText>
+                <CardText>{this.regulations}</CardText>
               </CardBody>
             </Card>
           </Col>
