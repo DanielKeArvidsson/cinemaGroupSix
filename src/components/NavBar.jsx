@@ -1,6 +1,18 @@
 import React, { Component } from "react";
+import REST from "../REST";
 import { Navbar, NavbarToggler, Collapse, Nav, NavItem } from "reactstrap";
 import { NavLink, Link } from "react-router-dom";
+import App from "../App";
+
+class Login extends REST {
+  async delete() {
+    this._id = 1;
+    return super.delete();
+  }
+  static get baseRoute() {
+    return "login/";
+  }
+}
 
 class NavBar extends Component {
   constructor(props) {
@@ -8,6 +20,7 @@ class NavBar extends Component {
     this.state = {
       collapsed: true
     };
+    NavBar.lastInstance = this;
   }
 
   toggleNavbar = () => {
@@ -22,6 +35,13 @@ class NavBar extends Component {
     }
   };
 
+  async userLogout() {
+    let toDeleteUser = await Login.find();
+    await toDeleteUser.delete();
+    App.isLoggedin = false;
+    NavBar.lastInstance.setState(state => NavBar.lastInstance);
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -29,13 +49,17 @@ class NavBar extends Component {
           <div className="col-12">
             <Navbar expand="lg" dark fixed="top">
               <Link to="/" className="navbar-brand">
-              FilmVisarna AB
+                FilmVisarna AB
               </Link>
               <NavbarToggler onClick={this.toggleNavbar} />
-              <Collapse className="navbarLinks" isOpen={!this.state.collapsed} navbar>
+              <Collapse
+                className="navbarLinks"
+                isOpen={!this.state.collapsed}
+                navbar
+              >
                 <Nav className="mr-auto" navbar>
                   <NavItem>
-                    <NavLink 
+                    <NavLink
                       exact
                       to="/start"
                       onClick={this.closeNavbar}
@@ -71,15 +95,41 @@ class NavBar extends Component {
                       Om Oss
                     </NavLink>
                   </NavItem>
-                  <NavItem>
-                    <NavLink
-                      to="/logga-in"
-                      onClick={this.closeNavbar}
-                      className="nav-link"
-                    >
-                      Logga in
-                    </NavLink>
-                  </NavItem>
+                  {App.isLoggedin ? (
+                    <NavItem>
+                      <NavLink
+                        to="/mina-bokningar"
+                        onClick={this.closeNavbar}
+                        className="nav-link"
+                      >
+                        Mina bokningar
+                      </NavLink>
+                    </NavItem>
+                  ) : (
+                    ""
+                  )}
+                  {!App.isLoggedin ? (
+                    <NavItem>
+                      <NavLink
+                        to="/login"
+                        onClick={this.closeNavbar}
+                        className="nav-link"
+                      >
+                        Logga in
+                      </NavLink>
+                    </NavItem>
+                  ) : (
+                    <NavItem>
+                      <NavLink
+                        to="/login"
+                        onClick={this.closeNavbar}
+                        onClick={this.userLogout}
+                        className="nav-link"
+                      >
+                        Logga ut
+                      </NavLink>
+                    </NavItem>
+                  )}
                 </Nav>
               </Collapse>
             </Navbar>

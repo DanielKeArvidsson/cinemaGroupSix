@@ -5,14 +5,13 @@
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-image: url('../images/cinema.png');
+  background-image: url("../images/cinema.png");
   background-size: cover;
   background-attachment: fixed;
   text-align: center;
   .Site-content {
     flex: 1;
     padding-top: 70px;
-   
   }
 }
 
