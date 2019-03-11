@@ -122,8 +122,7 @@ class NavBar extends Component {
                     <NavItem>
                       <NavLink
                         to="/login"
-                        onClick={this.closeNavbar}
-                        onClick={this.userLogout}
+                        onClick={this.closeNavbar && this.userLogout}
                         className="nav-link"
                       >
                         Logga ut
