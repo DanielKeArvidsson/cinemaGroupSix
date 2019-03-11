@@ -8,7 +8,7 @@ import Movies from "./components/Movies";
 import FormPage from "./components/FormPage";
 import Footer from "./components/footer";
 import SalongsInfo from "./components/salongsinfo";
-import AboutUsPage from "./components/aboutUs";
+import AboutUs from "./components/aboutUs";
 import { Route } from "react-router-dom";
 
 class Login extends REST {}
@@ -37,7 +37,7 @@ class App extends Component {
             <Route path="/visningar" component={ShowPage} />
             <Route path="/logga-in" component={FormPage} />
             <Route path="/salongsinfo" component={SalongsInfo} />
-            <Route path="/om-oss" component={AboutUsPage} />
+            <Route path="/om-oss" component={AboutUs} />
             <Route path="/movie/:id" component={Movies} />
           </div>
 

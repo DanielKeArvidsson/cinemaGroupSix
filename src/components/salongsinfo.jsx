@@ -3,6 +3,7 @@ import REST from "../REST";
 import SalongsInfoPage from "./salongsInfoPage";
 
 
+
 class Auditorium extends REST {}
 
 class SalongsInfo extends React.Component {
@@ -30,6 +31,7 @@ class SalongsInfo extends React.Component {
       <div>
         {this.auditoriums.map(auditorium => {
           return <SalongsInfoPage key={auditorium._id} {...auditorium} />;
+        
         })}
       </div>
     );
