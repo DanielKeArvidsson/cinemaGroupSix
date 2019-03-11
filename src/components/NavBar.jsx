@@ -61,7 +61,7 @@ class NavBar extends Component {
                   <NavItem>
                     <NavLink
                       exact
-                      to="/home"
+                      to="/start"
                       onClick={this.closeNavbar}
                       className="nav-link"
                     >
@@ -70,7 +70,7 @@ class NavBar extends Component {
                   </NavItem>
                   <NavItem>
                     <NavLink
-                      to="/showpage"
+                      to="/visningar"
                       onClick={this.closeNavbar}
                       className="nav-link"
                     >
@@ -88,13 +88,23 @@ class NavBar extends Component {
                   </NavItem>
                   <NavItem>
                     <NavLink
-                      to="/aboutUs"
+                      to="/om-oss"
                       onClick={this.closeNavbar}
                       className="nav-link"
                     >
                       Om Oss
                     </NavLink>
                   </NavItem>
+                  <NavItem>
+                    <NavLink
+                      to="/logga-in"
+                      onClick={this.closeNavbar}
+                      className="nav-link"
+                    >
+                      Logga in
+                    </NavLink>
+                  </NavItem>
+
                   {App.isLoggedin ? (
                     <NavItem>
                       <NavLink
@@ -130,6 +140,7 @@ class NavBar extends Component {
                       </NavLink>
                     </NavItem>
                   )}
+
                 </Nav>
               </Collapse>
             </Navbar>
