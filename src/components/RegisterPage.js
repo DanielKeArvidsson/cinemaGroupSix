@@ -7,7 +7,6 @@ import {
   ModalBody,
   ModalFooter
 } from "reactstrap";
-import { Link } from "react-router-dom";
 import REST from "../REST";
 import FormComp from "./FormComp";
 class User extends REST {}
