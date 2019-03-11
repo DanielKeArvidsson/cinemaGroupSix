@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import REST from "../REST";
 import {
   Button,
   Jumbotron,
@@ -7,13 +8,24 @@ import {
   ModalBody,
   ModalFooter
 } from "reactstrap";
-
+class Program extends REST {}
 class MovieInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {};
     Object.assign(this, props);
     this.toggle = this.toggle.bind(this);
+    this.loadInfo();
+    this.programs = [];
+  }
+  async loadInfo() {
+    let programInfo = await Program.find(
+      `.find({ movie: { $in: ["${
+        this._id
+      }"] } }).populate('movie auditorium').sort({date: 1, time: 1}).exec()`
+    );
+    this.programs = programInfo;
+    this.setState({ state: this.state });
   }
 
   toggle() {
@@ -61,11 +73,9 @@ class MovieInfo extends Component {
             </ModalFooter>
           </ModalBody>
         </Modal>
-
         <div className="row mb-3 ml-3">
           <div className="moviePic col-xl-3" onClick={this.toggle}>
             <img
-              typeName="button"
               src={require("../images/" + this.images[0])}
               alt="bild från film"
             />
@@ -119,23 +129,29 @@ class MovieInfo extends Component {
             </p>
           </div>
         </div>
-
         <div id="biljett" />
         <h2>Boka biljetter</h2>
-
-        <div className="shows container">
+        <div className="shows container mb-5">
           <div className="row">
             <div className="col-4 tabell">
               <b>Tid</b>
+              {this.programs.map(program => {
+                return <p key={Math.random() + 5}>{program.time}</p>;
+              })}
             </div>
             <div className="col-4 tabell">
               <b>Datum</b>
+              {this.programs.map(program => {
+                return <p key={Math.random() + 4}>{program.date}</p>;
+              })}
             </div>
             <div className="col-4 tabell">
               <b>Salong</b>
+              {this.programs.map(program => {
+                return <p key={Math.random() + 3}>{program.auditorium.name}</p>;
+              })}
             </div>
           </div>
-          {this.show}
         </div>
       </div>
     );
