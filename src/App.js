@@ -11,17 +11,35 @@ import SalongsInfo from "./components/salongsinfo";
 import AboutUsPage from "./components/aboutUs";
 import { Route } from "react-router-dom";
 
-class Login extends REST {}
+class Login extends REST {
+  async delete() {
+    this._id = 1;
+    // we set an id here, because the REST class
+    // will complain if we try to call delete on an object without _id
+    // - and we use delete to logout (see test.js)
+
+    return super.delete();
+  }
+
+  static get baseRoute() {
+    return "login/";
+  }
+}
 
 class App extends Component {
-  static isLoggedin = false;
-  loggedinUser = "";
-
+  constructor(props) {
+    super(props);
+    App.isLoggedin = false;
+    this.checkIfLoggedIn();
+  }
   async checkIfLoggedIn() {
-    this.isLoggedin = true;
     this.loggedinUser = await Login.find();
+    App.isLoggedin = this.loggedinUser.email;
     NavBar.lastInstance.setState(state => NavBar.lastInstance);
   }
+
+  static isLoggedin = false;
+  loggedinUser = "";
 
   render() {
     return (
@@ -35,12 +53,11 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/start" component={Home} />
             <Route path="/visningar" component={ShowPage} />
-            <Route path="/logga-in" component={FormPage} />
+            <Route path="/login" component={FormPage} />
             <Route path="/salongsinfo" component={SalongsInfo} />
             <Route path="/om-oss" component={AboutUsPage} />
             <Route path="/movie/:id" component={Movies} />
           </div>
-
 
           <footer>
             <Footer />

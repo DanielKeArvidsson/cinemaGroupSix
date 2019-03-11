@@ -111,7 +111,7 @@ class NavBar extends Component {
                   {!App.isLoggedin ? (
                     <NavItem>
                       <NavLink
-                        to="/logga-in"
+                        to="/login"
                         onClick={this.closeNavbar}
                         className="nav-link"
                       >
@@ -129,7 +129,6 @@ class NavBar extends Component {
                       </NavLink>
                     </NavItem>
                   )}
-
                 </Nav>
               </Collapse>
             </Navbar>
