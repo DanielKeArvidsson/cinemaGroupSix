@@ -95,6 +95,16 @@ class NavBar extends Component {
                       Om Oss
                     </NavLink>
                   </NavItem>
+                  <NavItem>
+                    <NavLink
+                      to="/logga-in"
+                      onClick={this.closeNavbar}
+                      className="nav-link"
+                    >
+                      Logga in
+                    </NavLink>
+                  </NavItem>
+
                   {App.isLoggedin ? (
                     <NavItem>
                       <NavLink
@@ -130,6 +140,7 @@ class NavBar extends Component {
                       </NavLink>
                     </NavItem>
                   )}
+
                 </Nav>
               </Collapse>
             </Navbar>

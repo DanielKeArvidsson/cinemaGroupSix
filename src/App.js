@@ -41,6 +41,7 @@ class App extends Component {
             <Route path="/movie/:id" component={Movies} />
           </div>
 
+
           <footer>
             <Footer />
           </footer>
