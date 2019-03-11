@@ -11,6 +11,7 @@ import SalongsInfo from "./components/salongsinfo";
 import AboutUsPage from "./components/aboutUs";
 import { Route } from "react-router-dom";
 import LogoutPage from "./components/LogoutPage";
+import Salong from "./components/Salong";
 
 class Login extends REST {}
 
@@ -41,6 +42,8 @@ class App extends Component {
           <Route path="/salongsinfo" component={SalongsInfo} />
           <Route path="/aboutUs" component={AboutUsPage} />
           <Route path="/movie/:id" component={Movies} />
+          <Route path="/bokabiljett" component={Salong} />
+          
         </div>
 
           <footer>

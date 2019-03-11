@@ -9,8 +9,7 @@ class Salong extends React.Component {
     super(props);
     this.state = {}
     this.salong = [];
-    this.rows = 1
-    this.seats = 0;
+    this.auditoriumSeats = 1;
     this.getSalong('Lilla Salongen')
   }
 
@@ -20,33 +19,41 @@ class Salong extends React.Component {
       return
     }
 
+    this.salong = this.auditorium.seatsPerRow.map((numberOfSeats, index) => 
+        <SeatRow key={index} numberOfSeats={numberOfSeats} seatsInSalong={this.auditoriumSeats += numberOfSeats} rowNum={index+1} />
+      )
+
+      this.setState({state: this.state})
+    
+    }
 
 
+/*
     for (let numberOfSeatsInRow of this.auditorium.seatsPerRow) {
       this.seats += numberOfSeatsInRow;
 
       this.seatRow = new SeatRow;
+      this.seatRow.getSeatInRow(numberOfSeatsInRow);
       // create one row of seats
 
       for (let seatCounter = 0; seatCounter < numberOfSeatsInRow; seatCounter++) {
-        this.seatRow.row.push(<Seat/>);
         this.seats--
       }
       this.seats += numberOfSeatsInRow
 
       this.rows++
-      this.salong.push(<SeatRow/>)
-    }
-    console.log(this.salong)
+      this.salong = this.salong.map( a => 
+      <SeatRow/>)
     this.setState({ state: this.state });
     return this.salong
-  }
+    }*/
+
 
 
   render() {
     return (
       
-      <div className="salong">
+      <div className="salong mt-5">
         {this.salong}
       </div>
     );

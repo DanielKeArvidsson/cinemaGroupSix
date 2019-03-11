@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 class Seat extends Component {
-  constructor(seatNum, rowNum, props) {
+  constructor(props) {
     super(props);
-    this.seatNumber = seatNum;
-    this.rowNumber = rowNum;
-    this.state = {}
+    this.seatNum = props.seatNum;
+    this.rowNum = props.rowNum;
   }
 
   render() {
     return (
-      <div className="seat"></div>
+      <div className="seat" seatnumber={this.seatNum} rownumber={this.rowNum}></div>
     );
   }
 }
