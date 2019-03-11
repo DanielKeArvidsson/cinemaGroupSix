@@ -111,7 +111,7 @@ class NavBar extends Component {
                   {!App.isLoggedin ? (
                     <NavItem>
                       <NavLink
-                        to="/login"
+                        to="/logga-in"
                         onClick={this.closeNavbar}
                         className="nav-link"
                       >
