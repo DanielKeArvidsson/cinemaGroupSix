@@ -2,8 +2,6 @@ import React from "react";
 import REST from "../REST";
 import AboutUsPage from "./aboutUsPage";
 
-
-
 class Auditorium extends REST {}
 
 class AboutUs extends React.Component {
@@ -13,16 +11,11 @@ class AboutUs extends React.Component {
     this.state = {};
     this.auditoriums = [];
     this.loadsData();
-    
   }
-  
- 
 
   async loadsData() {
-    let data = await Auditorium.find(
-     
-    );
-    this.auditoriums = data;
+    let data = await Auditorium.find();
+    this.auditorium = data[0];
 
     this.setState({ state: this.state });
   }
@@ -30,10 +23,7 @@ class AboutUs extends React.Component {
   render() {
     return (
       <div>
-        {this.auditoriums.map(auditorium => {
-          return <AboutUsPage key={auditorium._id} {...auditorium} />;
-        
-        })}
+        <AboutUsPage key={this.auditorium._id} {...this.auditorium} />;
       </div>
     );
   }
