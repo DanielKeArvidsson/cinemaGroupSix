@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import AboutusImage from "../images/aboutusImage.jpg";
+import CandyImage from "../images/popcornanddrink.jpg";
 import { Card, CardImg, CardText, CardBody, CardTitle, Col } from "reactstrap";
 
 class AboutUsPage extends Component {
@@ -7,37 +7,24 @@ class AboutUsPage extends Component {
     super(props);
     this.state = {};
     Object.assign(this, props);
-  
   }
   render() {
     return (
       <React.Fragment>
-           <div className="aboutus  col-lg-3 col-md-4 col-sm-12">
+        <div className="aboutUsInfoPage  col-lg-4 col-md-4 col-sm-12">
           <Col>
-            <Card className="aboutusInfoCard">
+            <Card className="candyInfoCard">
               <CardImg
                 top
                 width="100%"
-                src={require("../images/" + this.aboutusImage)}
+                src= {CandyImage}
                 alt="Card image cap"
               />
               <CardBody>
                 <CardTitle>
-                  <h2>{this.aboutusName}</h2>
+                  <h2>{this.butikName}</h2>
                 </CardTitle>
-                <CardText>{this.aboutUs}</CardText>
-              </CardBody>
-            </Card>
-          </Col>
-        </div>
-        <div className="aboutus  col-lg-3 col-md-4 col-sm-12">
-          <Col>
-            <Card className="aboutusInfoCard2">
-              <CardBody>
-                <CardTitle>
-                  <h2>{this.regulationName}</h2>
-                </CardTitle>
-                <CardText>{this.regulations}</CardText>
+                <CardText>{this.butik}</CardText>
               </CardBody>
             </Card>
           </Col>

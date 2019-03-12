@@ -6,12 +6,11 @@ class SalongsInfoPage extends Component {
     super(props);
     this.state = {};
     Object.assign(this, props);
-  
   }
   render() {
     return (
       <React.Fragment>
-        <div className="salongsInfoPage  col-lg-3 col-md-4 col-sm-12">
+        <div className="salongsInfoPage  col-lg-4 col-md-4 col-sm-12">
           <Col>
             <Card className="salongsInfoCard">
               <CardImg

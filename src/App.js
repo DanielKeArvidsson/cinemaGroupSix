@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import REST from "./REST";
-import "./index.css";
+
 import ShowPage from "./components/ShowPage";
 import NavBar from "./components/NavBar";
 import Home from "./components/home";
@@ -26,7 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="App Site">
-        <div className="Site-content">
+      <div className="Site-content">
           <div className="App-header">
             <NavBar />
           </div>
@@ -46,7 +46,7 @@ class App extends Component {
             <Footer />
           </footer>
         </div>
-      </div>
+        </div>
     );
   }
 }
