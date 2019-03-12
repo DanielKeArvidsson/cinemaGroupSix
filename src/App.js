@@ -8,7 +8,7 @@ import Movies from "./components/Movies";
 import FormPage from "./components/FormPage";
 import Footer from "./components/footer";
 import SalongsInfo from "./components/salongsinfo";
-import AboutUs from "./components/AboutUs";
+import AboutUs from "./components/aboutUs";
 import { Route } from "react-router-dom";
 
 class Login extends REST {

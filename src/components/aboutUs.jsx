@@ -1,6 +1,6 @@
 import React from "react";
 import REST from "../REST";
-import AboutUsPage from "./AboutUsPage";
+import AboutUsPage from "./aboutUsPage";
 
 
 
