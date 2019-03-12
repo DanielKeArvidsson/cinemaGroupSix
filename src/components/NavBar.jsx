@@ -88,7 +88,7 @@ class NavBar extends Component {
                   </NavItem>
                   <NavItem>
                     <NavLink
-                      to="/om-oss"
+                      to="/om_oss"
                       onClick={this.closeNavbar}
                       className="nav-link"
                     >
