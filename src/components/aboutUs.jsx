@@ -12,17 +12,21 @@ class AboutUs extends React.Component {
     this.auditorium = [];
     this.state = {};
     this.auditoriums = [];
-    this.loadData();
-    console.log(this.auditorium);
+    // this.loadsData();
+    this.loadAuditorium();
+    
   }
+   async loadAuditorium() {
+    this.auditorium = await Auditorium.find();
+  
+ 
 
-  async loadData() {
-    let data = await Auditorium.find(
-      `.find().populate('auditorium auditorium').sort({"auditorium": 1, "auditorium": 1}).limit(${
-        this.auditorium
-      }).exec()`
-    );
-    this.auditoriums = data;
+  // async loadsData() {
+  //   let data = await Auditorium.find(
+     
+  //   );
+    this.auditoriums = Auditorium;
+    console.log(this.auditorium);
 
     this.setState({ state: this.state });
   }
@@ -30,7 +34,7 @@ class AboutUs extends React.Component {
   render() {
     return (
       <div>
-        {this.auditoriums.map(auditorium => {
+        {this.auditorium.map(auditorium => {
           return <AboutUsPage key={auditorium._id} {...auditorium} />;
         
         })}

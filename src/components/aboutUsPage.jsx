@@ -6,8 +6,10 @@ class AboutUsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    // this.auditorium = [];
     Object.assign(this, props);
   }
+  
   render() {
     return (
       <React.Fragment>
@@ -22,9 +24,9 @@ class AboutUsPage extends Component {
               />
               <CardBody>
                 <CardTitle>
-                  <h2>{this.butikName}</h2>
+                  <h2>{this.props.butikName}</h2>
                 </CardTitle>
-                <CardText>{this.butik}</CardText>
+                <CardText>{this.props.butik}</CardText>
               </CardBody>
             </Card>
           </Col>
