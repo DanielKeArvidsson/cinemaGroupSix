@@ -45,6 +45,7 @@ class App extends Component {
     return (
       <div className="App Site">
       <div className="Site-content">
+      <div className="container">
           <div className="App-header">
             <NavBar />
           </div>
@@ -57,6 +58,7 @@ class App extends Component {
             <Route path="/salongsinfo" component={SalongsInfo} />
             <Route path="/om_oss" component={AboutUs} />
             <Route path="/movie/:id" component={Movies} />
+          </div>
           </div>
 
           <footer>
