@@ -10,7 +10,6 @@ const InputField = ({ name, label, type, value, error, onChange }) => {
         onChange={onChange}
         type={type}
         name={name}
-        id={name}
         placeholder={label}
         className="formControl"
       />

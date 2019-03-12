@@ -25,7 +25,7 @@ export class LoginPage extends FormComp {
       data: { email: "", password: "" },
       errors: {},
       modalShow: false,
-      message: "",
+      message: ""
     };
   }
 
@@ -35,7 +35,6 @@ export class LoginPage extends FormComp {
     this.setState({ errors: errors || {} });
     if (errors) return;
     this.submitForm();
-    this.setState({ data: "" });
   };
 
   async submitForm() {
@@ -81,7 +80,7 @@ export class LoginPage extends FormComp {
             <ModalFooter>
               {this.state.message === "Hej! Du är nu inloggad." ? (
                 <Link
-                  to="/home"
+                  to="/start"
                   className="btn btn-secondary"
                   onClick={this.toggleModal}
                 >
