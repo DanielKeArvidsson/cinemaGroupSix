@@ -2,6 +2,10 @@
   "name": "cinema",
   "version": "0.1.0",
   "private": true,
+  "description": "",
+  "main": "app.js",
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.4",
     "body-parser": "^1.18.3",

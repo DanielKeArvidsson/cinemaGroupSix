@@ -5,4 +5,6 @@ module.exports = function(app) {
     return pathname.startsWith('/json')
   }
   app.use(proxy(filter, { target: 'http://localhost:3001/' }));
+  app.use(proxy('/user/', { target: 'HTTP://localhost:3001/' }));
+  app.use(proxy('/socket.io/', { target: 'http://localhost:3001/' }));
 };
