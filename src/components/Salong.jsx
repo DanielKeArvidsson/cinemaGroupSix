@@ -6,9 +6,10 @@ class Auditorium extends REST{}
 class Salong extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
     this.salong = [];
     this.auditoriumSeats = 1;
+    console.log(this)
+    console.log(this.props)
     this.getSalong('Lilla')
   }
 

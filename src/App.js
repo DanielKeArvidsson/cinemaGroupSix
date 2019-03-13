@@ -42,7 +42,7 @@ class App extends Component {
           <Route path="/salongsinfo" component={SalongsInfo} />
           <Route path="/aboutUs" component={AboutUsPage} />
           <Route path="/movie/:id" component={Movies} />
-          <Route path="/bokabiljett" component={BookTicketPage} />
+          <Route path="/bokabiljett/:id" component={BookTicketPage} />
           
         </div>
 

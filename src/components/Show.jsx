@@ -41,7 +41,9 @@ class Show extends Component {
               <CardText>
                 {this.date} {this.time}{" "}
               </CardText>
-              <Button className="btn btn-success mr-2 mb-2 ">Boka</Button>
+              <Button className="btn btn-success mr-2 mb-2 ">
+                <Link to={"/bokabiljett/" + this._id}>Boka</Link>
+              </Button>
               <Button className="btn btn-primary mb-2">
                 <Link to={"/movie/" + this.movie._id}>Mer info om filmen</Link>
               </Button>
