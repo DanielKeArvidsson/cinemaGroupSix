@@ -1,34 +1,45 @@
-import React from 'react';
+import React from "react";
 import REST from "../REST";
 import SeatRow from "./SeatRow";
-class Auditorium extends REST{}
-
+class Auditorium extends REST {}
+class Program extends REST {}
 class Salong extends React.Component {
   constructor(props) {
     super(props);
     this.salong = [];
     this.auditoriumSeats = 1;
-    console.log(this)
-    console.log(this.props)
-    this.getSalong('Lilla')
+    console.log(this);
+    this.getSalong();
   }
 
-  async getSalong(salongName) {
-    this.auditorium = await Auditorium.find('.findOne({name:/' + salongName + '/})');
+  async getSalong() {
+    let pathArray = window.location.pathname.split("/");
+    let programPath = pathArray[2];
+    this.program = await Program.find(
+      `.findOne({_id:'${programPath}'}).populate().exec()`
+    );
+    console.log(this.program.auditorium.name);
+    this.auditorium = await Auditorium.find(
+      ".findOne({name:/" + this.program.auditorium.name + "/})"
+    );
+    console.log(this.props.auditorium);
     if (!this.auditorium) {
-      return
+      return;
     }
 
-    this.salong = this.auditorium.seatsPerRow.map((numberOfSeats, index) => 
-        <SeatRow key={index} numberOfSeats={numberOfSeats} seatsInSalong={this.auditoriumSeats += numberOfSeats} rowNum={index+1} />
-      )
+    this.salong = this.auditorium.seatsPerRow.map((numberOfSeats, index) => (
+      <SeatRow
+        key={index}
+        numberOfSeats={numberOfSeats}
+        seatsInSalong={(this.auditoriumSeats += numberOfSeats)}
+        rowNum={index + 1}
+      />
+    ));
 
-      this.setState({state: this.state})
-    
-    }
+    this.setState({ state: this.state });
+  }
 
-
-/*
+  /*
     for (let numberOfSeatsInRow of this.auditorium.seatsPerRow) {
       this.seats += numberOfSeatsInRow;
 
@@ -48,15 +59,8 @@ class Salong extends React.Component {
     return this.salong
     }*/
 
-
-
   render() {
-    return (
-      
-      <div className="salong">
-        {this.salong}
-      </div>
-    );
+    return <div className="salong">{this.salong}</div>;
   }
 }
 
