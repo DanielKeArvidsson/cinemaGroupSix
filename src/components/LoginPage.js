@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Modal, ModalHeader, ModalBody, ModalFooter, Form } from "reactstrap";
 import { Link } from "react-router-dom";
 import REST from "../REST";
