@@ -1,7 +1,8 @@
   .salong{
+    position: relative;
     align-content: center;
     text-align: center;
-    z-index: 99999;
+    z-index: 1;
     p{
       margin:0;
       margin-top: -2px;
@@ -41,8 +42,7 @@
     display: inline-block;
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
-    background-color: brown;
-    animation: blink 1s linear infinite;
+    background-color: red;
     cursor: pointer;
   }
 
@@ -54,9 +54,8 @@
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
     background-color: brown;
-    pointer-events: none;
-    animation: blink 1s linear infinite;
     cursor: pointer;
+    animation: blink 1s linear infinite;
     p{
       display:block;
     }

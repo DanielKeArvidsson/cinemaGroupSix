@@ -8,7 +8,6 @@ class Salong extends React.Component {
     super(props);
     this.salong = [];
     this.auditoriumSeats = 1;
-    console.log(this);
     this.getSalong();
   }
 
@@ -18,11 +17,9 @@ class Salong extends React.Component {
     this.program = await Program.find(
       `.findOne({_id:'${programPath}'}).populate().exec()`
     );
-    console.log(this.program.auditorium.name);
     this.auditorium = await Auditorium.find(
       ".findOne({name:/" + this.program.auditorium.name + "/})"
     );
-    console.log(this.props.auditorium);
     if (!this.auditorium) {
       return;
     }
