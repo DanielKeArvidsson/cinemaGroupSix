@@ -8,7 +8,6 @@ class AboutUsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    // this.auditorium = [];
     Object.assign(this, props);
   }
 

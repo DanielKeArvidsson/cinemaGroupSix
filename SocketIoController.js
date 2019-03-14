@@ -4,13 +4,14 @@ module.exports = class SocketIoController {
 
     constructor(server) {
         this.io = socketIo(server);
-        this.socketConnections();
+        // this.listenToSocketConnections();
+        console.log(this.io);
     }
 
-    socketConnections() {
-        global.models.bookings.schema.on('newBooking', (booking) => {
-            const eventName = 'newBooking' + booking.program;
-            this.io.emit(eventName, booking);
-        });
-    }
+    // listenToSocketConnections() {
+    //     global.models.bookings.schema.on('newBooking', (booking) => {
+    //         const eventName = 'newBooking' + booking.program;
+    //         this.io.emit(eventName, booking);
+    //     });
+    // }
 }

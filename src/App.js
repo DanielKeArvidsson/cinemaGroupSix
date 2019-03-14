@@ -11,6 +11,7 @@ import SalongsInfo from "./components/salongsinfo";
 import AboutUs from "./components/aboutUs";
 import { Route } from "react-router-dom";
 
+
 class Login extends REST {
   async delete() {
     this._id = 1;

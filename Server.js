@@ -10,8 +10,9 @@ const settings = require('./settings.json');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
-const http = require('http');
+const http = require('http')
 const SocketIoController = require('./SocketIoController');
+
 
 for (let conf of config.sass) {
   new Sass(conf);
@@ -47,7 +48,7 @@ module.exports = class Server {
     // Add body-parser to our requests
     app.use(bodyParser.json());
 
-    // app.use(cors());
+    
 
     // Add session (and cookie) handling to Express
     app.use(session({
@@ -67,22 +68,22 @@ module.exports = class Server {
       auditoriums: require('./models/Auditorium'),
       tickets: require('./models/Ticket')
     };
-
+    
     global.models = models;
     
     // create all necessary rest routes for the models
     new CreateRestRoutes(app, global.db, models);
-
+    
     // create special routes for login
     new LoginHandler(app, models.users);
-
-
-  // Start the web server
-const server = http.Server(app);
-server.listen(3001, () => console.log('Listening on port 3000'));
- 
-// Add Socket.io
-new SocketIoController(server);
+    
+    
+    // Start the web server
+    const server = http.Server(app);
+    // Add Socket.io
+    new SocketIoController(server);
+    server.listen(3001, () => console.log('Listening on port 3001'));
+    
 
   }
 
