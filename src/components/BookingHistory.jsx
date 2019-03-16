@@ -70,14 +70,32 @@ class BookingHistory extends Component {
   render() {
     return (
       <div>
-        <h1 className="mt-5">Kommande bokningar</h1>
+        <h1
+          className={
+            "mt-5 " + (this.state.futureBookings.length > 0 ? "" : "d-none")
+          }
+        >
+          Kommande bokningar
+        </h1>
         {this.state.futureBookings.map(i => {
           return i;
         })}
-        <h1>Tidigare bokningar</h1>
+        <h1
+          className={
+            "mt-5 " + (this.state.oldBookings.length > 0 ? "" : "d-none")
+          }
+        >
+          Tidigare bokningar
+        </h1>
         {this.state.oldBookings.map(i => {
           return i;
         })}
+        <h1
+          className={"mt-5 " + (this.state.foundTickets.length ? "d-none" : "")}
+        >
+          {" "}
+          Inga bokade biljetter
+        </h1>
       </div>
     );
   }
