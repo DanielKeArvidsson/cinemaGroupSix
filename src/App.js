@@ -10,6 +10,7 @@ import Footer from "./components/footer";
 import SalongsInfo from "./components/salongsinfo";
 import AboutUs from "./components/aboutUs";
 import { Route } from "react-router-dom";
+import BookingHistory from "./components/BookingHistory";
 
 class Login extends REST {
   async delete() {
@@ -34,6 +35,7 @@ class App extends Component {
   }
   async checkIfLoggedIn() {
     this.loggedinUser = await Login.find();
+    App.email = this.loggedinUser.email;
     App.isLoggedin = this.loggedinUser.email;
     NavBar.lastInstance.setState(state => NavBar.lastInstance);
   }
@@ -44,28 +46,29 @@ class App extends Component {
   render() {
     return (
       <div className="App Site">
-      <div className="Site-content">
-      <div className="container">
-          <div className="App-header">
-            <NavBar />
-          </div>
+        <div className="Site-content">
+          <div className="container">
+            <div className="App-header">
+              <NavBar />
+            </div>
 
-          <div className="main">
-            <Route exact path="/" component={Home} />
-            <Route exact path="/start" component={Home} />
-            <Route path="/visningar" component={ShowPage} />
-            <Route path="/login" component={FormPage} />
-            <Route path="/salongsinfo" component={SalongsInfo} />
-            <Route path="/om_oss" component={AboutUs} />
-            <Route path="/movie/:id" component={Movies} />
-          </div>
+            <div className="main">
+              <Route exact path="/" component={Home} />
+              <Route exact path="/start" component={Home} />
+              <Route path="/visningar" component={ShowPage} />
+              <Route path="/login" component={FormPage} />
+              <Route path="/salongsinfo" component={SalongsInfo} />
+              <Route path="/om_oss" component={AboutUs} />
+              <Route path="/mina-bokningar" component={BookingHistory} />
+              <Route path="/movie/:id" component={Movies} />
+            </div>
           </div>
 
           <footer>
             <Footer />
           </footer>
         </div>
-        </div>
+      </div>
     );
   }
 }
