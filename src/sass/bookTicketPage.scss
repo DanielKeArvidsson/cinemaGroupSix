@@ -1,7 +1,25 @@
 .book-ticket{
   margin-top: 70px;
+  margin-bottom: 70px;
   * {
     box-sizing: border-box;
+    }
+
+    .error{
+      position: relative;
+      margin-bottom: 5em;
+    }
+
+    .alert{
+      position: absolute;
+      top:0;
+      left:0;
+      right:0;
+    }
+
+    p{
+      color:white;
+      font-size: 20px;
     }
 
   #program-select {
@@ -39,12 +57,14 @@
     position: relative;
     border-top: 2px solid white;
     width: 300px;
-    z-index: -99999;
     margin-bottom: 80px;
+    z-index: -0;
     .light{
       position: absolute;
       width: 300px;
+      left:0;
       opacity: 0.7;
-    } 
-  }
+      z-index: -1;
+    }
+  } 
 }
