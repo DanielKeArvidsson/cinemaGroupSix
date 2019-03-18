@@ -21,6 +21,9 @@ class ProgramUpdate extends Component {
     this.updateDate = this.updateDate.bind(this);
     this.updateTime = this.updateTime.bind(this);
     this.postUpdate = this.postUpdate.bind(this);
+    this.saveNew = this.saveNew.bind(this);
+    this.programUpdated = false;
+    this.programCreated = false;
     this.state = {
       programTime: ["16:00", "17:00", "18:00", "19:00", "20:00"],
       programDate: [
@@ -42,21 +45,18 @@ class ProgramUpdate extends Component {
     this.setState({
       movie: target
     });
-    console.log(this.state);
   }
   updateAuditorium(e) {
     const target = e.target.value;
     this.setState({
       auditorium: target
     });
-    console.log(this.state);
   }
   updateTime(e) {
     const target = e.target.value;
     this.setState({
       time: target
     });
-    console.log(this.state);
   }
   updateDate(e) {
     const target = e.target.value;
@@ -65,13 +65,25 @@ class ProgramUpdate extends Component {
     });
   }
   async postUpdate() {
-    console.log(this.props.program._id);
     let tempProg = await Program.find(`.findById('${this.props.program._id}')`);
     tempProg.movie = this.state.movie;
     tempProg.auditorium = this.state.auditorium;
     tempProg.time = this.state.time;
     tempProg.date = this.state.date;
     await tempProg.save();
+    this.programUpdated = true;
+    this.setState({ state: this.state });
+  }
+  async saveNew() {
+    let program = new Program({
+      movie: this.state.movie,
+      auditorium: this.state.auditorium,
+      time: this.state.time,
+      date: this.state.date
+    });
+    await program.save();
+    this.programCreated = true;
+    this.setState({ state: this.state });
   }
 
   render() {
@@ -166,8 +178,17 @@ class ProgramUpdate extends Component {
                 </FormGroup>
               );
             })}
+            <h3 className={"mt-2 " + (this.programUpdated ? "" : "d-none")}>
+              Programmet uppdaterades
+            </h3>
             <Button className="btn-success mt-2" onClick={this.postUpdate}>
               Uppdatera program
+            </Button>
+            <h3 className={"mt-2 " + (this.programCreated ? "" : "d-none")}>
+              Programmet skapades
+            </h3>
+            <Button className="btn-success mt-2" onClick={this.saveNew}>
+              Skapa nytt
             </Button>
           </Col>
         </Row>

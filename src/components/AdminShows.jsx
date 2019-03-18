@@ -34,7 +34,9 @@ class AdminShows extends Component {
                 Ta bort
               </Button>
               <Button className="btn btn-primary mb-2">
-                <Link to={"/admin-update/" + this._id}>Ändra</Link>
+                <Link to={"/admin-update/" + this._id}>
+                  Ändra eller skapa program
+                </Link>
               </Button>
             </CardBody>
           </Card>
