@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import ColdWar from "../images/cold-war2.jpg";
 import SaveImage from "../images/beskyddarna2.jpg";
 import ShopLifters from "../images/shoplifters2.jpg";
+import BeautifulBoy from "../images/beautiful-boy2.jpg";
+import CBYN from "../images/call-me-poster2.jpg";
 import {
   Carousel,
   CarouselItem,
@@ -27,6 +29,18 @@ const items = [
     altText: "",
     caption:
       "Shoplifters, Nytt mästerverk av vår tids främsta familjeskildrare."
+  },
+  {
+    src: BeautifulBoy,
+    altText: "",
+    caption:
+      "Beautiful Boy, Sätter känslorna i bitvis smärtsam gungning."
+  },
+  {
+    src: CBYN,
+    altText: "",
+    caption:
+      "Call me by your name, Ett drama berättat med stor ömhet."
   }
 ];
 
