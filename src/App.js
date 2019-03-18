@@ -10,7 +10,6 @@ import Footer from "./components/footer";
 import SalongsInfo from "./components/salongsinfo";
 import AboutUs from "./components/aboutUs";
 import { Route } from "react-router-dom";
-import LogoutPage from "./components/LogoutPage";
 import BookTicketPage from "./components/BookTicketPage";
 import BookingHistory from "./components/BookingHistory";
 
@@ -64,10 +63,9 @@ class App extends Component {
               <Route path="/om_oss" component={AboutUs} />
               <Route path="/mina-bokningar" component={BookingHistory} />
               <Route path="/movie/:id" component={Movies} />
+              <Route path="/bokabiljett/:id" component={BookTicketPage} />
             </div>
           </div>
-
-          <Route path="/bokabiljett/:id" component={BookTicketPage} />
           <footer>
             <Footer />
           </footer>
