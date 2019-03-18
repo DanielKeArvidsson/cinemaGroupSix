@@ -10,11 +10,13 @@ class AdminProgram extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      program: {},
-      movie: [],
-      auditorium: []
+      program: { movie: {}, auditorium: {} },
+      movies: [],
+      auditoriums: []
     };
-    this.findProgram();
+  }
+  async componentDidMount() {
+    await this.findProgram();
   }
   async findProgram() {
     let movieData = await Movie.find();
@@ -24,16 +26,19 @@ class AdminProgram extends Component {
     let auditoriumData = await Auditorium.find();
     this.setState({
       program: programData,
-      movie: movieData,
-      auditorium: auditoriumData
+      movies: movieData,
+      auditoriums: auditoriumData
     });
-    console.log(this.state.movie);
-    this.setState({ state: this.state });
   }
   render() {
     return (
       <div className="mt-5">
-        <ProgramUpdate key="1" {...this.state} />
+        <ProgramUpdate
+          key="1"
+          program={this.state.program}
+          movie={this.state.movies}
+          auditorium={this.state.auditoriums}
+        />
       </div>
     );
   }
