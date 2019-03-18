@@ -8,7 +8,6 @@ class AboutUsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    // this.auditorium = [];
     Object.assign(this, props);
   }
 
@@ -16,26 +15,26 @@ class AboutUsPage extends Component {
     return (
       <React.Fragment>
         <div className="container">
-            <div className="aboutUsInfoPage">
-          <div className="row">
-            <div className="col-lg-12 col-md-4 col-sm-12 mb-5 text-center">
-              <Col>
-                <Card className="candyInfoCard">
-                  <CardImg
-                    top
-                    width="100%"
-                    src={CandyImage}
-                    alt="Card image cap"
-                  />
-                  <CardBody>
-                    <CardTitle>
-                      <h2>{this.props.butikName}</h2>
-                    </CardTitle>
-                    <CardText>{this.props.butik}</CardText>
-                  </CardBody>
-                </Card>
-              </Col>
-            </div>
+          <div className="aboutUsInfoPage">
+            <div className="row">
+              <div className="col-lg-12 col-md-4 col-sm-12 mb-5 text-center">
+                <Col>
+                  <Card className="candyInfoCard">
+                    <CardImg
+                      top
+                      width="100%"
+                      src={CandyImage}
+                      alt="Card image cap"
+                    />
+                    <CardBody>
+                      <CardTitle>
+                        <h2>{this.props.butikName}</h2>
+                      </CardTitle>
+                      <CardText>{this.props.butik}</CardText>
+                    </CardBody>
+                  </Card>
+                </Col>
+              </div>
             </div>
             <div className="row">
               <div className="col-lg-12 col-md-4 col-sm-12 mb-5 text-center">
@@ -72,6 +71,20 @@ class AboutUsPage extends Component {
                         <h2>{this.props.aboutusName}</h2>
                       </CardTitle>
                       <CardText>{this.props.aboutUs}</CardText>
+                    </CardBody>
+                  </Card>
+                </Col>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-lg-12 col-md-4 col-sm-12 mb-5 text-center">
+                <Col>
+                  <Card className="abouUsInfoCard">
+                    <CardBody>
+                      <CardTitle>
+                        <h2>{this.props.regulationName}</h2>
+                      </CardTitle>
+                      <CardText>{this.props.regulations}</CardText>
                     </CardBody>
                   </Card>
                 </Col>

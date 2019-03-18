@@ -13,7 +13,7 @@ class Footer extends Component {
                 <li>FilmVisarna AB &copy; 2019</li>
                 <li>Kontakt: 040 123456</li>
                 <li>Email: filmvisarna@groupsix.se</li>
-                <li>Av: GroupSix</li>
+                <li>Samarbetspartner: GroupSix</li>
               </ul>
               </div>
             </div>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import { Card, CardImg, CardText, CardBody, CardTitle, Col } from "reactstrap";
 
 class SalongsInfoPage extends Component {
