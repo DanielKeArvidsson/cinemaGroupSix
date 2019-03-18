@@ -37,7 +37,7 @@ class Show extends Component {
             />
             <CardBody>
               <CardTitle>
-                <h2>{this.movie.title}</h2>
+                <h4>{this.movie.title}</h4>
               </CardTitle>
               <CardText>{this.auditorium.name} </CardText>
               <CardText>
