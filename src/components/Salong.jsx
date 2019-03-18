@@ -1,6 +1,7 @@
 import React from "react";
 import REST from "../REST";
 import SeatRow from "./SeatRow";
+import Socket from './Socket'
 class Auditorium extends REST {}
 class Program extends REST {}
 class Ticket extends REST {}
@@ -13,8 +14,9 @@ class Salong extends React.Component {
     this.allSeats = new Array
     this.getSalong();
     this.getBookedSeats();
+    // this.listenToSocketIo();
   }
-
+  
   async getSalong() {
     let pathArray = window.location.pathname.split("/");
     this.programPath = pathArray[2];
@@ -41,7 +43,7 @@ class Salong extends React.Component {
 
     this.setState({ state: this.state });
   }
-
+  
   async getBookedSeats(){
     this.getTickets = await Ticket.find(`.find({programId: '${this.programPath}'})`)
 
@@ -57,7 +59,7 @@ class Salong extends React.Component {
       console.log(ja)
     }
   }
-
+  
   async book(){
     await setTimeout(function(){}, 1000);
     this.bookedSeats = []
@@ -69,6 +71,7 @@ class Salong extends React.Component {
       }
     }
 
+    
 
     this.ticket = new Ticket({
       "bookingNum": this.bookingNum,
@@ -78,13 +81,23 @@ class Salong extends React.Component {
       "programId": this.programPath,
       "seats": this.bookedSeats.reverse()
     })
-
+    this.listenToSocketIo();
     await this.ticket.save()
 
-
+    
     this.props.bookedSeats.push(this.bookedSeats)
   }
+  
+  listenToSocketIo() {
+    Socket.on('newBookedSeats' + this.props.program._id, this.bookedSeats)
+  };
 
+  unListenToSocketIo() {
+    Socket.off('newBookedSeats' + this.props.program._id, this.bookedSeats)
+  };
+
+
+  
   /*
     for (let numberOfSeatsInRow of this.auditorium.seatsPerRow) {
       this.seats += numberOfSeatsInRow;

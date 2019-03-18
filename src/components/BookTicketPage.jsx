@@ -17,6 +17,7 @@ class BookTicktPage extends React.Component {
     this.program = '';
     this.bookedSeats = []
     this.loadProgramData();
+    
   }
 
   async loadProgramData() {
