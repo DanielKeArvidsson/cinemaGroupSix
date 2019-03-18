@@ -81,9 +81,9 @@ module.exports = class Server {
     // Start the web server
     const server = http.Server(app);
     // Add Socket.io
-    new SocketIoController(server);
     server.listen(3001, () => console.log('Listening on port 3001'));
     
+    new SocketIoController(server);
 
   }
 

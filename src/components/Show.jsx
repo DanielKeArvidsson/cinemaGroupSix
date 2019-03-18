@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+
 import {
   Card,
   CardImg,
@@ -25,6 +26,7 @@ class Show extends Component {
   render() {
     return (
       <div className="show-program col-lg-4 col-md-6 mb-5 mt-3 text-center">
+        
           <Col>
         <Card>
             <CardImg
@@ -39,7 +41,7 @@ class Show extends Component {
               </CardTitle>
               <CardText>{this.auditorium.name} </CardText>
               <CardText>
-                {this.date} {this.time}{" "}
+                {'📆'}{this.date} {'🕑'}{this.time}{" "}
               </CardText>
               <Button className="btn btn-success mr-2 mb-2 ">Boka</Button>
               <Button className="btn btn-primary mb-2">

@@ -20,6 +20,8 @@ module.exports = class CreateRestRoutes {
       res.json(err || result);
     });
 
+    // read all instances
+
     this.app.get(baseRoute, async (req, res) => {
       res.json(await Model.find());
     });
