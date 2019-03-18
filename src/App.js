@@ -11,6 +11,8 @@ import SalongsInfo from "./components/salongsinfo";
 import AboutUs from "./components/aboutUs";
 import { Route } from "react-router-dom";
 import BookingHistory from "./components/BookingHistory";
+import AdminPage from "./components/AdminPage";
+import AdminProgram from "./components/AdminProgram";
 
 class Login extends REST {
   async delete() {
@@ -61,9 +63,10 @@ class App extends Component {
               <Route path="/om_oss" component={AboutUs} />
               <Route path="/mina-bokningar" component={BookingHistory} />
               <Route path="/movie/:id" component={Movies} />
+              <Route path="/admin" component={AdminPage} />
+              <Route path="/admin-update/:id" component={AdminProgram} />
             </div>
           </div>
-
           <footer>
             <Footer />
           </footer>

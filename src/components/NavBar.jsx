@@ -95,6 +95,15 @@ class NavBar extends Component {
                       Om Oss
                     </NavLink>
                   </NavItem>
+                  <NavItem>
+                    <NavLink
+                      to="/admin"
+                      onClick={this.closeNavbar}
+                      className="nav-link"
+                    >
+                      Admins ställe
+                    </NavLink>
+                  </NavItem>
                   {App.isLoggedin ? (
                     <NavItem>
                       <NavLink
