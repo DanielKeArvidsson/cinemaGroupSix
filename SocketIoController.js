@@ -2,16 +2,18 @@ let socketIo = require('socket.io');
 
 module.exports = class SocketIoController {
 
-    constructor(server) {
+    constructor(server){
+        
         this.io = socketIo(server);
-        this.listenToSocketConnections();
+        // this.listenToSocketConnections();
+        // console.log('connected');
         
     }
 
-    listenToSocketConnections() {
-        global.models.bookings.schema.on('newBooking', (booking) => {
-            const eventName = 'newBooking' + booking.program;
-            this.io.emit(eventName, booking);
-        });
-    }
+    // listenToSocketConnections() {
+    //     global.models.ticketSchema.schema.on('newBooking', (booking) => {
+    //         const eventName = 'newBooking' + booking.program;
+    //         this.io.emit(eventName, booking);
+    //     });
+    // }
 }
