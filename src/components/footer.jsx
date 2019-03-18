@@ -5,15 +5,15 @@ class Footer extends Component {
   render() {
     return (
       <React.Fragment>
-        <footer className="footer" sticky="bottom">
+        <footer className="footer">
           <div className="container">
             <div className="row">
-              <div className="col-12 -md-5">
+            <div className="col">
               <ul>
                 <li>FilmVisarna AB &copy; 2019</li>
                 <li>Kontakt: 040 123456</li>
                 <li>Email: filmvisarna@groupsix.se</li>
-                <li>Av: GroupSix</li>
+                <li>Samarbetspartner: GroupSix</li>
               </ul>
               </div>
             </div>

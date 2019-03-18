@@ -5,8 +5,8 @@ const mongoose = require('mongoose');
 let dbName = 'cinema_booking'
 mongoose.connect(`mongodb://localhost/${dbName}`);
 global.db = mongoose.connection;
-db.on('error', () => console.log('Could not connect to DB'));
-db.once('open', () => {
+global.db.on('error', () => console.log('Could not connect to DB'));
+global.db.once('open', () => {
   console.log('Connected to DB');
   importJsonDataToDb().then(() => {
     generatePrograms();

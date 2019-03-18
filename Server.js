@@ -1,3 +1,4 @@
+
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -8,6 +9,9 @@ const LoginHandler = require('./LoginHandler');
 const settings = require('./settings.json');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+const http = require('http')
+const SocketIoController = require('./SocketIoController');
+
 
 for (let conf of config.sass) {
   new Sass(conf);
@@ -43,6 +47,8 @@ module.exports = class Server {
     // Add body-parser to our requests
     app.use(bodyParser.json());
 
+    
+
     // Add session (and cookie) handling to Express
     app.use(session({
       secret: settings.cookieSecret,
@@ -61,16 +67,22 @@ module.exports = class Server {
       auditoriums: require('./models/Auditorium'),
       tickets: require('./models/Ticket')
     };
-
+    
+    global.models = models;
+    
     // create all necessary rest routes for the models
     new CreateRestRoutes(app, global.db, models);
-
+    
     // create special routes for login
     new LoginHandler(app, models.users);
-
-
+    
+    
     // Start the web server
-    app.listen(3001, () => console.log('Listening on port 3001'));
+    const server = http.Server(app);
+    // Add Socket.io
+    server.listen(3001, () => console.log('Listening on port 3001'));
+    
+    new SocketIoController(server);
 
   }
 

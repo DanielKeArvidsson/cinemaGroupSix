@@ -13,11 +13,13 @@ class Movies extends Component {
   }
   async loadData() {
     let dataMovie = await Movie.find(
-      `.find({_id:'${this.props.match.params.id}'})`
+      `.find({_id:'${this.props.match.params.id}'}).populate().exec()`
     );
     this.movie = dataMovie;
     let dataProgram = await Program.find(
-      `.find({ movie: { $in: ["${this.props.match.params.id}"] } })`
+      `.find({ movie: { $in: ["${
+        this.props.match.params.id
+      }"] } }).populate('movie auditorium').sort({date: 1, time: 1}).limit(10).exec()`
     );
     this.program = dataProgram;
     this.setState({ state: this.state });

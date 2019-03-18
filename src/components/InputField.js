@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { FormGroup, Label, Input } from "reactstrap";
 
 const InputField = ({ name, label, type, value, error, onChange }) => {
   return (
@@ -10,7 +10,6 @@ const InputField = ({ name, label, type, value, error, onChange }) => {
         onChange={onChange}
         type={type}
         name={name}
-        id={name}
         placeholder={label}
         className="formControl"
       />

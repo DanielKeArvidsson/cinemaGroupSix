@@ -1,14 +1,32 @@
-import React, { Component } from 'react';
+import React from "react";
+import REST from "../REST";
+import AboutUsPage from "./aboutUsPage";
 
+class Auditorium extends REST {}
 
-class AboutUsPage extends Component {
-    state = {  }
-    render() { 
-        return ( 
+class AboutUs extends React.Component {
+  constructor(props) {
+    super(props);
+    this.auditorium = [];
+    this.state = {};
+    this.auditoriums = [];
+    this.loadsData();
+  }
 
-            <h1>FilmVisarna AB: mer info under Sprint 4, vid frågor ring oss</h1>
-         );
-    }
+  async loadsData() {
+    let data = await Auditorium.find();
+    this.auditorium = data[0];
+
+    this.setState({ state: this.state });
+  }
+
+  render() {
+    return (
+      <div>
+        <AboutUsPage key={this.auditorium._id} {...this.auditorium} />;
+      </div>
+    );
+  }
 }
- 
-export default AboutUsPage;
+
+export default AboutUs;
