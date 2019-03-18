@@ -95,6 +95,15 @@ class NavBar extends Component {
                       Om Oss
                     </NavLink>
                   </NavItem>
+                  <NavItem>
+                    <NavLink
+                      to="/topplista"
+                      onClick={this.closeNavbar}
+                      className="nav-link"
+                    >
+                      Topplista
+                    </NavLink>
+                  </NavItem>
                   {App.isLoggedin ? (
                     <NavItem>
                       <NavLink
