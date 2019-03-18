@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Container, Row, Col } from "reactstrap";
 import REST from "../REST";
 import MovieInfo from "./MovieInfo";
 class Movie extends REST {}
@@ -13,7 +14,7 @@ export class Topplista extends Component {
     this.findMovies();
 
     this.state = {
-      data: []
+      lista: []
     };
   }
 
@@ -21,11 +22,7 @@ export class Topplista extends Component {
     let movies = await Movie.find();
     for (let movie of movies) {
       this.allMovies.push(movie.title);
-      //     console.log(ticket.program.movie.title);
-      //     this.allBookings.push(ticket.program.movie.title);
-      //   }
     }
-    //console.log(this.allMovies);
   }
 
   countMovies() {
@@ -41,25 +38,43 @@ export class Topplista extends Component {
     }
 
     array.sort(function(a, b) {
-      return a.count - b.count;
+      return b.count - a.count;
     });
-    console.log(array);
+    let topplista = [];
+    // console.log(array);
+    // console.log(array[0].movie);
+    //console.log(topplista, "topp");
+    for (let i = 0; i < array.length; i++) {
+      topplista.push(array[i].movie);
+    }
+    console.log(topplista, "topp");
+    this.setState({ lista: topplista });
   }
 
   async findMovies() {
     let data = await Ticket.find();
-    // console.log(data);
     for (let ticket of data) {
-      //console.log(ticket.program.movie.title);
       this.allBookings.push(ticket.program.movie.title);
     }
-    //console.log(this.allBookings);
     this.countMovies();
   }
 
   render() {
-    return <div className="mt-5">topplista</div>;
+    return (
+      <Container style={lista}>
+        <Row>
+          <Col>
+            {this.state.lista.map(item => (
+              <li>{item}</li>
+            ))}
+          </Col>
+        </Row>
+      </Container>
+    );
   }
 }
+const lista = {
+  color: "white"
+};
 
 export default Topplista;
