@@ -2,6 +2,7 @@ import React from "react";
 import REST from "../REST";
 import Salong from "./Salong";
 import LightImage from "../images/light.png";
+import {  CardImg } from "reactstrap";
 class Program extends REST {}
 
 class BookTicktPage extends React.Component {
@@ -100,8 +101,8 @@ class BookTicktPage extends React.Component {
         <div>
           <div className="theShow">
             <h2>{this.state.title}</h2>
-            <h3>📆 {this.program.date}</h3>
-            <h3>🕑 {this.program.time}</h3>
+            <h3> {this.program.date}</h3>
+            <h3> {this.program.time}</h3>
           </div>
           <div className="error">
               {this.toMannyTickets}
@@ -170,7 +171,7 @@ class BookTicktPage extends React.Component {
           </div>
           <div className="row justify-content-center">
             <div className="screen">
-              <img className="light" src={LightImage}
+              <CardImg className="light" src={LightImage}
               />
             </div>
           </div>

@@ -122,7 +122,7 @@ class Home extends Component {
         </div>
       </div>
       <div className="row">
-      <div className="col">
+      <div className="col  text-center">
       <i className="fab fa-facebook-square"></i>
       <i className="fab fa-facebook-messenger"></i>
       <i className="fab fa-instagram"></i>
