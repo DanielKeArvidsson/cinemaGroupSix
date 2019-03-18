@@ -7,13 +7,14 @@ class Program extends REST {}
 class BookTicktPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { adult: 2, kid: 0, senior: 0, total: 170 };
+    this.state = { adult: 2, kid: 0, senior: 0, total: 170, totalTickets: 2 };
     this.adult = 2;
     this.kid = 0;
     this.senior = 0;
     this.total = 170;
     this.totalTickets = 2;
     this.program = '';
+    this.bookedSeats = []
     this.loadProgramData();
   }
 
@@ -28,7 +29,7 @@ class BookTicktPage extends React.Component {
       this.kid--;
       this.total -= 50;
       this.totalTickets--
-      this.setState({kid: this.kid})
+      this.setState({kid: this.kid, totalTickets: this.totalTickets})
       // this.getBookedSeats();
       this.toMannyTickets = "";
     }
@@ -38,7 +39,7 @@ class BookTicktPage extends React.Component {
       this.kid++;
       this.total += 50;
       this.totalTickets++
-      this.setState({kid: this.kid})
+      this.setState({kid: this.kid, totalTickets: this.totalTickets})
       // this.getBookedSeats();
     } else {
       this.toMannyTickets = <div className="alert alert-danger mt-4" role="alert"> Det går bara att boka 7 biljetter åt gången! </div>
@@ -51,7 +52,7 @@ class BookTicktPage extends React.Component {
       this.adult--;
       this.total -= 85;
       this.totalTickets--
-      this.setState({adult: this.adult})
+      this.setState({adult: this.adult, totalTickets: this.totalTickets})
       // this.getBookedSeats();
       this.toMannyTickets = "";
     }
@@ -62,7 +63,7 @@ class BookTicktPage extends React.Component {
       this.total += 85;
       // this.getBookedSeats();
       this.totalTickets++
-      this.setState({adult: this.adult})
+      this.setState({adult: this.adult, totalTickets: this.totalTickets})
     } else {
       this.toMannyTickets = <div className="alert alert-danger mt-4" role="alert"> Det går bara att boka 7 biljetter åt gången! </div>
       this.setState({tickets: this.totalTickets});
@@ -74,7 +75,7 @@ class BookTicktPage extends React.Component {
       this.senior--;
       this.total -= 65;
       this.totalTickets--
-      this.setState({senior: this.senior})
+      this.setState({senior: this.senior, totalTickets: this.totalTickets})
       // this.getBookedSeats();
       this.toMannyTickets = "";
     }
@@ -84,17 +85,13 @@ class BookTicktPage extends React.Component {
       this.senior++;
       this.total += 65;
       this.totalTickets++;
-      this.setState({senior: this.senior})
+      this.setState({senior: this.senior, totalTickets: this.totalTickets})
       // this.getBookedSeats();
     } else {
       this.toMannyTickets = <div className="alert alert-danger mt-4" role="alert"> Det går bara att boka 7 biljetter åt gången! </div>
       this.setState({tickets: this.totalTickets});
       // this.getBookedSeats();
     }
-  }
-
-  bookTicket(){
-    console.log(this)
   }
 
   render() {
@@ -178,18 +175,7 @@ class BookTicktPage extends React.Component {
             </div>
           </div>
 
-          <Salong auditorium={this.state.salongName}
-          />
-
-          <div className="row">
-            <button
-              type="button"
-              className=" col-md-2 btn btn-secondary booked-tickets p-2 m-4 mt-5 mb-4"
-              onClick={this.bookTicket.bind(this)}
-            >
-              Boka biljetter
-            </button>
-          </div>
+          <Salong auditorium={this.state.salongName} totalTickets={this.state.totalTickets} bookedSeats={this.bookedSeats}/>
         </div>
       </section>
     );

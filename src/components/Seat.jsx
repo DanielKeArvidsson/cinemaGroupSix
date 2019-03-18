@@ -6,11 +6,13 @@ class Seat extends Component {
     this.seatNum = props.seatNum;
     this.rowNum = props.rowNum;
     this.choosenSeat = 0;
+    this.props.allSeatsInRow.push(this)
   }
 
   hover(){
     if(this.state.class == 'seat'){
-      this.setState({class: 'hoverChoosenSeat'})
+      this.props.hoverSeats.hover = this.props.indexNum
+      this.setState({class: this.props.classname})
     }
   }
   click(){
