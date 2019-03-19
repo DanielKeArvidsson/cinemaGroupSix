@@ -13,6 +13,8 @@ import { Route } from "react-router-dom";
 import BookTicketPage from "./components/BookTicketPage";
 import BookingHistory from "./components/BookingHistory";
 import Topplista from "./components/Topplista";
+import AdminPage from "./components/AdminPage";
+import AdminProgram from "./components/AdminProgram";
 
 class Login extends REST {
   async delete() {
@@ -65,6 +67,8 @@ class App extends Component {
               <Route path="/movie/:id" component={Movies} />
               <Route path="/bokabiljett/:id" component={BookTicketPage} />
               <Route path="/topplista" component={Topplista} />
+              <Route path="/admin" component={AdminPage} />
+              <Route path="/admin-update/:id" component={AdminProgram} />
             </div>
           </div>
           <footer>
