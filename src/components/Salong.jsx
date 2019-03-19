@@ -3,6 +3,7 @@ import REST from "../REST";
 import SeatRow from "./SeatRow";
 import BookingNumberGenerator from "./BookingNumberGenerator"
 import LightImage from "../images/light.png";
+import {  CardImg } from "reactstrap";
 import Socket from './Socket'
 class Auditorium extends REST {}
 class Program extends REST {}
@@ -24,7 +25,7 @@ class Salong extends React.Component {
     this.totalTickets = 2;
     this.program = '';
     this.getBookedSeats();
-    // this.listenToSocketIo();
+    
   }
 
   async getBookedSeats(){
@@ -203,11 +204,11 @@ class Salong extends React.Component {
   }
   
   listenToSocketIo() {
-    Socket.on('newBookedSeats' + this.props.program._id, this.bookedSeats)
+    Socket.on('newTicket' + this.props.program._id, this.bookedSeats)
   };
 
   unListenToSocketIo() {
-    Socket.off('newBookedSeats' + this.props.program._id, this.bookedSeats)
+    Socket.off('newTicket' + this.props.program._id, this.bookedSeats)
   };
 
 
@@ -239,8 +240,8 @@ class Salong extends React.Component {
         <div>
           <div className="theShow">
             <h2>{this.state.title}</h2>
-            <h3>📆 {this.program.date}</h3>
-            <h3>🕑 {this.program.time}</h3>
+            <h3> {this.program.date}</h3>
+            <h3> {this.program.time}</h3>
           </div>
           <div className="error">
               {this.toMannyTickets}
@@ -309,7 +310,7 @@ class Salong extends React.Component {
           </div>
           <div className="row justify-content-center">
             <div className="screen">
-              <img className="light" src={LightImage}
+              <CardImg className="light" src={LightImage}
               />
             </div>
           </div>

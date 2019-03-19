@@ -13,5 +13,7 @@ let ticketSchema = new Schema({
   bookingNum: { type: String },
   tickets: { kids: Number, senior: Number, adult: Number }
 });
+//listen to the socket controller
+ticketSchema.emit('newTicket', this);
 
 module.exports = global.db.model("Ticket", ticketSchema);
