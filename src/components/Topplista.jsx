@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import REST from "../REST";
-import MovieInfo from "./MovieInfo";
 class Movie extends REST {}
 class Ticket extends REST {}
 
@@ -41,13 +40,9 @@ export class Topplista extends Component {
       return b.count - a.count;
     });
     let topplista = [];
-    // console.log(array);
-    // console.log(array[0].movie);
-    //console.log(topplista, "topp");
     for (let i = 0; i < array.length; i++) {
       topplista.push(array[i].movie);
     }
-    console.log(topplista, "topp");
     this.setState({ lista: topplista });
   }
 
