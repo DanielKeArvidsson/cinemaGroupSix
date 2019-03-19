@@ -39,7 +39,7 @@ class BookingHistory extends Component {
     });
     for (let ticket of this.state.foundTickets) {
       let findingProgram = await Program.find(
-        `.findOne({_id:'${ticket.program}'})`
+        `.findOne({_id:'${ticket.program.id}'})`
       );
       let mergingProgWithTicket = Object.assign(findingProgram, ticket);
       this.foundPrograms.push(mergingProgWithTicket);
