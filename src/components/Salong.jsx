@@ -173,6 +173,7 @@ class Salong extends React.Component {
 
 
   async book(){
+    this.listenToSocketIo();
     await setTimeout(function(){}, 1000);
     this.bookedSeats = []
     for(let row of this.allSeats){
@@ -195,7 +196,6 @@ class Salong extends React.Component {
       "programId": this.programPath,
       "seats": this.bookedSeats.reverse()
     })
-    this.listenToSocketIo();
     await this.ticket.save()
 
     
@@ -204,11 +204,11 @@ class Salong extends React.Component {
   }
   
   listenToSocketIo() {
-    Socket.on('newTicket' + this.props.program._id, this.bookedSeats)
+    Socket.on('newTicket' + this.programPath, this.bookedSeats)
   };
 
   unListenToSocketIo() {
-    Socket.off('newTicket' + this.props.program._id, this.bookedSeats)
+    Socket.off('newTicket' + this.programPath, this.bookedSeats)
   };
 
 
