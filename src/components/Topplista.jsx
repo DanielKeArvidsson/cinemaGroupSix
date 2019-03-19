@@ -42,7 +42,6 @@ export class Topplista extends Component {
       }
       array.push({ movie, count });
     }
-
     array.sort(function(a, b) {
       return b.count - a.count;
     });
@@ -58,9 +57,11 @@ export class Topplista extends Component {
       <Container style={lista}>
         <Row className="mt-5">
           <Col>
-            <ol>
-              {this.state.lista.map(item => (
-                <li>{item}</li>
+            <h1>Topplista</h1>
+            <h3>Mest populära filmer</h3>
+            <ol className="mt-5">
+              {this.state.lista.map((item, index) => (
+                <li key={index}>{item}</li>
               ))}
             </ol>
           </Col>
