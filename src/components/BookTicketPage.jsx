@@ -17,7 +17,7 @@ class BookTicktPage extends React.Component {
     this.program = '';
     this.bookedSeats = []
     this.loadProgramData();
-    
+    console.log(this)
   }
 
   async loadProgramData() {
@@ -32,7 +32,6 @@ class BookTicktPage extends React.Component {
       this.total -= 50;
       this.totalTickets--
       this.setState({kid: this.kid, totalTickets: this.totalTickets})
-      // this.getBookedSeats();
       this.toMannyTickets = "";
     }
   }
@@ -42,11 +41,9 @@ class BookTicktPage extends React.Component {
       this.total += 50;
       this.totalTickets++
       this.setState({kid: this.kid, totalTickets: this.totalTickets})
-      // this.getBookedSeats();
     } else {
       this.toMannyTickets = <div className="alert alert-danger mt-4" role="alert"> Det går bara att boka 7 biljetter åt gången! </div>
       this.setState({tickets: this.totalTickets});
-      // this.getBookedSeats();
     }
   }
   decrementAdult() {
@@ -55,7 +52,6 @@ class BookTicktPage extends React.Component {
       this.total -= 85;
       this.totalTickets--
       this.setState({adult: this.adult, totalTickets: this.totalTickets})
-      // this.getBookedSeats();
       this.toMannyTickets = "";
     }
   }
@@ -63,13 +59,11 @@ class BookTicktPage extends React.Component {
     if (this.totalTickets < 7) {
       this.adult++;
       this.total += 85;
-      // this.getBookedSeats();
       this.totalTickets++
       this.setState({adult: this.adult, totalTickets: this.totalTickets})
     } else {
       this.toMannyTickets = <div className="alert alert-danger mt-4" role="alert"> Det går bara att boka 7 biljetter åt gången! </div>
       this.setState({tickets: this.totalTickets});
-      // this.getBookedSeats();
     }
   }
   decrementSenior() {
@@ -78,7 +72,6 @@ class BookTicktPage extends React.Component {
       this.total -= 65;
       this.totalTickets--
       this.setState({senior: this.senior, totalTickets: this.totalTickets})
-      // this.getBookedSeats();
       this.toMannyTickets = "";
     }
   }
@@ -88,97 +81,16 @@ class BookTicktPage extends React.Component {
       this.total += 65;
       this.totalTickets++;
       this.setState({senior: this.senior, totalTickets: this.totalTickets})
-      // this.getBookedSeats();
     } else {
       this.toMannyTickets = <div className="alert alert-danger mt-4" role="alert"> Det går bara att boka 7 biljetter åt gången! </div>
       this.setState({tickets: this.totalTickets});
-      // this.getBookedSeats();
     }
   }
 
   render() {
     return (
       <section className="book-ticket">
-        <div>
-          <div className="theShow">
-            <h2>{this.state.title}</h2>
-            <h3> {this.program.date}</h3>
-            <h3> {this.program.time}</h3>
-          </div>
-          <div className="error">
-              {this.toMannyTickets}
-          </div>
-          <div className="ticket-selector">
-            <div className="row mt-4 mb-4">
-              <div className="price col-12 col-md-4 mt-4">
-                <p>Ordinarie (85 kr/st)</p>
-                <div className="ticket-incrementor adult">
-                  <button
-                    className="decrement-adult btn btn-secondary mr-2"
-                    onClick={this.decrementAdult.bind(this)}
-                  >
-                    -
-                  </button>
-                  {this.adult}
-                  <button 
-                    className="increment-adult btn btn-secondary ml-2"
-                    onClick={this.incrementAdult.bind(this)}
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-
-              <div className="price col-12 col-md-4 mt-4">
-                <p>Pensionär (65 kr/st)</p>
-                <div className="ticket-incrementor senior">
-                  <button 
-                    className="decrement-senior btn btn-secondary mr-2"
-                    onClick={this.decrementSenior.bind(this)}
-                  >
-                    -
-                  </button>
-                  {this.senior}
-                  <button 
-                    className="increment-senior btn btn-secondary ml-2"
-                    onClick={this.incrementSenior.bind(this)}
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-
-              <div className="price col-12 col-md-4 mt-4">
-                <p>Barn (50 kr/st)</p>
-                <div className="ticket-incrementor kids">
-                  <button 
-                    className="decrement-kid btn btn-secondary mr-2"
-                    onClick={this.decrementKid.bind(this)}
-                  >
-                    -
-                  </button>
-                  {this.kid}
-                  <button 
-                    className="increment-kid btn btn-secondary ml-2"
-                    onClick={this.incrementKid.bind(this)}
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <h4>Totalpris: {this.total}</h4>
-          </div>
-          <div className="row justify-content-center">
-            <div className="screen">
-              <CardImg className="light" src={LightImage}
-              />
-            </div>
-          </div>
-
           <Salong auditorium={this.state.salongName} totalTickets={this.state.totalTickets} bookedSeats={this.bookedSeats}/>
-        </div>
       </section>
     );
   }
