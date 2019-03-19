@@ -1,6 +1,8 @@
   .salong{
+    position: relative;
     align-content: center;
     text-align: center;
+    z-index: 1;
     p{
       margin:0;
       margin-top: -2px;
@@ -9,6 +11,16 @@
   .row{
     width: 320px;
     margin:auto;
+  }
+
+  .test{
+    background-color: black;
+    width: 20px;
+    height: 20px;
+    margin: 3px;
+    display: inline-block;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
   }
 
   .seat{
@@ -40,8 +52,7 @@
     display: inline-block;
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
-    background-color: brown;
-    animation: blink 1s linear infinite;
+    background-color: red;
     cursor: pointer;
   }
 
@@ -53,9 +64,8 @@
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
     background-color: brown;
-    pointer-events: none;
-    animation: blink 1s linear infinite;
     cursor: pointer;
+    animation: blink 1s linear infinite;
     p{
       display:block;
     }

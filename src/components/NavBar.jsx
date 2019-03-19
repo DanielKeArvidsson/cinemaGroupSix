@@ -97,6 +97,15 @@ class NavBar extends Component {
                   </NavItem>
                   <NavItem>
                     <NavLink
+                      to="/topplista"
+                      onClick={this.closeNavbar}
+                      className="nav-link"
+                    >
+                      Topplista
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink
                       to="/admin"
                       onClick={this.closeNavbar}
                       className="nav-link"

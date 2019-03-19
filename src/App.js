@@ -10,7 +10,9 @@ import Footer from "./components/footer";
 import SalongsInfo from "./components/salongsinfo";
 import AboutUs from "./components/aboutUs";
 import { Route } from "react-router-dom";
+import BookTicketPage from "./components/BookTicketPage";
 import BookingHistory from "./components/BookingHistory";
+import Topplista from "./components/Topplista";
 import AdminPage from "./components/AdminPage";
 import AdminProgram from "./components/AdminProgram";
 
@@ -63,6 +65,8 @@ class App extends Component {
               <Route path="/om_oss" component={AboutUs} />
               <Route path="/mina-bokningar" component={BookingHistory} />
               <Route path="/movie/:id" component={Movies} />
+              <Route path="/bokabiljett/:id" component={BookTicketPage} />
+              <Route path="/topplista" component={Topplista} />
               <Route path="/admin" component={AdminPage} />
               <Route path="/admin-update/:id" component={AdminProgram} />
             </div>
