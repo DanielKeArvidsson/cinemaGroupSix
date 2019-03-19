@@ -11,7 +11,8 @@ let ticketSchema = new Schema({
   seats: { type: Schema.Types.Mixed, required: true },
   programId: { type: String, required: true },
   bookingNum: { type: String },
-  tickets: { kids: Number, senior: Number, adult: Number }
+  tickets: { kids: Number, senior: Number, adult: Number },
+  timesBooked: { type: Schema.Types.Mixed, ref: "Movie" }
 });
 
 module.exports = global.db.model("Ticket", ticketSchema);

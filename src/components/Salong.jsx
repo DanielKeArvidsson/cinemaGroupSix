@@ -57,9 +57,9 @@ class Salong extends React.Component {
     this.getTickets = await Ticket.find(`.find({programId: '${this.programPath}'})`)
     this.inDatabas = []
 
-    for(let ticket of this.getTickets){
-      for(let seat of ticket.seats){
-        this.inDatabas.push(seat)
+    for (let ticket of this.getTickets) {
+      for (let seat of ticket.seats) {
+        this.inDatabas.push(seat);
       }
     }
 
@@ -185,15 +185,16 @@ class Salong extends React.Component {
 
 
     this.ticket = new Ticket({
-      "bookingNum": this.bookingNum,
-      "purchasedAt": new Date(),
-      "price": this.total,
-      "program": this.program,
-      "programId": this.programPath,
-      "seats": this.bookedSeats.reverse()
-    })
+      bookingNum: this.bookingNum,
+      purchasedAt: new Date(),
+      price: this.total,
+      program: this.program,
+      programId: this.programPath,
+      seats: this.bookedSeats.reverse()
+    });
 
-    await this.ticket.save()
+    await this.ticket.save();
+    console.log(this.ticket.program.movie.title);
 
 
     this.props.bookedSeats.push(this.bookedSeats)
