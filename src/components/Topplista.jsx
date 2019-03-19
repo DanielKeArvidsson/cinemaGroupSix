@@ -11,7 +11,6 @@ export class Topplista extends Component {
     this.allMovies = [];
     this.loadMovies();
     this.findMovies();
-
     this.state = {
       lista: []
     };
@@ -22,6 +21,14 @@ export class Topplista extends Component {
     for (let movie of movies) {
       this.allMovies.push(movie.title);
     }
+  }
+
+  async findMovies() {
+    let data = await Ticket.find();
+    for (let ticket of data) {
+      this.allBookings.push(ticket.program.movie.title);
+    }
+    this.countMovies();
   }
 
   countMovies() {
@@ -46,22 +53,16 @@ export class Topplista extends Component {
     this.setState({ lista: topplista });
   }
 
-  async findMovies() {
-    let data = await Ticket.find();
-    for (let ticket of data) {
-      this.allBookings.push(ticket.program.movie.title);
-    }
-    this.countMovies();
-  }
-
   render() {
     return (
       <Container style={lista}>
-        <Row>
+        <Row className="mt-5">
           <Col>
-            {this.state.lista.map(item => (
-              <li>{item}</li>
-            ))}
+            <ol>
+              {this.state.lista.map(item => (
+                <li>{item}</li>
+              ))}
+            </ol>
           </Col>
         </Row>
       </Container>
