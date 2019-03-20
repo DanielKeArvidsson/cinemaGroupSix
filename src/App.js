@@ -15,7 +15,7 @@ import BookingHistory from "./components/BookingHistory";
 import Topplista from "./components/Topplista";
 import AdminPage from "./components/AdminPage";
 import AdminProgram from "./components/AdminProgram";
-
+class User extends REST {}
 class Login extends REST {
   async delete() {
     this._id = 1;
@@ -34,6 +34,7 @@ class Login extends REST {
 class App extends Component {
   constructor(props) {
     super(props);
+    App.admin = false;
     App.isLoggedin = false;
     this.checkIfLoggedIn();
   }
@@ -41,6 +42,13 @@ class App extends Component {
     this.loggedinUser = await Login.find();
     App.email = this.loggedinUser.email;
     App.isLoggedin = this.loggedinUser.email;
+    let anvandare = await User.find(
+      `.findOne({email:'${App.email}'}).populate().exec()`
+    );
+    if (anvandare) {
+      App.admin = anvandare.admin;
+    }
+
     NavBar.lastInstance.setState(state => NavBar.lastInstance);
   }
 
