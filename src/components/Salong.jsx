@@ -69,7 +69,7 @@ class Salong extends React.Component {
     for(let row of this.allSeats){
       for(let seat of row){
         for(let bookedSeatInDatabas of this.inDatabas){
-          if(seat.seatNum == bookedSeatInDatabas.seatNum){
+          if(seat.seatNum === bookedSeatInDatabas.seatNum){
             seat.setState({class: 'unavailableSeat'})
           }
         }
@@ -161,10 +161,10 @@ class Salong extends React.Component {
   select() {
     for(let row of this.allSeats){
       for(let seat of row){
-        if(seat.state.class == 'choosenSeat'){
+        if(seat.state.class === 'choosenSeat'){
           seat.setState({class: 'seat'})
         }
-        if(seat.state.class == 'hoverChoosenSeat'){
+        if(seat.state.class === 'hoverChoosenSeat'){
           seat.setState({class: 'choosenSeat'})
         }
       }
@@ -178,7 +178,7 @@ class Salong extends React.Component {
     this.bookedSeats = []
     for(let row of this.allSeats){
       for(let seat of row){
-        if(seat.state.class == 'choosenSeat'){
+        if(seat.state.class === 'choosenSeat'){
           seat.setState({class: 'unavailableSeat'})
           this.bookedSeats.push({seatNum: seat.seatNum, rowNum: seat.rowNum})
         }

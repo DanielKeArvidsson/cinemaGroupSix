@@ -32,19 +32,27 @@ class ShowPage extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className="showPageHeadLine col-lg-6 col-md-6 text-center">
-          <h1>Aktuella Visningar</h1>
+        <div className="container">
+        <div className="row">
+          <div className="showPageHeadLine col-lg-12 col-md-6 text-center">
+            <h1>Aktuella Visningar</h1>
+          </div>
         </div>
         <div>
           {this.shows.map(show => {
             return <Show key={show._id} {...show} />;
           })}
+          </div>
+          <div className="row">
+          <div className="col-lg-12 col-md-6 text-center">
           <button
             className="btn btn-primary mt-5 mb-5"
             onClick={this.moreShows}
           >
             Fler visningar
           </button>
+          </div>
+          </div>
         </div>
       </React.Fragment>
     );
