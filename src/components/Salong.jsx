@@ -196,6 +196,8 @@ class Salong extends React.Component {
   }
 
   async book() {
+    this.listenToSocketIo();
+    console.log(Socket);
     await setTimeout(function() {}, 1000);
     this.bookedSeats = [];
     for (let row of this.allSeats) {
@@ -220,18 +222,19 @@ class Salong extends React.Component {
     });
 
     await this.ticket.save();
-    console.log(this.ticket.program.movie.title);
-
     this.props.bookedSeats.push(this.bookedSeats);
     console.log("booked");
   }
   
   listenToSocketIo() {
     Socket.on('newTicket' + this.programPath, this.bookedSeats)
+    
+    console.log('socket är här');
   };
 
   unListenToSocketIo() {
     Socket.off('newTicket' + this.programPath, this.bookedSeats)
+    console.log('socket unlisten');
   };
 
 

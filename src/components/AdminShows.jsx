@@ -21,7 +21,7 @@ class AdminShows extends Component {
           <Card>
             <CardBody>
               <CardTitle>
-                <h2>{this.movie.title}</h2>
+                <h4>{this.movie.title}</h4>
               </CardTitle>
               <CardText>{this.auditorium.name} </CardText>
               <CardText>
