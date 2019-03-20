@@ -13,14 +13,20 @@ class TicketInfo extends Component {
           <Card>
             <CardBody>
               <CardTitle>
-                <h2>Filmtitel:{this.movie.title}</h2>
+                <h2>Film:{this.movie.title}</h2>
               </CardTitle>
               <CardText>Salong: {this.auditorium.name} </CardText>
-              <CardText>Antal: {this.seats}</CardText>
+              <CardText>
+                {this.seats.map(i => {
+                  return `Stol:  ${i.seatNum},
+                   Rad: ${i.rowNum}.`;
+                })}
+              </CardText>
               <CardText>
                 Datum: {this.date} Tid: {this.time}
               </CardText>
-              <CardText>Bokningsnummer:</CardText>
+              <CardText>Pris:{this.price}:-</CardText>
+              <CardText>Bokningsnummer:{this.bookingNum}</CardText>
             </CardBody>
           </Card>
         </Col>

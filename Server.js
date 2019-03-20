@@ -80,7 +80,7 @@ module.exports = class Server {
     // Start the web server
     const server = http.Server(app);
     // Add Socket.io
-    server.listen(3001, () => console.log('Listening on port 3001'));
+    server.listen(3001, () => console.log('Listening on port 3000'));
     
     new SocketIoController(server);
 
