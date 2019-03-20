@@ -9,7 +9,7 @@ class Seat extends Component {
   }
 
   hover(){
-    if(this.state.class == 'seat'){
+    if(this.state.class === 'seat'){
       this.props.hoverSeats.push(this.props.indexNum)
     }
   }

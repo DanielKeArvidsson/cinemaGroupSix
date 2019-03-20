@@ -66,10 +66,10 @@ class App extends Component {
               <Route path="/bokabiljett/:id" component={BookTicketPage} />
             </div>
           </div>
-          <footer>
-            <Footer />
-          </footer>
         </div>
+        <footer>
+            <Footer />
+        </footer>
       </div>
     );
   }

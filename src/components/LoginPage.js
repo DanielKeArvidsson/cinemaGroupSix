@@ -62,7 +62,7 @@ export class LoginPage extends FormComp {
     return (
       <div className="loginContainer">
         <Form onSubmit={this.handleSubmit}>
-          <div className="header">Logga in</div>
+          <div className="header"><h3>Logga in</h3></div>
           {this.renderInput("email", "E-post", "email")}
           {this.renderInput("password", "Lösenord", "password")}
           {this.renderButton("Logga in")}

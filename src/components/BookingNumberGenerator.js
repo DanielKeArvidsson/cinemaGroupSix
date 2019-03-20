@@ -22,7 +22,7 @@ class BookingNumberGenerator extends React.Component {
     if (ticketBookingNumber.length == 0) {
       return num;
     }
-    else if (num == ticketBookingNumber[0].bookingNum) {
+    else if (num === ticketBookingNumber[0].bookingNum) {
       this.getBookingNumber();
     }
     else {
