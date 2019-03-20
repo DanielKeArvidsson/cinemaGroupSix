@@ -26,17 +26,17 @@ class SeatRow extends Component {
     if (this.seatIndex.length > 0) {
       this.index = this.seatIndex[0]
       for (let i = 0; this.state.totalTickets > i; i++) {
-        if (this.allSeatsInRow[this.index].state.class == 'seat') {
+        if (this.allSeatsInRow[this.index].state.class === 'seat') {
           this.allSeatsInRow[this.index].setState({ class: 'hoverChoosenSeat' })
           if (this.index < this.allSeatsInRow.length - 1) {
             this.index++
           }
         }
       }
-    } else if (this.seatIndex == 0) {
+    } else if (this.seatIndex === 0) {
       this.index = this.seatIndex[0]
       for (let seat of this.allSeatsInRow) {
-        if (seat.state.class == 'hoverChoosenSeat') {
+        if (seat.state.class === 'hoverChoosenSeat') {
           seat.setState({ class: 'seat' })
           this.index++
         }
@@ -47,7 +47,7 @@ class SeatRow extends Component {
 
   leave() {
     for (let seat of this.allSeatsInRow) {
-      if (seat.state.class == 'hoverChoosenSeat') {
+      if (seat.state.class === 'hoverChoosenSeat') {
         seat.setState({ class: 'seat' })
       }
     }

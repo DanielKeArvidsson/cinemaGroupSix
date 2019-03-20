@@ -1,8 +1,8 @@
 import React from "react";
 import REST from "../REST";
 import Salong from "./Salong";
-import LightImage from "../images/light.png";
-import {  CardImg } from "reactstrap";
+
+
 class Program extends REST {}
 
 class BookTicktPage extends React.Component {

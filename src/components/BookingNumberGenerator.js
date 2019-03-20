@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import REST from "../REST";
 
 class Ticket extends REST{}
@@ -19,10 +19,10 @@ class BookingNumberGenerator extends React.Component {
 
     let ticketBookingNumber = await Ticket.find(`.find({bookingNum: '${num}'})`);
 
-    if (ticketBookingNumber.length == 0) {
+    if (ticketBookingNumber.length === 0) {
       return num;
     }
-    else if (num == ticketBookingNumber[0].bookingNum) {
+    else if (num === ticketBookingNumber[0].bookingNum) {
       this.getBookingNumber();
     }
     else {

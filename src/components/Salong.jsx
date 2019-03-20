@@ -4,6 +4,8 @@ import SeatRow from "./SeatRow";
 import App from "../App";
 import BookingNumberGenerator from "./BookingNumberGenerator";
 import LightImage from "../images/light.png";
+import {  CardImg } from "reactstrap";
+import Socket from './Socket'
 class Auditorium extends REST {}
 class Program extends REST {}
 class User extends REST {}
@@ -26,6 +28,7 @@ class Salong extends React.Component {
     this.program = "";
     this.user = "";
     this.getBookedSeats();
+    
   }
 
   async getBookedSeats() {
@@ -77,8 +80,8 @@ class Salong extends React.Component {
     for (let row of this.allSeats) {
       for (let seat of row) {
         for (let bookedSeatInDatabas of this.inDatabas) {
-          if (seat.seatNum == bookedSeatInDatabas.seatNum) {
             seat.setState({ class: "unavailableSeat" });
+          if(seat.seatNum === bookedSeatInDatabas.seatNum){
           }
         }
       }
@@ -182,10 +185,10 @@ class Salong extends React.Component {
   select() {
     for (let row of this.allSeats) {
       for (let seat of row) {
-        if (seat.state.class == "choosenSeat") {
           seat.setState({ class: "seat" });
+        if(seat.state.class === 'choosenSeat'){
         }
-        if (seat.state.class == "hoverChoosenSeat") {
+        if(seat.state.class === 'hoverChoosenSeat'){
           seat.setState({ class: "choosenSeat" });
         }
       }
@@ -193,13 +196,15 @@ class Salong extends React.Component {
   }
 
   async book() {
+    this.listenToSocketIo();
+    console.log(Socket);
     await setTimeout(function() {}, 1000);
     this.bookedSeats = [];
     for (let row of this.allSeats) {
       for (let seat of row) {
-        if (seat.state.class == "choosenSeat") {
           seat.setState({ class: "unavailableSeat" });
           this.bookedSeats.push({ seatNum: seat.seatNum, rowNum: seat.rowNum });
+        if(seat.state.class === 'choosenSeat'){
         }
       }
     }
@@ -217,12 +222,23 @@ class Salong extends React.Component {
     });
 
     await this.ticket.save();
-    console.log(this.ticket.program.movie.title);
-
     this.props.bookedSeats.push(this.bookedSeats);
     console.log("booked");
   }
+  
+  listenToSocketIo() {
+    Socket.on('newTicket' + this.programPath, this.bookedSeats)
+    
+    console.log('socket är här');
+  };
 
+  unListenToSocketIo() {
+    Socket.off('newTicket' + this.programPath, this.bookedSeats)
+    console.log('socket unlisten');
+  };
+
+
+  
   /*
     for (let numberOfSeatsInRow of this.auditorium.seatsPerRow) {
       this.seats += numberOfSeatsInRow;
@@ -249,8 +265,8 @@ class Salong extends React.Component {
         <div>
           <div className="theShow">
             <h2>{this.state.title}</h2>
-            <h3>📆 {this.program.date}</h3>
-            <h3>🕑 {this.program.time}</h3>
+            <h3> {this.program.date}</h3>
+            <h3> {this.program.time}</h3>
           </div>
           <div className="error">{this.toMannyTickets}</div>
           <div className="ticket-selector">
@@ -317,7 +333,8 @@ class Salong extends React.Component {
           </div>
           <div className="row justify-content-center">
             <div className="screen">
-              <img className="light" src={LightImage} />
+              <CardImg className="light" src={LightImage}
+              />
             </div>
           </div>
 
