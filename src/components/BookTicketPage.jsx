@@ -222,7 +222,15 @@ class BookTicketPage extends React.Component {
     App.socket.off('seats are booked');
 
     App.socket.on('seats are booked', message =>{
-      console.log(message)
+      for(let row of this.allSeats){
+        for(let seat of row){
+          for(let socketSeat of message.seats){
+            if(seat.seatNum === socketSeat.seatNum){
+              seat.setState({class: 'unavailableSeat'})
+            }
+          }
+        }
+      }
     })
     
     // console.log(App.socket.on('choosenSeat', seat => {
