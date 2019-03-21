@@ -215,9 +215,12 @@ class BookTicketPage extends React.Component {
     })
 
     await this.ticket.save()
-    App.socket.emit('bookedSeats', {program:this.program._id, seats:this.ticket.seats});
+    this.uppdateSocket();
   }
+  uppdateSocket(){
+    App.socket.emit('bookedSeats', {program:this.program._id, seats:this.ticket.seats});
 
+  };
   listenToSocket(){
     App.socket.off('seats are booked');
 
