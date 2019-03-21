@@ -59,7 +59,7 @@ export class Topplista extends Component {
           <Col>
             <h1>Topplista</h1>
             <h3>Mest populära filmer</h3>
-            <ol className="mt-5">
+            <ol className="topplista mt-5">
               {this.state.lista.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}

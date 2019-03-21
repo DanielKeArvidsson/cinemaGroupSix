@@ -74,7 +74,7 @@ class RegisterPage extends FormComp {
             className="buttons-div"
           >
             <ModalHeader toggle={this.toggleModal} />
-            <ModalBody>
+            <ModalBody style={textInline}>
               <p>{this.state.message}</p>
             </ModalBody>
             <ModalFooter>
@@ -90,5 +90,9 @@ class RegisterPage extends FormComp {
     );
   }
 }
+
+const textInline = {
+  textAlign: "center"
+};
 
 export default RegisterPage;

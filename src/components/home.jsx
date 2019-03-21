@@ -33,14 +33,12 @@ const items = [
   {
     src: BeautifulBoy,
     altText: "",
-    caption:
-      "Beautiful Boy, Sätter känslorna i bitvis smärtsam gungning."
+    caption: "Beautiful Boy, Sätter känslorna i bitvis smärtsam gungning."
   },
   {
     src: CBYN,
     altText: "",
-    caption:
-      "Call me by your name, Ett drama berättat med stor ömhet."
+    caption: "Call me by your name, Ett drama berättat med stor ömhet."
   }
 ];
 
@@ -91,7 +89,8 @@ class Home extends Component {
 
     const slides = items.map(item => {
       return (
-        <CarouselItem className="imageHolder"
+        <CarouselItem
+          className="imageHolder"
           onExiting={this.onExiting}
           onExited={this.onExited}
           key={item.src}
@@ -99,7 +98,8 @@ class Home extends Component {
           <img src={item.src} alt={item.altText} />
           <CarouselCaption
             className="captionHeader"
-           captionText={item.altText} captionHeader={item.caption} 
+            captionText={item.altText}
+            captionHeader={item.caption}
           />
         </CarouselItem>
       );
@@ -107,28 +107,40 @@ class Home extends Component {
 
     return (
       <React.Fragment>
-      <div className="container homeCarousel">
-        <div className="carousel-inner d-block w-100">
-        <Carousel
-        activeIndex={activeIndex}
-        next={this.next}
-        previous={this.previous}
-      >
-        <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
-        {slides}
-        <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
-        <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
-      </Carousel>
+        <div className="container homeCarousel">
+          <div className="carousel-inner d-block w-100">
+            <Carousel
+              activeIndex={activeIndex}
+              next={this.next}
+              previous={this.previous}
+            >
+              <CarouselIndicators
+                items={items}
+                activeIndex={activeIndex}
+                onClickHandler={this.goToIndex}
+              />
+              {slides}
+              <CarouselControl
+                direction="prev"
+                directionText="Previous"
+                onClickHandler={this.previous}
+              />
+              <CarouselControl
+                direction="next"
+                directionText="Next"
+                onClickHandler={this.next}
+              />
+            </Carousel>
+          </div>
         </div>
-      </div>
-      <div className="row">
-      <div className="col  text-center">
-      <i className="fab fa-facebook-square"></i>
-      <i className="fab fa-facebook-messenger"></i>
-      <i className="fab fa-instagram"></i>
-      <i className="fab fa-twitter-square"></i>
-      </div>
-      </div>
+        <div className="row">
+          <div className="col  text-center">
+            <i className="fab fa-facebook-square" />
+            <i className="fab fa-facebook-messenger" />
+            <i className="fab fa-instagram" />
+            <i className="fab fa-twitter-square" />
+          </div>
+        </div>
       </React.Fragment>
     );
   }
