@@ -20,7 +20,7 @@ class BookingHistory extends Component {
     };
     this.foundPrograms = [];
     this.currentDate = new Date().toISOString().slice(0, 10);
-    this.time = new Date().toString().substr(16, 8);
+    this.time = new Date().toISOString().substr(16, 8);
   }
   async generateBookingHistory() {
     let data = await Ticket.find(`.find().populate('program').exec()`);
@@ -47,7 +47,7 @@ class BookingHistory extends Component {
     for (let oldOrNew of this.foundPrograms) {
       if (oldOrNew.date <= this.currentDate) {
         if (
-          oldOrNew.time > this.time.substring(0, 5) &&
+          oldOrNew.time < this.time.substring(0, 5) &&
           this.currentDate <= oldOrNew.date
         ) {
           this.state.futureBookings.push(
@@ -69,7 +69,7 @@ class BookingHistory extends Component {
 
   render() {
     return (
-      <div>
+      <div className="bookingHistory">
         <h1
           className={
             "mt-5 " + (this.state.futureBookings.length > 0 ? "" : "d-none")
@@ -77,9 +77,11 @@ class BookingHistory extends Component {
         >
           Kommande bokningar
         </h1>
-        {this.state.futureBookings.map(i => {
-          return i;
-        })}
+        <div className="row">
+          {this.state.futureBookings.map(i => {
+            return i;
+          })}
+        </div>
         <h1
           className={
             "mt-5 " + (this.state.oldBookings.length > 0 ? "" : "d-none")
@@ -87,9 +89,11 @@ class BookingHistory extends Component {
         >
           Tidigare bokningar
         </h1>
-        {this.state.oldBookings.map(i => {
-          return i;
-        })}
+        <div className="row">
+          {this.state.oldBookings.map(i => {
+            return i;
+          })}
+        </div>
         <h1
           className={"mt-5 " + (this.state.foundTickets.length ? "d-none" : "")}
         >

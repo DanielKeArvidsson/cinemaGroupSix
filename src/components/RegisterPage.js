@@ -60,7 +60,7 @@ class RegisterPage extends FormComp {
     return (
       <div className="register-container">
         <Form onSubmit={this.handleSubmit}>
-          <div className="header">Registrera</div>
+          <div className="header"><h3>Registrera</h3></div>
           {this.renderInput("firstName", "Förnamn", "firstName")}
           {this.renderInput("lastName", "Efternamn", "lastName")}
           {this.renderInput("email", "E-post", "email")}
@@ -74,7 +74,7 @@ class RegisterPage extends FormComp {
             className="buttons-div"
           >
             <ModalHeader toggle={this.toggleModal} />
-            <ModalBody>
+            <ModalBody style={textInline}>
               <p>{this.state.message}</p>
             </ModalBody>
             <ModalFooter>
@@ -90,5 +90,9 @@ class RegisterPage extends FormComp {
     );
   }
 }
+
+const textInline = {
+  textAlign: "center"
+};
 
 export default RegisterPage;

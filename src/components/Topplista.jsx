@@ -10,7 +10,7 @@ export class Topplista extends Component {
     this.allBookings = [];
     this.allMovies = [];
     this.loadMovies();
-    this.findMovies();
+    this.topplista = [];
     this.state = {
       lista: []
     };
@@ -21,6 +21,7 @@ export class Topplista extends Component {
     for (let movie of movies) {
       this.allMovies.push(movie.title);
     }
+    this.findMovies();
   }
 
   async findMovies() {
@@ -45,21 +46,28 @@ export class Topplista extends Component {
     array.sort(function(a, b) {
       return b.count - a.count;
     });
-    let topplista = [];
+    this.topplista = [];
     for (let i = 0; i < array.length; i++) {
-      topplista.push(array[i].movie);
+      this.topplista.push(array[i].movie);
     }
-    this.setState({ lista: topplista });
+    this.rerender();
+  }
+
+  rerender() {
+    this.setState({ lista: this.topplista });
   }
 
   render() {
     return (
-      <Container style={lista}>
-        <Row className="mt-5">
-          <Col>
-            <h1>Topplista</h1>
-            <h3>Mest populära filmer</h3>
-            <ol className="mt-5">
+      <Container className="container-topp mt-5" style={lista}>
+        <Row className="mt-1">
+          <Col className="col-xs-12 topplista container-topp">
+            <h1 className="heading-lista topplista-background">Topplista</h1>
+            <h3 className="heading-lista topplista-background">
+              Mest populära filmer
+            </h3>
+            <hr />
+            <ol className="topplista topplista-background mb-5">
               {this.state.lista.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}

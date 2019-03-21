@@ -1,5 +1,10 @@
 .bookingHistory {
-  margin-top: 80px;
+  h1 {
+    font-weight: 300;
+    font-size: 4.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+  }
 }
 
 .noBookings {
@@ -9,4 +14,13 @@
 }
 .hideThings {
   display: none;
+}
+
+.history {
+  .card-text {
+    margin: 0;
+  }
+  p {
+    margin: 0;
+  }
 }

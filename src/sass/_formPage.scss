@@ -1,12 +1,38 @@
-.box-controller{
+.box-controller {
   color: #fff;
+  font-size: 18px;
 }
 
-.controller:hover{
+.controller:hover {
   cursor: pointer;
 }
+.form-container {
+  width: 30%;
+  margin: 0 auto;
+  padding-top: 5%;
+  text-align: center;
+}
+.fontForm {
+  font-size: 18px;
+}
 
-// .activeLink{
-//   color: red;
-//   background-color: red;
-// }
+.box-container {
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.box-controller {
+  display: inline-block;
+  text-align: center;
+  font-size: 18px;
+  padding-left: 3px;
+}
+
+.controlleractiveLink {
+  display: inline-block;
+  color: #aaa4a5;
+}
+
+.activeLink {
+  color: #aaa4a5;
+}

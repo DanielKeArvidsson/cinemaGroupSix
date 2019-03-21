@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import REST from "../REST";
+import { Link } from "react-router-dom";
 import {
   Button,
   Jumbotron,
@@ -17,6 +18,7 @@ class MovieInfo extends Component {
     this.toggle = this.toggle.bind(this);
     this.loadInfo();
     this.programs = [];
+    this.getHoursFromTime();
   }
   async loadInfo() {
     let programInfo = await Program.find(
@@ -27,6 +29,15 @@ class MovieInfo extends Component {
     this.programs = programInfo;
     this.setState({ state: this.state });
   }
+
+  getHoursFromTime(){
+    let num = this.length;
+    let hours = (num / 60);
+    let rhours = Math.floor(hours);
+    let minutes = (hours - rhours) * 60;
+    let rminutes = Math.round(minutes);
+    this.time = rhours + " tim " + rminutes + " min";
+}
 
   toggle() {
     this.setState(prevState => ({
@@ -73,23 +84,28 @@ class MovieInfo extends Component {
             </ModalFooter>
           </ModalBody>
         </Modal>
-        <div className="row mb-3 ml-3">
-          <div className="moviePic col-xl-3" onClick={this.toggle}>
+        <div className="row mb-3">
+          <div className="moviePic col-xl-3">
             <img
               src={require("../images/" + this.images[0])}
               alt="bild från film"
+              onClick={this.toggle}
             />
             <img
               className="playBtn"
               src={require("../images/playButton.png")}
               alt="Playknapp"
+              onClick={this.toggle}
             />
+            <a className="btn btn-success col-xl-12 mb-2 mt-2 p-3" href='#biljett'>
+              Boka
+            </a>
           </div>
           <div className="col-xl-9">
             <div className="col-12 mr-3">
               <Jumbotron className="jumboMovie">
                 <h1 className="display-3">{this.title}</h1>
-                <p>{this.genre}</p>
+                <p>{this.genre} | {this.time}</p>
                 <p className="lead">{this.description}</p>
                 <hr className="my-2" />
                 <p> Skådespelare: {this.actors.join(", ")}.</p>
@@ -131,29 +147,25 @@ class MovieInfo extends Component {
         </div>
         <div id="biljett" />
         <h2>Boka biljetter</h2>
-        <div className="shows container mb-5">
-          <div className="row">
-            <div className="col-4 tabell">
-              <b>Tid</b>
-              {this.programs.map(program => {
-                return <p key={Math.random() + 5}>{program.time}</p>;
-              })}
-            </div>
-            <div className="col-4 tabell">
-              <b>Datum</b>
-              {this.programs.map(program => {
-                return <p key={Math.random() + 4}>{program.date}</p>;
-              })}
-            </div>
-            <div className="col-4 tabell">
-              <b>Salong</b>
-              {this.programs.map(program => {
-                return <p key={Math.random() + 3}>{program.auditorium.name}</p>;
-              })}
-            </div>
+        <div className="shows mb-5">
+        <div className="row tabell">
+          <div className="col-4">
+            <b>Tid</b>
+          </div>
+          <div className="col-4">
+            <b>Datum</b>
+          </div>
+          <div className="col-4">
+            <b>Salong</b>
           </div>
         </div>
-      </div>
+        <div>
+          {this.programs.map(program => {
+            return <Link key={Math.random() + 5} to={'/bokabiljett/'+ program._id}><span className="bookTickets row"><div className="col-4 time">{program.time}</div> <div className="col-4">{program.date}</div> <div className="col-4">{program.auditorium.name}</div></span></Link>;
+          })}
+          </div>
+        </div>
+        </div>
     );
   }
 }

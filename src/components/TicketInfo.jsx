@@ -8,25 +8,40 @@ class TicketInfo extends Component {
   }
   render() {
     return (
-      <div className="col-lg-4 col-md-6 mb-5 mt-3 text-center mt-3">
+      <div className="col-lg-4 col-md-6 mb-5 mt-3 text-center mt-3 history">
         <Col>
           <Card>
             <CardBody>
               <CardTitle>
-                <h2>Film:{this.movie.title}</h2>
+                <h2>{this.movie.title}</h2>
               </CardTitle>
-              <CardText>Salong: {this.auditorium.name} </CardText>
+              <CardText>{this.auditorium.name} </CardText>
+              {this.seats.map((i, index) => {
+                return (
+                  <p key={index}>
+                    Rad: {i.rowNum}, Plats: {i.seatNum} <br />
+                  </p>
+                );
+              })}
               <CardText>
-                {this.seats.map(i => {
-                  return `Stol:  ${i.seatNum},
-                   Rad: ${i.rowNum}.`;
-                })}
+                <span role="img" aria-label="date">
+                  📆
+                </span>{" "}
+                {this.date}
               </CardText>
               <CardText>
-                Datum: {this.date} Tid: {this.time}
+                <span role="img" aria-label="time">
+                  🕑
+                </span>{" "}
+                {this.time}
               </CardText>
-              <CardText>Pris:{this.price}:-</CardText>
-              <CardText>Bokningsnummer:{this.bookingNum}</CardText>
+              <CardText>
+                <span role="img" aria-label="price">
+                  💰
+                </span>{" "}
+                {this.price}:-
+              </CardText>
+              <CardText>Bokningsnummer: {this.bookingNum}</CardText>
             </CardBody>
           </Card>
         </Col>

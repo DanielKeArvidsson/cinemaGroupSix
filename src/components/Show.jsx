@@ -7,8 +7,7 @@ import {
   CardText,
   CardBody,
   CardTitle,
-  Button,
-  Col
+  
 } from "reactstrap";
 
 class Show extends Component {
@@ -21,14 +20,13 @@ class Show extends Component {
     // this.movie.title
     Object.assign(this, props);
     this.state = {};
-    
+
   }
   render() {
     return (
-      <div className="show-program col-lg-4 col-md-6 mb-5 mt-3 text-center">
-        
-          <Col>
-        <Card>
+      <div className="show-program col-lg-4 col-md-6 mb-3 mt-3 text-center">
+
+          <Card>
             <CardImg
               top
               width="100%"
@@ -41,17 +39,19 @@ class Show extends Component {
               </CardTitle>
               <CardText>{this.auditorium.name} </CardText>
               <CardText>
-                {'📆'}{this.date} {'🕑'}{this.time}{" "}
+                {'📆'}{this.date}
               </CardText>
-              <Button className="btn btn-success mr-2 mb-2 ">
-                <Link to={"/bokabiljett/" + this._id}>Boka</Link>
-              </Button>
-              <Button className="btn btn-primary mb-2">
-                <Link to={"/movie/" + this.movie._id}>Mer info om filmen</Link>
-              </Button>
+              <CardText>
+                {'🕑'}{this.time}
+              </CardText>
+              <Link className="btn btn-success col-12 mt-3 mb-2 " to={"/bokabiljett/" + this._id}>
+                Boka
+              </Link>
+                <Link className="btn btn-primary col-12 mb-2" to={"/movie/" + this.movie._id}>
+                  Mer info om filmen
+              </Link>
             </CardBody>
           </Card>
-        </Col>
       </div>
     );
   }

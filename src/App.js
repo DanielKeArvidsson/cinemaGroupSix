@@ -15,6 +15,8 @@ import BookingHistory from "./components/BookingHistory";
 import Topplista from "./components/Topplista";
 import AdminPage from "./components/AdminPage";
 import AdminProgram from "./components/AdminProgram";
+import io from 'socket.io-client'
+
 class User extends REST {}
 class Login extends REST {
   async delete() {
@@ -37,6 +39,7 @@ class App extends Component {
     App.admin = false;
     App.isLoggedin = false;
     this.checkIfLoggedIn();
+    App.socket=io('localhost:3001')
   }
   async checkIfLoggedIn() {
     this.loggedinUser = await Login.find();
@@ -79,10 +82,10 @@ class App extends Component {
               <Route path="/admin-update/:id" component={AdminProgram} />
             </div>
           </div>
-          <footer>
-            <Footer />
-          </footer>
         </div>
+        <footer>
+            <Footer />
+        </footer>
       </div>
     );
   }

@@ -2,17 +2,26 @@
   box-sizing: border-box;
 }
 
-  .footer {
+  footer {
     width: 100%;
-    height: 70px;
     background: #161414;
     color: white;
-    position: fixed;
-    bottom: 0;
-    li {
-      list-style-type:none;
-      display: inline-block;
-      padding: 20px;
+    z-index: 99999;
+    text-align: center;
+    border-top: 0.5px solid white;
+    .info p {
+      color: white;
+      font-size: 20px;
+      margin:10px;
+      @media screen and (max-width: 1200px) {
+        font-size: 15px;
+      }
+    }
+    .filmvisarna{
+      p{
+      font-weight: 300;
+      color: grey;
+      }
     }
   }
  
