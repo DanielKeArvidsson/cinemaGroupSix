@@ -18,7 +18,7 @@ class Seat extends Component {
     return (
       <div className={this.state.class} seatnumber={this.seatNum} rownumber={this.rowNum}
        onMouseEnter={this.hover.bind(this)}
-      ></div>
+      ><p>{this.seatNum}</p></div>
     );
   }
 }

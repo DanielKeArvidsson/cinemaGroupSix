@@ -239,8 +239,8 @@ class BookTicketPage extends React.Component {
         <div className={this.state.displayBooking}>
           <div className="theShow">
             <h2>{this.state.title}</h2>
-            <h3>📆 {this.program.date}</h3>
-            <h3>🕑 {this.program.time}</h3>
+            <h3>{'📆 '} {this.program.date}</h3>
+            <h3>{'🕑 '} {this.program.time}</h3>
           </div>
           <div className="error">
               {this.toMannyTickets}
@@ -321,7 +321,7 @@ class BookTicketPage extends React.Component {
         <div className="row">
           <button
             type="button"
-            className=" col-md-2 btn btn-secondary booked-tickets p-2 m-4 mt-3 mb-2"
+            className=" col-md-2 btn btn-secondary booked-tickets p-2 m-4 mt-3"
             onClick={this.book.bind(this)}
           >
             Boka biljetter
@@ -330,17 +330,17 @@ class BookTicketPage extends React.Component {
         </div>
         <div className={"bookingConfirmed " + this.state.displayTicket}>
             <h1>Tack för din Bokning!</h1>
-            <h2>Bokningsnummer: {this.state.bookingNum} </h2>
-            <h5>Film: {this.state.title}</h5>
-            <p>Salong: {this.state.salongName}</p>
-            <p>Datum: {this.program.date}</p>
-            <p>Tid: {this.program.time}</p>
+            <h3>Bokningsnummer: {this.state.bookingNum} </h3>
+            <h5>{this.state.title}</h5>
+            <p>{this.state.salongName}</p>
+            <p>{'📆 '} {this.program.date}</p>
+            <p>{'🕑 '} {this.program.time}</p>
             <div className="bookedSeats">
               {this.state.bookedSeats.map(seat => {
-                return<p>Rad: {seat.rowNum} Plats: {seat.seatNum}</p>
+                return<p key={seat.seatNum}>Rad: {seat.rowNum} Plats: {seat.seatNum}</p>
               })}
             </div>
-            <h5>Pris: {this.state.total}</h5>
+            <h5>Pris: {this.state.total}:-</h5>
         </div>
       </section>
     );

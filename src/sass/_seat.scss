@@ -6,7 +6,9 @@
     p{
       margin:0;
       margin-top: -2px;
-      display:none;
+      font-size: 15px !important;
+      font-weight: 300;
+      display: none;
     }
   .row{
     width: 320px;
@@ -54,6 +56,9 @@
     border-bottom-right-radius: 7px;
     background-color: red;
     cursor: pointer;
+    p{
+      display: block;
+    }
   }
 
   .hoverChoosenSeat{
@@ -66,9 +71,6 @@
     background-color: brown;
     cursor: pointer;
     animation: blink 1s linear infinite;
-    p{
-      display:block;
-    }
   }
 
   @keyframes blink{
