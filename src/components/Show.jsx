@@ -7,8 +7,7 @@ import {
   CardText,
   CardBody,
   CardTitle,
-  Button,
-  Col
+  
 } from "reactstrap";
 
 class Show extends Component {
@@ -40,10 +39,10 @@ class Show extends Component {
               </CardTitle>
               <CardText>{this.auditorium.name} </CardText>
               <CardText>
-                {'📆 '}{this.date}
+                {'📆'}{this.date}
               </CardText>
               <CardText>
-                {'🕑 '}{this.time}
+                {'🕑'}{this.time}
               </CardText>
               <Link className="btn btn-success col-12 mt-3 mb-2 " to={"/bokabiljett/" + this._id}>
                 Boka

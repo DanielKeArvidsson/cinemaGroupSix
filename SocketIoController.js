@@ -11,9 +11,17 @@ module.exports = class SocketIoController {
     }
 
     listenToSocketConnections() {
-        global.models.tickets.schema.on('newTicket', (bookedSeats) => {
-            const eventName = 'newTicket' + bookedSeats.program;
-            this.io.emit(eventName, bookedSeats);
+
+        this.io.on('connection', socket => {
+            console.log('Client connected');
+
+            socket.on('message', msg => {
+                this.io.emit('message', msg);
+            });
         });
+    //     global.models.tickets.schema.on('newTicket', (bookedSeats) => {
+    //         const eventName = 'newTicket' + bookedSeats.program;
+    //         this.io.emit(eventName, bookedSeats);
+    //     });
     }
 }

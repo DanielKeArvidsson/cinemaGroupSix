@@ -3,6 +3,9 @@ import REST from "../REST";
 import SeatRow from "./SeatRow";
 import BookingNumberGenerator from "./BookingNumberGenerator"
 import LightImage from "../images/light.png";
+import App from "../App";
+
+
 class Auditorium extends REST {}
 class Program extends REST {}
 class Ticket extends REST {}
@@ -23,6 +26,7 @@ class BookTicketPage extends React.Component {
     this.totalTickets = 2;
     this.program = '';
     this.getBookedSeats();
+    this.listenToSocket();
   }
 
   async getBookedSeats(){
@@ -186,6 +190,7 @@ class BookTicketPage extends React.Component {
 
 
   async book(){
+    
     await setTimeout(function(){}, 1000);
     this.bookedSeats = []
     for(let row of this.allSeats){
@@ -212,6 +217,15 @@ class BookTicketPage extends React.Component {
     await this.ticket.save()
   }
 
+  listenToSocket(){
+    console.log(App.socket.on('bookedSeats', this.allSeats)
+    );
+    
+    
+    
+      
+    
+  }
   render() {
     return(
 
@@ -219,8 +233,8 @@ class BookTicketPage extends React.Component {
         <div>
           <div className="theShow">
             <h2>{this.state.title}</h2>
-            <h3>📆 {this.program.date}</h3>
-            <h3>🕑 {this.program.time}</h3>
+            <h3>{'📆'} {this.program.date}</h3>
+            <h3> {'🕑'}{this.program.time}</h3>
           </div>
           <div className="error">
               {this.toMannyTickets}
