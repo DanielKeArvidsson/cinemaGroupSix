@@ -7,8 +7,8 @@ class SeatRow extends Component {
     this.state = { hover: Number, class: 'hoverChoosenSeat', totalTickets: 2 }
     this.seatnum = props.seatsInSalong;
     this.seatnum -= props.numberOfSeats
-    this.allSeatsInRow = new Array;
-    this.seatIndex = new Array
+    this.allSeatsInRow = [];
+    this.seatIndex = [];
     this.props.allSeats.push(this.allSeatsInRow)
     this.props.row.push(this)
 
@@ -33,7 +33,7 @@ class SeatRow extends Component {
           }
         }
       }
-    } else if (this.seatIndex === 0) {
+    } else if (this.seatIndex == 0) {
       this.index = this.seatIndex[0]
       for (let seat of this.allSeatsInRow) {
         if (seat.state.class === 'hoverChoosenSeat') {

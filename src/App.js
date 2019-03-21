@@ -71,10 +71,10 @@ class App extends Component {
               <Route path="/admin-update/:id" component={AdminProgram} />
             </div>
           </div>
-          <footer>
-            <Footer />
-          </footer>
         </div>
+        <footer>
+            <Footer />
+        </footer>
       </div>
     );
   }
