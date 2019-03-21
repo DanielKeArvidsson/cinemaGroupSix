@@ -13,6 +13,7 @@ class Ticket extends REST {}
 class BookTicketPage extends React.Component {
   constructor(props) {
     super(props);
+    this.listenToSocket();
     this.salong = [];
     this.auditoriumSeats = 1;
     this.allSeats = [];
@@ -26,7 +27,6 @@ class BookTicketPage extends React.Component {
     this.totalTickets = 2;
     this.program = '';
     this.getBookedSeats();
-    this.listenToSocket();
   }
 
   async getBookedSeats(){
@@ -215,15 +215,20 @@ class BookTicketPage extends React.Component {
     })
 
     await this.ticket.save()
+    App.socket.emit('bookedSeats', {program:this.program._id, seats:this.ticket.seats});
   }
 
   listenToSocket(){
-    console.log(App.socket.on('bookedSeats', this.allSeats)
-    );
+    App.socket.off('seats are booked');
+
+    App.socket.on('seats are booked', message =>{
+      console.log(message)
+    })
     
-    
-    
-      
+    // console.log(App.socket.on('choosenSeat', seat => {
+    //   this.seats.push({seat:seat})
+    // })
+    // );
     
   }
   render() {
@@ -234,7 +239,7 @@ class BookTicketPage extends React.Component {
           <div className="theShow">
             <h2>{this.state.title}</h2>
             <h3>{'📆'} {this.program.date}</h3>
-            <h3> {'🕑'}{this.program.time}</h3>
+            <h3>{'🕑'}{this.program.time}</h3>
           </div>
           <div className="error">
               {this.toMannyTickets}

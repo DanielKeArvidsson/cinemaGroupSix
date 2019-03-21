@@ -37,7 +37,7 @@ class App extends Component {
     super(props);
     App.isLoggedin = false;
     this.checkIfLoggedIn();
-    App.socket=io('localhost:3001');
+    App.socket=io('localhost:3001')
   }
   async checkIfLoggedIn() {
     this.loggedinUser = await Login.find();
