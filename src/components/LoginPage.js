@@ -6,8 +6,6 @@ import App from "../App";
 import NavBar from "./NavBar";
 import FormComp from "./FormComp";
 
-class User extends REST {}
-
 class Login extends REST {
   async delete() {
     this._id = 1;
@@ -42,7 +40,7 @@ export class LoginPage extends FormComp {
       email: this.state.data.email,
       password: this.state.data.password
     });
-    let user = await User.find(`.find({email: '${newLogin.email}'})`);
+    // let user = await User.find(`.find({email: '${newLogin.email}'})`);
     let result = await newLogin.save();
     if (result.error && result.error === "The password does not match!") {
       this.rerender("Lösenordet är felaktigt!");
@@ -62,7 +60,9 @@ export class LoginPage extends FormComp {
     return (
       <div className="loginContainer">
         <Form onSubmit={this.handleSubmit}>
-          <div className="header"><h3>Logga in</h3></div>
+          <div className="header">
+            <h3>Logga in</h3>
+          </div>
           {this.renderInput("email", "E-post", "email")}
           {this.renderInput("password", "Lösenord", "password")}
           {this.renderButton("Logga in")}
@@ -74,7 +74,7 @@ export class LoginPage extends FormComp {
             className="buttons-div"
           >
             <ModalHeader toggle={this.toggleModal} />
-            <ModalBody>
+            <ModalBody style={textInline}>
               <p>{this.state.message}</p>
             </ModalBody>
             <ModalFooter>
@@ -104,5 +104,9 @@ export class LoginPage extends FormComp {
     );
   }
 }
+
+const textInline = {
+  textAlign: "center"
+};
 
 export default LoginPage;

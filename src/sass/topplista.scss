@@ -1,0 +1,36 @@
+.topplista {
+  font-size: 1.5rem;
+  margin: 0 auto;
+  width: 40%;
+  padding-top: 2%;
+  text-align: center;
+  font-weight: 300;
+}
+
+.heading {
+  text-align: center;
+}
+
+.container-topp {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 532px) {
+  .topplista {
+    font-size: 15px;
+  }
+
+  .heading {
+    font-size: 20px;
+  }
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}

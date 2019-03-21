@@ -21,12 +21,11 @@ export class FormPage extends Component {
 
   render() {
     return (
-      <div className="container" style={formStyle}>
+      <div className="form-container">
         <div className="box-controller">
           <div
             className={
-              "controller" +
-              (this.state.isLoginOpen ? "activeLink" : "")
+              "controller" + (this.state.isLoginOpen ? "activeLink" : "")
             }
             style={controllerStyle}
             onClick={this.showLoginPage.bind(this)}
@@ -35,8 +34,7 @@ export class FormPage extends Component {
           </div>
           <div
             className={
-              "controller" +
-              (this.state.isRegisterOpen ? "activeLink" : "")
+              "controller" + (this.state.isRegisterOpen ? "activeLink" : "")
             }
             onClick={this.showRegisterPage.bind(this)}
             style={controllerStyle}
@@ -44,7 +42,7 @@ export class FormPage extends Component {
             <h2>Registrera</h2>
           </div>
         </div>
-        <div className="box-container" style={boxControlStyle}>
+        <div className="box-container">
           {this.state.isLoginOpen && <LoginPage />}
           {this.state.isRegisterOpen && <RegisterPage />}
         </div>
@@ -53,24 +51,12 @@ export class FormPage extends Component {
   }
 }
 
-const formStyle = {
-  width: "30%",
-  margin: "0 auto",
-  paddingTop: "5%",
-  textAlign: "center"
-};
-
 const controllerStyle = {
   display: "inline-block",
   textAlign: "center",
   fontSize: "18px",
   cursor: "pointer",
   paddingLeft: "3px"
-};
-
-const boxControlStyle = {
-  paddingTop: "2rem",
-  textAlign: "center"
 };
 
 export default FormPage;
