@@ -4,6 +4,8 @@ import SeatRow from "./SeatRow";
 import App from "../App";
 import BookingNumberGenerator from "./BookingNumberGenerator"
 import LightImage from "../images/light.png";
+
+
 class Auditorium extends REST {}
 class Program extends REST {}
 class Ticket extends REST {}
@@ -12,6 +14,7 @@ class User extends REST {}
 class BookTicketPage extends React.Component {
   constructor(props) {
     super(props);
+    this.listenToSocket();
     this.salong = [];
     this.auditoriumSeats = 1;
     this.allSeats = [];
@@ -196,6 +199,7 @@ class BookTicketPage extends React.Component {
 
 
   async book(){
+    
     await setTimeout(function(){}, 1000);
     this.bookedSeats = []
     for(let row of this.allSeats){
@@ -232,6 +236,27 @@ class BookTicketPage extends React.Component {
     }
   }
 
+  listenToSocket(){
+    App.socket.off('seats are booked');
+
+    App.socket.on('seats are booked', message =>{
+      for(let row of this.allSeats){
+        for(let seat of row){
+          for(let socketSeat of message.seats){
+            if(seat.seatNum === socketSeat.seatNum){
+              seat.setState({class: 'unavailableSeat'})
+            }
+          }
+        }
+      }
+    })
+    
+    // console.log(App.socket.on('choosenSeat', seat => {
+    //   this.seats.push({seat:seat})
+    // })
+    // );
+    
+  }
   render() {
     return(
 
