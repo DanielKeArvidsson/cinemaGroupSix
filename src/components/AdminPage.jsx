@@ -21,7 +21,6 @@ class AdminPage extends Component {
   render() {
     return (
       <div>
-        <button>Lägg till program</button>
         <div>
           {this.shows.map(show => {
             return <AdminShows key={show._id} {...show} />;
