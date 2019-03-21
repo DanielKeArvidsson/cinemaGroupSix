@@ -66,4 +66,20 @@
       z-index: -1;
     }
   } 
+  .bookingConfirmed{
+    color: white;
+    h5{
+      font-size: 25px;
+      margin-bottom: 5px;
+    }
+    p{
+      margin-bottom: 5px;
+    }
+    .bookedSeats{
+      margin-bottom: 5px;
+      p{
+        margin:0;
+      }
+    }
+  }
 }
