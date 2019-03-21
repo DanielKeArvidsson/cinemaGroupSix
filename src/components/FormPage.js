@@ -31,7 +31,7 @@ export class FormPage extends Component {
             style={controllerStyle}
             onClick={this.showLoginPage.bind(this)}
           >
-           <h2> Logga in |</h2>
+           <h2> Logga in |  </h2>
           </div>
           <div
             className={

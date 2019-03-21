@@ -53,7 +53,7 @@ class ShowPage extends React.Component {
               Fler visningar
             </button>
         </Col>
-        </div>
+      </div>
       </React.Fragment>
     );
   }

@@ -45,12 +45,12 @@ class Show extends Component {
               <CardText>
                 {'🕑 '}{this.time}
               </CardText>
-              <Button className="btn btn-success col-12 mt-3 mb-2 " href={"/bokabiljett/" + this._id}>
+              <Link className="btn btn-success col-12 mt-3 mb-2 " to={"/bokabiljett/" + this._id}>
                 Boka
-              </Button>
-                <Button className="btn btn-primary col-12 mb-2" href={"/movie/" + this.movie._id}>
+              </Link>
+                <Link className="btn btn-primary col-12 mb-2" to={"/movie/" + this.movie._id}>
                   Mer info om filmen
-              </Button>
+              </Link>
             </CardBody>
           </Card>
       </div>
