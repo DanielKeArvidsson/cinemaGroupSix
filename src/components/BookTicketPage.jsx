@@ -4,7 +4,6 @@ import SeatRow from "./SeatRow";
 import App from "../App";
 import BookingNumberGenerator from "./BookingNumberGenerator"
 import LightImage from "../images/light.png";
-import App from "../App";
 
 
 class Auditorium extends REST {}
