@@ -28,7 +28,7 @@ class SalongsInfo extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="row">
         {this.auditoriums.map(auditorium => {
           return <SalongsInfoPage key={auditorium._id} {...auditorium} />;
         
