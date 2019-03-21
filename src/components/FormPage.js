@@ -30,7 +30,7 @@ export class FormPage extends Component {
             style={controllerStyle}
             onClick={this.showLoginPage.bind(this)}
           >
-           <h2> Logga in |  </h2>
+            <h2 className="fontForm"> Logga in | </h2>
           </div>
           <div
             className={
@@ -39,7 +39,7 @@ export class FormPage extends Component {
             onClick={this.showRegisterPage.bind(this)}
             style={controllerStyle}
           >
-            <h2>Registrera</h2>
+            <h2 className="fontForm">Registrera</h2>
           </div>
         </div>
         <div className="box-container">
