@@ -27,7 +27,7 @@ class ProgramUpdate extends Component {
     this.state = {
       programTime: ["16:00", "17:00", "18:00", "19:00", "20:00"],
       programDate: [
-        "2019-03-22",
+        "2019-03-11",
         "2019-03-23",
         "2019-03-24",
         "2019-03-25",
