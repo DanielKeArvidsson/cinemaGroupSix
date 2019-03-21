@@ -56,10 +56,10 @@ export class Topplista extends Component {
     return (
       <Container style={lista}>
         <Row className="mt-5">
-          <Col>
-            <h1>Topplista</h1>
-            <h3>Mest populära filmer</h3>
-            <ol className="topplista mt-5">
+          <Col className="topplista">
+            <h1 className="heading">Topplista</h1>
+            <h3 className="heading">Mest populära filmer</h3>
+            <ol className="topplista mt-2">
               {this.state.lista.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
