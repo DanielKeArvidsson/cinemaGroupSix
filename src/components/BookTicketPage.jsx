@@ -1,6 +1,7 @@
 import React from "react";
 import REST from "../REST";
 import SeatRow from "./SeatRow";
+import App from "../App";
 import BookingNumberGenerator from "./BookingNumberGenerator"
 import LightImage from "../images/light.png";
 import App from "../App";
@@ -9,6 +10,7 @@ import App from "../App";
 class Auditorium extends REST {}
 class Program extends REST {}
 class Ticket extends REST {}
+class User extends REST {} 
 
 class BookTicketPage extends React.Component {
   constructor(props) {
@@ -19,13 +21,14 @@ class BookTicketPage extends React.Component {
     this.allSeats = [];
     this.row = [];
     this.bookingNumber = new BookingNumberGenerator();
-    this.state = { adult: 2, kid: 0, senior: 0, total: 170, totalTickets: 2 };
+    this.state = { adult: 2, kid: 0, senior: 0, total: 170, totalTickets: 2, bookedSeats: [], displayBooking: "d-block", displayTicket: "d-none"};
     this.adult = 2;
     this.kid = 0;
     this.senior = 0;
     this.total = 170;
     this.totalTickets = 2;
-    this.program = '';
+    this.program = "";
+    this.user = ""; 
     this.getBookedSeats();
   }
 
@@ -35,6 +38,13 @@ class BookTicketPage extends React.Component {
     this.program = await Program.find(
       `.findOne({_id:'${this.programPath}'}).populate().exec()`
     );
+
+    let anvandare = await User.find( 
+      `.findOne({email:'${App.email}'}).populate().exec()` 
+    ); 
+
+    this.user = anvandare; 
+
     await this.setState({title: this.program.movie.title, salongName: this.program.auditorium.name})
     this.auditorium = await Auditorium.find(
       ".findOne({name:/" + this.program.auditorium.name + "/})"
@@ -198,24 +208,33 @@ class BookTicketPage extends React.Component {
         if(seat.state.class === 'choosenSeat'){
           seat.setState({class: 'unavailableSeat'})
           this.bookedSeats.push({seatNum: seat.seatNum, rowNum: seat.rowNum})
+          this.setState({bookedSeats: this.bookedSeats})
         }
       }
     }
+    for(let seat of this.bookedSeats){
+      this.setState({seatNum: seat.seatNum, rowNum: seat.rowNum})
+    }
+    if(this.bookedSeats.length === this.totalTickets){
+      this.bookingNum = await this.bookingNumber.getBookingNumber()
+      this.setState({bookingNum: this.bookingNum, total: this.total})
 
-    this.bookingNum = await this.bookingNumber.getBookingNumber()
+      this.ticket = new Ticket({
+        "bookingNum": this.bookingNum,
+        "purchasedAt": new Date(),
+        "price": this.total,
+        "user": this.user,
+        "program": this.program,
+        "programId": this.programPath,
+        "seats": this.bookedSeats.reverse()
+      })
 
-
-    this.ticket = new Ticket({
-      "bookingNum": this.bookingNum,
-      "purchasedAt": new Date(),
-      "price": this.total,
-      "program": this.program,
-      "programId": this.programPath,
-      "seats": this.bookedSeats.reverse()
-    })
-
-    await this.ticket.save()
-    App.socket.emit('bookedSeats', {program:this.program._id, seats:this.ticket.seats});
+      await this.ticket.save()
+      this.setState({displayBooking: 'd-none', displayTicket: 'd-block'})
+    }else{
+      this.error = <div className="alert alert-danger mt-4" role="alert"> Välj rätt antal platser för att boka! </div>
+      this.setState({state: this.state})
+    }
   }
 
   listenToSocket(){
@@ -243,11 +262,11 @@ class BookTicketPage extends React.Component {
     return(
 
       <section className="book-ticket">
-        <div>
+        <div className={this.state.displayBooking}>
           <div className="theShow">
             <h2>{this.state.title}</h2>
-            <h3>{'📆'} {this.program.date}</h3>
-            <h3>{'🕑'}{this.program.time}</h3>
+            <h3>{'📆 '} {this.program.date}</h3>
+            <h3>{'🕑 '} {this.program.time}</h3>
           </div>
           <div className="error">
               {this.toMannyTickets}
@@ -322,15 +341,32 @@ class BookTicketPage extends React.Component {
           </div>
 
           <div className="salong" onClick={this.select.bind(this)}>{this.salong}</div>
+          <div className="error">
+              {this.error}
+          </div>
         <div className="row">
           <button
             type="button"
-            className=" col-md-2 btn btn-secondary booked-tickets p-2 m-4 mt-5 mb-4"
+            className=" col-md-2 btn btn-secondary booked-tickets p-2 m-4 mt-3"
             onClick={this.book.bind(this)}
           >
             Boka biljetter
           </button>
         </div>
+        </div>
+        <div className={"bookingConfirmed " + this.state.displayTicket}>
+            <h1>Tack för din Bokning!</h1>
+            <h3>Bokningsnummer: {this.state.bookingNum} </h3>
+            <h5>{this.state.title}</h5>
+            <p>{this.state.salongName}</p>
+            <p>{'📆 '} {this.program.date}</p>
+            <p>{'🕑 '} {this.program.time}</p>
+            <div className="bookedSeats">
+              {this.state.bookedSeats.map(seat => {
+                return<p key={seat.seatNum}>Rad: {seat.rowNum} Plats: {seat.seatNum}</p>
+              })}
+            </div>
+            <h5>Pris: {this.state.total}:-</h5>
         </div>
       </section>
     );
