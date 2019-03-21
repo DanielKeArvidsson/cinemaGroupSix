@@ -4,15 +4,16 @@
 
   .footer {
     width: 100%;
-    height: 70px;
     background: #161414;
     color: white;
     position: fixed;
-    bottom: 0;
-    li {
-      list-style-type:none;
-      display: inline-block;
-      padding: 20px;
+    bottom:0;
+    z-index: 99999;
+    text-align: center;
+    p {
+      color: white;
+      font-size: 15px;
+      margin:5px;
     }
   }
  

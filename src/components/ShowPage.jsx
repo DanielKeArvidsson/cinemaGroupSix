@@ -1,8 +1,12 @@
 import React from "react";
 import REST from "../REST";
 import Show from "./Show";
+import {
+  Col,
+  Row
+} from "reactstrap";
 
-class Program extends REST {}
+class Program extends REST { }
 
 class ShowPage extends React.Component {
   constructor(props) {
@@ -18,7 +22,7 @@ class ShowPage extends React.Component {
   async loadData() {
     let data = await Program.find(
       `.find().populate('movie auditorium').sort({"date": 1, "time": 1}).limit(${
-        this.state.count
+      this.state.count
       }).exec()`
     );
     this.shows = data;
@@ -32,28 +36,24 @@ class ShowPage extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className="container">
+        <div className="showPageHeadLine mt-4">
+          <h1>Aktuella Visningar</h1>
+        </div>
+        <Row>
+        {this.shows.map(show => {
+          return <Show key={show._id} {...show} />;
+        })}
+        </Row>
         <div className="row">
-          <div className="showPageHeadLine col-lg-12 col-md-6 text-center">
-            <h1>Aktuella Visningar</h1>
-          </div>
-        </div>
-        <div>
-          {this.shows.map(show => {
-            return <Show key={show._id} {...show} />;
-          })}
-          </div>
-          <div className="row">
-          <div className="col-lg-12 col-md-6 text-center">
-          <button
-            className="btn btn-primary mt-5 mb-5"
-            onClick={this.moreShows}
-          >
-            Fler visningar
-          </button>
-          </div>
-          </div>
-        </div>
+        <Col>
+            <button
+              className="btn btn-primary mt-4 mb-3 col-md-2"
+              onClick={this.moreShows}
+            >
+              Fler visningar
+            </button>
+        </Col>
+      </div>
       </React.Fragment>
     );
   }
