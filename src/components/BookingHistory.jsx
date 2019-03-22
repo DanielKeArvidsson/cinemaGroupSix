@@ -40,26 +40,24 @@ class BookingHistory extends Component {
 
   async generateBookingHistory() {
     let data = await Ticket.find(`.find().populate('program').exec()`);
-    let login = await Login.find()
+    let login = await Login.find();
     let anvandare = await User.find(
       `.findOne({email:'${login.email}'}).populate().exec()`
     );
+    console.log(anvandare);
     let foundTickets = await Ticket.find(
       `.find({user:'${anvandare._id}'}).populate().exec()`
     );
 
     for (let ticket of foundTickets) {
-      let findingProgram = await Program.find(
-        `.findOne({_id:'${ticket.program.id}'})`
-      );
-      let mergingProgWithTicket = Object.assign(findingProgram, ticket);
-      this.foundPrograms.push(mergingProgWithTicket);
+      this.foundPrograms.push(ticket);
     }
     for (let oldOrNew of this.foundPrograms) {
-      if (oldOrNew.date <= this.currentDate) {
+      console.log(oldOrNew);
+      if (oldOrNew.program.date <= this.currentDate) {
         if (
-          oldOrNew.time < this.time.substring(0, 5) &&
-          this.currentDate <= oldOrNew.date
+          oldOrNew.program.time < this.time.substring(0, 5) &&
+          this.currentDate <= oldOrNew.program.date
         ) {
           this.state.futureBookings.push(
             <TicketInfo key={oldOrNew._id} {...oldOrNew} />
@@ -75,9 +73,9 @@ class BookingHistory extends Component {
         );
       }
     }
-    this.state.user = anvandare
-    this.state.data = data
-    this.state.foundTickets = foundTickets
+    this.state.user = anvandare;
+    this.state.data = data;
+    this.state.foundTickets = foundTickets;
     this.setState(state => this.state);
   }
 

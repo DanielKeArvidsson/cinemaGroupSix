@@ -13,9 +13,9 @@ class TicketInfo extends Component {
           <Card>
             <CardBody>
               <CardTitle>
-                <h2>{this.movie.title}</h2>
+                <h2>{this.program.movie.title}</h2>
               </CardTitle>
-              <CardText>{this.auditorium.name} </CardText>
+              <CardText>{this.program.auditorium.name} </CardText>
               {this.seats.map((i, index) => {
                 return (
                   <p key={index}>
@@ -27,13 +27,13 @@ class TicketInfo extends Component {
                 <span role="img" aria-label="date">
                   📆
                 </span>{" "}
-                {this.date}
+                {this.program.date}
               </CardText>
               <CardText>
                 <span role="img" aria-label="time">
                   🕑
                 </span>{" "}
-                {this.time}
+                {this.program.time}
               </CardText>
               <CardText>
                 <span role="img" aria-label="price">
