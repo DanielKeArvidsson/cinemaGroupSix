@@ -26,14 +26,6 @@ class ProgramUpdate extends Component {
     this.programUpdated = false;
     this.programCreated = false;
     this.state = {
-      programTime: ["16:00", "17:00", "18:00", "19:00", "20:00"],
-      programDate: [
-        "2019-03-22",
-        "2019-03-23",
-        "2019-03-24",
-        "2019-03-25",
-        "2019-03-26"
-      ],
       _id: "",
       movie: "",
       auditorium: "",
@@ -90,13 +82,14 @@ class ProgramUpdate extends Component {
   render() {
     return (
       <div className={App.admin ? "" : "d-none"}>
-        <h1>Information om programmet i nuvarande form</h1>
+        <h2 className="text-white text-center">
+          Information om programmet i nuvarande form
+        </h2>
         <Row>
-          {console.log()}
           <Col sm={{ size: 8, offset: 2 }}>
             <Card body className="bg-dark text-white">
               <CardTitle>
-                <h3>Filmtitel: {this.props.program.movie.title}</h3>
+                <h4>Filmtitel: {this.props.program.movie.title}</h4>
               </CardTitle>
               <CardText className="text-white">
                 Salong: {this.props.program.auditorium.name}
@@ -110,11 +103,12 @@ class ProgramUpdate extends Component {
         <Row>
           <Col sm="3 float-left text-white bg-dark mt-3 text-left">
             <h3>Välj film</h3>
-            {this.props.movie.map(movie => {
+            {this.props.movie.map((movie, index) => {
               return (
                 <FormGroup check>
                   <Label check>
                     <Input
+                      key={index}
                       type="radio"
                       name="movieTitle"
                       value={movie._id}
@@ -144,41 +138,31 @@ class ProgramUpdate extends Component {
               );
             })}
           </Col>
-          <Col sm="3 float-left text-white bg-dark mt-3 text-left">
-            <h3>Välj tid.</h3>
-            {this.state.programTime.map(time => {
-              return (
-                <FormGroup check>
-                  <Label check>
-                    <Input
-                      type="radio"
-                      name="time"
-                      value={time}
-                      onClick={this.updateTime}
-                    />{" "}
-                    {time}
-                  </Label>
-                </FormGroup>
-              );
-            })}
+          <Col sm="3 mt-3">
+            <h3 className="text-white">Välj tid.</h3>
+            <FormGroup>
+              <Label for="programTime" />
+              <Input
+                onChange={this.updateTime}
+                type="time"
+                name="time"
+                id="programTime"
+                placeholder="time placeholder"
+              />
+            </FormGroup>
           </Col>
-          <Col sm="3 float-left text-white bg-dark mt-3 text-left">
-            <h3>Välj datum.</h3>
-            {this.state.programDate.map(date => {
-              return (
-                <FormGroup check>
-                  <Label check>
-                    <Input
-                      type="radio"
-                      name="date"
-                      onClick={this.updateDate}
-                      value={date}
-                    />{" "}
-                    {date}
-                  </Label>
-                </FormGroup>
-              );
-            })}
+          <Col sm="3 mt-3">
+            <h3 className="text-white">Välj datum.</h3>
+            <FormGroup>
+              <Label for="programDate" />
+              <Input
+                onChange={this.updateDate}
+                type="date"
+                name="date"
+                id="programDate"
+                placeholder="date placeholder"
+              />
+            </FormGroup>
             <h3 className={"mt-2 " + (this.programUpdated ? "" : "d-none")}>
               Programmet uppdaterades
             </h3>

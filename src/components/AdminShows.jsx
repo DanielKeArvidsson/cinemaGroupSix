@@ -9,12 +9,18 @@ class AdminShows extends Component {
   constructor(props) {
     super(props);
     Object.assign(this, props);
-    this.state = {};
+    this.deletedProg = false;
+    this.foundProgram = {};
+    this.state = {
+      deleted: {}
+    };
   }
   async deleteOne(e) {
+    this.deletedProg = true;
     let foundProgram = await Program.find(`.findById('${e.target.value}')`);
-    let deleted = await foundProgram.delete();
+    await foundProgram.delete();
   }
+
   render() {
     return (
       <div className="show-program col-lg-4 col-md-6 mb-5 mt-3 text-center">

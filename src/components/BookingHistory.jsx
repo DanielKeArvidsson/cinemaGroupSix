@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import TicketInfo from "./TicketInfo";
 import REST from "../REST";
-import App from "../App";
-import LoginPage from "./LoginPage";
 class Ticket extends REST {}
-class Program extends REST {}
 class User extends REST {}
 class Login extends REST {
   async delete() {
@@ -54,7 +51,7 @@ class BookingHistory extends Component {
     for (let oldOrNew of this.foundPrograms) {
       if (oldOrNew.program.date <= this.currentDate) {
         if (
-          oldOrNew.program.time < this.time.substring(0, 5) &&
+          oldOrNew.program.time > this.time.substring(0, 5) &&
           this.currentDate <= oldOrNew.program.date
         ) {
           this.state.futureBookings.push(
@@ -74,42 +71,47 @@ class BookingHistory extends Component {
     this.state.user = anvandare;
     this.state.data = data;
     this.state.foundTickets = foundTickets;
-    this.setState(state => this.state);
+    this.setState({ state: this.state });
   }
 
   render() {
     return (
       <div className="bookingHistory">
-        <h1
+        <h2
           className={
-            "mt-5 " + (this.state.futureBookings.length > 0 ? "" : "d-none")
+            "mt-5 text-white " +
+            (this.state.futureBookings.length > 0 ? "" : "d-none")
           }
         >
           Kommande bokningar
-        </h1>
+        </h2>
         <div className="row">
           {this.state.futureBookings.map(i => {
             return i;
           })}
         </div>
-        <h1
+        <h2
           className={
-            "mt-5 " + (this.state.oldBookings.length > 0 ? "" : "d-none")
+            "mt-5 text-white " +
+            (this.state.oldBookings.length > 0 ? "" : "d-none")
           }
         >
           Tidigare bokningar
-        </h1>
+        </h2>
         <div className="row">
           {this.state.oldBookings.map(i => {
             return i;
           })}
         </div>
-        <h1
-          className={"mt-5 " + (this.state.foundTickets.length ? "d-none" : "")}
+        <h2
+          className={
+            "mt-5 text-white " +
+            (this.state.foundTickets.length ? "d-none" : "")
+          }
         >
           {" "}
           Inga bokade biljetter
-        </h1>
+        </h2>
       </div>
     );
   }

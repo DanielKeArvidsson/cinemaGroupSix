@@ -17,7 +17,6 @@ import AdminPage from "./components/AdminPage";
 import AdminProgram from "./components/AdminProgram";
 import io from "socket.io-client";
 
-class User extends REST {}
 class Login extends REST {
   async delete() {
     this._id = 1;
@@ -36,7 +35,7 @@ class Login extends REST {
 class App extends Component {
   constructor(props) {
     super(props);
-    App.admin = false;
+    App.admin = "";
     App.isLoggedin = false;
     this.checkIfLoggedIn();
     App.socket = io("localhost:3001");
