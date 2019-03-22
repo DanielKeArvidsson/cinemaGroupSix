@@ -16,20 +16,30 @@ class TicketInfo extends Component {
                 <h2>{this.movie.title}</h2>
               </CardTitle>
               <CardText>{this.auditorium.name} </CardText>
+              {this.seats.map((i, index) => {
+                return (
+                  <p key={index}>
+                    Rad: {i.rowNum}, Plats: {i.seatNum} <br />
+                  </p>
+                );
+              })}
               <CardText>
-                {this.seats.map(i => {
-                  return <p>Rad: {i.rowNum},
-                  Plats: {i.seatNum} </p> ;
-                })}
+                <span role="img" aria-label="date">
+                  📆
+                </span>{" "}
+                {this.date}
               </CardText>
               <CardText>
-                📆 {this.date}
+                <span role="img" aria-label="time">
+                  🕑
+                </span>{" "}
+                {this.time}
               </CardText>
               <CardText>
-                🕑 {this.time}
-              </CardText>
-              <CardText>
-                💰 {this.price}:-
+                <span role="img" aria-label="price">
+                  💰
+                </span>{" "}
+                {this.price}:-
               </CardText>
               <CardText>Bokningsnummer: {this.bookingNum}</CardText>
             </CardBody>

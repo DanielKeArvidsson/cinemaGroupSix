@@ -47,7 +47,7 @@ class BookingHistory extends Component {
     for (let oldOrNew of this.foundPrograms) {
       if (oldOrNew.date <= this.currentDate) {
         if (
-          oldOrNew.time > this.time.substring(0, 5) &&
+          oldOrNew.time < this.time.substring(0, 5) &&
           this.currentDate <= oldOrNew.date
         ) {
           this.state.futureBookings.push(
@@ -78,9 +78,9 @@ class BookingHistory extends Component {
           Kommande bokningar
         </h1>
         <div className="row">
-        {this.state.futureBookings.map(i => {
-          return i;
-        })}
+          {this.state.futureBookings.map(i => {
+            return i;
+          })}
         </div>
         <h1
           className={
@@ -90,9 +90,9 @@ class BookingHistory extends Component {
           Tidigare bokningar
         </h1>
         <div className="row">
-        {this.state.oldBookings.map(i => {
-          return i;
-        })}
+          {this.state.oldBookings.map(i => {
+            return i;
+          })}
         </div>
         <h1
           className={"mt-5 " + (this.state.foundTickets.length ? "d-none" : "")}
