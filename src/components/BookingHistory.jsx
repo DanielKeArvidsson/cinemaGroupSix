@@ -44,7 +44,6 @@ class BookingHistory extends Component {
     let anvandare = await User.find(
       `.findOne({email:'${login.email}'}).populate().exec()`
     );
-    console.log(anvandare);
     let foundTickets = await Ticket.find(
       `.find({user:'${anvandare._id}'}).populate().exec()`
     );
@@ -53,7 +52,6 @@ class BookingHistory extends Component {
       this.foundPrograms.push(ticket);
     }
     for (let oldOrNew of this.foundPrograms) {
-      console.log(oldOrNew);
       if (oldOrNew.program.date <= this.currentDate) {
         if (
           oldOrNew.program.time < this.time.substring(0, 5) &&

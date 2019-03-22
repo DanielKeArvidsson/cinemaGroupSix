@@ -11,8 +11,9 @@ class AdminShows extends Component {
     Object.assign(this, props);
     this.state = {};
   }
-  async deleteOne() {
-    await Program.find(`.find().deleteOne(${this._id})`);
+  async deleteOne(e) {
+    let foundProgram = await Program.find(`.findById('${e.target.value}')`);
+    let deleted = await foundProgram.delete();
   }
   render() {
     return (
@@ -28,6 +29,7 @@ class AdminShows extends Component {
                 {this.date} {this.time}{" "}
               </CardText>
               <Button
+                value={this.id}
                 onClick={this.deleteOne}
                 className="btn btn-danger mr-2 mb-2 "
               >
