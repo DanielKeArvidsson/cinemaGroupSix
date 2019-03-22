@@ -107,7 +107,7 @@ class Home extends Component {
 
     return (
       <React.Fragment>
-        <div className="container homeCarousel">
+        <div className="container homeCarousel mt-5">
           <div className="carousel-inner d-block w-100">
             <Carousel
               activeIndex={activeIndex}
