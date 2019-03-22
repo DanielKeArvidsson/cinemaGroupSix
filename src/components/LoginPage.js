@@ -5,7 +5,7 @@ import REST from "../REST";
 import App from "../App";
 import NavBar from "./NavBar";
 import FormComp from "./FormComp";
-
+class User extends REST {}
 class Login extends REST {
   async delete() {
     this._id = 1;
@@ -40,6 +40,14 @@ export class LoginPage extends FormComp {
       email: this.state.data.email,
       password: this.state.data.password
     });
+    let anvandare = await User.find(
+      `.findOne({email:'${this.state.data.email}'}).populate().exec()`
+    );
+    if (anvandare) {
+      if (anvandare.admin === true) {
+        App.admin = true;
+      }
+    }
     // let user = await User.find(`.find({email: '${newLogin.email}'})`);
     let result = await newLogin.save();
     if (result.error && result.error === "The password does not match!") {

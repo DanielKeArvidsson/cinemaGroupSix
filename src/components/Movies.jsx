@@ -23,7 +23,6 @@ class Movies extends Component {
     );
     this.program = dataProgram;
     this.setState({ state: this.state });
-    console.log(dataProgram);
   }
 
   render() {

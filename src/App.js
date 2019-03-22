@@ -15,7 +15,7 @@ import BookingHistory from "./components/BookingHistory";
 import Topplista from "./components/Topplista";
 import AdminPage from "./components/AdminPage";
 import AdminProgram from "./components/AdminProgram";
-import io from 'socket.io-client'
+import io from "socket.io-client";
 
 class User extends REST {}
 class Login extends REST {
@@ -39,18 +39,12 @@ class App extends Component {
     App.admin = false;
     App.isLoggedin = false;
     this.checkIfLoggedIn();
-    App.socket=io('localhost:3001')
+    App.socket = io("localhost:3001");
   }
   async checkIfLoggedIn() {
     this.loggedinUser = await Login.find();
     App.email = this.loggedinUser.email;
     App.isLoggedin = this.loggedinUser.email;
-    let anvandare = await User.find(
-      `.findOne({email:'${App.email}'}).populate().exec()`
-    );
-    if (anvandare) {
-      App.admin = anvandare.admin;
-    }
 
     NavBar.lastInstance.setState(state => NavBar.lastInstance);
   }
@@ -84,7 +78,7 @@ class App extends Component {
           </div>
         </div>
         <footer>
-            <Footer />
+          <Footer />
         </footer>
       </div>
     );
