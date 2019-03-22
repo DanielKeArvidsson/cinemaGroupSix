@@ -2,9 +2,24 @@ import React, { Component } from "react";
 import TicketInfo from "./TicketInfo";
 import REST from "../REST";
 import App from "../App";
+import LoginPage from "./LoginPage";
 class Ticket extends REST {}
 class Program extends REST {}
 class User extends REST {}
+class Login extends REST {
+  async delete() {
+    this._id = 1;
+    // we set an id here, because the REST class
+    // will complain if we try to call delete on an object without _id
+    // - and we use delete to logout (see test.js)
+
+    return super.delete();
+  }
+
+  static get baseRoute() {
+    return "login/";
+  }
+}
 class BookingHistory extends Component {
   constructor(props) {
     super(props);
@@ -22,22 +37,18 @@ class BookingHistory extends Component {
     this.currentDate = new Date().toISOString().slice(0, 10);
     this.time = new Date().toISOString().substr(16, 8);
   }
+
   async generateBookingHistory() {
     let data = await Ticket.find(`.find().populate('program').exec()`);
+    let login = await Login.find()
     let anvandare = await User.find(
-      `.findOne({email:'${App.email}'}).populate().exec()`
+      `.findOne({email:'${login.email}'}).populate().exec()`
     );
-    this.setState({
-      user: anvandare,
-      data: data
-    });
     let foundTickets = await Ticket.find(
-      `.find({user:'${this.state.user._id}'}).populate().exec()`
+      `.find({user:'${anvandare._id}'}).populate().exec()`
     );
-    this.setState({
-      foundTickets: foundTickets
-    });
-    for (let ticket of this.state.foundTickets) {
+
+    for (let ticket of foundTickets) {
       let findingProgram = await Program.find(
         `.findOne({_id:'${ticket.program.id}'})`
       );
@@ -64,7 +75,10 @@ class BookingHistory extends Component {
         );
       }
     }
-    this.setState({ state: this.state });
+    this.state.user = anvandare
+    this.state.data = data
+    this.state.foundTickets = foundTickets
+    this.setState(state => this.state);
   }
 
   render() {
