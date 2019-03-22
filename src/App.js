@@ -15,6 +15,7 @@ import BookingHistory from "./components/BookingHistory";
 import Topplista from "./components/Topplista";
 import AdminPage from "./components/AdminPage";
 import AdminProgram from "./components/AdminProgram";
+import io from 'socket.io-client'
 
 class Login extends REST {
   async delete() {
@@ -36,6 +37,7 @@ class App extends Component {
     super(props);
     App.isLoggedin = false;
     this.checkIfLoggedIn();
+    App.socket=io('localhost:3001')
   }
   async checkIfLoggedIn() {
     this.loggedinUser = await Login.find();

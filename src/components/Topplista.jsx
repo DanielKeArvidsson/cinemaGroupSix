@@ -62,8 +62,8 @@ export class Topplista extends Component {
       <Container className="container-topp mt-5" style={lista}>
         <Row className="mt-1">
           <Col className="col-xs-12 topplista container-topp">
-            <h1 className="heading topplista-background">Topplista</h1>
-            <h3 className="heading topplista-background">
+            <h1 className="heading-lista topplista-background">Topplista</h1>
+            <h3 className="heading-lista topplista-background">
               Mest populära filmer
             </h3>
             <hr />
