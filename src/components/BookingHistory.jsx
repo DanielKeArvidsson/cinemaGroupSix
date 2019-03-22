@@ -31,7 +31,6 @@ class BookingHistory extends Component {
       user: anvandare,
       data: data
     });
-    console.log(App);
     let foundTickets = await Ticket.find(
       `.find({user:'${this.state.user._id}'}).populate().exec()`
     );
