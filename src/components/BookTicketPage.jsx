@@ -233,9 +233,17 @@ class BookTicketPage extends React.Component {
     for (let row of this.allSeats) {
       for (let seat of row) {
         if (seat.state.class === "choosenSeat") {
-          seat.setState({ class: "unavailableSeat" });
           this.bookedSeats.push({ seatNum: seat.seatNum, rowNum: seat.rowNum });
           this.setState({ bookedSeats: this.bookedSeats });
+        }
+      }
+    }
+    for (let row of this.allSeats) {
+      for (let seat of row) {
+        if(this.totalTickets === this.bookedSeats.length){
+          if (seat.state.class === "choosenSeat") {
+            seat.setState({ class: "unavailableSeat" });
+          }
         }
       }
     }
