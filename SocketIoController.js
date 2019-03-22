@@ -16,7 +16,7 @@ module.exports = class SocketIoController {
             console.log('a new Client connected');
 
             socket.on('bookedSeats', msg => {
-                console.log('bookedSeats',msg)
+                // console.log('bookedSeats',msg)
                 this.io.emit('seats are booked', msg);
                 
             });
