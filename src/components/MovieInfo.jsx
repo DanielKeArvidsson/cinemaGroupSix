@@ -30,14 +30,14 @@ class MovieInfo extends Component {
     this.setState({ state: this.state });
   }
 
-  getHoursFromTime(){
+  getHoursFromTime() {
     let num = this.length;
-    let hours = (num / 60);
+    let hours = num / 60;
     let rhours = Math.floor(hours);
     let minutes = (hours - rhours) * 60;
     let rminutes = Math.round(minutes);
     this.time = rhours + " tim " + rminutes + " min";
-}
+  }
 
   toggle() {
     this.setState(prevState => ({
@@ -97,7 +97,10 @@ class MovieInfo extends Component {
               alt="Playknapp"
               onClick={this.toggle}
             />
-            <a className="btn btn-success col-xl-12 mb-2 mt-2 p-3" href='#biljett'>
+            <a
+              className="btn btn-success col-xl-12 mb-2 mt-2 p-3"
+              href="#biljett"
+            >
               Boka
             </a>
           </div>
@@ -105,7 +108,9 @@ class MovieInfo extends Component {
             <div className="col-12 mr-3">
               <Jumbotron className="jumboMovie">
                 <h1 className="display-3">{this.title}</h1>
-                <p>{this.genre} | {this.time}</p>
+                <p>
+                  {this.genre} | {this.time}
+                </p>
                 <p className="lead">{this.description}</p>
                 <hr className="my-2" />
                 <p> Skådespelare: {this.actors.join(", ")}.</p>
@@ -148,24 +153,32 @@ class MovieInfo extends Component {
         <div id="biljett" />
         <h2>Boka biljetter</h2>
         <div className="shows mb-5">
-        <div className="row tabell">
-          <div className="col-4">
-            <b>Tid</b>
+          <div className="row tabell">
+            <div className="col-4">
+              <b>Tid</b>
+            </div>
+            <div className="col-4">
+              <b>Datum</b>
+            </div>
+            <div className="col-4">
+              <b>Salong</b>
+            </div>
           </div>
-          <div className="col-4">
-            <b>Datum</b>
-          </div>
-          <div className="col-4">
-            <b>Salong</b>
+          <div>
+            {this.programs.map((program, index) => {
+              return (
+                <Link key={index} to={"/bokabiljett/" + program._id}>
+                  <span className="bookTickets row">
+                    <div className="col-4 time">{program.time}</div>{" "}
+                    <div className="col-4">{program.date}</div>{" "}
+                    <div className="col-4">{program.auditorium.name}</div>
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         </div>
-        <div>
-          {this.programs.map(program => {
-            return <Link key={Math.random() + 5} to={'/bokabiljett/'+ program._id}><span className="bookTickets row"><div className="col-4 time">{program.time}</div> <div className="col-4">{program.date}</div> <div className="col-4">{program.auditorium.name}</div></span></Link>;
-          })}
-          </div>
-        </div>
-        </div>
+      </div>
     );
   }
 }
