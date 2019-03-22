@@ -37,6 +37,9 @@ class BookTicketPage extends React.Component {
     this.getBookedSeats();
     this.listenToSocket();
   }
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
 
   async getBookedSeats() {
     let pathArray = window.location.pathname.split("/");
