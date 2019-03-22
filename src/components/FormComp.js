@@ -68,7 +68,7 @@ export class FormComp extends Component {
   }
 
   renderButton(name) {
-    return <Button>{name}</Button>;
+    return <Button className="login-button">{name}</Button>;
   }
 
   renderInput(name, label, type) {

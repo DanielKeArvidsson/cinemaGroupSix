@@ -10,7 +10,20 @@
   padding-bottom: 1rem;
 }
 
-
-.loginContainer{
+.loginContainer {
   color: #fff;
+}
+
+@media screen and (max-width: 532px) {
+  .loginContainer {
+    font-size: 15px;
+  }
+
+  .header {
+    font-size: 12px;
+  }
+
+  .login-button {
+    font-size: 12px;
+  }
 }
