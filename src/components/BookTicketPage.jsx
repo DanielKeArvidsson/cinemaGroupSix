@@ -40,7 +40,7 @@ class BookTicketPage extends React.Component {
       `.findOne({email:'${App.email}'}).populate().exec()` 
     ); 
 
-    this.user = anvandare; 
+    this.user = anvandare;
 
     await this.setState({title: this.program.movie.title, salongName: this.program.auditorium.name})
     this.auditorium = await Auditorium.find(
@@ -219,7 +219,7 @@ class BookTicketPage extends React.Component {
         purchasedAt: new Date(),
         price: this.total,
         program: this.program,
-        user: this.user,
+        user: this.user._id,
         programId: this.programPath,
         seats: this.bookedSeats.reverse()
       });
