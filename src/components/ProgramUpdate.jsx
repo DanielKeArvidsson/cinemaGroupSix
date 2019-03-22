@@ -11,6 +11,7 @@ import {
   Button
 } from "reactstrap";
 import REST from "../REST";
+import App from "../App";
 class Program extends REST {}
 
 class ProgramUpdate extends Component {
@@ -88,7 +89,7 @@ class ProgramUpdate extends Component {
 
   render() {
     return (
-      <div>
+      <div className={App.admin ? "" : "d-none"}>
         <h1>Information om programmet i nuvarande form</h1>
         <Row>
           {console.log()}
