@@ -17,7 +17,7 @@ class AboutUsPage extends Component {
         <div className="container">
           <div className="aboutUsInfoPage">
             <div className="row">
-              <div className="col-lg-12 col-md-4 col-sm-12 mb-5 text-center">
+              <div className="col-lg-12 col-md-12 col-sm-12 mb-5 text-center">
                 <Col>
                   <Card className="candyInfoCard">
                     <CardImg
@@ -37,7 +37,7 @@ class AboutUsPage extends Component {
               </div>
             </div>
             <div className="row">
-              <div className="col-lg-12 col-md-4 col-sm-12 mb-5 text-center">
+              <div className="col-lg-12 col-md-12 col-sm-12 mb-5 text-center">
                 <Col>
                   <Card className="eventInfoCard">
                     <CardImg
@@ -57,7 +57,7 @@ class AboutUsPage extends Component {
               </div>
             </div>
             <div className="row">
-              <div className="col-lg-12 col-md-4 col-sm-12 mb-5 text-center">
+              <div className="col-lg-12 col-md-12 col-sm-12 mb-5 text-center">
                 <Col>
                   <Card className="abouUsInfoCard">
                     <CardImg
@@ -77,7 +77,7 @@ class AboutUsPage extends Component {
               </div>
             </div>
             <div className="row">
-              <div className="col-lg-12 col-md-4 col-sm-12 mb-5 text-center">
+              <div className="col-lg-12 col-md-12 col-sm-12 mb-5 text-center">
                 <Col>
                   <Card className="abouUsInfoCard">
                     <CardBody>
