@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AdminShows from "./AdminShows";
 import REST from "../REST";
+import App from "../App";
 
 class Program extends REST {}
 
@@ -12,11 +13,15 @@ class AdminPage extends Component {
     this.loadData();
   }
   async loadData() {
-    let data = await Program.find(
-      `.find().populate('movie auditorium').sort({"date": 1, "time": 1}).exec()`
-    );
-    this.shows = data;
-    this.setState({ state: this.state });
+    if (!App.admin) {
+      this.props.history.push("/start/");
+    } else {
+      let data = await Program.find(
+        `.find().populate('movie auditorium').sort({"date": 1, "time": 1}).exec()`
+      );
+      this.shows = data;
+      this.setState({ state: this.state });
+    }
   }
   render() {
     return (
