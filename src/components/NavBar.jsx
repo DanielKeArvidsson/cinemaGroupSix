@@ -39,6 +39,7 @@ class NavBar extends Component {
     let toDeleteUser = await Login.find();
     await toDeleteUser.delete();
     App.isLoggedin = false;
+    App.admin = false;
     NavBar.lastInstance.setState(state => NavBar.lastInstance);
   }
 
@@ -104,15 +105,19 @@ class NavBar extends Component {
                       Topplista
                     </NavLink>
                   </NavItem>
-                  <NavItem>
-                    <NavLink
-                      to="/admin"
-                      onClick={this.closeNavbar}
-                      className="nav-link"
-                    >
-                      Admins ställe
-                    </NavLink>
-                  </NavItem>
+                  {App.admin ? (
+                    <NavItem>
+                      <NavLink
+                        to="/admin"
+                        onClick={this.closeNavbar}
+                        className="nav-link"
+                      >
+                        Admins ställe
+                      </NavLink>
+                    </NavItem>
+                  ) : (
+                    ""
+                  )}
                   {App.isLoggedin ? (
                     <NavItem>
                       <NavLink
