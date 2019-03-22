@@ -24,7 +24,7 @@ class Footer extends Component {
             </div>
             <div className="row mt-0 filmvisarna">
               <div className="col">
-                <p>FilmVisarna AB &copy; 2019</p>
+                <p>FilmVisarna AB &copy; 2019 Adress: Produktägarnasgata 100, 122 36 Småstad</p>
               </div>
             </div>
           </div>
