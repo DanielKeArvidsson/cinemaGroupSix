@@ -36,10 +36,7 @@ class TicketInfo extends Component {
                 {this.program.time}
               </CardText>
               <CardText>
-                <span role="img" aria-label="price">
-                  💰
-                </span>{" "}
-                {this.price}:-
+                Pris: {this.price}:-
               </CardText>
               <CardText>Bokningsnummer: {this.bookingNum}</CardText>
             </CardBody>
